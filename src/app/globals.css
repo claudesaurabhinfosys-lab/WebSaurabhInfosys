@@ -17,20 +17,6 @@
   --glow2: rgba(124, 58, 237, 0.15);
 }
 
-[data-theme="dark"] {
-  --bg: #08080C;
-  --surface: #0E0E14;
-  --ink: #FAFAFA;
-  --ink-light: #A1A1AA;
-  --card: #111118;
-  --card-hover: #17171F;
-  --accent: #6366F1;
-  --accent-dark: #4F46E5;
-  --accent2: #8B5CF6;
-  --border: rgba(250, 250, 250, 0.06);
-  --glow: rgba(99, 102, 241, 0.25);
-  --glow2: rgba(139, 92, 246, 0.2);
-}
 
 * { box-sizing: border-box; }
 

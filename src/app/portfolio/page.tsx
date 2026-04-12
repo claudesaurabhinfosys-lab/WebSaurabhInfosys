@@ -5,19 +5,15 @@ import Link from "next/link";
 import { PORTFOLIO_PROJECTS, PORTFOLIO_CATEGORIES } from "@/lib/data";
 
 const CATEGORY_COLORS: Record<string, string> = {
-  AI: "bg-purple-500/20 text-purple-300 border border-purple-500/30",
-  GPS: "bg-blue-500/20 text-blue-300 border border-blue-500/30",
-  Education: "bg-yellow-500/20 text-yellow-300 border border-yellow-500/30",
-  Health: "bg-green-500/20 text-green-300 border border-green-500/30",
-  Fintech: "bg-emerald-500/20 text-emerald-300 border border-emerald-500/30",
-  Gig: "bg-orange-500/20 text-orange-300 border border-orange-500/30",
-  "Real Estate": "bg-cyan-500/20 text-cyan-300 border border-cyan-500/30",
-  Retail: "bg-pink-500/20 text-pink-300 border border-pink-500/30",
-  Transport: "bg-indigo-500/20 text-indigo-300 border border-indigo-500/30",
-  NGO: "bg-teal-500/20 text-teal-300 border border-teal-500/30",
-  Marketing: "bg-rose-500/20 text-rose-300 border border-rose-500/30",
-  SaaS: "bg-violet-500/20 text-violet-300 border border-violet-500/30",
-  "Custom Dev": "bg-slate-500/20 text-slate-300 border border-slate-500/30",
+  AI:           "bg-purple-100 text-purple-700 border border-purple-200",
+  Education:    "bg-yellow-100 text-yellow-700 border border-yellow-200",
+  Health:       "bg-green-100 text-green-700 border border-green-200",
+  Fintech:      "bg-emerald-100 text-emerald-700 border border-emerald-200",
+  Gig:          "bg-orange-100 text-orange-700 border border-orange-200",
+  Transport:    "bg-indigo-100 text-indigo-700 border border-indigo-200",
+  NGO:          "bg-teal-100 text-teal-700 border border-teal-200",
+  SaaS:         "bg-violet-100 text-violet-700 border border-violet-200",
+  "Custom Dev": "bg-slate-100 text-slate-600 border border-slate-200",
 };
 
 export default function PortfolioPage() {
