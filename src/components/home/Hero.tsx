@@ -197,14 +197,14 @@ export default function Hero() {
 
             {/* Headline */}
             <motion.h1
-              className="text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-extrabold leading-[1.05] tracking-tight mb-6"
+              className="text-3xl sm:text-5xl md:text-6xl xl:text-7xl font-extrabold leading-[1.05] tracking-tight mb-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.1 }}
             >
               <span className="block text-ink">We Ship</span>
 
-              <span className="block relative h-[2.5em] md:h-[1.15em]">
+              <span className="block relative h-[1.15em]">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={wordIdx}
