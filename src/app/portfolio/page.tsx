@@ -27,48 +27,54 @@ export default function PortfolioPage() {
   return (
     <main className="font-dm">
       {/* Hero / Header */}
-      <section className="bg-ink py-20 md:py-24">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-            <div>
-              <p className="text-accent font-syne font-semibold text-sm uppercase tracking-widest mb-3">
-                Our Work
-              </p>
-              <h1 className="font-syne text-4xl md:text-6xl font-bold text-bg leading-tight">
-                Our Portfolio
-              </h1>
-              <p className="mt-4 text-bg/60 text-lg max-w-xl">
-                38 projects across 13 verticals — from AI agents to GPS systems,
-                SaaS platforms to mobile apps.
-              </p>
-            </div>
-            {/* Clutch rating badge */}
-            <div className="flex-shrink-0 bg-bg/10 border border-bg/20 rounded-2xl px-6 py-4 flex items-center gap-4">
-              <div>
-                <div className="flex items-center gap-1 mb-1">
-                  {[1, 2, 3, 4, 5].map((s) => (
-                    <svg
-                      key={s}
-                      className="w-4 h-4 text-accent fill-accent"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-bg font-syne font-bold text-xl leading-none">
-                  4.9 / 5.0
-                </p>
-                <p className="text-bg/50 text-xs mt-1">33 reviews on Clutch</p>
+      <section className="bg-ink pt-28 pb-0 relative overflow-hidden">
+        {/* Dot-grid background */}
+        <div
+          className="absolute inset-0 opacity-[0.04]"
+          style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "28px 28px" }}
+        />
+        {/* Accent glow */}
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-accent/20 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          {/* Label */}
+          <p className="text-accent font-syne font-semibold text-sm uppercase tracking-widest mb-5">
+            Our Work
+          </p>
+
+          {/* Headline */}
+          <h1 className="font-syne text-5xl md:text-7xl font-bold text-white leading-[1.05] mb-5">
+            38 Projects.<br />
+            <span className="text-white/35">Real Results.</span>
+          </h1>
+
+          <p className="text-white/50 text-lg max-w-2xl mb-14 leading-relaxed">
+            From AI agents and Flutter apps to SaaS platforms and GPS systems — built
+            for clients across India, the UK, the US, Australia, and Hong Kong.
+          </p>
+
+          {/* Client flags */}
+          <div className="flex flex-wrap items-center gap-3 mb-14">
+            {["🇮🇳 India", "🇬🇧 UK", "🇺🇸 USA", "🇦🇺 Australia", "🇭🇰 Hong Kong"].map((f) => (
+              <span key={f} className="text-white/50 text-sm bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">
+                {f}
+              </span>
+            ))}
+          </div>
+
+          {/* Stats bar — sits at the bottom of the hero */}
+          <div className="grid grid-cols-2 md:grid-cols-4 border-t border-white/10">
+            {[
+              { value: "38",   label: "Projects delivered" },
+              { value: "80+",  label: "Happy clients" },
+              { value: "4.9",  label: "Rating on Clutch" },
+              { value: "4+",   label: "Years building" },
+            ].map((s) => (
+              <div key={s.label} className="py-7 px-2 md:px-6 first:pl-0 border-r border-white/10 last:border-r-0">
+                <p className="font-syne font-bold text-3xl md:text-4xl text-white mb-1">{s.value}</p>
+                <p className="text-white/40 text-sm">{s.label}</p>
               </div>
-              <div className="w-px h-12 bg-bg/20" />
-              <div className="text-center">
-                <p className="text-bg font-syne font-bold text-2xl leading-none">
-                  38
-                </p>
-                <p className="text-bg/50 text-xs mt-1">Projects</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
