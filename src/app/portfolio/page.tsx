@@ -107,60 +107,60 @@ export default function PortfolioPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((project) => (
-              <article
+              <a
                 key={project.id}
-                className="bg-card rounded-2xl p-6 flex flex-col gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 border border-ink/5"
+                href={`https://wa.me/918735001217?text=${encodeURIComponent(`Hi, I saw your ${project.title} project and want something similar`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block group"
               >
-                {/* Category badge */}
-                <div className="flex items-start justify-between gap-2">
-                  <span
-                    className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
-                      CATEGORY_COLORS[project.category] ??
-                      "bg-ink/10 text-ink/60"
-                    }`}
-                  >
-                    {project.category}
-                  </span>
-                  <span className="text-ink/30 text-xs font-mono">
-                    #{String(project.id).padStart(2, "0")}
-                  </span>
-                </div>
-
-                {/* Title + description */}
-                <div className="flex-1">
-                  <h3 className="font-syne font-bold text-ink text-lg leading-snug mb-2">
-                    {project.title}
-                  </h3>
-                  <p className="text-ink/60 text-sm leading-relaxed">
-                    {project.description}
-                  </p>
-                </div>
-
-                {/* Tech tags */}
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((tag) => (
+                <article className="bg-card rounded-2xl p-6 flex flex-col gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 border border-ink/5 h-full">
+                  {/* Category badge */}
+                  <div className="flex items-start justify-between gap-2">
                     <span
-                      key={tag}
-                      className="px-2 py-0.5 bg-ink/5 text-ink/50 text-xs rounded-md font-mono"
+                      className={`inline-block px-3 py-1 rounded-full text-xs font-semibold ${
+                        CATEGORY_COLORS[project.category] ??
+                        "bg-ink/10 text-ink/60"
+                      }`}
                     >
-                      {tag}
+                      {project.category}
                     </span>
-                  ))}
-                </div>
+                    <span className="text-ink/30 text-xs font-mono">
+                      #{String(project.id).padStart(2, "0")}
+                    </span>
+                  </div>
 
-                {/* CTA */}
-                <a
-                  href={`https://wa.me/918735001217?text=${encodeURIComponent(`Hi, I saw your ${project.title} project and want something similar`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-accent font-syne font-semibold text-sm hover:gap-2.5 transition-all mt-auto pt-2"
-                >
-                  Start Similar Project
-                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </a>
-              </article>
+                  {/* Title + description */}
+                  <div className="flex-1">
+                    <h3 className="font-syne font-bold text-ink text-lg leading-snug mb-2 group-hover:text-accent transition-colors">
+                      {project.title}
+                    </h3>
+                    <p className="text-ink/60 text-sm leading-relaxed">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  {/* Tech tags */}
+                  <div className="flex flex-wrap gap-2">
+                    {project.tech.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-2 py-0.5 bg-ink/5 text-ink/50 text-xs rounded-md font-mono"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* CTA */}
+                  <div className="inline-flex items-center gap-1.5 text-accent font-syne font-semibold text-sm group-hover:gap-2.5 transition-all mt-auto pt-2">
+                    Start Similar Project
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </div>
+                </article>
+              </a>
             ))}
           </div>
 
