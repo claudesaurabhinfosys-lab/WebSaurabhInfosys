@@ -107,11 +107,9 @@ export default function PortfolioPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filtered.map((project) => (
-              <a
+              <Link
                 key={project.id}
-                href={`https://wa.me/918735001217?text=${encodeURIComponent(`Hi, I saw your ${project.title} project and want something similar`)}`}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={`/portfolio/${project.slug}`}
                 className="block group"
               >
                 <article className="bg-card rounded-2xl p-6 flex flex-col gap-4 hover:shadow-lg hover:-translate-y-1 transition-all duration-200 border border-ink/5 h-full">
@@ -154,13 +152,13 @@ export default function PortfolioPage() {
 
                   {/* CTA */}
                   <div className="inline-flex items-center gap-1.5 text-accent font-syne font-semibold text-sm group-hover:gap-2.5 transition-all mt-auto pt-2">
-                    Start Similar Project
+                    View Case Study
                     <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>
                 </article>
-              </a>
+              </Link>
             ))}
           </div>
 
