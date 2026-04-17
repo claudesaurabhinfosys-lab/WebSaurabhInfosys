@@ -258,14 +258,6 @@ export const CLIENTS = [
     highlight: "Live on both stores",
   },
   {
-    name: "TPI Veterans NSW",
-    country: "Australia",
-    flag: "🇦🇺",
-    description: "Website and member portal for veterans association.",
-    category: "Government / NGO",
-    highlight: "Veterans association",
-  },
-  {
     name: "Digital Retail Display",
     country: "UK",
     flag: "🇬🇧",
