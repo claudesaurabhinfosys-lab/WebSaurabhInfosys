@@ -204,7 +204,7 @@ export default function Hero() {
             >
               <span className="block text-ink">We Ship</span>
 
-              <span className="block relative h-[2.3em] sm:h-[1.15em]">
+              <span className="block relative h-[2.5em] md:h-[1.15em]">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={wordIdx}
