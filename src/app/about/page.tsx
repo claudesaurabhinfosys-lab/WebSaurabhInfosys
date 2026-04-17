@@ -11,32 +11,41 @@ export const metadata: Metadata = {
   twitter: { card: "summary_large_image", title: "About Saurabh Infosys", description: "AI-first software studio from Ahmedabad. 80+ clients, 4.9★ Clutch, 3 SaaS products." },
 };
 
-const MILESTONES = [
-  { year: "2020", label: "Founded", desc: "Started as a freelance studio in Ahmedabad" },
-  { year: "2021", label: "First int'l client", desc: "Delivered Flutter app for Hong Kong dental lab" },
-  { year: "2022", label: "First SaaS", desc: "Launched SSMS — school management platform" },
-  { year: "2023", label: "3 SaaS products", desc: "MySociety & MySampark added to product suite" },
-  { year: "2024", label: "AI-first pivot", desc: "Integrated AI agents across all service lines" },
-];
-
 const MARKETS = [
   {
-    flag: "🇮🇳",
+    flags: "🇮🇳",
     name: "India",
     tagline: "Domestic Market",
     desc: "SMBs, startups, schools, and housing societies across Gujarat, Delhi, and Mumbai. Our roots and our largest market.",
+    countries: ["India"],
   },
   {
-    flag: "🇬🇧🇺🇸",
-    name: "UK & USA",
-    tagline: "Western Markets",
-    desc: "English-speaking clients who want world-class quality at startup-friendly prices. SaaS platforms, mobile apps, and AI integrations.",
+    flags: "🇬🇧🇩🇪🇧🇪🇭🇷",
+    name: "Europe",
+    tagline: "European Markets",
+    desc: "UK, Germany, Belgium, and Croatia clients seeking world-class software at startup-friendly prices. SaaS platforms, mobile apps, and AI integrations.",
+    countries: ["UK", "Germany", "Belgium", "Croatia"],
   },
   {
-    flag: "🇦🇪",
+    flags: "🇸🇬🇲🇾🇭🇰",
+    name: "Asia Pacific",
+    tagline: "APAC Markets",
+    desc: "Singapore, Malaysia, and Hong Kong clients across healthcare, logistics, and fintech. Time-zone aligned and English-first.",
+    countries: ["Singapore", "Malaysia", "Hong Kong"],
+  },
+  {
+    flags: "🇺🇸",
+    name: "Americas",
+    tagline: "North America",
+    desc: "US clients who want Silicon Valley quality at a fraction of the cost. Startups and scale-ups building AI-enabled products fast.",
+    countries: ["USA"],
+  },
+  {
+    flags: "🇦🇪🇸🇦",
     name: "Gulf Region",
     tagline: "Middle East",
-    desc: "UAE, Saudi Arabia, and broader GCC clients. Fintech, retail tech, and enterprise software with Arabic language support.",
+    desc: "UAE, Saudi Arabia, and broader GCC clients. Fintech, retail tech, and enterprise software.",
+    countries: ["UAE", "Saudi Arabia"],
   },
 ];
 
@@ -54,10 +63,10 @@ export default function AboutPage() {
             <span className="text-accent">from Ahmedabad</span>
           </h1>
           <p className="mt-6 text-bg/60 text-lg md:text-xl max-w-2xl leading-relaxed">
-            What started as a one-person freelance studio in 2020 has grown into
-            a full-stack software team with 80+ clients across 4 continents, 3
-            live SaaS products, and an unwavering obsession with shipping fast
-            and building right.
+            A full-stack software and AI studio based in Ahmedabad — with 80+ clients
+            across India, UK, Europe, Asia Pacific, the Americas, and the Gulf.
+            We specialise in AI automation, mobile apps, and SaaS platforms, with an
+            obsession for quality and shipping fast.
           </p>
         </div>
       </section>
@@ -86,79 +95,44 @@ export default function AboutPage() {
       {/* Story Section */}
       <section className="bg-bg py-20 md:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-            {/* Left: Text */}
-            <div>
-              <h2 className="font-syne text-3xl md:text-4xl font-bold text-ink mb-6">
-                Our story
-              </h2>
-              <div className="space-y-5 text-ink/70 leading-relaxed">
-                <p>
-                  Saurabh Infosys was founded in 2020 by Saurabh Patel, a
-                  software engineer who left a corporate job to build products he
-                  actually believed in. The first year was scrappy — client work
-                  by day, SaaS ideas by night.
-                </p>
-                <p>
-                  By 2021, the first international client arrived: a dental lab
-                  in Hong Kong needed a Flutter app to serve 30,000 customers
-                  across 20 countries. That project proved that world-class
-                  software could be built from Ahmedabad at a fraction of the
-                  Western cost — without compromising on quality.
-                </p>
-                <p>
-                  2022 saw the launch of SSMS, our first SaaS product — a
-                  school management system that&apos;s now used by dozens of
-                  institutions across India. MySociety and MySampark followed in
-                  2023, completing a suite of three live, paying products.
-                </p>
-                <p>
-                  In 2024, we went all-in on AI. We believe every business in
-                  India will need AI agents, and we&apos;re building them. From
-                  WhatsApp lead bots to voice IVR systems in Hindi and English —
-                  this is the next decade&apos;s defining technology, and we
-                  intend to be at the forefront of it in India.
-                </p>
-              </div>
-            </div>
-
-            {/* Right: Timeline */}
-            <div className="bg-card rounded-2xl p-8 border border-ink/5">
-              <h3 className="font-syne font-bold text-ink text-xl mb-8">
-                Key milestones
-              </h3>
-              <div className="relative">
-                {/* Vertical line */}
-                <div className="absolute left-6 top-0 bottom-0 w-px bg-ink/10" />
-
-                <div className="space-y-8">
-                  {MILESTONES.map((m, i) => (
-                    <div key={m.year} className="flex gap-6 relative">
-                      {/* Dot */}
-                      <div
-                        className={`flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center font-syne font-bold text-xs z-10 ${
-                          i === MILESTONES.length - 1
-                            ? "bg-accent text-white"
-                            : "bg-ink text-bg"
-                        }`}
-                      >
-                        {m.year.slice(2)}
-                      </div>
-                      <div className="pt-2">
-                        <div className="flex items-center gap-2 mb-1">
-                          <span className="font-syne font-bold text-ink text-sm">
-                            {m.year}
-                          </span>
-                          <span className="text-accent font-semibold text-sm">
-                            — {m.label}
-                          </span>
-                        </div>
-                        <p className="text-ink/50 text-sm">{m.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+          <div className="max-w-3xl">
+            <h2 className="font-syne text-3xl md:text-4xl font-bold text-ink mb-8">
+              Who we are
+            </h2>
+            <div className="space-y-5 text-ink/70 leading-relaxed text-base md:text-lg">
+              <p>
+                Saurabh Infosys is an Ahmedabad-based software and AI studio that
+                specialises in building applications and digital products for businesses
+                of all sizes. We work with Flutter, React, Next.js, Node.js, and
+                the latest AI platforms — delivering solutions that are fast, reliable,
+                and built to scale.
+              </p>
+              <p>
+                Our commitment to quality and attention to detail ensure that every
+                project meets the highest standards. We work closely with our clients
+                from initial consultation through to final delivery — treating every
+                project with the same care we would our own.
+              </p>
+              <p>
+                From our first international project — a Flutter app for a Hong Kong
+                dental lab now serving 30,000+ customers across 20 countries — we
+                have proved that world-class software can be built from India without
+                compromising on quality or communication.
+              </p>
+              <p>
+                Today we run three live SaaS products of our own: SSMS (school
+                management), MySociety (housing society management), and MySampark
+                (bulk WhatsApp and SMS marketing). Building and operating our own
+                products keeps us sharp, accountable, and deeply familiar with what
+                it actually takes to ship great software.
+              </p>
+              <p>
+                In 2024 we went all-in on AI. We believe every business will need
+                AI automation in the next few years — and we are building those
+                solutions today. WhatsApp AI bots, agentic workflows, RAG knowledge
+                bases, voice agents — we are at the forefront of practical AI
+                for Indian and global businesses.
+              </p>
             </div>
           </div>
         </div>
@@ -172,17 +146,18 @@ export default function AboutPage() {
               Markets we serve
             </h2>
             <p className="text-bg/50 text-lg max-w-xl mx-auto">
-              Our clients are spread across India, Western markets, and the Gulf
-              — united by a need for reliable, fast, cost-effective software.
+              Our clients are spread across India, Europe, Asia Pacific,
+              the Americas, and the Gulf — united by a need for reliable,
+              fast, cost-effective software.
             </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {MARKETS.map((market) => (
               <div
                 key={market.name}
                 className="bg-bg/5 border border-bg/10 rounded-2xl p-8 hover:bg-bg/10 transition-colors"
               >
-                <span className="text-4xl mb-4 block">{market.flag}</span>
+                <span className="text-3xl mb-4 block">{market.flags}</span>
                 <h3 className="font-syne font-bold text-bg text-xl mb-1">
                   {market.name}
                 </h3>
