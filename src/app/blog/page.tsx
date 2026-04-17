@@ -56,7 +56,7 @@ export default function BlogPage() {
           </h2>
 
           {/* Featured first post */}
-          <div className="bg-gradient-to-br from-accent/5 to-purple-500/5 border border-accent/15 rounded-3xl p-8 sm:p-10 mb-6 group hover:border-accent/30 transition-colors">
+          <Link href={`/blog/${newPosts[0].slug}`} className="block bg-gradient-to-br from-accent/5 to-purple-500/5 border border-accent/15 rounded-3xl p-8 sm:p-10 mb-6 group hover:border-accent/30 transition-colors">
             <div className="flex flex-wrap items-center gap-3 mb-5">
               <span className={`text-xs font-semibold px-3 py-1 rounded-full ${CATEGORY_COLORS[newPosts[0].category] ?? "bg-ink/10 text-ink/60"}`}>
                 {newPosts[0].category}
@@ -68,36 +68,34 @@ export default function BlogPage() {
               {newPosts[0].title}
             </h3>
             <p className="text-ink/65 leading-relaxed mb-6 max-w-2xl">{newPosts[0].excerpt}</p>
-            <a
-              href={`https://wa.me/${COMPANY.whatsapp}?text=Hi, I read your blog on ${encodeURIComponent(newPosts[0].title)} and have a question`}
-              target="_blank" rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-accent font-syne font-semibold hover:gap-3 transition-all"
-            >
-              Discuss with our team
+            <span className="inline-flex items-center gap-2 text-accent font-syne font-semibold group-hover:gap-3 transition-all">
+              Read article
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </a>
-          </div>
+            </span>
+          </Link>
 
           {/* Rest of new posts grid */}
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {newPosts.slice(1).map((post) => (
-              <article key={post.slug} className="bg-card rounded-2xl border border-ink/8 p-6 flex flex-col gap-4 hover:border-accent/30 hover:-translate-y-1 transition-all group">
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${CATEGORY_COLORS[post.category] ?? "bg-ink/10 text-ink/60"}`}>
-                    {post.category}
-                  </span>
-                  <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-accent text-white">New</span>
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-syne font-bold text-base text-ink leading-snug mb-2 group-hover:text-accent transition-colors">
-                    {post.title}
-                  </h3>
-                  <p className="text-ink/55 text-sm leading-relaxed line-clamp-3">{post.excerpt}</p>
-                </div>
-                <p className="text-xs text-ink/40">{formatDate(post.date)} · {post.readTime}</p>
-              </article>
+              <Link key={post.slug} href={`/blog/${post.slug}`}>
+                <article className="bg-card rounded-2xl border border-ink/8 p-6 flex flex-col gap-4 hover:border-accent/30 hover:-translate-y-1 transition-all group h-full">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${CATEGORY_COLORS[post.category] ?? "bg-ink/10 text-ink/60"}`}>
+                      {post.category}
+                    </span>
+                    <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-accent text-white">New</span>
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="font-syne font-bold text-base text-ink leading-snug mb-2 group-hover:text-accent transition-colors">
+                      {post.title}
+                    </h3>
+                    <p className="text-ink/55 text-sm leading-relaxed line-clamp-3">{post.excerpt}</p>
+                  </div>
+                  <p className="text-xs text-ink/40">{formatDate(post.date)} · {post.readTime}</p>
+                </article>
+              </Link>
             ))}
           </div>
         </div>
@@ -114,18 +112,20 @@ export default function BlogPage() {
           </h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
             {olderPosts.map((post) => (
-              <article key={post.slug} className="bg-bg rounded-2xl border border-ink/8 p-6 flex flex-col gap-4 hover:border-accent/20 hover:-translate-y-1 transition-all group">
-                <span className={`self-start text-xs font-semibold px-2.5 py-1 rounded-full ${CATEGORY_COLORS[post.category] ?? "bg-ink/10 text-ink/60"}`}>
-                  {post.category}
-                </span>
-                <div className="flex-1">
-                  <h3 className="font-syne font-bold text-base text-ink leading-snug mb-2 group-hover:text-accent transition-colors">
-                    {post.title}
-                  </h3>
-                  <p className="text-ink/55 text-sm leading-relaxed line-clamp-3">{post.excerpt}</p>
-                </div>
-                <p className="text-xs text-ink/40">{formatDate(post.date)} · {post.readTime}</p>
-              </article>
+              <Link key={post.slug} href={`/blog/${post.slug}`}>
+                <article className="bg-bg rounded-2xl border border-ink/8 p-6 flex flex-col gap-4 hover:border-accent/20 hover:-translate-y-1 transition-all group h-full">
+                  <span className={`self-start text-xs font-semibold px-2.5 py-1 rounded-full ${CATEGORY_COLORS[post.category] ?? "bg-ink/10 text-ink/60"}`}>
+                    {post.category}
+                  </span>
+                  <div className="flex-1">
+                    <h3 className="font-syne font-bold text-base text-ink leading-snug mb-2 group-hover:text-accent transition-colors">
+                      {post.title}
+                    </h3>
+                    <p className="text-ink/55 text-sm leading-relaxed line-clamp-3">{post.excerpt}</p>
+                  </div>
+                  <p className="text-xs text-ink/40">{formatDate(post.date)} · {post.readTime}</p>
+                </article>
+              </Link>
             ))}
           </div>
         </div>

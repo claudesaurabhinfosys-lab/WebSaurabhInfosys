@@ -321,8 +321,24 @@ export const PORTFOLIO_CATEGORIES = [
   "All", "AI", "Education", "Health", "Transport", "Gig", "Fintech", "SaaS", "NGO", "Custom Dev"
 ];
 
-export const BLOG_POSTS = [
-  // New AI-focused posts (written by us)
+export type ContentBlock =
+  | { type: "p"; text: string }
+  | { type: "h2"; text: string }
+  | { type: "ul"; items: string[] };
+
+interface BlogPostData {
+  slug: string;
+  title: string;
+  category: string;
+  date: string;
+  readTime: string;
+  excerpt: string;
+  isNew: boolean;
+  content: ContentBlock[];
+}
+
+export const BLOG_POSTS: BlogPostData[] = [
+  // New AI-focused posts
   {
     slug: "what-is-vibe-coding",
     title: "What is Vibe Coding? How AI is Changing Software Development in 2025",
@@ -331,6 +347,19 @@ export const BLOG_POSTS = [
     readTime: "6 min read",
     excerpt: "Vibe coding is the AI-accelerated development method taking the startup world by storm. Here's what it means, why it matters, and how Saurabh Infosys uses it to ship MVPs in 2 weeks.",
     isNew: true,
+    content: [
+      { type: "p", text: "Vibe coding is a new development methodology where AI tools act as an active co-pilot throughout the entire software build. Developers describe what they want in plain language, the AI generates the code, and the developer reviews, refines, and ships — dramatically accelerating the process." },
+      { type: "h2", text: "How Vibe Coding Works" },
+      { type: "p", text: "In a vibe coding workflow, a developer uses an AI-powered IDE like Cursor or a CLI tool like Claude Code. They describe a feature in plain English — 'Add a WhatsApp notification when a new order arrives' — and the AI generates a complete implementation. The developer reviews it, tests it, and either accepts it or iterates. This rapid loop replaces hours of manual coding with minutes of AI-assisted development." },
+      { type: "p", text: "The term 'vibe coding' was coined in early 2025 and quickly went viral among startup founders and engineers. It captures the flow state that AI tools create: instead of fighting syntax and boilerplate, you stay in creative flow — thinking about the product, not the plumbing." },
+      { type: "h2", text: "Why It Matters for Indian Startups" },
+      { type: "p", text: "The biggest impact is speed and cost. A traditional MVP takes 3–6 months. With vibe coding, a skilled team can ship a production-ready product in 2 weeks. For Indian startups and SMBs with lean budgets and tight timelines, this fundamentally changes what's possible." },
+      { type: "ul", items: ["2-week MVP delivery instead of 3–6 months", "50–70% lower development cost", "Faster iteration on real user feedback", "More energy spent on product, less on boilerplate"] },
+      { type: "h2", text: "Vibe Coding vs Traditional Development" },
+      { type: "p", text: "Vibe coding doesn't replace developers — it makes them dramatically more productive. A developer using AI tools can produce 5–10x more output than one coding manually. The craft shifts from memorising syntax to exercising product judgment: knowing what to build, how to architect it, and how to ensure quality." },
+      { type: "h2", text: "How We Use It at Saurabh Infosys" },
+      { type: "p", text: "Saurabh Infosys has built our entire delivery process around vibe coding. We use Cursor, Claude Code, and a battle-tested AI-first workflow to ship AI-enabled apps and MVPs in 2 weeks. Our clients get a fully functional, production-ready product — not a prototype — in the time it takes most agencies to finish wireframes." },
+    ],
   },
   {
     slug: "top-ai-automation-use-cases-india",
@@ -340,6 +369,22 @@ export const BLOG_POSTS = [
     readTime: "8 min read",
     excerpt: "From WhatsApp bots to invoice processing — discover the 10 highest-ROI AI automation use cases transforming Indian SMBs and enterprises right now.",
     isNew: true,
+    content: [
+      { type: "p", text: "Indian businesses — from Ahmedabad textile exporters to Bengaluru SaaS startups — are discovering that AI automation doesn't require a large tech team or a big budget. The right automation, applied to the right workflow, delivers measurable ROI within weeks. Here are the 10 highest-impact use cases we see our clients adopting." },
+      { type: "h2", text: "1. WhatsApp Lead Qualification Bots" },
+      { type: "p", text: "With 500 million WhatsApp users in India, automating your WhatsApp inbox is the single biggest quick win for most SMBs. An AI bot can greet leads, ask qualifying questions, and route hot prospects to your sales team — 24/7, in Hindi or English. Our clients typically see a 3x improvement in lead response time." },
+      { type: "h2", text: "2. Invoice and Document Processing" },
+      { type: "p", text: "Manually processing invoices, purchase orders, and delivery challans costs businesses thousands of hours per year. AI-powered document extraction reads incoming PDFs and images, pulls the relevant data, and updates your ERP or accounting system automatically. ROI is usually achieved within the first month." },
+      { type: "h2", text: "3. AI-Powered Customer Support" },
+      { type: "p", text: "A RAG-based AI support bot trained on your product documentation, FAQs, and past tickets can resolve 60–80% of support queries without human intervention. Your support team handles only the complex cases, reducing costs and improving response times simultaneously." },
+      { type: "h2", text: "4. Automated Appointment Booking" },
+      { type: "p", text: "For clinics, salons, tutoring centres, and service businesses, an AI booking bot on WhatsApp or your website can handle scheduling, confirmations, and reminders end-to-end — no more back-and-forth messages to find a slot." },
+      { type: "h2", text: "5. Sales CRM Automation" },
+      { type: "p", text: "AI can automatically log calls, update deal stages, send follow-up reminders, and even draft personalised outreach emails based on CRM data. This alone saves sales teams 2–3 hours per day." },
+      { type: "h2", text: "More High-ROI Use Cases" },
+      { type: "ul", items: ["HR onboarding: auto-send offer letters, collect documents, schedule induction", "Social media: generate and schedule posts from a content brief", "Inventory alerts: AI monitors stock levels and triggers reorder workflows automatically", "Report generation: auto-create weekly sales or operations reports from your data", "Email triage: AI labels, summarises, and routes incoming emails to the right person"] },
+      { type: "p", text: "The best automation projects start with an honest audit of where your team spends the most repetitive time. If you'd like a free automation audit for your business, reach out to Saurabh Infosys on WhatsApp — we've helped dozens of Indian businesses find their highest-ROI automation opportunities." },
+    ],
   },
   {
     slug: "how-to-integrate-ai-existing-software",
@@ -349,6 +394,20 @@ export const BLOG_POSTS = [
     readTime: "7 min read",
     excerpt: "You don't need to rebuild from scratch. A practical guide to adding AI capabilities — chatbots, recommendations, and automation — to your existing CRM, ERP, or web app.",
     isNew: true,
+    content: [
+      { type: "p", text: "The most common mistake businesses make with AI is thinking they need to rebuild everything from scratch. In reality, most AI integrations are additive — you layer new AI capabilities on top of what already works. Here's a practical step-by-step approach." },
+      { type: "h2", text: "Step 1: Audit Your Current Software Stack" },
+      { type: "p", text: "Start by mapping the software your business already uses: your CRM, ERP, accounting system, helpdesk, and internal tools. Identify the 3–5 workflows that consume the most manual time or produce the most errors. These are your AI integration targets." },
+      { type: "h2", text: "Step 2: Start with a Chatbot or Copilot Layer" },
+      { type: "p", text: "The lowest-risk, highest-visibility AI integration is almost always a conversational AI layer. Add a chatbot to your website that answers product questions, or build an internal copilot that lets your team query your CRM data in plain English. This builds organisational confidence in AI quickly." },
+      { type: "h2", text: "Step 3: Connect AI to Your Business Data" },
+      { type: "p", text: "The most powerful integrations use Retrieval-Augmented Generation (RAG) — connecting an LLM to your own data. Your AI assistant can answer questions using your real policies, inventory, and customer history. This turns generic AI into a specialist that actually knows your business." },
+      { type: "h2", text: "Step 4: Automate Repetitive Workflows" },
+      { type: "p", text: "Once you have an AI layer in place, identify workflows where the AI can take action rather than just answer questions. Integrate AI into your CRM to auto-update records, into your helpdesk to route tickets, or into WhatsApp to handle bookings. Each automation compounds your ROI." },
+      { type: "h2", text: "Common Integration Approaches" },
+      { type: "ul", items: ["API integration: connect OpenAI or Anthropic APIs to your existing software via custom code", "Webhook automation: trigger AI actions based on events in your CRM or ERP", "RAG pipeline: embed your documents in a vector database and query them with an LLM", "No-code automation: use Zapier or Make for simpler AI workflow automation", "Custom middleware: build a dedicated AI service layer between your existing systems"] },
+      { type: "p", text: "Most businesses see their first AI integration pay for itself within 60 days. Saurabh Infosys specialises in practical AI integration for Indian businesses — we'll audit your stack and recommend the highest-ROI integration starting point." },
+    ],
   },
   {
     slug: "agentic-ai-vs-chatbots",
@@ -358,6 +417,19 @@ export const BLOG_POSTS = [
     readTime: "5 min read",
     excerpt: "Traditional chatbots answer questions. Agentic AI takes actions. Here's what that difference means for your business — and why 2025 is the year to upgrade.",
     isNew: true,
+    content: [
+      { type: "p", text: "When most people think of business AI, they imagine a chatbot — a widget on a website that answers FAQs. Agentic AI is something fundamentally different. Understanding the distinction is crucial for choosing the right technology for your business needs." },
+      { type: "h2", text: "What Are Traditional Chatbots?" },
+      { type: "p", text: "Traditional chatbots — whether rule-based or LLM-powered — are conversation machines. They respond to inputs with outputs: a customer asks a question, the bot provides an answer. Even the best LLM-powered chatbots are primarily reactive. They don't take actions in the world; they generate text responses." },
+      { type: "h2", text: "What Is Agentic AI?" },
+      { type: "p", text: "Agentic AI doesn't just answer questions — it executes tasks. An AI agent can receive a goal ('Follow up with all leads who haven't responded in 3 days'), break it down into steps, use tools like email, CRM, and calendar, make decisions, and complete the workflow end-to-end — autonomously." },
+      { type: "h2", text: "The Key Differences" },
+      { type: "ul", items: ["Chatbots respond to messages; agents execute multi-step tasks", "Chatbots handle one turn at a time; agents complete entire workflows", "Chatbots require human follow-through; agents act autonomously", "Chatbots are stateless; agents maintain context across long tasks", "Chatbots are simpler and cheaper; agents are more powerful and complex"] },
+      { type: "h2", text: "When to Use a Chatbot vs an AI Agent" },
+      { type: "p", text: "Chatbots are the right choice for customer-facing Q&A, simple lead capture, and FAQ handling — high volume, low complexity interactions where a human-like conversation is the goal. Agentic AI is the right choice when you need multi-step workflow automation: lead qualification, CRM update, and follow-up email all triggered and executed automatically." },
+      { type: "h2", text: "What This Means for Indian Businesses in 2025" },
+      { type: "p", text: "2025 is the year agentic AI has become practically deployable for SMBs. Frameworks like LangChain and the Anthropic Claude API have matured to the point where building a reliable AI agent is within reach for any business with the right development partner. Saurabh Infosys has already built agentic workflows for clients in real estate, logistics, and healthcare." },
+    ],
   },
   {
     slug: "whatsapp-ai-bot-indian-business",
@@ -367,6 +439,18 @@ export const BLOG_POSTS = [
     readTime: "6 min read",
     excerpt: "500 million Indians use WhatsApp daily. An AI bot on WhatsApp can handle leads, bookings, and support 24/7 — at a fraction of hiring costs. Here's how to get started.",
     isNew: true,
+    content: [
+      { type: "p", text: "India has 500 million WhatsApp users — more than any other country in the world. Your customers are already there, using WhatsApp for everything from ordering groceries to communicating with their bank. Yet most Indian businesses still handle WhatsApp manually, missing out on the single biggest automation opportunity available to them today." },
+      { type: "h2", text: "What Can a WhatsApp AI Bot Do?" },
+      { type: "ul", items: ["Greet new leads and qualify them with a conversational flow", "Answer product and pricing questions in Hindi or English — instantly", "Book appointments, demos, or service visits automatically", "Send order confirmations, shipping updates, and payment reminders", "Handle common support queries without human involvement", "Escalate complex queries to a human agent seamlessly"] },
+      { type: "h2", text: "The Real ROI for Indian SMBs" },
+      { type: "p", text: "The economics are compelling. A human WhatsApp operator costs ₹15,000–25,000/month and works 8 hours a day. A WhatsApp AI bot works 24/7, handles multiple conversations simultaneously, never has a bad day, and costs a fraction of that. For a business receiving 100+ WhatsApp messages daily, the ROI is typically achieved within the first month." },
+      { type: "h2", text: "How It Works Technically" },
+      { type: "p", text: "A WhatsApp AI bot connects to the WhatsApp Business API and integrates with an LLM — like GPT-4o or Claude — trained on your specific business context: your products, FAQs, pricing, and policies. When a customer messages you, the AI responds instantly with accurate, contextual answers. The setup takes 1–2 weeks." },
+      { type: "h2", text: "Industries Seeing the Most Impact" },
+      { type: "ul", items: ["Real estate: instant property info, site visit scheduling, and buyer qualification", "Healthcare: appointment booking, doctor availability queries, and prescription reminders", "E-commerce: order tracking, returns processing, and product recommendations", "Education: course enquiries, fee payment reminders, and schedule updates", "Travel: itinerary queries, booking confirmations, and live travel updates"] },
+      { type: "p", text: "Saurabh Infosys has built WhatsApp AI bots for businesses across Ahmedabad and India. Reach out on WhatsApp — ironically — to discuss how we can automate yours." },
+    ],
   },
   {
     slug: "flutter-ai-enabled-apps",
@@ -376,8 +460,21 @@ export const BLOG_POSTS = [
     readTime: "9 min read",
     excerpt: "Flutter + AI is a powerful combo for cross-platform apps. This guide covers integrating OpenAI, on-device ML, and RAG into Flutter apps — with real examples from our portfolio.",
     isNew: true,
+    content: [
+      { type: "p", text: "Flutter has become one of the most popular cross-platform frameworks because it ships to iOS and Android from a single codebase without compromising on performance or UI quality. When you combine Flutter's strengths with modern AI capabilities — LLMs, on-device ML, and RAG — you get AI-enabled apps that users actually love." },
+      { type: "h2", text: "What Makes an App 'AI-Enabled'?" },
+      { type: "ul", items: ["Conversational AI: in-app chat assistant powered by GPT-4o or Claude", "Smart search: semantic search that understands user intent, not just keywords", "Personalised recommendations: AI-driven content or product suggestions based on behaviour", "On-device ML: image recognition and object detection without an internet connection", "Automated data entry: AI that reads receipts, business cards, or forms via the camera"] },
+      { type: "h2", text: "Integrating LLMs into Flutter" },
+      { type: "p", text: "The most common approach is calling LLM APIs from your Flutter app's backend. A Dart HTTP client sends the user's query to your API layer, which calls the LLM (OpenAI, Anthropic, or Google Gemini) and streams the response back to the app. This keeps your API keys secure server-side while giving users a smooth, streaming chat experience." },
+      { type: "h2", text: "On-Device ML with Flutter" },
+      { type: "p", text: "Google's ML Kit integrates natively with Flutter via the google_mlkit package, providing text recognition, face detection, barcode scanning, and object detection — all running locally on the device without any API calls. For apps that need ML features to work offline or in real time, this is the go-to solution." },
+      { type: "h2", text: "RAG in Mobile Apps" },
+      { type: "p", text: "For enterprise and B2B apps, Retrieval-Augmented Generation (RAG) allows users to query your company's own knowledge base from within the app. An employee can ask 'What's our return policy for damaged items?' and get an accurate, source-cited answer from your internal documents — powered by a vector database and LLM on the backend." },
+      { type: "h2", text: "Our Flutter AI Portfolio" },
+      { type: "p", text: "Saurabh Infosys has built AI-enabled Flutter apps across healthcare, education, logistics, and fintech — including AI Assist (educational platform with OpenAI integration) and Banigi AI (business intelligence with conversational analytics). If you have an idea for a Flutter app with AI features, let's talk." },
+    ],
   },
-  // Real posts from saurabhinfosys.com
+  // Archive posts
   {
     slug: "ai-transforming-web-development-2025",
     title: "How AI is Transforming Modern Web Development in 2025",
@@ -386,6 +483,19 @@ export const BLOG_POSTS = [
     readTime: "7 min read",
     excerpt: "Discover how Artificial Intelligence is revolutionising modern web and app development in 2025 — from automated code generation to intelligent testing.",
     isNew: false,
+    content: [
+      { type: "p", text: "The web development industry is undergoing its most significant transformation since the introduction of cloud computing. AI is not just a new tool in the developer's toolkit — it is fundamentally changing the economics, speed, and quality of building for the web." },
+      { type: "h2", text: "AI-Powered Code Generation" },
+      { type: "p", text: "Tools like GitHub Copilot, Cursor, and Claude Code now generate production-quality code from natural language descriptions. A developer can describe a feature in plain English and have a working implementation in seconds. Studies consistently show 30–50% productivity gains for developers using AI code assistants — and the best developers are seeing 5–10x improvements on repetitive tasks." },
+      { type: "h2", text: "Automated Testing and Quality Assurance" },
+      { type: "p", text: "AI can now write unit tests, integration tests, and end-to-end tests automatically from your codebase. AI-powered test generation significantly reduces the time needed to achieve meaningful test coverage. This is one of the most underused AI capabilities in web development today." },
+      { type: "h2", text: "Personalised User Experiences at Scale" },
+      { type: "p", text: "AI enables web applications to deliver personalised experiences to every user — customised content, dynamic pricing, smart recommendations, and adaptive interfaces. What previously required a large data science team is now accessible through LLM APIs and embedding-based recommendation systems." },
+      { type: "h2", text: "AI in UI/UX Design" },
+      { type: "p", text: "Design tools like Figma's AI features, v0 by Vercel, and Lovable are changing how web interfaces are designed. Designers can generate UI components, test variations, and iterate on visual design in a fraction of the traditional time. The barrier between design and working code has almost disappeared." },
+      { type: "h2", text: "What This Means for Your Business" },
+      { type: "p", text: "Businesses that partner with AI-native development studios get a significant competitive advantage: faster time-to-market, lower development costs, and higher-quality software. The gap between AI-native and traditional development is widening every month. Now is the time to ensure your development partner is working at the frontier." },
+    ],
   },
   {
     slug: "flutter-vs-react-native-2025",
@@ -395,6 +505,21 @@ export const BLOG_POSTS = [
     readTime: "8 min read",
     excerpt: "An in-depth comparison of Flutter and React Native for mobile app development in 2025 — performance, ecosystem, and when to choose which.",
     isNew: false,
+    content: [
+      { type: "p", text: "Choosing between Flutter and React Native is one of the most common decisions product teams face when building a new mobile app. Both are mature, well-supported cross-platform frameworks. The right choice depends on your team's background, your app's requirements, and your long-term roadmap." },
+      { type: "h2", text: "Performance" },
+      { type: "p", text: "Flutter compiles to native ARM code via Dart and renders its own UI using the Impeller graphics engine. This means Flutter's UI is pixel-perfect and consistent across platforms. React Native uses JavaScript and bridges to native components, which can cause performance bottlenecks in highly interactive screens. For apps requiring smooth 60fps animations or complex UI, Flutter has the edge." },
+      { type: "h2", text: "Ecosystem and Libraries" },
+      { type: "p", text: "React Native benefits from the massive JavaScript/npm ecosystem. Flutter's pub.dev ecosystem is smaller but growing rapidly and is generally high quality due to Flutter's stricter package guidelines. For enterprise apps, both ecosystems are mature enough that package availability is rarely a deciding factor." },
+      { type: "h2", text: "Developer Experience" },
+      { type: "p", text: "Both frameworks offer hot reload, but Flutter's is generally considered faster and more reliable. The Dart language has a steeper learning curve for JavaScript developers but is more performant and has fewer runtime surprises. Teams with existing React knowledge tend to ramp up faster on React Native." },
+      { type: "h2", text: "When to Choose Flutter" },
+      { type: "ul", items: ["You need pixel-perfect, custom UI that's identical across iOS and Android", "Your app has complex animations or game-like interactions", "You're starting fresh with no JavaScript team dependency", "You want to target web and desktop in the future (Flutter supports all platforms)"] },
+      { type: "h2", text: "When to Choose React Native" },
+      { type: "ul", items: ["Your team is already skilled in React and JavaScript", "You need to share code between a React web app and a mobile app", "You rely heavily on specific native SDKs with strong React Native support"] },
+      { type: "h2", text: "Our Recommendation" },
+      { type: "p", text: "At Saurabh Infosys, we build the majority of our mobile apps in Flutter. We've shipped Flutter apps serving 30,000+ customers across 20 countries and consistently find it delivers better performance, more consistent UI, and faster development once the team is ramped up. For new projects, we recommend Flutter unless there's a strong existing JavaScript team reason not to." },
+    ],
   },
   {
     slug: "future-software-development-emerging-tech",
@@ -404,6 +529,19 @@ export const BLOG_POSTS = [
     readTime: "6 min read",
     excerpt: "From AI-assisted coding to serverless architectures — the technologies and strategies that will define software development in the next 3 years.",
     isNew: false,
+    content: [
+      { type: "p", text: "The software development landscape is shifting faster than at any point in the last decade. Understanding which emerging technologies will have lasting impact — versus which are hype — is critical for businesses making long-term technology investments." },
+      { type: "h2", text: "AI-Assisted Development: Already the New Normal" },
+      { type: "p", text: "AI coding tools have crossed the threshold from 'interesting experiment' to 'professional standard'. Developers who don't use AI assistance are now at a productivity disadvantage. By 2026, AI-assisted development will be as standard as version control. For businesses, this means partnering with development studios that have fully adopted AI-first workflows." },
+      { type: "h2", text: "Serverless and Edge Computing" },
+      { type: "p", text: "Serverless architecture (AWS Lambda, Vercel Edge, Cloudflare Workers) is becoming the default for new web applications. It eliminates infrastructure management, scales automatically, and reduces costs for variable-load applications. Edge computing takes this further by running code physically closer to the user, reducing latency for global applications." },
+      { type: "h2", text: "The Rise of Practical Low-Code" },
+      { type: "p", text: "Low-code and no-code platforms have matured significantly. Platforms like Retool, Supabase, and Bubble handle a growing proportion of internal tools effectively. Smart engineering teams use these tools for the right use cases — freeing up developer time for the complex, differentiated work that requires custom code." },
+      { type: "h2", text: "API-First and Composable Architecture" },
+      { type: "p", text: "Modern software is increasingly composed from specialised services rather than built as monoliths. Payment (Stripe/Razorpay), authentication (Clerk), notifications (Twilio), and AI (Anthropic/OpenAI) are best-in-class services that can be assembled into production software quickly. This composable approach reduces time-to-market and improves reliability." },
+      { type: "h2", text: "What to Focus On as a Business" },
+      { type: "ul", items: ["Partner with development teams that have fully adopted AI-assisted workflows", "Favour API-first architecture so your software can evolve incrementally", "Invest in AI automation of your own business processes now, before competitors do", "Don't over-invest in infrastructure when serverless solves most problems cheaper", "Build your data foundation — AI is only as good as the data it has access to"] },
+    ],
   },
   {
     slug: "why-flutter-2025",
@@ -413,6 +551,19 @@ export const BLOG_POSTS = [
     readTime: "5 min read",
     excerpt: "Flutter's cross-platform efficiency, fast UI, and growing ecosystem make it one of the best choices for mobile apps in 2025. Here's why.",
     isNew: false,
+    content: [
+      { type: "p", text: "Flutter was released by Google in 2018 and has grown into one of the world's most popular mobile development frameworks. In 2025, with over 1 million apps in production and a vibrant community of 2 million+ developers, it's the clear choice for most new mobile app projects." },
+      { type: "h2", text: "One Codebase, Two Stores" },
+      { type: "p", text: "The most compelling reason to choose Flutter is simple economics: you write your app once in Dart and get native iOS and Android apps. This typically cuts development time and cost by 40–60% compared to maintaining separate native codebases. For startups and SMBs, this is often the difference between being able to afford an app or not." },
+      { type: "h2", text: "Native-Level Performance" },
+      { type: "p", text: "Flutter doesn't use a JavaScript bridge or a WebView. It compiles to native ARM code and renders directly using its own graphics engine (Impeller in Flutter 3+). The result is smooth 60fps animations, fast startup times, and performance that users can't distinguish from native-built apps." },
+      { type: "h2", text: "Developer Productivity" },
+      { type: "p", text: "Flutter's hot reload shows code changes instantly without losing app state — turning what would be a 30-second rebuild cycle into a sub-second update. Combined with Flutter's excellent widget library and strong typing, developer productivity is consistently higher than with native development." },
+      { type: "h2", text: "A Maturing Ecosystem" },
+      { type: "p", text: "Flutter's pub.dev package ecosystem now has over 35,000 packages covering Firebase integration, maps, payments, biometrics, ML, and AI. For almost any feature you need, there's a well-maintained Flutter package available." },
+      { type: "h2", text: "Our Flutter Track Record" },
+      { type: "p", text: "Saurabh Infosys has shipped Flutter apps now used by 30,000+ customers across 20 countries. Our portfolio spans healthcare, fitness, logistics, fintech, education, and more — all built with Flutter. If you're considering a mobile app, we'd love to show you what's possible." },
+    ],
   },
   {
     slug: "mobile-first-development-2025",
@@ -422,6 +573,18 @@ export const BLOG_POSTS = [
     readTime: "5 min read",
     excerpt: "With over 60% of web traffic coming from mobile devices, building mobile-first is no longer optional — it's essential for user experience and SEO.",
     isNew: false,
+    content: [
+      { type: "p", text: "Over 60% of global web traffic now comes from mobile devices. In India, that number is closer to 75%. Yet a surprising number of business websites and web applications are still designed primarily for desktop. This is a strategic mistake that costs businesses in both user experience and search ranking." },
+      { type: "h2", text: "Google's Mobile-First Indexing" },
+      { type: "p", text: "Since 2019, Google has used the mobile version of your website as the primary basis for indexing and ranking. This means your SEO is determined by how your site performs on mobile — not desktop. A site that looks great on desktop but is poor on mobile will rank lower, regardless of its content quality." },
+      { type: "h2", text: "What Mobile-First Means in Practice" },
+      { type: "ul", items: ["Design for the smallest screen first, then scale up to desktop", "Touch targets must be at least 48×48px — no tiny buttons or links", "Text must be readable at 16px without requiring zoom", "No horizontal scrolling — all content must fit within the viewport width", "Critical information and CTAs must be visible above the fold on mobile"] },
+      { type: "h2", text: "Performance on Mobile Is Non-Negotiable" },
+      { type: "p", text: "Mobile users are often on slower connections. Google's Core Web Vitals — LCP, CLS, and INP — measure real user performance on mobile and directly impact your search ranking. Optimising images (use WebP), reducing JavaScript bundle size, and using a CDN are the three highest-impact actions for most sites." },
+      { type: "h2", text: "Progressive Enhancement vs Mobile-First" },
+      { type: "p", text: "Progressive enhancement starts with a basic mobile experience and adds features for capable devices. Mobile-first design starts with the mobile layout as the design baseline. Mobile-first has become the industry standard because it forces designers to prioritise ruthlessly — removing clutter that was only there to fill desktop screen space." },
+      { type: "p", text: "All websites and web apps built by Saurabh Infosys are mobile-first by default. If your existing site is underperforming on mobile, reach out — a mobile optimisation project often delivers measurable SEO improvements within 30 days." },
+    ],
   },
   {
     slug: "pwa-essential-2025",
@@ -431,6 +594,18 @@ export const BLOG_POSTS = [
     readTime: "6 min read",
     excerpt: "PWAs combine the best of web and native apps. Discover why leading businesses are adopting PWAs to improve engagement and cut app development costs.",
     isNew: false,
+    content: [
+      { type: "p", text: "Progressive Web Apps (PWAs) sit at the intersection of websites and native apps. They load in a browser like a website but can be installed on a home screen, work offline, send push notifications, and access device features — all without going through an app store. In 2025, PWAs have become a serious alternative to native apps for many use cases." },
+      { type: "h2", text: "What Makes a Progressive Web App?" },
+      { type: "p", text: "A PWA is a standard web application that includes three key elements: a Service Worker (which enables offline functionality and background sync), a Web App Manifest (which enables home screen installation), and a secure HTTPS connection. Modern frameworks like Next.js make adding PWA capabilities to an existing web app straightforward." },
+      { type: "h2", text: "Key Benefits of PWAs" },
+      { type: "ul", items: ["No app store approval process — deploy updates instantly without review", "Discoverable via Google search, unlike native apps buried in app stores", "One codebase for both the web and the installed app experience", "Works offline or on low connectivity via service worker caching", "50–70% lower development cost compared to native iOS + Android apps", "Automatic updates — users always get the latest version without a manual update"] },
+      { type: "h2", text: "PWA vs Native App: When to Choose Which" },
+      { type: "p", text: "PWAs are the right choice when your app primarily works in a browser, you want maximum reach without app store friction, and you don't need deep native capabilities like Bluetooth, AR, or complex background processing. Native or Flutter cross-platform apps are better when you need hardware access, app store distribution for discoverability, or maximum performance." },
+      { type: "h2", text: "Industries Where PWAs Excel" },
+      { type: "ul", items: ["E-commerce: cart, product catalogue, and checkout work perfectly as a PWA", "News and content: offline reading and push notifications for breaking articles", "Internal business tools: dashboards and forms that don't need app store distribution", "SaaS products: web-first products that benefit from desktop and mobile installation"] },
+      { type: "p", text: "Saurabh Infosys builds PWAs as part of our standard web development offering. If you have a web app that would benefit from offline capability, home screen installation, or push notifications, a PWA upgrade is often a one-week project — reach out to discuss." },
+    ],
   },
 ];
 
