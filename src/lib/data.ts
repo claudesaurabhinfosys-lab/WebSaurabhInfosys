@@ -4,7 +4,7 @@ export const COMPANY = {
   location: "Ahmedabad, Gujarat, India",
   website: "saurabhinfosys.com",
   email: "info@saurabhinfosys.com",
-  phone: "+91 87350 01217",
+  phone: "+91 8735001217",
   whatsapp: "918735001217",
   stats: {
     clients: "80+",

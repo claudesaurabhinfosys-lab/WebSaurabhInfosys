@@ -178,7 +178,7 @@ export default function AboutPage() {
             <h2 className="font-syne text-3xl md:text-4xl font-bold text-ink mb-4">
               Clients who trust us
             </h2>
-            <p className="text-ink/50 text-lg max-w-xl mx-auto">
+            <p className="text-ink/70 text-lg max-w-xl mx-auto">
               A snapshot of the businesses we&apos;ve built software for —
               across healthcare, transport, fitness, and government sectors.
             </p>
@@ -194,15 +194,15 @@ export default function AboutPage() {
                     <p className="font-syne font-bold text-ink text-base leading-snug">
                       {client.name}
                     </p>
-                    <p className="text-ink/40 text-sm mt-0.5">
+                    <p className="text-ink/60 text-sm mt-0.5">
                       {client.flag} {client.country}
                     </p>
                   </div>
-                  <span className="flex-shrink-0 px-3 py-1 bg-ink/5 text-ink/50 text-xs rounded-full font-medium">
+                  <span className="flex-shrink-0 px-3 py-1 bg-accent/10 text-accent text-xs rounded-full font-semibold">
                     {client.category}
                   </span>
                 </div>
-                <p className="text-ink/60 text-sm leading-relaxed mb-4">
+                <p className="text-ink/75 text-sm leading-relaxed mb-4">
                   {client.description}
                 </p>
                 <div className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs font-semibold rounded-full">
@@ -222,7 +222,7 @@ export default function AboutPage() {
               World-class software at{" "}
               <span className="text-accent">startup-friendly prices</span>
             </h2>
-            <p className="text-ink/50 text-lg max-w-2xl mx-auto">
+            <p className="text-ink/70 text-lg max-w-2xl mx-auto">
               Why Ahmedabad? Because it gives us every advantage — and we pass
               those advantages on to you.
             </p>
@@ -258,7 +258,7 @@ export default function AboutPage() {
                 <h3 className="font-syne font-bold text-ink text-base mb-2">
                   {card.title}
                 </h3>
-                <p className="text-ink/60 text-sm leading-relaxed">{card.desc}</p>
+                <p className="text-ink/75 text-sm leading-relaxed">{card.desc}</p>
               </div>
             ))}
           </div>

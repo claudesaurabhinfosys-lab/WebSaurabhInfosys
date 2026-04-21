@@ -170,7 +170,7 @@ export default function PortfolioPage() {
 
           {filtered.length === 0 && (
             <div className="text-center py-20">
-              <p className="text-ink/40 text-lg">
+              <p className="text-ink/60 text-lg">
                 No projects found in this category.
               </p>
             </div>
