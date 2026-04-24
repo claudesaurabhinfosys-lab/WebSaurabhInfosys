@@ -33,7 +33,7 @@ export const SERVICES = [
       "CRM & API AI Integration",
     ],
     heroDesc:
-      "We deliver AI automation, Agentic AI, LLM development, and GenAI services for Indian businesses — from ChatGPT integration to conversational AI solutions, we automate workflows and build enterprise AI agents that run 24/7.",
+      "We deliver AI automation, multi-agent AI systems, Agentic AI, and GenAI services for Indian businesses — from ChatGPT integration to conversational AI and AI voice agents, we automate workflows and build intelligent automation solutions that run 24/7.",
     useCases: [
       { title: "Agentic AI & Automation", desc: "Automate customer support, lead qualification, and repetitive workflows via AI agents." },
       { title: "AI Integration", desc: "Integrate GPT-4o, RAG, and GenAI into your existing CRM, ERP, or business software." },
@@ -46,7 +46,7 @@ export const SERVICES = [
     shortTitle: "Vibe Coding",
     icon: "⚡",
     description:
-      "India's leading vibe coding studio. Ship AI-enabled apps and production-ready MVPs in 2 weeks, not 2 months.",
+      "India's leading vibe coding studio. Ship AI-native, AI-enabled apps and production-ready MVPs in 2 weeks, not 2 months.",
     features: [
       "2-Week AI-Enabled App Delivery",
       "Built-in AI Features (Chat, Recommendations)",
