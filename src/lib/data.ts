@@ -23,7 +23,7 @@ export const SERVICES = [
     shortTitle: "AI Automation",
     icon: "🤖",
     description:
-      "Agentic AI & GenAI services — LLM development, ChatGPT integration, WhatsApp bots, RAG systems, voice agents, and enterprise AI integration into your existing business software. Real business impact, delivered in weeks.",
+      "Agentic AI & GenAI services — LLM development, ChatGPT integration, WhatsApp bots, RAG systems, voice agents, AI process automation, and enterprise AI integration into your existing business software. Real business impact, delivered in weeks.",
     features: [
       "Agentic AI & GenAI Development",
       "WhatsApp Business Automation",
@@ -33,7 +33,7 @@ export const SERVICES = [
       "CRM & API AI Integration",
     ],
     heroDesc:
-      "We deliver AI automation, multi-agent AI systems, Agentic AI, and GenAI services for Indian businesses — from ChatGPT integration to conversational AI and AI voice agents, we automate workflows and build intelligent automation solutions that run 24/7.",
+      "We deliver AI automation, AI process automation, multi-agent AI systems, Agentic AI, and GenAI services for Indian businesses — from ChatGPT integration and enterprise AI integration to conversational AI and AI voice agents, we automate workflows and build intelligent automation solutions that run 24/7.",
     useCases: [
       { title: "Agentic AI & Automation", desc: "Automate customer support, lead qualification, and repetitive workflows via AI agents." },
       { title: "AI Integration", desc: "Integrate GPT-4o, RAG, and GenAI into your existing CRM, ERP, or business software." },
