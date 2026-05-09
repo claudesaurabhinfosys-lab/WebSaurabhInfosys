@@ -1,0 +1,83 @@
+name: LinkedIn Auto-Post
+
+on:
+  schedule:
+    - cron: '30 3 * * 1'  # Monday 9:00 AM IST
+    - cron: '30 3 * * 3'  # Wednesday 9:00 AM IST
+    - cron: '30 3 * * 5'  # Friday 9:00 AM IST
+  workflow_dispatch:
+    inputs:
+      post_number:
+        description: 'Post file number to publish (e.g. 04)'
+        required: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Determine which post to publish
+        id: pick
+        run: |
+          if [ -n "${{ github.event.inputs.post_number }}" ]; then
+            echo "file=linkedin_posts/${{ github.event.inputs.post_number }}_*.txt" >> $GITHUB_OUTPUT
+          else
+            # Auto-pick: find the lowest-numbered post that hasn't been published
+            PUBLISHED=$(cat .linkedin_published 2>/dev/null || echo "")
+            for f in linkedin_posts/*.txt; do
+              NUM=$(basename "$f" | cut -d_ -f1)
+              if ! echo "$PUBLISHED" | grep -q "^${NUM}$"; then
+                echo "file=$f" >> $GITHUB_OUTPUT
+                echo "num=$NUM" >> $GITHUB_OUTPUT
+                break
+              fi
+            done
+          fi
+
+      - name: Publish post
+        if: steps.pick.outputs.file != ''
+        env:
+          TOKEN: ${{ secrets.SOCIALADMIN_TOKEN }}
+        run: |
+          FILE=$(ls ${{ steps.pick.outputs.file }} 2>/dev/null | head -1)
+          if [ -z "$FILE" ]; then echo "No post file found"; exit 0; fi
+
+          CONTENT=$(cat "$FILE")
+          NAME=$(basename "$FILE" .txt)
+          IST=$(TZ='Asia/Kolkata' date +"%Y-%m-%dT%H:%M")
+
+          RESPONSE=$(curl -s -X POST \
+            "https://socialadmin.mysampark.com/api/campaign/create" \
+            -H "Accept: application/json" \
+            -H "Authorization: Bearer $TOKEN" \
+            -F "campaign_name=${NAME}" \
+            -F "campaign_date=${IST}" \
+            -F "timezone=Asia/Kolkata" \
+            -F "media_type=image" \
+            -F "linkedin_media_type=image" \
+            -F "isPublish=1" \
+            -F "business_profile_id=2" \
+            -F "post_content[linkedin]=${CONTENT}" \
+            -F "social_media[LinkedIn][0][id]=1" \
+            -F "social_media[LinkedIn][0][name]=Saurabh Infosys" \
+            -F "social_media[LinkedIn][0][type]=page")
+
+          CAMPAIGN_ID=$(echo "$RESPONSE" | grep -o '"id":[0-9]*' | head -1 | grep -o '[0-9]*')
+          echo "Created campaign ID: $CAMPAIGN_ID"
+
+          if [ -n "$CAMPAIGN_ID" ]; then
+            PUBLISH=$(curl -s -X POST \
+              "https://socialadmin.mysampark.com/api/campaign/publish_now/${CAMPAIGN_ID}" \
+              -H "Accept: application/json" \
+              -H "Authorization: Bearer $TOKEN")
+            echo "Publish result: $PUBLISH"
+
+            # Mark as published
+            echo "${{ steps.pick.outputs.num }}" >> .linkedin_published
+            git config user.email "actions@github.com"
+            git config user.name "GitHub Actions"
+            git add .linkedin_published
+            git commit -m "track: mark post ${{ steps.pick.outputs.num }} as published"
+            git push
+          fi
