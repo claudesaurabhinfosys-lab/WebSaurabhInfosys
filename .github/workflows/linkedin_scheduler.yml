@@ -14,6 +14,8 @@ on:
 jobs:
   post:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
 
@@ -22,6 +24,7 @@ jobs:
         run: |
           if [ -n "${{ github.event.inputs.post_number }}" ]; then
             echo "file=linkedin_posts/${{ github.event.inputs.post_number }}_*.txt" >> $GITHUB_OUTPUT
+            echo "num=${{ github.event.inputs.post_number }}" >> $GITHUB_OUTPUT
           else
             # Auto-pick: find the lowest-numbered post that hasn't been published
             PUBLISHED=$(cat .linkedin_published 2>/dev/null || echo "")
