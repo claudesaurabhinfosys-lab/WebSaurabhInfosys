@@ -19,6 +19,11 @@ const links = {
     { label: "About Us", href: "/about" },
     { label: "Portfolio", href: "/portfolio" },
     { label: "Contact", href: "/contact" },
+    { label: "Blog", href: "/blog" },
+  ],
+  "We Serve": [
+    { label: "AI Company USA", href: "/usa" },
+    { label: "AI Company Singapore", href: "/singapore" },
   ],
 };
 
@@ -26,7 +31,7 @@ export default function Footer() {
   return (
     <footer className="border-t border-ink/8 bg-surface">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-10 mb-14">
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-10 mb-14">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4 w-fit">
