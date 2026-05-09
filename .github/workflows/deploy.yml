@@ -21,18 +21,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build
+      - name: Build (validation)
         run: npm run build
 
-      - name: Deploy via SCP
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_KEY }}
-          port: 22
-          source: "out/"
-          target: ${{ secrets.DEPLOY_PATH }}
-          strip_components: 1
-          overwrite: true
-          rm: false
+      - name: Trigger server deploy via webhook
+        run: |
+          PAYLOAD='{"ref":"refs/heads/main"}'
+          SIG="sha256=$(echo -n "$PAYLOAD" | openssl dgst -sha256 -hmac "${{ secrets.WEBHOOK_SECRET }}" | awk '{print $2}')"
+          curl -s -o /dev/null -w "%{http_code}" \
+            -X POST https://saurabhinfosys.com/deploy-webhook.php \
+            -H "Content-Type: application/json" \
+            -H "X-Hub-Signature-256: $SIG" \
+            -d "$PAYLOAD"
