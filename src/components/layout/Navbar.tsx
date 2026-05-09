@@ -28,6 +28,14 @@ const navLinks = [
   },
   { label: "Portfolio", href: "/portfolio" },
   { label: "Blog", href: "/blog" },
+  {
+    label: "We Serve",
+    href: "/usa",
+    dropdown: [
+      { label: "🇺🇸 USA", href: "/usa" },
+      { label: "🇸🇬 Singapore", href: "/singapore" },
+    ],
+  },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];
