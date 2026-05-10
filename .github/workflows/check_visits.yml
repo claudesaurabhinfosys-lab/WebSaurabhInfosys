@@ -12,16 +12,16 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts 2>/dev/null
 
-      - name: Count today's visits
+      - name: Find log files
         run: |
-          TODAY=$(date +%d/%b/%Y)
           ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no \
             ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
-            "echo '=== TOTAL HITS TODAY ===' && \
-             grep '$TODAY' /home/saurabhinfosys.com/logs/access_log 2>/dev/null | wc -l && \
-             echo '=== UNIQUE IPs ===' && \
-             grep '$TODAY' /home/saurabhinfosys.com/logs/access_log 2>/dev/null | awk '{print \$1}' | sort -u | wc -l && \
-             echo '=== TOP PAGES ===' && \
-             grep '$TODAY' /home/saurabhinfosys.com/logs/access_log 2>/dev/null | awk '{print \$7}' | sort | uniq -c | sort -rn | head -10 && \
-             echo '=== TOP COUNTRIES (via IP ranges rough) ===' && \
-             grep '$TODAY' /home/saurabhinfosys.com/logs/access_log 2>/dev/null | awk '{print \$1}' | sort | uniq -c | sort -rn | head -10"
+            "echo '=== LOG DIRS ===' && \
+             find /home/saurabhinfosys.com -name '*.log' -o -name 'access*' 2>/dev/null | head -20 && \
+             echo '=== /var/log apache ===' && \
+             ls /var/log/apache2/ 2>/dev/null || ls /var/log/httpd/ 2>/dev/null || echo 'no apache logs' && \
+             echo '=== HOME LOGS ===' && \
+             ls /home/saurabhinfosys.com/logs/ 2>/dev/null || echo 'no logs dir' && \
+             echo '=== LATEST LINE IN ACCESS LOG ===' && \
+             tail -2 /home/saurabhinfosys.com/logs/access_log 2>/dev/null || \
+             tail -2 /usr/local/apache/domlogs/saurabhinfosys.com 2>/dev/null || echo 'not found'"
