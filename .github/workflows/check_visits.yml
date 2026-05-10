@@ -5,16 +5,33 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - name: Check campaign status
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts 2>/dev/null || true
+
+      - name: Check API routes and campaign status
         env:
           TOKEN: ${{ secrets.SOCIALADMIN_TOKEN }}
         run: |
-          echo "=== Campaign 10 status ==="
-          curl -s "https://socialadmin.mysampark.com/api/campaign/10" \
-            -H "Accept: application/json" \
-            -H "Authorization: Bearer $TOKEN"
+          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no \
+            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
+            "grep -i 'campaign' /home/mysampark.com/public_html/socialadmin/routes/api.php" 2>/dev/null
+
           echo ""
-          echo "=== All recent campaigns ==="
-          curl -s "https://socialadmin.mysampark.com/api/campaign?per_page=5" \
+          echo "=== Try campaign list ==="
+          curl -s "https://socialadmin.mysampark.com/api/campaigns" \
             -H "Accept: application/json" \
-            -H "Authorization: Bearer $TOKEN"
+            -H "Authorization: Bearer $TOKEN" | python3 -c "
+import sys,json
+d=json.load(sys.stdin)
+if isinstance(d,dict) and 'data' in d:
+    for c in d['data'][:5]:
+        print(f\"ID:{c.get('id')} Name:{c.get('name')} Status:{c.get('status')}\")
+else:
+    print(str(d)[:500])
+" 2>/dev/null || curl -s "https://socialadmin.mysampark.com/api/campaigns" \
+            -H "Accept: application/json" \
+            -H "Authorization: Bearer $TOKEN" | head -c 1000
