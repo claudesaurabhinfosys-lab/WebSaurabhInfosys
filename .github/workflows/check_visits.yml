@@ -5,54 +5,16 @@ jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - name: Setup SSH
+      - name: Check campaign status
+        env:
+          TOKEN: ${{ secrets.SOCIALADMIN_TOKEN }}
         run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts 2>/dev/null
-
-      - name: Get IPs and 404s
-        id: getips
-        run: |
-          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no \
-            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} bash << 'REMOTE'
-          LOG=/home/saurabhinfosys.com/logs/saurabhinfosys.com.access_log
-          TODAY=$(date +%d/%b/%Y)
-
-          echo "=== TOP 404 URLs ==="
-          grep "$TODAY" $LOG | awk '$9==404{print $7}' | sort | uniq -c | sort -rn | head -20
-
+          echo "=== Campaign 10 status ==="
+          curl -s "https://socialadmin.mysampark.com/api/campaign/10" \
+            -H "Accept: application/json" \
+            -H "Authorization: Bearer $TOKEN"
           echo ""
-          echo "=== UNIQUE IPs (clean) ==="
-          grep "$TODAY" $LOG | awk '{gsub(/^"/,"",$1); print $1}' | sort -u | head -100
-          REMOTE
-
-      - name: Geolocate on runner
-        run: |
-          # Re-SSH to get clean IPs into a file
-          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no \
-            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
-            "grep \"$(date +%d/%b/%Y)\" /home/saurabhinfosys.com/logs/saurabhinfosys.com.access_log | awk '{gsub(/^\"/,\"\",\$1); print \$1}' | sort -u | head -100" > /tmp/ips.txt
-
-          echo "Got $(wc -l < /tmp/ips.txt) IPs"
-
-          # Build JSON for bulk geo lookup
-          IPS=$(awk 'BEGIN{printf "["} NR>1{printf ","} {printf "{\"query\":\"%s\"}", $1} END{print "]"}' /tmp/ips.txt)
-
-          # Lookup from runner (not server)
-          curl -s -X POST "http://ip-api.com/batch?fields=query,country,city,isp,mobile" \
-            -H "Content-Type: application/json" \
-            -d "$IPS" > /tmp/geo.json
-
-          echo ""
-          echo "=== COUNTRIES ==="
-          grep -o '"country":"[^"]*"' /tmp/geo.json | sed 's/"country":"//;s/"//' | sort | uniq -c | sort -rn | head -20
-
-          echo ""
-          echo "=== CITIES ==="
-          grep -o '"city":"[^"]*"' /tmp/geo.json | sed 's/"city":"//;s/"//' | sort | uniq -c | sort -rn | head -15
-
-          echo ""
-          echo "=== TOP ISPs ==="
-          grep -o '"isp":"[^"]*"' /tmp/geo.json | sed 's/"isp":"//;s/"//' | sort | uniq -c | sort -rn | head -10
+          echo "=== All recent campaigns ==="
+          curl -s "https://socialadmin.mysampark.com/api/campaign?per_page=5" \
+            -H "Accept: application/json" \
+            -H "Authorization: Bearer $TOKEN"
