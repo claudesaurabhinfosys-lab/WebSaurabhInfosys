@@ -12,82 +12,47 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts 2>/dev/null
 
-      - name: Detailed visit stats
+      - name: Get IPs and 404s
+        id: getips
         run: |
           ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no \
             ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} bash << 'REMOTE'
           LOG=/home/saurabhinfosys.com/logs/saurabhinfosys.com.access_log
           TODAY=$(date +%d/%b/%Y)
-          echo "=========================================="
-          echo " saurabhinfosys.com — $(date '+%d %b %Y')"
-          echo "=========================================="
+
+          echo "=== TOP 404 URLs ==="
+          grep "$TODAY" $LOG | awk '$9==404{print $7}' | sort | uniq -c | sort -rn | head -20
 
           echo ""
-          echo "--- TOP PAGES (all, incl. assets) ---"
-          grep "$TODAY" $LOG | awk '{print $7}' | cut -d'?' -f1 | sort | uniq -c | sort -rn | head -20
-
-          echo ""
-          echo "--- TOP PAGES (clean, no assets) ---"
-          grep "$TODAY" $LOG | awk '{print $7}' | cut -d'?' -f1 | grep -v -E '\.(js|css|png|jpg|jpeg|svg|ico|woff|woff2|ttf|map|txt|xml|webp|gif|php)' | sort | uniq -c | sort -rn | head -20
-
-          echo ""
-          echo "--- TRAFFIC BY HOUR ---"
-          grep "$TODAY" $LOG | awk '{print $4}' | cut -d: -f2 | sort | uniq -c
-
-          echo ""
-          echo "--- TOP REFERRERS ---"
-          grep "$TODAY" $LOG | awk '{print $11}' | sort | uniq -c | sort -rn | grep -v '"-"' | head -15
-
-          echo ""
-          echo "--- STATUS CODES ---"
-          grep "$TODAY" $LOG | awk '{print $9}' | sort | uniq -c | sort -rn
-
-          echo ""
-          echo "--- TOP 50 UNIQUE IPs TODAY ---"
-          grep "$TODAY" $LOG | awk '{print $1}' | sort | uniq -c | sort -rn | head -50 | awk '{print $2}' > /tmp/top_ips.txt
-          cat /tmp/top_ips.txt
-
-          echo ""
-          echo "--- MOBILE vs DESKTOP (rough) ---"
-          echo "Mobile:"
-          grep "$TODAY" $LOG | grep -i -E "Mobile|Android|iPhone|iPad" | wc -l
-          echo "Desktop:"
-          grep "$TODAY" $LOG | grep -i -v -E "Mobile|Android|iPhone|iPad|bot|crawl|spider" | wc -l
-
-          echo ""
-          echo "--- TOP USER AGENTS (non-bot) ---"
-          grep "$TODAY" $LOG | grep -i -v -E "bot|crawl|spider|baidu|yandex" | awk -F'"' '{print $6}' | sort | uniq -c | sort -rn | head -10
+          echo "=== UNIQUE IPs (clean) ==="
+          grep "$TODAY" $LOG | awk '{gsub(/^"/,"",$1); print $1}' | sort -u | head -100
           REMOTE
 
-      - name: Geolocate top IPs
+      - name: Geolocate on runner
         run: |
+          # Re-SSH to get clean IPs into a file
           ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no \
-            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} bash << 'REMOTE'
-          LOG=/home/saurabhinfosys.com/logs/saurabhinfosys.com.access_log
-          TODAY=$(date +%d/%b/%Y)
+            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
+            "grep \"$(date +%d/%b/%Y)\" /home/saurabhinfosys.com/logs/saurabhinfosys.com.access_log | awk '{gsub(/^\"/,\"\",\$1); print \$1}' | sort -u | head -100" > /tmp/ips.txt
 
-          echo ""
-          echo "--- COUNTRY BREAKDOWN (via ip-api.com) ---"
-          # Get top 100 unique IPs
-          grep "$TODAY" $LOG | awk '{print $1}' | sort -u | head -100 > /tmp/ips.txt
+          echo "Got $(wc -l < /tmp/ips.txt) IPs"
 
-          # Build JSON array for bulk lookup
-          IPS=$(cat /tmp/ips.txt | awk 'BEGIN{printf "["} {printf "%s{\"query\":\"%s\"}", (NR>1?",":""), $1} END{print "]"}')
+          # Build JSON for bulk geo lookup
+          IPS=$(awk 'BEGIN{printf "["} NR>1{printf ","} {printf "{\"query\":\"%s\"}", $1} END{print "]"}' /tmp/ips.txt)
 
-          # Bulk geolocate
-          curl -s -X POST "http://ip-api.com/batch?fields=query,country,city,isp,mobile,proxy" \
+          # Lookup from runner (not server)
+          curl -s -X POST "http://ip-api.com/batch?fields=query,country,city,isp,mobile" \
             -H "Content-Type: application/json" \
-            -d "$IPS" > /tmp/geo.json 2>/dev/null
-
-          echo "Country counts:"
-          cat /tmp/geo.json | grep -o '"country":"[^"]*"' | sort | uniq -c | sort -rn | sed 's/"country":"//;s/"//' | head -20
+            -d "$IPS" > /tmp/geo.json
 
           echo ""
-          echo "City counts:"
-          cat /tmp/geo.json | grep -o '"city":"[^"]*"' | sort | uniq -c | sort -rn | sed 's/"city":"//;s/"//' | head -20
+          echo "=== COUNTRIES ==="
+          grep -o '"country":"[^"]*"' /tmp/geo.json | sed 's/"country":"//;s/"//' | sort | uniq -c | sort -rn | head -20
 
           echo ""
-          echo "Mobile vs Non-mobile IPs:"
-          echo "Mobile IPs: $(cat /tmp/geo.json | grep -o '"mobile":true' | wc -l)"
-          echo "Desktop IPs: $(cat /tmp/geo.json | grep -o '"mobile":false' | wc -l)"
-          REMOTE
+          echo "=== CITIES ==="
+          grep -o '"city":"[^"]*"' /tmp/geo.json | sed 's/"city":"//;s/"//' | sort | uniq -c | sort -rn | head -15
+
+          echo ""
+          echo "=== TOP ISPs ==="
+          grep -o '"isp":"[^"]*"' /tmp/geo.json | sed 's/"isp":"//;s/"//' | sort | uniq -c | sort -rn | head -10
