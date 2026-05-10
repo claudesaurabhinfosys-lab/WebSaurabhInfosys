@@ -12,32 +12,29 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts 2>/dev/null
 
-      - name: Today's visit stats
+      - name: All domains visit stats
         run: |
           ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no \
             ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} bash << 'REMOTE'
-          LOG=/home/saurabhinfosys.com/logs/saurabhinfosys.com.access_log
           TODAY=$(date +%d/%b/%Y)
           echo "=== Date: $TODAY ==="
           echo ""
-          echo "--- TOTAL REQUESTS TODAY ---"
-          grep "$TODAY" $LOG | wc -l
-          echo ""
-          echo "--- UNIQUE VISITORS (IPs) ---"
-          grep "$TODAY" $LOG | awk '{print $1}' | sort -u | wc -l
-          echo ""
-          echo "--- TOP PAGES ---"
-          grep "$TODAY" $LOG | awk '{print $7}' | grep -v '\.' | sort | uniq -c | sort -rn | head -15
-          echo ""
-          echo "--- BOTS vs HUMANS (rough) ---"
-          echo "Bots:"
-          grep "$TODAY" $LOG | grep -i -E "bot|crawl|spider|Google|Bing|baidu|yandex" | wc -l
-          echo "Humans (approx):"
-          grep "$TODAY" $LOG | grep -i -v -E "bot|crawl|spider|baidu|yandex" | wc -l
-          echo ""
-          echo "--- ALL TIME TOTAL REQUESTS ---"
-          wc -l < $LOG
-          echo ""
-          echo "--- LAST 5 REQUESTS ---"
-          tail -5 $LOG | awk '{print $1, $7, $9}'
+
+          for LOG in /home/saurabhinfosys.com/logs/*.access_log /home/mysampark.com/logs/*.access_log /home/myschoolmanagementsystem.com/logs/*.access_log; do
+            [ -f "$LOG" ] || continue
+            DOMAIN=$(basename "$LOG" .access_log)
+            TOTAL=$(grep "$TODAY" "$LOG" 2>/dev/null | wc -l)
+            UNIQUE=$(grep "$TODAY" "$LOG" 2>/dev/null | awk '{print $1}' | sort -u | wc -l)
+            BOTS=$(grep "$TODAY" "$LOG" 2>/dev/null | grep -i -E "bot|crawl|spider|Google|Bing|baidu|yandex" | wc -l)
+            HUMANS=$((TOTAL - BOTS))
+            echo "--- $DOMAIN ---"
+            echo "  Requests : $TOTAL"
+            echo "  Unique IPs: $UNIQUE"
+            echo "  Humans~  : $HUMANS"
+            echo "  Bots~    : $BOTS"
+            echo ""
+          done
+
+          echo "=== ALL ACCESS LOGS ON SERVER ==="
+          find /home -name "*.access_log" 2>/dev/null | head -30
           REMOTE
