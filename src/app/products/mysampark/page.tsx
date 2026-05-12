@@ -84,7 +84,7 @@ const platforms = [
 ];
 
 const stats = [
-  { value: "50,000+", label: "Creators & Brands" },
+  { value: "2,000+", label: "Creators & Brands" },
   { value: "60 days", label: "Advance Scheduling" },
   { value: "5 platforms", label: "Supported" },
   { value: "90 sec", label: "To Get Started" },
@@ -110,10 +110,6 @@ const faqs = [
   {
     q: "Is there a free plan?",
     a: "Yes, MySampark offers a free plan to get you started. You can upgrade anytime as your needs grow.",
-  },
-  {
-    q: "Is MySampark available on mobile?",
-    a: "Yes. MySampark is available on both Google Play (Android) and the App Store (iOS) so you can manage your social media on the go.",
   },
 ];
 
@@ -151,7 +147,7 @@ export default function MySamparkPage() {
             </div>
             <span className="font-dm text-ink-light text-sm">
               Trusted by{" "}
-              <span className="font-semibold text-ink">50,000+ creators</span>{" "}
+              <span className="font-semibold text-ink">2,000+ creators</span>{" "}
               &amp; brands
             </span>
           </div>
@@ -164,14 +160,6 @@ export default function MySamparkPage() {
               className="bg-accent text-white font-syne font-semibold text-base px-8 py-4 rounded-lg hover:bg-accent-dark transition-colors"
             >
               Get Started for Free →
-            </a>
-            <a
-              href="https://play.google.com/store/apps/details?id=com.saurabhinfosys.mysampark"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 bg-ink text-white font-syne font-semibold text-base px-8 py-4 rounded-lg hover:bg-ink/80 transition-colors"
-            >
-              <span>📱</span> Download the App
             </a>
           </div>
         </div>
@@ -302,43 +290,6 @@ export default function MySamparkPage() {
         </div>
       </section>
 
-      {/* Mobile App CTA */}
-      <section className="bg-card py-24">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="bg-bg rounded-3xl border border-ink/8 p-8 md:p-12 flex flex-col md:flex-row items-center gap-8">
-            <div className="text-6xl flex-shrink-0">📱</div>
-            <div className="flex-1 text-center md:text-left">
-              <h2 className="font-syne text-3xl font-bold text-ink mb-3">
-                Take MySampark with you
-              </h2>
-              <p className="font-dm text-ink-light text-base mb-6">
-                The MySampark mobile app lets you create and share professional
-                festival posts, promotional content, and campaign updates on the
-                go. Available on Android and iOS — free to download.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                <a
-                  href="https://play.google.com/store/apps/details?id=com.saurabhinfosys.mysampark"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-ink text-white font-syne font-semibold text-sm px-6 py-3 rounded-xl hover:bg-ink/80 transition-colors"
-                >
-                  <span>▶</span> Google Play
-                </a>
-                <a
-                  href="https://apps.apple.com/us/app/my-sampark-poster-maker/id6736365281"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 border border-ink/20 text-ink font-syne font-semibold text-sm px-6 py-3 rounded-xl hover:bg-ink/5 transition-colors"
-                >
-                  <span>🍎</span> App Store
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* FAQ */}
       <section className="bg-bg py-24">
         <div className="max-w-3xl mx-auto px-6">
@@ -372,7 +323,7 @@ export default function MySamparkPage() {
             Ready to grow your social media presence?
           </h2>
           <p className="font-dm text-white/60 text-lg mb-10 max-w-xl mx-auto">
-            Join 50,000+ creators and brands using MySampark to schedule
+            Join 2,000+ creators and brands using MySampark to schedule
             smarter, post faster, and grow their audience with AI.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
