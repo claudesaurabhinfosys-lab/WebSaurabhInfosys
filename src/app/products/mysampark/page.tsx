@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "MySampark — AI Social Media Management Platform | Built by Saurabh Infosys",
@@ -119,6 +120,22 @@ export default function MySamparkPage() {
       {/* Hero */}
       <section className="bg-bg py-24">
         <div className="max-w-5xl mx-auto px-6 text-center">
+          {/* Logo */}
+          <div className="flex justify-center mb-8">
+            <a
+              href="https://mysampark.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/mysampark-logo.svg"
+                alt="MySampark"
+                width={200}
+                height={37}
+                priority
+              />
+            </a>
+          </div>
           <div className="inline-block bg-accent/10 text-accent font-dm font-semibold text-sm px-4 py-1.5 rounded-full mb-6 uppercase tracking-wide">
             AI Social Media Management
           </div>
@@ -162,6 +179,32 @@ export default function MySamparkPage() {
               Get Started for Free →
             </a>
           </div>
+        </div>
+      </section>
+
+      {/* CTA Banner */}
+      <section className="bg-[#FB6238] py-4">
+        <div className="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="flex items-center gap-3">
+            <Image
+              src="/mysampark-logo.svg"
+              alt="MySampark"
+              width={120}
+              height={22}
+              className="brightness-0 invert"
+            />
+            <span className="font-dm text-white text-sm">
+              — AI Social Media Platform
+            </span>
+          </div>
+          <a
+            href="https://mysampark.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-white text-[#FB6238] font-syne font-bold text-sm px-6 py-2.5 rounded-full hover:bg-white/90 transition-colors whitespace-nowrap"
+          >
+            Visit mysampark.com →
+          </a>
         </div>
       </section>
 
