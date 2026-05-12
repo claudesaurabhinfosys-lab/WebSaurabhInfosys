@@ -11,15 +11,12 @@ jobs:
           echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts 2>/dev/null || true
-
-      - name: Get logo SVG content
+      - name: Copy saurabhInfosys.webp to saurabhinfosys.com public
         run: |
           ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no \
             ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} bash << 'REMOTE'
-          echo "=== fullLogo.svg ==="
-          cat /home/mysampark.com/public_html/public/fullLogo.svg
-
-          echo ""
-          echo "=== LightLogo.svg ==="
-          cat /home/mysampark.com/public_html/public/LightLogo.svg
+          echo "=== Copying logo ==="
+          cp /home/mysampark.com/public_html/public/saurabhInfosys.webp \
+             /home/saurabhinfosys.com/public_html/saurabhInfosys.webp
+          echo "Done: $(ls -lh /home/saurabhinfosys.com/public_html/saurabhInfosys.webp)"
           REMOTE
