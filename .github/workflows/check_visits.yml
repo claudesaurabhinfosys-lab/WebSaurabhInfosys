@@ -12,35 +12,22 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts 2>/dev/null || true
 
-      - name: Read mysampark app structure and content
+      - name: Read all home sections
         run: |
           ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no \
             ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} bash << 'REMOTE'
-          BASE=/home/mysampark.com/public_html/app
+          COMP=/home/mysampark.com/public_html/components/Home
 
-          echo "=== App structure ==="
-          find $BASE -name "page.tsx" -o -name "page.ts" 2>/dev/null | head -20
+          echo "=== All home components ==="
+          ls $COMP/section/ 2>/dev/null
 
-          echo ""
-          echo "=== Homepage (page.tsx) ==="
-          cat $BASE/page.tsx 2>/dev/null | head -300
-
-          echo ""
-          echo "=== Features page ==="
-          cat $BASE/features/page.tsx 2>/dev/null | head -200
-
-          echo ""
-          echo "=== Pricing page ==="
-          cat $BASE/pricing/page.tsx 2>/dev/null | head -200
-
-          echo ""
-          echo "=== Components dir ==="
-          ls /home/mysampark.com/public_html/components/ 2>/dev/null | head -20
-
-          echo ""
-          echo "=== Landing/Hero component ==="
-          find /home/mysampark.com/public_html/components -name "Hero*" -o -name "Landing*" -o -name "home*" 2>/dev/null | head -5 | while read f; do
-            echo "--- $f ---"
-            cat "$f" | head -100
+          for f in $COMP/section/*.tsx; do
+            echo ""
+            echo "====== $f ======"
+            cat "$f" 2>/dev/null
           done
+
+          echo ""
+          echo "====== Main page.tsx ======"
+          cat /home/mysampark.com/public_html/app/\(main\)/page.tsx 2>/dev/null
           REMOTE
