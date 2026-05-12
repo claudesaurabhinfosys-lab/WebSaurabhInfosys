@@ -12,20 +12,35 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts 2>/dev/null || true
 
-      - name: Read mysampark.com content
+      - name: Read mysampark app structure and content
         run: |
           ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no \
             ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} bash << 'REMOTE'
-          echo "=== mysampark.com directory ==="
-          ls /home/mysampark.com/public_html/ 2>/dev/null | head -30
+          BASE=/home/mysampark.com/public_html/app
+
+          echo "=== App structure ==="
+          find $BASE -name "page.tsx" -o -name "page.ts" 2>/dev/null | head -20
 
           echo ""
-          echo "=== index.html/php content ==="
-          cat /home/mysampark.com/public_html/index.html 2>/dev/null | \
-            sed 's/<[^>]*>//g' | grep -v "^$" | grep -v "^\s*$" | head -200
+          echo "=== Homepage (page.tsx) ==="
+          cat $BASE/page.tsx 2>/dev/null | head -300
 
           echo ""
-          echo "=== index.php if exists ==="
-          cat /home/mysampark.com/public_html/index.php 2>/dev/null | \
-            sed 's/<[^>]*>//g' | grep -v "^$" | grep -v "^\s*$" | head -100
+          echo "=== Features page ==="
+          cat $BASE/features/page.tsx 2>/dev/null | head -200
+
+          echo ""
+          echo "=== Pricing page ==="
+          cat $BASE/pricing/page.tsx 2>/dev/null | head -200
+
+          echo ""
+          echo "=== Components dir ==="
+          ls /home/mysampark.com/public_html/components/ 2>/dev/null | head -20
+
+          echo ""
+          echo "=== Landing/Hero component ==="
+          find /home/mysampark.com/public_html/components -name "Hero*" -o -name "Landing*" -o -name "home*" 2>/dev/null | head -5 | while read f; do
+            echo "--- $f ---"
+            cat "$f" | head -100
+          done
           REMOTE
