@@ -12,14 +12,14 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts 2>/dev/null || true
 
-      - name: Find logo files
+      - name: Get logo SVG content
         run: |
           ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no \
             ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} bash << 'REMOTE'
-          echo "=== Logo/brand files in mysampark public ==="
-          find /home/mysampark.com/public_html/public -name "*logo*" -o -name "*Logo*" -o -name "*brand*" -o -name "*.svg" 2>/dev/null
+          echo "=== fullLogo.svg ==="
+          cat /home/mysampark.com/public_html/public/fullLogo.svg
 
           echo ""
-          echo "=== All files in public root ==="
-          ls /home/mysampark.com/public_html/public/ 2>/dev/null
+          echo "=== LightLogo.svg ==="
+          cat /home/mysampark.com/public_html/public/LightLogo.svg
           REMOTE
