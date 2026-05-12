@@ -12,23 +12,20 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts 2>/dev/null || true
 
-      - name: Check campaign routes and status
-        env:
-          TOKEN: ${{ secrets.SOCIALADMIN_TOKEN }}
+      - name: Read mysampark.com content
         run: |
-          echo "=== Campaign API routes ==="
           ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no \
-            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} \
-            "grep -i 'campaign' /home/mysampark.com/public_html/socialadmin/routes/api.php"
+            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} bash << 'REMOTE'
+          echo "=== mysampark.com directory ==="
+          ls /home/mysampark.com/public_html/ 2>/dev/null | head -30
 
           echo ""
-          echo "=== Campaign list attempt ==="
-          curl -s -X GET "https://socialadmin.mysampark.com/api/campaign/list" \
-            -H "Accept: application/json" \
-            -H "Authorization: Bearer $TOKEN" | head -c 2000
+          echo "=== index.html/php content ==="
+          cat /home/mysampark.com/public_html/index.html 2>/dev/null | \
+            sed 's/<[^>]*>//g' | grep -v "^$" | grep -v "^\s*$" | head -200
 
           echo ""
-          echo "=== Posts list ==="
-          curl -s -X GET "https://socialadmin.mysampark.com/api/post" \
-            -H "Accept: application/json" \
-            -H "Authorization: Bearer $TOKEN" | head -c 2000
+          echo "=== index.php if exists ==="
+          cat /home/mysampark.com/public_html/index.php 2>/dev/null | \
+            sed 's/<[^>]*>//g' | grep -v "^$" | grep -v "^\s*$" | head -100
+          REMOTE
