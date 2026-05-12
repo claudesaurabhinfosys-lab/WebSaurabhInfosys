@@ -12,18 +12,14 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts 2>/dev/null || true
 
-      - name: Check deploy script and logs
+      - name: Find logo files
         run: |
           ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no \
             ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} bash << 'REMOTE'
-          echo "=== deploy.sh full ==="
-          cat /home/saurabhinfosys.com/deploy.sh
+          echo "=== Logo/brand files in mysampark public ==="
+          find /home/mysampark.com/public_html/public -name "*logo*" -o -name "*Logo*" -o -name "*brand*" -o -name "*.svg" 2>/dev/null
 
           echo ""
-          echo "=== last 30 lines of deploy.log ==="
-          tail -30 /home/saurabhinfosys.com/logs/deploy.log 2>/dev/null || echo "no log"
-
-          echo ""
-          echo "=== public_html modification times (top level) ==="
-          ls -la /home/saurabhinfosys.com/public_html/ | head -20
+          echo "=== All files in public root ==="
+          ls /home/mysampark.com/public_html/public/ 2>/dev/null
           REMOTE
