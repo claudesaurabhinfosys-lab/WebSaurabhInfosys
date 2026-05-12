@@ -21,15 +21,24 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build (validation)
+      - name: Build
         run: npm run build
 
-      - name: Trigger server deploy via webhook
+      - name: Setup SSH
         run: |
-          PAYLOAD='{"ref":"refs/heads/main"}'
-          SIG="sha256=$(echo -n "$PAYLOAD" | openssl dgst -sha256 -hmac "${{ secrets.WEBHOOK_SECRET }}" | awk '{print $2}')"
-          curl -s -o /dev/null -w "%{http_code}" \
-            -X POST https://saurabhinfosys.com/deploy-webhook.php \
-            -H "Content-Type: application/json" \
-            -H "X-Hub-Signature-256: $SIG" \
-            -d "$PAYLOAD"
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts 2>/dev/null || true
+
+      - name: Deploy via rsync
+        run: |
+          rsync -av --delete \
+            --exclude='.htaccess' \
+            --exclude='extract.php' \
+            --exclude='phptest.php' \
+            --exclude='deploy-webhook.php' \
+            --exclude='4e472060b5dd251fff9f2f80eefa8bdb.txt' \
+            -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no" \
+            out/ \
+            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_PATH }}/
