@@ -12,19 +12,18 @@ jobs:
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts 2>/dev/null || true
 
-      - name: Check live mysampark page
+      - name: Check deploy script and logs
         run: |
           ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no \
             ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} bash << 'REMOTE'
-          echo "=== Files in public_html ==="
-          ls -la /home/saurabhinfosys.com/public_html/products/mysampark/ 2>/dev/null
+          echo "=== deploy.sh full ==="
+          cat /home/saurabhinfosys.com/deploy.sh
 
           echo ""
-          echo "=== Content of index.html ==="
-          cat /home/saurabhinfosys.com/public_html/products/mysampark/index.html 2>/dev/null | \
-            grep -i "2,000\|50,000\|app store\|google play\|smarter way\|creators" | head -10
+          echo "=== last 30 lines of deploy.log ==="
+          tail -30 /home/saurabhinfosys.com/logs/deploy.log 2>/dev/null || echo "no log"
 
           echo ""
-          echo "=== deploy.sh rsync command ==="
-          cat /home/saurabhinfosys.com/deploy.sh | grep rsync
+          echo "=== public_html modification times (top level) ==="
+          ls -la /home/saurabhinfosys.com/public_html/ | head -20
           REMOTE
