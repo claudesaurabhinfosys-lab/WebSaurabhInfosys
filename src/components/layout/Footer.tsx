@@ -1,4 +1,5 @@
-import Link from "next/link";
+﻿import Link from "next/link";
+import Image from "next/image";
 import { COMPANY } from "@/lib/data";
 
 const links = {
@@ -35,9 +36,13 @@ export default function Footer() {
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4 w-fit">
-              <div className="w-9 h-9 gradient-bg rounded-xl flex items-center justify-center">
-                <span className="text-white font-extrabold text-sm">SI</span>
-              </div>
+              <Image
+                src="/saurabhInfosys.webp"
+                alt="Saurabh Infosys"
+                width={36}
+                height={36}
+                className="rounded-xl object-cover"
+              />
               <span className="font-extrabold text-ink text-lg">
                 Saurabh<span className="text-accent">Infosys</span>
               </span>
