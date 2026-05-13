@@ -5,5 +5,10 @@ jobs:
   report:
     runs-on: ubuntu-latest
     steps:
-      - name: test
-        run: echo hello
+      - uses: actions/checkout@v4
+      - name: Run GSC query
+        env:
+          GSC_KEY: ${{ secrets.GSC_KEY }}
+        run: |
+          pip install google-auth requests -q
+          python scripts/gsc_query.py
