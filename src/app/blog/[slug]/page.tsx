@@ -14,16 +14,30 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const post = BLOG_POSTS.find((p) => p.slug === params.slug);
   if (!post) return {};
+  const keywordMap: Record<string, string[]> = {
+    "google-gemma-4-vs-chatgpt": ["gemma 4 vs chatgpt", "google gemma vs chatgpt", "best AI model for business", "open source AI vs chatgpt", "gemma 4 comparison 2026"],
+    "what-is-vibe-coding": ["vibe coding", "AI coding India", "vibe coding services India", "AI-accelerated development", "MVP development AI"],
+    "google-signin-in-flutter": ["google sign in flutter", "flutter authentication", "flutter firebase auth", "flutter google login", "flutter app development"],
+    "flutter-ai-enabled-apps": ["flutter AI apps", "AI flutter development", "flutter machine learning", "flutter OpenAI integration"],
+    "flutter-vs-react-native-2025": ["flutter vs react native 2025", "flutter vs react native performance", "best cross platform framework 2025"],
+  };
+  const extraKeywords = keywordMap[post.slug] || [];
   return {
-    title: `${post.title} | Saurabh Infosys Blog`,
+    title: `${post.title} | Saurabh Infosys`,
     description: post.excerpt,
-    keywords: [post.category, "AI automation India", "Saurabh Infosys blog", "software development India"],
+    keywords: [post.category, ...extraKeywords, "AI automation India", "Saurabh Infosys blog", "software development India"],
     alternates: { canonical: `https://saurabhinfosys.com/blog/${post.slug}` },
     openGraph: {
       title: post.title,
       description: post.excerpt,
       url: `https://saurabhinfosys.com/blog/${post.slug}`,
       type: "article",
+      publishedTime: post.date,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.excerpt,
     },
   };
 }
