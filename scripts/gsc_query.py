@@ -2,7 +2,7 @@ import json, datetime, requests, os
 from google.oauth2 import service_account
 from google.auth.transport.requests import Request as GoogleRequest
 
-key_data = json.loads(os.environ["GSC_KEY"])
+key_data = json.loads(os.environ["GSC_KEY"].lstrip('﻿'))
 SITE_URL = "sc-domain:saurabhinfosys.com"
 creds = service_account.Credentials.from_service_account_info(key_data, scopes=["https://www.googleapis.com/auth/webmasters.readonly"])
 creds.refresh(GoogleRequest())
