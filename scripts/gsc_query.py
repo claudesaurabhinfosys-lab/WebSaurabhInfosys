@@ -1,17 +1,31 @@
-import json, datetime, requests, os
-from google.oauth2 import service_account
-from google.auth.transport.requests import Request as GoogleRequest
+import json, datetime, requests, os, sys
 
-key_data = json.loads(os.environ["GSC_KEY"].lstrip('﻿'))
 SITE_URL = "sc-domain:saurabhinfosys.com"
-creds = service_account.Credentials.from_service_account_info(key_data, scopes=["https://www.googleapis.com/auth/webmasters.readonly"])
-creds.refresh(GoogleRequest())
-token = creds.token
-headers = {"Authorization": f"Bearer {token}", "Content-Type": "application/json"}
-end_date = datetime.date.today().strftime("%Y-%m-%d")
-start_date = (datetime.date.today() - datetime.timedelta(days=90)).strftime("%Y-%m-%d")
 base = "https://searchconsole.googleapis.com/webmasters/v3"
 site_enc = requests.utils.quote(SITE_URL, safe="")
+
+# Get access token — try refresh token first, fall back to direct access token
+access_token = os.environ.get("GSC_ACCESS_TOKEN", "")
+refresh_token = os.environ.get("GSC_REFRESH_TOKEN", "")
+client_id = os.environ.get("GSC_CLIENT_ID", "407408718192.apps.googleusercontent.com")
+client_secret = os.environ.get("GSC_CLIENT_SECRET", "")
+
+if refresh_token and client_secret:
+    r = requests.post("https://oauth2.googleapis.com/token", data={
+        "client_id": client_id,
+        "client_secret": client_secret,
+        "refresh_token": refresh_token,
+        "grant_type": "refresh_token"
+    })
+    access_token = r.json().get("access_token", access_token)
+    print(f"Using refreshed token (status: {r.status_code})")
+else:
+    print("Using direct access token")
+
+headers = {"Authorization": f"Bearer {access_token}", "Content-Type": "application/json"}
+
+end_date = datetime.date.today().strftime("%Y-%m-%d")
+start_date = (datetime.date.today() - datetime.timedelta(days=90)).strftime("%Y-%m-%d")
 
 def query(dims=None, limit=20, order_by="impressions"):
     body = {"startDate": start_date, "endDate": end_date, "rowLimit": limit}
@@ -19,6 +33,9 @@ def query(dims=None, limit=20, order_by="impressions"):
         body["dimensions"] = dims
         body["orderBy"] = [{"fieldName": order_by, "sortOrder": "DESCENDING"}]
     r = requests.post(f"{base}/sites/{site_enc}/searchAnalytics/query", headers=headers, json=body)
+    if r.status_code != 200:
+        print(f"API error {r.status_code}: {r.text}")
+        sys.exit(1)
     return r.json()
 
 d = query()
@@ -30,7 +47,7 @@ if "rows" in d:
     print(f"Avg CTR:      {row['ctr']*100:.2f}%")
     print(f"Avg Position: {row['position']:.1f}")
 else:
-    print("No data:", d)
+    print("No data yet")
 
 d = query(["query"], limit=20)
 print("\n=== TOP 20 KEYWORDS (by impressions) ===")
