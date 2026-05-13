@@ -1,29 +1,29 @@
 import json, datetime, requests, os, sys
 
+def clean(s):
+    return s.strip().lstrip('﻿').strip() if s else s
+
 SITE_URL = "sc-domain:saurabhinfosys.com"
 base = "https://searchconsole.googleapis.com/webmasters/v3"
 site_enc = requests.utils.quote(SITE_URL, safe="")
 
-# Get access token — try refresh token first, fall back to direct access token
-access_token = os.environ.get("GSC_ACCESS_TOKEN", "")
-refresh_token = os.environ.get("GSC_REFRESH_TOKEN", "")
-client_id = os.environ.get("GSC_CLIENT_ID", "407408718192.apps.googleusercontent.com")
-client_secret = os.environ.get("GSC_CLIENT_SECRET", "")
+access_token = clean(os.environ.get("GSC_ACCESS_TOKEN", ""))
+refresh_token = clean(os.environ.get("GSC_REFRESH_TOKEN", ""))
 
-if refresh_token and client_secret:
+if refresh_token:
     r = requests.post("https://oauth2.googleapis.com/token", data={
-        "client_id": client_id,
-        "client_secret": client_secret,
+        "client_id": "407408718192.apps.googleusercontent.com",
+        "client_secret": "AI49um_HuOMdfsMdE19ypuXQ",
         "refresh_token": refresh_token,
         "grant_type": "refresh_token"
     })
-    access_token = r.json().get("access_token", access_token)
-    print(f"Using refreshed token (status: {r.status_code})")
-else:
-    print("Using direct access token")
+    if r.status_code == 200:
+        access_token = r.json().get("access_token", access_token)
+        print(f"Token refreshed OK")
+    else:
+        print(f"Refresh failed ({r.status_code}), using access token directly")
 
 headers = {"Authorization": f"Bearer {access_token}", "Content-Type": "application/json"}
-
 end_date = datetime.date.today().strftime("%Y-%m-%d")
 start_date = (datetime.date.today() - datetime.timedelta(days=90)).strftime("%Y-%m-%d")
 
@@ -47,7 +47,7 @@ if "rows" in d:
     print(f"Avg CTR:      {row['ctr']*100:.2f}%")
     print(f"Avg Position: {row['position']:.1f}")
 else:
-    print("No data yet")
+    print("No data yet:", d)
 
 d = query(["query"], limit=20)
 print("\n=== TOP 20 KEYWORDS (by impressions) ===")
