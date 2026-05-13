@@ -355,11 +355,11 @@ export const BLOG_POSTS: BlogPostData[] = [
   // New AI-focused posts
   {
     slug: "google-gemma-4-vs-chatgpt",
-    title: "Google Gemma 4 vs ChatGPT: Which AI Model is Right for Your Business?",
+    title: "Google Gemma 4 vs ChatGPT: Cost, Privacy & Performance Compared (2026)",
     category: "AI Development",
     date: "2026-04-24",
     readTime: "8 min read",
-    excerpt: "Google's Gemma 4 brings powerful open-weight AI that runs locally for free. ChatGPT remains the world's most popular AI assistant. For Indian businesses choosing an AI strategy, here's an honest comparison of both — and when to use each.",
+    excerpt: "Gemma 4 is free, private, and runs on your own servers. ChatGPT costs per token but works instantly via API. We compare cost, data privacy, speed, and accuracy — with real examples — so you can pick the right AI model for your business.",
     isNew: true,
     content: [
       { type: "p", text: "The AI model landscape has never moved faster. Google's Gemma 4 — the latest in its open-weight model series — and OpenAI's ChatGPT (powered by GPT-4o) represent two very different philosophies about how AI should be deployed. Both are genuinely powerful. But for Indian businesses building AI automation, choosing the right foundation model matters more than most realise." },
