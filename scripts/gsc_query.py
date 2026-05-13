@@ -7,10 +7,34 @@ SITE_URL = "https://saurabhinfosys.com/"
 base = "https://searchconsole.googleapis.com/webmasters/v3"
 site_enc = requests.utils.quote(SITE_URL, safe="")
 
-access_token = clean(os.environ.get("GSC_ACCESS_TOKEN", ""))
-headers = {"Authorization": f"Bearer {access_token}", "Content-Type": "application/json"}
+access_token  = clean(os.environ.get("GSC_ACCESS_TOKEN", ""))
+refresh_token = clean(os.environ.get("GSC_REFRESH_TOKEN", ""))
+client_id     = clean(os.environ.get("GSC_CLIENT_ID", ""))
+client_secret = clean(os.environ.get("GSC_CLIENT_SECRET", ""))
 
-end_date = datetime.date.today().strftime("%Y-%m-%d")
+# Always try to get a fresh access token via refresh
+if refresh_token and client_id and client_secret:
+    r = requests.post("https://oauth2.googleapis.com/token", data={
+        "client_id": client_id,
+        "client_secret": client_secret,
+        "refresh_token": refresh_token,
+        "grant_type": "refresh_token"
+    })
+    if r.status_code == 200:
+        access_token = r.json()["access_token"]
+        print(f"✅ Token refreshed successfully")
+    else:
+        print(f"⚠️  Refresh failed ({r.status_code}): {r.text}")
+        print("Falling back to stored access token...")
+else:
+    print("Using stored access token (no refresh credentials)")
+
+if not access_token:
+    print("❌ No access token available. Please update GSC_ACCESS_TOKEN secret.")
+    sys.exit(1)
+
+headers = {"Authorization": f"Bearer {access_token}", "Content-Type": "application/json"}
+end_date   = datetime.date.today().strftime("%Y-%m-%d")
 start_date = (datetime.date.today() - datetime.timedelta(days=90)).strftime("%Y-%m-%d")
 
 def query(dims=None, limit=20, order_by="impressions"):
@@ -20,12 +44,12 @@ def query(dims=None, limit=20, order_by="impressions"):
         body["orderBy"] = [{"fieldName": order_by, "sortOrder": "DESCENDING"}]
     r = requests.post(f"{base}/sites/{site_enc}/searchAnalytics/query", headers=headers, json=body)
     if r.status_code != 200:
-        print(f"API error {r.status_code}: {r.text}")
+        print(f"❌ API error {r.status_code}: {r.text}")
         sys.exit(1)
     return r.json()
 
 d = query()
-print("=== OVERALL (last 90 days) ===")
+print("\n=== OVERALL (last 90 days) ===")
 if "rows" in d:
     row = d["rows"][0]
     print(f"Clicks:       {int(row['clicks'])}")
@@ -33,7 +57,7 @@ if "rows" in d:
     print(f"Avg CTR:      {row['ctr']*100:.2f}%")
     print(f"Avg Position: {row['position']:.1f}")
 else:
-    print("No data yet:", d)
+    print("No data yet")
 
 d = query(["query"], limit=20)
 print("\n=== TOP 20 KEYWORDS (by impressions) ===")
@@ -56,7 +80,8 @@ print("\n=== PERIOD COMPARISON ===")
 for label, d1, d2 in [("Last 28 days", 28, 0), ("Prior 28 days", 56, 28)]:
     s = (datetime.date.today() - datetime.timedelta(days=d1)).strftime("%Y-%m-%d")
     e = (datetime.date.today() - datetime.timedelta(days=d2)).strftime("%Y-%m-%d")
-    r = requests.post(f"{base}/sites/{site_enc}/searchAnalytics/query", headers=headers, json={"startDate": s, "endDate": e, "rowLimit": 1})
+    r = requests.post(f"{base}/sites/{site_enc}/searchAnalytics/query", headers=headers,
+                      json={"startDate": s, "endDate": e, "rowLimit": 1})
     rows = r.json().get("rows", [])
     if rows:
         row = rows[0]
