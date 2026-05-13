@@ -1,31 +1,58 @@
-name: Check Today Visits
+name: Check Visit Stats
 on:
   workflow_dispatch:
 jobs:
   check:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup SSH
+      - name: Fetch visit stats via SSH
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
         run: |
           mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_ed25519
+          echo "$SSH_KEY" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts 2>/dev/null || true
+          ssh-keyscan -H $SSH_HOST >> ~/.ssh/known_hosts 2>/dev/null || true
 
-      - name: Copy logo from server and commit to repo
-        run: |
-          scp -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no \
-            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/mysampark.com/public_html/public/saurabhInfosys.webp \
-            public/saurabhInfosys.webp
+          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST << 'ENDSSH'
+          LOG="/home/saurabhinfosys.com/logs/saurabhinfosys.com.access_log"
 
-          echo "File size: $(ls -lh public/saurabhInfosys.webp)"
+          echo "===== TOTAL REQUESTS (ALL TIME) ====="
+          wc -l < "$LOG"
 
-          git config user.email "actions@github.com"
-          git config user.name "GitHub Actions"
-          git add public/saurabhInfosys.webp
-          git commit -m "feat: add Saurabh Infosys logo to public folder"
-          git push
+          echo ""
+          echo "===== TODAY'S REQUESTS ====="
+          TODAY=$(date +"%d/%b/%Y")
+          grep "$TODAY" "$LOG" | wc -l
+
+          echo ""
+          echo "===== LAST 7 DAYS - DAILY BREAKDOWN ====="
+          for i in 6 5 4 3 2 1 0; do
+            DAY=$(date -d "$i days ago" +"%d/%b/%Y")
+            COUNT=$(grep "$DAY" "$LOG" | wc -l)
+            echo "$DAY : $COUNT hits"
+          done
+
+          echo ""
+          echo "===== TOP 10 PAGES (ALL TIME) ====="
+          awk '{print $7}' "$LOG" | grep -v '\.(css|js|svg|png|webp|ico|woff|woff2|map|txt|json)' | sort | uniq -c | sort -rn | head -20
+
+          echo ""
+          echo "===== TODAY TOP PAGES ====="
+          grep "$TODAY" "$LOG" | awk '{print $7}' | grep -v '\.(css|js|svg|png|webp|ico|woff|woff2|map|txt|json)' | sort | uniq -c | sort -rn | head -15
+
+          echo ""
+          echo "===== TOP 10 IPs TODAY ====="
+          grep "$TODAY" "$LOG" | awk '{print $1}' | sort | uniq -c | sort -rn | head -10
+
+          echo ""
+          echo "===== UNIQUE VISITORS (LAST 7 DAYS) ====="
+          for i in 6 5 4 3 2 1 0; do
+            DAY=$(date -d "$i days ago" +"%d/%b/%Y")
+            UNIQUE=$(grep "$DAY" "$LOG" | awk '{print $1}' | sort -u | wc -l)
+            echo "$DAY : $UNIQUE unique IPs"
+          done
+
+          ENDSSH
