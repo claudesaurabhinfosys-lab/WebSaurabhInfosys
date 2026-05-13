@@ -10,6 +10,8 @@ jobs:
         env:
           GSC_ACCESS_TOKEN: ${{ secrets.GSC_ACCESS_TOKEN }}
           GSC_REFRESH_TOKEN: ${{ secrets.GSC_REFRESH_TOKEN }}
+          GSC_CLIENT_ID: ${{ secrets.GSC_CLIENT_ID }}
+          GSC_CLIENT_SECRET: ${{ secrets.GSC_CLIENT_SECRET }}
         run: |
           pip install requests -q
           python scripts/gsc_query.py
