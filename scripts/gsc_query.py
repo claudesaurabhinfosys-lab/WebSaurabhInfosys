@@ -1,100 +1,58 @@
-import json, datetime, requests, os, sys
+import requests, os, sys
 
 def clean(s):
     return s.strip().lstrip('﻿').strip() if s else s
-
-SITE_URL = "https://saurabhinfosys.com/"
-base = "https://searchconsole.googleapis.com/webmasters/v3"
-site_enc = requests.utils.quote(SITE_URL, safe="")
 
 access_token  = clean(os.environ.get("GSC_ACCESS_TOKEN", ""))
 refresh_token = clean(os.environ.get("GSC_REFRESH_TOKEN", ""))
 client_id     = clean(os.environ.get("GSC_CLIENT_ID", ""))
 client_secret = clean(os.environ.get("GSC_CLIENT_SECRET", ""))
 
-# Always try to get a fresh access token via refresh
 if refresh_token and client_id and client_secret:
     r = requests.post("https://oauth2.googleapis.com/token", data={
-        "client_id": client_id,
-        "client_secret": client_secret,
-        "refresh_token": refresh_token,
-        "grant_type": "refresh_token"
+        "client_id": client_id, "client_secret": client_secret,
+        "refresh_token": refresh_token, "grant_type": "refresh_token"
     })
     if r.status_code == 200:
         access_token = r.json()["access_token"]
-        print(f"✅ Token refreshed successfully")
-    else:
-        print(f"⚠️  Refresh failed ({r.status_code}): {r.text}")
-        print("Falling back to stored access token...")
-else:
-    print("Using stored access token (no refresh credentials)")
-
-if not access_token:
-    print("❌ No access token available. Please update GSC_ACCESS_TOKEN secret.")
-    sys.exit(1)
+        print("Token refreshed OK")
 
 headers = {"Authorization": f"Bearer {access_token}", "Content-Type": "application/json"}
-end_date   = datetime.date.today().strftime("%Y-%m-%d")
-start_date = (datetime.date.today() - datetime.timedelta(days=90)).strftime("%Y-%m-%d")
+site_enc = requests.utils.quote("https://saurabhinfosys.com/", safe="")
+base = "https://searchconsole.googleapis.com/webmasters/v3"
 
-def query(dims=None, limit=20, order_by="impressions"):
-    body = {"startDate": start_date, "endDate": end_date, "rowLimit": limit}
-    if dims:
-        body["dimensions"] = dims
-        body["orderBy"] = [{"fieldName": order_by, "sortOrder": "DESCENDING"}]
-    r = requests.post(f"{base}/sites/{site_enc}/searchAnalytics/query", headers=headers, json=body)
-    if r.status_code != 200:
-        print(f"❌ API error {r.status_code}: {r.text}")
-        sys.exit(1)
-    return r.json()
+# Get indexing issues via sitemaps API
+print("\n=== SITEMAPS ===")
+r = requests.get(f"{base}/sites/{site_enc}/sitemaps", headers=headers)
+print(r.text)
 
-d = query()
-print("\n=== OVERALL (last 90 days) ===")
-if "rows" in d:
-    row = d["rows"][0]
-    print(f"Clicks:       {int(row['clicks'])}")
-    print(f"Impressions:  {int(row['impressions'])}")
-    print(f"Avg CTR:      {row['ctr']*100:.2f}%")
-    print(f"Avg Position: {row['position']:.1f}")
-else:
-    print("No data yet")
-
-d = query(["query"], limit=20)
-print("\n=== TOP 20 KEYWORDS (by impressions) ===")
-if "rows" in d:
-    print(f"{'Keyword':<45} {'Clicks':>6} {'Impr':>7} {'CTR':>6} {'Pos':>6}")
-    print("-"*75)
-    for row in d["rows"]:
-        print(f"{row['keys'][0][:44]:<45} {int(row['clicks']):>6} {int(row['impressions']):>7} {row['ctr']*100:>5.1f}% {row['position']:>6.1f}")
-
-d = query(["page"], limit=15)
-print("\n=== TOP 15 PAGES (by impressions) ===")
-if "rows" in d:
-    print(f"{'Page':<45} {'Clicks':>6} {'Impr':>7} {'Pos':>6}")
-    print("-"*65)
-    for row in d["rows"]:
-        page = row["keys"][0].replace("https://saurabhinfosys.com","") or "/"
-        print(f"{page[:44]:<45} {int(row['clicks']):>6} {int(row['impressions']):>7} {row['position']:>6.1f}")
-
-print("\n=== PERIOD COMPARISON ===")
-for label, d1, d2 in [("Last 28 days", 28, 0), ("Prior 28 days", 56, 28)]:
-    s = (datetime.date.today() - datetime.timedelta(days=d1)).strftime("%Y-%m-%d")
-    e = (datetime.date.today() - datetime.timedelta(days=d2)).strftime("%Y-%m-%d")
-    r = requests.post(f"{base}/sites/{site_enc}/searchAnalytics/query", headers=headers,
-                      json={"startDate": s, "endDate": e, "rowLimit": 1})
-    rows = r.json().get("rows", [])
-    if rows:
-        row = rows[0]
-        print(f"{label}: Clicks={int(row['clicks'])} Impressions={int(row['impressions'])} CTR={row['ctr']*100:.2f}% Pos={row['position']:.1f}")
-
-d = query(["country"], limit=10, order_by="clicks")
-print("\n=== TOP COUNTRIES ===")
-if "rows" in d:
-    for row in d["rows"]:
-        print(f"  {row['keys'][0]:<15} clicks={int(row['clicks'])} impr={int(row['impressions'])}")
-
-d = query(["device"], limit=5, order_by="clicks")
-print("\n=== BY DEVICE ===")
-if "rows" in d:
-    for row in d["rows"]:
-        print(f"  {row['keys'][0]:<12} clicks={int(row['clicks'])} impr={int(row['impressions'])}")
+# Check URL inspection for key pages
+print("\n=== URL INSPECTION — KEY PAGES ===")
+inspect_base = "https://searchconsole.googleapis.com/v1/urlInspection/index:inspect"
+test_urls = [
+    "https://saurabhinfosys.com/",
+    "https://www.saurabhinfosys.com/",
+    "https://saurabhinfosys.com/blog/flutter-ai-enabled-apps/",
+    "https://saurabhinfosys.com/blog/flutter-ai-enabled-apps",
+    "https://saurabhinfosys.com/about/",
+    "https://saurabhinfosys.com/blog/google-gemma-4-vs-chatgpt/",
+    "https://saurabhinfosys.com/usa/",
+    "https://saurabhinfosys.com/singapore/",
+]
+for url in test_urls:
+    r = requests.post(inspect_base, headers=headers, json={
+        "inspectionUrl": url,
+        "siteUrl": "https://saurabhinfosys.com/"
+    })
+    d = r.json()
+    result = d.get("inspectionResult", {})
+    index = result.get("indexStatusResult", {})
+    verdict = index.get("verdict", "UNKNOWN")
+    coverage = index.get("coverageState", "")
+    canonical = index.get("googleCanonical", "")
+    user_canonical = index.get("userCanonical", "")
+    print(f"\n{url}")
+    print(f"  Verdict:        {verdict}")
+    print(f"  Coverage:       {coverage}")
+    print(f"  Google canon:   {canonical}")
+    print(f"  User canon:     {user_canonical}")
