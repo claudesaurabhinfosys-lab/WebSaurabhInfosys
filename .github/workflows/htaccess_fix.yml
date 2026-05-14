@@ -5,15 +5,10 @@ jobs:
   fix:
     runs-on: ubuntu-latest
     steps:
-      - name: Update htaccess via base64
-        env:
-          SSH_KEY: ${{ secrets.SSH_KEY }}
-          SSH_HOST: ${{ secrets.SSH_HOST }}
-          SSH_USER: ${{ secrets.SSH_USER }}
+      - name: Update htaccess via SSH
         run: |
           mkdir -p ~/.ssh
-          printf '%s' "$SSH_KEY" > ~/.ssh/id_ed25519
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan -H $SSH_HOST >> ~/.ssh/known_hosts 2>/dev/null || true
-          B64='T3B0aW9ucyAtTXVsdGlWaWV3cwpSZXdyaXRlRW5naW5lIE9uClJld3JpdGVDb25kICV7SFRUUF9IT1NUfSBed3d3XC5zYXVyYWJoaW5mb3N5c1wuY29tIFtOQ10KUmV3cml0ZVJ1bGUgXiguKikkIGh0dHBzOi8vc2F1cmFiaGluZm9zeXMuY29tLyQxIFtSPTMwMSxMXQpSZXdyaXRlQ29uZCAle0hUVFBTfSBvZmYKUmV3cml0ZVJ1bGUgXiguKikkIGh0dHBzOi8vJXtIVFRQX0hPU1R9JXtSRVFVRVNUX1VSSX0gW1I9MzAxLExdClJld3JpdGVDb25kICV7UkVRVUVTVF9GSUxFTkFNRX0gLWQKUmV3cml0ZUNvbmQgJXtSRVFVRVNUX1VSSX0gIS8kClJld3JpdGVSdWxlIF4oLipbXi9dKSQgLyQxLyBbUj0zMDEsTF0KUmV3cml0ZUNvbmQgJXtSRVFVRVNUX0ZJTEVOQU1FfSAhLWYKUmV3cml0ZUNvbmQgJXtSRVFVRVNUX0ZJTEVOQU1FfSAhLWQKUmV3cml0ZUNvbmQgJXtSRVFVRVNUX0ZJTEVOQU1FfS5odG1sIC1mClJld3JpdGVSdWxlIF4oLiopJCAkMS5odG1sIFtRU0EsTF0KUmV3cml0ZUNvbmQgJXtSRVFVRVNUX0ZJTEVOQU1FfSAhLWYKUmV3cml0ZUNvbmQgJXtSRVFVRVNUX0ZJTEVOQU1FfSAhLWQKUmV3cml0ZVJ1bGUgXiAvaW5kZXguaHRtbCBbUVNBLExd'
-          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST "echo $B64 | base64 -d > /home/saurabhinfosys.com/public_html/.htaccess && echo OK && cat /home/saurabhinfosys.com/public_html/.htaccess"
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts 2>/dev/null || true
+          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "echo T3B0aW9ucyAtTXVsdGlWaWV3cwpSZXdyaXRlRW5naW5lIE9uClJld3JpdGVDb25kICV7SFRUUF9IT1NUfSBed3d3XC5zYXVyYWJoaW5mb3N5c1wuY29tIFtOQ10KUmV3cml0ZVJ1bGUgXiguKikkIGh0dHBzOi8vc2F1cmFiaGluZm9zeXMuY29tLyQxIFtSPTMwMSxMXQpSZXdyaXRlQ29uZCAle0hUVFBTfSBvZmYKUmV3cml0ZVJ1bGUgXiguKikkIGh0dHBzOi8vJXtIVFRQX0hPU1R9JXtSRVFVRVNUX1VSSX0gW1I9MzAxLExdClJld3JpdGVDb25kICV7UkVRVUVTVF9GSUxFTkFNRX0gLWQKUmV3cml0ZUNvbmQgJXtSRVFVRVNUX1VSSX0gIS8kClJld3JpdGVSdWxlIF4oLipbXi9dKSQgLyQxLyBbUj0zMDEsTF0KUmV3cml0ZUNvbmQgJXtSRVFVRVNUX0ZJTEVOQU1FfSAhLWYKUmV3cml0ZUNvbmQgJXtSRVFVRVNUX0ZJTEVOQU1FfSAhLWQKUmV3cml0ZUNvbmQgJXtSRVFVRVNUX0ZJTEVOQU1FfS5odG1sIC1mClJld3JpdGVSdWxlIF4oLiopJCAkMS5odG1sIFtRU0EsTF0KUmV3cml0ZUNvbmQgJXtSRVFVRVNUX0ZJTEVOQU1FfSAhLWYKUmV3cml0ZUNvbmQgJXtSRVFVRVNUX0ZJTEVOQU1FfSAhLWQKUmV3cml0ZVJ1bGUgXiAvaW5kZXguaHRtbCBbUVNBLExd | base64 -d > /home/saurabhinfosys.com/public_html/.htaccess && echo SUCCESS && cat /home/saurabhinfosys.com/public_html/.htaccess"
