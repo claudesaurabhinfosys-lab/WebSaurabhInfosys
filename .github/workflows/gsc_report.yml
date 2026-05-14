@@ -1,11 +1,11 @@
-name: Check htaccess
+name: Fix htaccess
 on:
   workflow_dispatch:
 jobs:
-  check:
+  fix:
     runs-on: ubuntu-latest
     steps:
-      - name: Read htaccess
+      - name: Update htaccess on server
         env:
           SSH_KEY: ${{ secrets.SSH_KEY }}
           SSH_HOST: ${{ secrets.SSH_HOST }}
@@ -15,5 +15,36 @@ jobs:
           echo "$SSH_KEY" > ~/.ssh/id_ed25519
           chmod 600 ~/.ssh/id_ed25519
           ssh-keyscan -H $SSH_HOST >> ~/.ssh/known_hosts 2>/dev/null || true
-          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST \
-            "cat /home/saurabhinfosys.com/public_html/.htaccess"
+
+          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST << 'ENDSSH'
+          cat > /home/saurabhinfosys.com/public_html/.htaccess << 'HTACCESS'
+Options -MultiViews
+RewriteEngine On
+
+# 1. Redirect www to non-www (301 permanent)
+RewriteCond %{HTTP_HOST} ^www\.saurabhinfosys\.com [NC]
+RewriteRule ^(.*)$ https://saurabhinfosys.com/$1 [R=301,L]
+
+# 2. Force HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+
+# 3. Force trailing slash for directory requests (fixes "Alternate page" issue)
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteCond %{REQUEST_URI} !/$
+RewriteRule ^(.*[^/])$ /$1/ [R=301,L]
+
+# 4. Serve pre-built index.html for all clean URLs
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [QSA,L]
+
+# 5. Fallback to index.html for SPA routing
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ /index.html [QSA,L]
+HTACCESS
+          echo "htaccess updated!"
+          cat /home/saurabhinfosys.com/public_html/.htaccess
+          ENDSSH
