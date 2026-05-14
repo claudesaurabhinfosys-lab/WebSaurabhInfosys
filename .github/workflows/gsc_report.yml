@@ -1,19 +1,19 @@
-name: GSC SEO Report
+name: Check htaccess
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 6 * * 1,4'  # Every Monday & Thursday 6AM UTC — keeps token alive
 jobs:
-  report:
+  check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Run GSC query
+      - name: Read htaccess
         env:
-          GSC_ACCESS_TOKEN: ${{ secrets.GSC_ACCESS_TOKEN }}
-          GSC_REFRESH_TOKEN: ${{ secrets.GSC_REFRESH_TOKEN }}
-          GSC_CLIENT_ID: ${{ secrets.GSC_CLIENT_ID }}
-          GSC_CLIENT_SECRET: ${{ secrets.GSC_CLIENT_SECRET }}
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
         run: |
-          pip install requests -q
-          python scripts/gsc_query.py
+          mkdir -p ~/.ssh
+          echo "$SSH_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H $SSH_HOST >> ~/.ssh/known_hosts 2>/dev/null || true
+          ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no $SSH_USER@$SSH_HOST \
+            "cat /home/saurabhinfosys.com/public_html/.htaccess"
