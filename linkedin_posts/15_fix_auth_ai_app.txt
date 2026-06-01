@@ -1,0 +1,27 @@
+Authentication is the most commonly broken feature in AI-built apps. Here is a checklist.
+
+If your login is broken, work through these in order:
+
+Supabase client created inside a component
+Fix: create it once in a separate file and import it everywhere. Never initialise it inside a React component.
+
+Google OAuth redirect_uri_mismatch
+Fix: copy the exact callback URL from Supabase Authentication Providers and add it to Google Cloud Console Authorised Redirect URIs.
+
+Email confirmation link going to localhost
+Fix: update Supabase Authentication URL Configuration with your production domain.
+
+Protected pages accessible without login
+The frontend check hides the button. It does not secure the data. Fix: add JWT verification on every API route that returns sensitive data.
+
+Users seeing each other's data
+Fix: Supabase RLS policies using auth.uid(). Every query returning user data must filter by the current user's ID.
+
+Logout not actually clearing the session
+Fix: call supabase.auth.signOut() first, then clear local state, then redirect.
+
+Auth bugs are not nice-to-have fixes. They are either breaking your UX entirely or creating security vulnerabilities. Fix them before building any new features.
+
+Full guide: https://saurabhinfosys.com/blog/fix-auth-ai-built-app
+
+#Authentication #WebSecurity #Supabase #Lovable #AppDevelopment #OAuth #Security
