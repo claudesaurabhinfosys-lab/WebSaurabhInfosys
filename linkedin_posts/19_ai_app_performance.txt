@@ -1,0 +1,33 @@
+Your AI-built app is slow. Here are the 8 fixes that actually move the needle.
+
+In order of impact:
+
+1. Add database indexes
+Every column you filter or sort by needs an index. Without one, every query scans the entire table. In Supabase: Database > Indexes > New Index.
+
+2. Implement pagination
+Fetching all rows and loading them into the browser is the most common performance killer. Add LIMIT and OFFSET. Show 20 to 50 items per page.
+
+3. Fix useEffect dependencies
+Wrong or missing dependencies mean the same data is fetched on every render, every navigation, every state change. Fix the dependency array.
+
+4. Compress images
+A single unoptimised hero image can add 3 to 5 seconds to your load time on mobile. Compress everything to under 200KB.
+
+5. Lazy load heavy components
+Chart libraries, rich text editors, maps. Load them only when the user actually needs them, not on every page load.
+
+6. Select only the columns you need
+Replace select(*) with select('id, name, status'). Stop transferring data you do not use.
+
+7. Filter in SQL, not JavaScript
+If you are fetching 10,000 rows and filtering them in the browser, move the filter to the database query.
+
+8. Add a CDN
+Vercel and Netlify do this automatically. If you are on a VPS, add Cloudflare. It is free and makes an immediate difference.
+
+Most AI-built apps have at least 3 of these. Fixing all 8 typically cuts load time by 50 to 80 percent.
+
+Full guide: https://saurabhinfosys.com/blog/ai-app-performance-fixes
+
+#WebPerformance #AppDevelopment #Supabase #ReactJS #VibeCoding #Lovable #BoltNew
