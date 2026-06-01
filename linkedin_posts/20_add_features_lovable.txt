@@ -1,0 +1,29 @@
+Getting Lovable to add features to an existing app is harder than starting fresh. Here is what actually works.
+
+The reason it struggles: the AI has to understand what is already there, avoid breaking it, and integrate cleanly. That is harder than generating something new.
+
+Six strategies that work:
+
+Be extremely specific
+Not 'add a settings page'. Say 'add a /settings route with a form that saves display name and email to the users table in Supabase'. The more specific, the less guessing.
+
+One feature at a time
+Multiple features in one prompt almost always produces partial or broken results. Build one thing, test it, confirm it works, then ask for the next.
+
+Show the AI the relevant existing code
+Paste the specific file or function the new feature needs to interact with. The AI cannot see your full codebase.
+
+Describe the data flow, not just the UI
+Where does the data come from? What gets saved when the user takes an action? What should change on screen? AI is good at UI. It needs help with data flows.
+
+Export and use a code editor for incremental additions
+If you are adding a second form similar to the first, duplicate it in a code editor. Often faster than AI generation.
+
+Ask for a plan before code
+For complex features, ask Lovable to explain what it will do before it does it. Review and correct the plan. Fix architectural misunderstandings before they are in the code.
+
+If you have tried three times and it keeps breaking existing functionality, it needs a developer.
+
+Full guide: https://saurabhinfosys.com/blog/add-features-lovable-app
+
+#Lovable #AIApp #ProductDevelopment #VibeCoding #WebDevelopment #AppDevelopment #Startup
