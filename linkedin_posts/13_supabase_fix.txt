@@ -1,0 +1,24 @@
+Supabase is the backend in most Lovable, Bolt, and AI-built apps. Here is why it stops working and how to fix it.
+
+The most common errors and what they actually mean:
+
+401 Unauthorized
+You are using the wrong key. The anon/public key goes in the frontend. The service_role key never goes in the frontend. Check which one you have.
+
+relation does not exist
+The AI wrote code that queries a table that was never created. Go to Supabase Table Editor and create the missing table.
+
+Empty array when data exists
+Row Level Security is blocking the query. It is on by default. Add a SELECT policy to the table. FOR SELECT TO anon USING (true) is fine for testing.
+
+Auth redirect error after login
+Your production URL is not in Supabase Authentication URL Configuration. Add it. Supabase only redirects to approved URLs.
+
+Data saves but disappears on refresh
+The app is updating React state, not writing to the database. Check that your insert or upsert call actually has await and is not just returning a Promise.
+
+Every one of these has a fix under 10 minutes once you know what to look for.
+
+Full guide: https://saurabhinfosys.com/blog/supabase-lovable-not-connecting
+
+#Supabase #Lovable #BoltNew #AIApp #BackendDevelopment #WebDev #AppDevelopment
