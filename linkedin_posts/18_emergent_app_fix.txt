@@ -1,0 +1,28 @@
+Emergent.sh is one of the more ambitious AI app builders. It runs an autonomous agent loop to plan, build, and test your app. The results are genuinely impressive.
+
+Until the agent decides to stub something out instead of building it.
+
+Common patterns in Emergent apps that need developer attention:
+
+- API routes that exist in the frontend code but were never implemented in the backend
+- Database tables referenced in queries that were never created
+- Authentication working on the frontend but with no server-side verification
+- File upload UI with no functioning upload handler
+- Payment UI with no payment processor connected
+
+How to diagnose your Emergent app in 15 minutes:
+
+1. Open F12 Console and note every red error
+2. Open F12 Network tab, filter by Fetch, reload, look for red requests
+3. Click each failed request and read the response body
+4. Map what works vs what the agent said it would build
+
+What is fixable quickly: missing env variables, missing tables, broken routing, incorrect API URLs.
+
+What takes more work: backend routes that were never implemented, security gaps in auth.
+
+Export to GitHub before doing anything else. Then get a developer to review the gap list.
+
+Full guide: https://saurabhinfosys.com/blog/emergent-app-not-working
+
+#EmergentAI #AIApp #VibeCoding #AppDevelopment #Debugging #Startup #WebDev
