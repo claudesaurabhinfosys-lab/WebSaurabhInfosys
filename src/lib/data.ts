@@ -351,7 +351,7 @@ interface BlogPostData {
   content: ContentBlock[];
 }
 
-export const BLOG_POSTS: BlogPostData[
+export const BLOG_POSTS: BlogPostData[] = [
   {
     slug: "fix-lovable-app-not-working",
     title: "My Lovable App Is Broken — How to Fix It (2026 Guide)",
@@ -723,7 +723,7 @@ export const BLOG_POSTS: BlogPostData[
     ],
   },
 
-] = [
+
   {
     slug: "google-signin-in-flutter",
     title: "Google Sign-In in Flutter: Step-by-Step Guide (2026)",
