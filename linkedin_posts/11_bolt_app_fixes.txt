@@ -1,0 +1,20 @@
+Built your app on Bolt.new and now it is broken?
+
+Here are the 10 most common Bolt.new problems we see every week:
+
+1. Package installation fails - specify a stable version instead of latest
+2. Cannot find module errors - give Bolt the exact error text, not a description of it
+3. CORS errors on API calls - move the call to a server-side route, not the frontend
+4. Environment variables undefined - Vite apps need the VITE_ prefix on every variable
+5. Blank screen - open F12 console, find the red error, copy it into Bolt
+6. AI regenerating the same file in a loop - start a fresh message with the exact error
+7. Data not persisting - the app may be updating state, not the database
+8. Auth redirecting wrong - add your app URL to Supabase allowed redirect URLs
+9. Build fails on deploy but works in preview - check case-sensitive import paths
+10. App works once then breaks - you need loading and error states on every async call
+
+The pattern: Bolt generates the happy path extremely well. Edge cases, error handling, and production configuration - that is where it needs help.
+
+Full guide: https://saurabhinfosys.com/blog/bolt-app-not-working-fix
+
+#BoltNew #VibeCode #AIApp #AppDevelopment #WebDev #TechStartup #Startup
