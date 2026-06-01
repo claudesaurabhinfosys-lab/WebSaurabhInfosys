@@ -1,0 +1,19 @@
+We have reviewed hundreds of AI-generated codebases. The same 15 bugs show up every time.
+
+The top 5 that cause the most damage in production:
+
+No loading states - users see blank sections and layout shifts when data is fetching
+
+Secrets in frontend code - API keys hardcoded in React components. Anyone can read them in DevTools. This is a security vulnerability, not just bad practice.
+
+No auth checks on API routes - hiding a button in the UI is not the same as securing the endpoint. The backend must verify every request.
+
+N+1 database queries - fetching a list, then making a separate query for each item. Works with 10 rows. Collapses at 10,000.
+
+No pagination - loading all records from a table. Fast in development with 20 test rows. Broken in production with 50,000 real rows.
+
+The other 10 are in the full article. If your AI-built app has been live for more than 30 days and you have not had a developer review it, there is a good chance several of these are in your codebase right now.
+
+Full guide: https://saurabhinfosys.com/blog/ai-vibe-coding-bugs-fixes
+
+#AICode #VibeCoding #CodeReview #WebSecurity #AppDevelopment #Lovable #BoltNew
