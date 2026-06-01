@@ -1,0 +1,25 @@
+The most expensive mistake in AI-built apps: the Stripe secret key in frontend code.
+
+If your Lovable, Bolt, or Cursor app has sk_test_ or sk_live_ anywhere in a file that runs in the browser, anyone can open DevTools and use it to:
+- Charge cards
+- Issue refunds
+- Access your full Stripe account
+
+Fix this before anything else.
+
+The correct architecture for Stripe with Supabase:
+1. Frontend sends order details to a Supabase Edge Function
+2. Edge Function creates a PaymentIntent using the secret key (stored as a Supabase secret, never in frontend code)
+3. Edge Function returns only the client_secret to the frontend
+4. Frontend uses Stripe.js to complete payment
+
+Other things that break Stripe in AI apps:
+
+Webhooks not firing - check the endpoint URL is reachable and the webhook secret matches
+Duplicate orders - webhooks can deliver twice. Check for existing records before creating new ones
+User paid but account not activated - never rely on the post-payment redirect. Use a webhook. Redirects fail. Webhooks do not.
+Works in test mode but fails live - check Stripe account activation and that you switched to live keys
+
+Full guide: https://saurabhinfosys.com/blog/stripe-payments-ai-app
+
+#Stripe #Payments #WebDevelopment #AppSecurity #Lovable #BoltNew #SaaS #PaymentGateway
