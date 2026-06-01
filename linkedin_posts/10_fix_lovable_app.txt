@@ -1,0 +1,24 @@
+Your Lovable app is broken. Here is what to check first.
+
+80% of the time it is one of these five things:
+
+1. Blank white screen after deploy
+The app works in Lovable preview but not on your domain. This is almost always a routing issue. Add a _redirects file to Netlify or configure your server to serve index.html for all paths.
+
+2. Supabase 401 errors
+Your VITE_SUPABASE_URL or VITE_SUPABASE_ANON_KEY is wrong or missing. Check Lovable Project Settings and match them exactly to Supabase Project Settings.
+
+3. Empty data (RLS is blocking you)
+You can see the data in Supabase but your app returns nothing. Row Level Security is on by default. Add a SELECT policy to your table.
+
+4. Auth redirect going to the wrong URL
+Supabase only redirects to URLs on your allowed list. Add your production domain to Supabase Authentication URL Configuration.
+
+5. AI going in circles
+If you have tried the same fix 10 times and it keeps breaking, the problem is architectural. The AI cannot see the full picture. A developer can.
+
+We fix Lovable apps at Saurabh Infosys. Most issues take 2 to 4 hours to resolve.
+
+Full guide: https://saurabhinfosys.com/blog/fix-lovable-app-not-working
+
+#Lovable #AIApp #NoCode #LowCode #AppDevelopment #WebDevelopment #VibeCoding
