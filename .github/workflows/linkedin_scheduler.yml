@@ -2,9 +2,9 @@ name: LinkedIn Auto-Post
 
 on:
   schedule:
-    - cron: '30 3 * * 1'  # Monday 9:00 AM IST
-    - cron: '30 3 * * 3'  # Wednesday 9:00 AM IST
-    - cron: '30 3 * * 5'  # Friday 9:00 AM IST
+    - cron: '30 3 * * 1'
+    - cron: '30 3 * * 3'
+    - cron: '30 3 * * 5'
   workflow_dispatch:
     inputs:
       post_number:
@@ -26,7 +26,6 @@ jobs:
             echo "file=linkedin_posts/${{ github.event.inputs.post_number }}_*.txt" >> $GITHUB_OUTPUT
             echo "num=${{ github.event.inputs.post_number }}" >> $GITHUB_OUTPUT
           else
-            # Auto-pick: find the lowest-numbered post that hasn't been published
             PUBLISHED=$(cat .linkedin_published 2>/dev/null || echo "")
             for f in linkedin_posts/*.txt; do
               NUM=$(basename "$f" | cut -d_ -f1)
@@ -64,23 +63,28 @@ jobs:
             -F "post_content[linkedin]=${CONTENT}" \
             -F "social_media[LinkedIn][0][id]=1" \
             -F "social_media[LinkedIn][0][name]=Saurabh Infosys" \
-            -F "social_media[LinkedIn][0][type]=page")
+            -F "social_media[LinkedIn][0][type]=page") || true
 
-          CAMPAIGN_ID=$(echo "$RESPONSE" | grep -o '"id":[0-9]*' | head -1 | grep -o '[0-9]*')
+          echo "API Response: $RESPONSE"
+
+          CAMPAIGN_ID=$(echo "$RESPONSE" | grep -o '"id":[0-9]*' | head -1 | grep -o '[0-9]*' || true)
           echo "Created campaign ID: $CAMPAIGN_ID"
 
           if [ -n "$CAMPAIGN_ID" ]; then
             PUBLISH=$(curl -s -X POST \
               "https://socialadmin.mysampark.com/api/campaign/publish_now/${CAMPAIGN_ID}" \
               -H "Accept: application/json" \
-              -H "Authorization: Bearer $TOKEN")
+              -H "Authorization: Bearer $TOKEN") || true
             echo "Publish result: $PUBLISH"
 
-            # Mark as published
             echo "${{ steps.pick.outputs.num }}" >> .linkedin_published
             git config user.email "actions@github.com"
             git config user.name "GitHub Actions"
             git add .linkedin_published
             git commit -m "track: mark post ${{ steps.pick.outputs.num }} as published"
+            git pull --rebase origin main
             git push
+          else
+            echo "WARNING: No campaign ID returned. Post may not have been published."
+            echo "Full response: $RESPONSE"
           fi
