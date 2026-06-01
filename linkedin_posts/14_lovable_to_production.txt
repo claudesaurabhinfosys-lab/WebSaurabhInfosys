@@ -1,0 +1,22 @@
+Your Lovable app works in preview. Going to production is a different problem.
+
+Before you share the link publicly, check these 10 things:
+
+1. No hardcoded API keys in your frontend code
+2. Supabase RLS policies that actually restrict data access by user
+3. Error monitoring set up (Sentry free tier takes 10 minutes)
+4. Custom domain with SSL configured
+5. Supabase redirect URLs updated to your production domain, not the Lovable preview URL
+6. PageSpeed score above 70 on mobile
+7. Every page tested on an actual phone, not just a browser resize
+8. Database backups enabled for production data
+9. Rate limiting on any endpoint that sends emails or calls a paid API
+10. Privacy Policy live if you collect any user data
+
+Most of these take 5 to 15 minutes each. All of them cost you far more to fix after something goes wrong than before.
+
+The difference between a Lovable prototype and a production app is not the code. It is the configuration and security layer around the code.
+
+Full guide: https://saurabhinfosys.com/blog/take-lovable-app-to-production
+
+#Lovable #ProductLaunch #WebSecurity #AppDevelopment #StartupLaunch #SaaS #VibeCoding
