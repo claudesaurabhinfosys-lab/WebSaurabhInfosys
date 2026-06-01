@@ -1,0 +1,33 @@
+Cursor generates code fast. Fast is not the same as correct.
+
+Code that compiles without errors can still have security vulnerabilities, silent failures, and performance problems that only appear in production.
+
+Red flags to look for in Cursor-generated code:
+
+any or as any TypeScript casts
+Cursor uses these to silence type errors instead of fixing them. Accept the fix only if the underlying type issue is resolved.
+
+Async operations without await
+If a function calls a database query or API without await, it returns a Promise instead of the actual data. No error. Wrong result.
+
+catch(e) {} that does nothing
+Errors silently swallowed. The function fails, nothing happens, no one knows why.
+
+Hardcoded localhost URLs
+Works in development. Breaks in production.
+
+console.log with user data or tokens
+Anyone with DevTools open can see your data structure and user information.
+
+Stubs marked as TODO
+Cursor sometimes generates placeholders that look like real implementations until you click through.
+
+For any Cursor-generated code that handles payments, authentication, or sensitive user data: get a second pair of eyes before deploying to production.
+
+The cost of a 2-hour code review is lower than the cost of a security incident.
+
+We review Cursor-generated codebases at Saurabh Infosys and give you a prioritised issue list within 24 hours.
+
+Full guide: https://saurabhinfosys.com/blog/cursor-ai-code-review-fix
+
+#CursorAI #CodeReview #WebSecurity #AICode #VibeCoding #AppDevelopment #TypeScript
