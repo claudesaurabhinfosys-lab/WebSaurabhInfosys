@@ -96,7 +96,7 @@ export default function VibeCodingPage() {
             </a>
             <Link
               href="/portfolio"
-              className="inline-flex items-center gap-2 border-2 border-ink text-ink font-syne font-semibold px-7 py-3.5 rounded-full hover:bg-ink hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 border-2 border-ink text-ink font-syne font-semibold px-7 py-3.5 rounded-full hover:bg-accent hover:text-white transition-colors"
             >
               View Portfolio
             </Link>
@@ -111,7 +111,7 @@ export default function VibeCodingPage() {
             <p className="font-syne font-bold text-white text-2xl md:text-3xl">
               Starting from ₹75,000
             </p>
-            <p className="text-white/80 text-lg mt-1">
+            <p className="text-ink text-lg mt-1">
               MVP delivered in 14 days. No hidden costs. Full source code included.
             </p>
           </div>
@@ -119,7 +119,7 @@ export default function VibeCodingPage() {
             href={`https://wa.me/${COMPANY.whatsapp}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 inline-flex items-center bg-white text-accent font-syne font-bold px-7 py-3.5 rounded-full hover:bg-ink hover:text-white transition-colors"
+            className="shrink-0 inline-flex items-center bg-white text-accent font-syne font-bold px-7 py-3.5 rounded-full hover:bg-accent hover:text-white transition-colors"
           >
             Get a Quote
           </a>
@@ -182,21 +182,21 @@ export default function VibeCodingPage() {
               </ul>
             </div>
             {/* Week 2 */}
-            <div className="bg-ink rounded-2xl p-8">
+            <div className="bg-gray-100 rounded-2xl p-8">
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 rounded-full bg-accent flex items-center justify-center">
                   <span className="font-syne font-bold text-white text-sm">W2</span>
                 </div>
                 <div>
-                  <p className="font-syne font-bold text-white text-lg">Week 2</p>
-                  <p className="text-white/50 text-sm">Days 8–14</p>
+                  <p className="font-syne font-bold text-ink text-lg">Week 2</p>
+                  <p className="text-ink-light text-sm">Days 8–14</p>
                 </div>
               </div>
               <ul className="space-y-3">
                 {week2Tasks.map((task) => (
                   <li key={task} className="flex items-center gap-3">
                     <div className="w-2 h-2 rounded-full bg-accent shrink-0" />
-                    <span className="text-white/80">{task}</span>
+                    <span className="text-ink">{task}</span>
                   </li>
                 ))}
               </ul>
@@ -254,12 +254,12 @@ export default function VibeCodingPage() {
       </section>
 
       {/* ── Bottom CTA ── */}
-      <section className="bg-ink py-20 px-6">
+      <section className="bg-gray-50 py-20 px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-syne font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white mb-5">
+          <h2 className="font-syne font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-ink mb-5">
             Your idea deserves a live product
           </h2>
-          <p className="text-white/60 text-lg mb-10">
+          <p className="text-ink-light text-lg mb-10">
             Most founders overthink and under-ship. We help you do the opposite —
             get live in 14 days and iterate from real user feedback.
           </p>
@@ -274,7 +274,7 @@ export default function VibeCodingPage() {
             </a>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 border-2 border-white/30 text-white font-syne font-semibold px-8 py-4 rounded-full hover:border-white transition-colors text-lg"
+              className="inline-flex items-center gap-2 border-2 border-ink/20 text-ink font-syne font-semibold px-8 py-4 rounded-full hover:border-ink transition-colors text-lg"
             >
               Send an Email
             </Link>
