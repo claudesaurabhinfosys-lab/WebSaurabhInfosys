@@ -117,7 +117,7 @@ export default function AIAgentsPage() {
             </a>
             <Link
               href="/portfolio"
-              className="inline-flex items-center gap-2 border-2 border-ink text-ink font-syne font-semibold px-7 py-3.5 rounded-full hover:bg-ink hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 border-2 border-ink text-ink font-syne font-semibold px-7 py-3.5 rounded-full hover:bg-accent hover:text-white transition-colors"
             >
               View Portfolio
             </Link>
@@ -177,26 +177,26 @@ export default function AIAgentsPage() {
       </section>
 
       {/* ── Process ── */}
-      <section className="bg-ink py-20 px-6">
+      <section className="bg-gray-50 py-20 px-6">
         <div className="max-w-5xl mx-auto">
           <p className="font-syne font-bold text-xs uppercase tracking-widest text-accent mb-3">
             Our Process
           </p>
-          <h2 className="font-syne font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white mb-14">
+          <h2 className="font-syne font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-ink mb-14">
             From idea to live agent in weeks
           </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {processSteps.map((step) => (
               <div key={step.number} className="relative">
                 <div className="w-14 h-14 rounded-full bg-accent flex items-center justify-center mb-5">
-                  <span className="font-syne font-bold text-white text-lg">
+                  <span className="font-syne font-bold text-ink text-lg">
                     {step.number}
                   </span>
                 </div>
-                <h3 className="font-syne font-bold text-xl text-white mb-2">
+                <h3 className="font-syne font-bold text-xl text-ink mb-2">
                   {step.title}
                 </h3>
-                <p className="text-white/55 text-sm leading-relaxed">
+                <p className="text-ink-light text-sm leading-relaxed">
                   {step.desc}
                 </p>
               </div>
@@ -224,12 +224,12 @@ export default function AIAgentsPage() {
       </section>
 
       {/* ── Bottom CTA ── */}
-      <section className="bg-ink py-20 px-6 border-t border-white/10">
+      <section className="bg-gray-50 py-20 px-6 border-t border-ink/8">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-syne font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white mb-5">
+          <h2 className="font-syne font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-ink mb-5">
             Ready to automate your business?
           </h2>
-          <p className="text-white/60 text-lg mb-10">
+          <p className="text-ink-light text-lg mb-10">
             Let&apos;s scope your first AI agent together. Most go live within 2–3
             weeks.
           </p>
@@ -244,7 +244,7 @@ export default function AIAgentsPage() {
             </a>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 border-2 border-white/30 text-white font-syne font-semibold px-8 py-4 rounded-full hover:border-white transition-colors text-lg"
+              className="inline-flex items-center gap-2 border-2 border-ink/20 text-ink font-syne font-semibold px-8 py-4 rounded-full hover:border-ink transition-colors text-lg"
             >
               Send an Email
             </Link>
