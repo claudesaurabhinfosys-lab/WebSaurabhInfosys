@@ -167,51 +167,51 @@ export default function MySocietyPage() {
       </section>
 
       {/* ROI Calculator */}
-      <section className="bg-ink py-24">
+      <section className="bg-gray-50 py-24">
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="font-syne text-4xl font-bold text-white mb-4">
+            <h2 className="font-syne text-4xl font-bold text-ink mb-4">
               The numbers make sense
             </h2>
-            <p className="font-dm text-white/60 text-lg max-w-xl mx-auto">
+            <p className="font-dm text-ink-light text-lg max-w-xl mx-auto">
               MySociety pays for itself in the very first month.
             </p>
           </div>
-          <div className="bg-white/5 border border-white/10 rounded-3xl p-8 md:p-10">
+          <div className="bg-ink/3 border border-ink/8 rounded-3xl p-8 md:p-10">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
               <div>
                 <p className="font-syne text-4xl font-bold text-accent mb-2">
                   ₹500
                 </p>
-                <p className="font-dm text-white/70 text-sm">
+                <p className="font-dm text-ink-light text-sm">
                   Total cost for a 100-flat society/month
                 </p>
               </div>
               <div>
-                <p className="font-syne text-4xl font-bold text-white mb-2">
+                <p className="font-syne text-4xl font-bold text-ink mb-2">
                   10+
                 </p>
-                <p className="font-dm text-white/70 text-sm">
+                <p className="font-dm text-ink-light text-sm">
                   Hours of manual work saved every month
                 </p>
               </div>
               <div>
-                <p className="font-syne text-4xl font-bold text-white mb-2">
+                <p className="font-syne text-4xl font-bold text-ink mb-2">
                   ₹5
                 </p>
-                <p className="font-dm text-white/70 text-sm">
+                <p className="font-dm text-ink-light text-sm">
                   Per flat per month — less than a chai
                 </p>
               </div>
             </div>
-            <div className="mt-8 border-t border-white/10 pt-8 text-center">
-              <p className="font-dm text-white/80 text-base">
+            <div className="mt-8 border-t border-ink/8 pt-8 text-center">
+              <p className="font-dm text-ink text-base">
                 For a{" "}
-                <span className="font-semibold text-white">100-flat society</span>{" "}
+                <span className="font-semibold text-ink">100-flat society</span>{" "}
                 — just{" "}
                 <span className="text-accent font-semibold">₹500/month</span>.
                 Saves{" "}
-                <span className="font-semibold text-white">
+                <span className="font-semibold text-ink">
                   10+ hours of manual work
                 </span>{" "}
                 on maintenance follow-ups, visitor logs, and complaint tracking.
@@ -232,15 +232,15 @@ export default function MySocietyPage() {
               Pay only for the flats you have. Billed annually.
             </p>
           </div>
-          <div className="bg-ink rounded-3xl p-8 md:p-10 text-center">
-            <p className="font-dm text-white/60 text-sm uppercase tracking-widest mb-3">
+          <div className="bg-gray-100 rounded-3xl p-8 md:p-10 text-center">
+            <p className="font-dm text-ink-light text-sm uppercase tracking-widest mb-3">
               Per Flat · Annual Billing
             </p>
             <div className="mb-2">
-              <span className="font-syne text-6xl font-bold text-white">
+              <span className="font-syne text-6xl font-bold text-ink">
                 ₹5
               </span>
-              <span className="font-dm text-white/60 text-lg ml-2">
+              <span className="font-dm text-ink-light text-lg ml-2">
                 /flat/month
               </span>
             </div>
@@ -251,7 +251,7 @@ export default function MySocietyPage() {
               {includedFeatures.map((item) => (
                 <li
                   key={item}
-                  className="flex items-center gap-3 font-dm text-white/80 text-sm"
+                  className="flex items-center gap-3 font-dm text-ink text-sm"
                 >
                   <span className="text-accent font-bold">✓</span>
                   {item}
@@ -290,12 +290,12 @@ export default function MySocietyPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="bg-ink py-24">
+      <section className="bg-gray-50 py-24">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="font-syne text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+          <h2 className="font-syne text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-ink mb-6">
             Bring your society online today
           </h2>
-          <p className="font-dm text-white/60 text-lg mb-10 max-w-xl mx-auto">
+          <p className="font-dm text-ink-light text-lg mb-10 max-w-xl mx-auto">
             Join hundreds of societies already managing smarter with MySociety.
             Setup takes less than a day.
           </p>
@@ -312,7 +312,7 @@ export default function MySocietyPage() {
               href="https://wa.me/918735001217"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 bg-white/10 text-white font-syne font-semibold text-base px-8 py-4 rounded-lg hover:bg-white/20 transition-colors"
+              className="flex items-center justify-center gap-2 border border-ink/20 text-ink font-syne font-semibold text-base px-8 py-4 rounded-lg hover:bg-ink/5 transition-colors"
             >
               <span>💬</span> Chat on WhatsApp
             </a>
