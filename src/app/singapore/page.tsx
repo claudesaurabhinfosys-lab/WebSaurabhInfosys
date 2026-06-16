@@ -198,16 +198,16 @@ export default function SingaporePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <section className="bg-gradient-to-br from-gray-950 via-gray-900 to-gray-950 pt-28 pb-20 px-6">
+      <section className="bg-gradient-to-br from-red-50 via-white to-pink-50 pt-28 pb-20 px-6">
         <div className="max-w-5xl mx-auto text-center">
-          <div className="inline-block bg-red-600/10 border border-red-500/20 text-red-400 text-sm font-medium px-4 py-1.5 rounded-full mb-6">
+          <div className="inline-block bg-red-100 border border-red-300 text-red-700 text-sm font-medium px-4 py-1.5 rounded-full mb-6">
             Serving Singapore Businesses
           </div>
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-ink leading-tight mb-6">
             AI Integration &amp; App Development<br />
-            <span className="text-red-400">Company for Singapore</span>
+            <span className="text-red-600">Company for Singapore</span>
           </h1>
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto mb-10">
+          <p className="text-lg sm:text-xl text-ink-light max-w-3xl mx-auto mb-10">
             We build AI chatbots, booking platforms, and mobile apps for Singapore businesses delivered in weeks, not months.
             4.9-star on Clutch with real Singapore clients in beauty, wellness, home services, and domestic services.
           </p>
@@ -215,14 +215,14 @@ export default function SingaporePage() {
             <Link href="/contact" className="bg-red-600 hover:bg-red-500 text-white font-semibold px-8 py-4 rounded-xl transition-colors">
               Get a Free Consultation
             </Link>
-            <Link href="/portfolio" className="border border-gray-600 hover:border-gray-400 text-gray-300 font-semibold px-8 py-4 rounded-xl transition-colors">
+            <Link href="/portfolio" className="border border-ink/20 hover:border-ink/40 text-ink-light font-semibold px-8 py-4 rounded-xl transition-colors">
               View Singapore Client Work
             </Link>
           </div>
         </div>
       </section>
 
-      <section className="bg-gray-900 border-y border-gray-800 py-10 px-6">
+      <section className="bg-gray-50 border-y border-ink/8 py-10 px-6">
         <div className="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
           {[
             { value: "80+", label: "Global Clients" },
@@ -231,71 +231,71 @@ export default function SingaporePage() {
             { value: "2 Weeks", label: "Average Delivery" },
           ].map((s) => (
             <div key={s.label}>
-              <div className="text-3xl font-bold text-red-400">{s.value}</div>
-              <div className="text-gray-400 text-sm mt-1">{s.label}</div>
+              <div className="text-3xl font-bold text-red-600">{s.value}</div>
+              <div className="text-ink-light text-sm mt-1">{s.label}</div>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="bg-gray-950 py-20 px-6">
+      <section className="bg-surface py-20 px-6">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white text-center mb-4">Real Singapore Client Projects</h2>
-          <p className="text-gray-400 text-center mb-14 max-w-2xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-ink text-center mb-4">Real Singapore Client Projects</h2>
+          <p className="text-ink-light text-center mb-14 max-w-2xl mx-auto">
             Production apps and digital platforms built for and used by Singapore businesses and their customers.
           </p>
           <div className="grid sm:grid-cols-2 gap-8">
             {SG_CLIENTS.map((client) => (
-              <div key={client.name} className="bg-gray-900 border border-gray-800 rounded-2xl p-7 hover:border-red-500/40 transition-colors">
+              <div key={client.name} className="bg-card border border-ink/8 rounded-2xl p-7 hover:border-red-500/40 transition-colors">
                 <div className="flex items-start justify-between gap-3 mb-4">
                   <div>
-                    <a href={client.url} target="_blank" rel="noopener noreferrer" className="text-xl font-bold text-white hover:text-red-400 transition-colors">
+                    <a href={client.url} target="_blank" rel="noopener noreferrer" className="text-xl font-bold text-ink hover:text-red-600 transition-colors">
                       {client.name}
                     </a>
-                    <div className="text-red-400 text-sm mt-1">{client.industry} · Singapore</div>
+                    <div className="text-red-600 text-sm mt-1">{client.industry} · Singapore</div>
                   </div>
-                  <span className="text-xs bg-red-600/10 border border-red-500/20 text-red-400 px-3 py-1 rounded-full whitespace-nowrap shrink-0">
+                  <span className="text-xs bg-red-100 border border-red-300 text-red-700 px-3 py-1 rounded-full whitespace-nowrap shrink-0">
                     {client.service}
                   </span>
                 </div>
-                <p className="text-gray-300 text-sm leading-relaxed mb-4">{client.description}</p>
+                <p className="text-ink-light text-sm leading-relaxed mb-4">{client.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {client.tech.map((t) => (
-                    <span key={t} className="text-xs bg-gray-800 text-gray-400 px-2 py-1 rounded-md">{t}</span>
+                    <span key={t} className="text-xs bg-ink/5 text-ink-light px-2 py-1 rounded-md">{t}</span>
                   ))}
                 </div>
-                <div className="text-sm text-green-400 font-medium">Result: {client.result}</div>
+                <div className="text-sm text-green-600 font-medium">Result: {client.result}</div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-gray-900 py-20 px-6">
+      <section className="bg-bg py-20 px-6">
         <div className="max-w-5xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white text-center mb-4">AI & App Services for Singapore Businesses</h2>
-          <p className="text-gray-400 text-center mb-14 max-w-2xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl font-bold text-ink text-center mb-4">AI &amp; App Services for Singapore Businesses</h2>
+          <p className="text-ink-light text-center mb-14 max-w-2xl mx-auto">
             From WhatsApp AI bots to full booking platforms. We cover the full digital development stack for Singapore companies.
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {SERVICES_SG.map((s) => (
-              <div key={s.title} className="bg-gray-950 border border-gray-800 rounded-2xl p-6 hover:border-red-500/30 transition-colors">
-                <h3 className="text-white font-semibold text-lg mb-3">{s.title}</h3>
-                <p className="text-gray-400 text-sm leading-relaxed">{s.desc}</p>
+              <div key={s.title} className="bg-card border border-ink/8 rounded-2xl p-6 hover:border-red-500/30 transition-colors">
+                <h3 className="text-ink font-semibold text-lg mb-3">{s.title}</h3>
+                <p className="text-ink-light text-sm leading-relaxed">{s.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section className="bg-gray-950 py-20 px-6">
+      <section className="bg-surface py-20 px-6">
         <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white text-center mb-14">Frequently Asked Questions</h2>
+          <h2 className="text-3xl sm:text-4xl font-bold text-ink text-center mb-14">Frequently Asked Questions</h2>
           <div className="space-y-6">
             {FAQS.map((faq) => (
-              <div key={faq.q} className="bg-gray-900 border border-gray-800 rounded-2xl p-7">
-                <h3 className="text-white font-semibold text-lg mb-3">{faq.q}</h3>
-                <p className="text-gray-400 leading-relaxed">{faq.a}</p>
+              <div key={faq.q} className="bg-card border border-ink/8 rounded-2xl p-7">
+                <h3 className="text-ink font-semibold text-lg mb-3">{faq.q}</h3>
+                <p className="text-ink-light leading-relaxed">{faq.a}</p>
               </div>
             ))}
           </div>
