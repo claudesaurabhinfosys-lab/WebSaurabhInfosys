@@ -31,15 +31,15 @@ export default function BlogPage() {
     <main className="bg-bg text-ink font-dm">
 
       {/* ── Hero ── */}
-      <section className="bg-ink pt-24 pb-16 px-6">
+      <section className="bg-gradient-to-br from-indigo-50 to-purple-50 pt-24 pb-16 px-6">
         <div className="max-w-5xl mx-auto">
           <span className="inline-block bg-accent text-white text-xs font-syne font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
             Blog
           </span>
-          <h1 className="font-syne font-bold text-4xl sm:text-5xl md:text-6xl leading-tight text-white mb-5 max-w-3xl">
+          <h1 className="font-syne font-bold text-4xl sm:text-5xl md:text-6xl leading-tight text-ink mb-5 max-w-3xl">
             Insights on AI, Vibe Coding &amp; App Development
           </h1>
-          <p className="text-white/60 text-lg max-w-2xl leading-relaxed">
+          <p className="text-ink-light text-lg max-w-2xl leading-relaxed">
             Practical guides and expert perspectives from Saurabh Infosys — India&apos;s AI-first software studio in Ahmedabad.
           </p>
         </div>
@@ -132,12 +132,12 @@ export default function BlogPage() {
       </section>
 
       {/* ── CTA ── */}
-      <section className="bg-ink py-20 px-6">
+      <section className="bg-gray-50 py-20 px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-syne font-bold text-3xl sm:text-4xl text-white mb-5">
+          <h2 className="font-syne font-bold text-3xl sm:text-4xl text-ink mb-5">
             Want to implement any of these ideas?
           </h2>
-          <p className="text-white/60 text-lg mb-10">
+          <p className="text-ink-light text-lg mb-10">
             We turn AI ideas into production software — AI agents, AI-enabled apps, vibe coding MVPs, and more.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
@@ -150,7 +150,7 @@ export default function BlogPage() {
             </a>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 border-2 border-white/30 text-white font-syne font-semibold px-8 py-4 rounded-full hover:border-white transition-colors"
+              className="inline-flex items-center gap-2 border-2 border-ink/20 text-ink font-syne font-semibold px-8 py-4 rounded-full hover:border-ink transition-colors"
             >
               Send a Brief
             </Link>
