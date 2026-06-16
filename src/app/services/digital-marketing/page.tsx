@@ -86,7 +86,7 @@ export default function DigitalMarketingServicePage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-ink text-bg py-24">
+      <section className="bg-gray-50 py-24">
         <div className="max-w-5xl mx-auto px-6">
           <p className="font-dm text-accent text-sm uppercase tracking-widest mb-4">
             Digital Marketing Tools
@@ -95,12 +95,12 @@ export default function DigitalMarketingServicePage() {
             Reach 10,000 customers{" "}
             <span className="text-accent">for the cost of a lunch.</span>
           </h1>
-          <p className="font-dm text-lg md:text-xl text-bg/75 max-w-2xl mb-6">
+          <p className="font-dm text-lg md:text-xl text-ink-light max-w-2xl mb-6">
             Bulk WhatsApp campaigns, SMS automation, and email marketing —
             all in one platform. Pay per message, no monthly lock-ins, no
             wasted spend.
           </p>
-          <p className="font-dm text-bg/50 text-base mb-10">
+          <p className="font-dm text-ink-light text-base mb-10">
             WhatsApp from ₹0.35 · SMS from ₹0.12 · Email from ₹0.02
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
@@ -108,13 +108,13 @@ export default function DigitalMarketingServicePage() {
               href="https://wa.me/918735001217"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-accent text-bg font-syne font-semibold px-8 py-4 rounded-lg hover:bg-accent/90 transition-colors text-center"
+              className="inline-block bg-accent text-white font-syne font-semibold px-8 py-4 rounded-lg hover:bg-accent/90 transition-colors text-center"
             >
               Start Sending Today
             </a>
             <Link
               href="/products/mysampark"
-              className="inline-block border border-bg/30 text-bg font-syne font-semibold px-8 py-4 rounded-lg hover:border-bg/60 transition-colors text-center"
+              className="inline-block border border-ink/20 text-ink font-syne font-semibold px-8 py-4 rounded-lg hover:border-ink/40 transition-colors text-center"
             >
               See MySampark Platform
             </Link>
@@ -228,7 +228,7 @@ export default function DigitalMarketingServicePage() {
                 key={p.channel}
                 className={`rounded-2xl p-8 border transition-all ${
                   p.highlight
-                    ? "bg-ink border-ink text-bg"
+                    ? "bg-accent border-accent text-white"
                     : "bg-bg border-ink/5"
                 }`}
               >
@@ -241,21 +241,21 @@ export default function DigitalMarketingServicePage() {
                 </p>
                 <p
                   className={`font-syne text-4xl font-bold mb-1 ${
-                    p.highlight ? "text-bg" : "text-ink"
+                    p.highlight ? "text-white" : "text-ink"
                   }`}
                 >
                   {p.price}
                 </p>
                 <p
                   className={`font-dm text-sm mb-4 ${
-                    p.highlight ? "text-bg/60" : "text-ink/50"
+                    p.highlight ? "text-white/70" : "text-ink/50"
                   }`}
                 >
                   {p.unit}
                 </p>
                 <p
                   className={`font-dm text-xs ${
-                    p.highlight ? "text-bg/50" : "text-ink/40"
+                    p.highlight ? "text-white/60" : "text-ink/40"
                   }`}
                 >
                   {p.note}
@@ -270,12 +270,12 @@ export default function DigitalMarketingServicePage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="bg-ink py-24">
+      <section className="bg-gray-50 py-24">
         <div className="max-w-5xl mx-auto px-6 text-center">
-          <h2 className="font-syne text-3xl md:text-5xl font-bold text-bg mb-5">
+          <h2 className="font-syne text-3xl md:text-5xl font-bold text-ink mb-5">
             Start reaching your customers today.
           </h2>
-          <p className="font-dm text-bg/60 text-lg mb-10 max-w-xl mx-auto">
+          <p className="font-dm text-ink-light text-lg mb-10 max-w-xl mx-auto">
             Top up credits, upload your contacts, and send your first
             campaign in under 10 minutes. We're on WhatsApp if you need help.
           </p>
@@ -284,13 +284,13 @@ export default function DigitalMarketingServicePage() {
               href="https://wa.me/918735001217"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-accent text-bg font-syne font-semibold px-10 py-4 rounded-lg hover:bg-accent/90 transition-colors"
+              className="inline-block bg-accent text-white font-syne font-semibold px-10 py-4 rounded-lg hover:bg-accent/90 transition-colors"
             >
               WhatsApp Us Now
             </a>
             <Link
               href="/products/mysampark"
-              className="inline-block border border-bg/30 text-bg font-syne font-semibold px-10 py-4 rounded-lg hover:border-bg/60 transition-colors"
+              className="inline-block border border-ink/20 text-ink font-syne font-semibold px-10 py-4 rounded-lg hover:border-ink/40 transition-colors"
             >
               View MySampark
             </Link>
