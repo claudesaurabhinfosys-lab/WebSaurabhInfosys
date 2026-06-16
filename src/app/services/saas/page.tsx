@@ -94,7 +94,7 @@ export default function SaaSServicePage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-ink text-bg py-24">
+      <section className="bg-gray-50 py-24">
         <div className="max-w-5xl mx-auto px-6">
           <p className="font-dm text-accent text-sm uppercase tracking-widest mb-4">
             SaaS Platform Development
@@ -103,12 +103,12 @@ export default function SaaSServicePage() {
             We don't just build SaaS.{" "}
             <span className="text-accent">We run our own.</span>
           </h1>
-          <p className="font-dm text-lg md:text-xl text-bg/75 max-w-2xl mb-6">
+          <p className="font-dm text-lg md:text-xl text-ink-light max-w-2xl mb-6">
             SSMS, MySociety, and MySampark are SaaS products we built and
             operate ourselves — serving thousands of users across India. When
             we build your platform, we bring that operator mindset with us.
           </p>
-          <p className="font-dm text-bg/50 text-base mb-10">
+          <p className="font-dm text-ink-light text-base mb-10">
             Multi-tenant architecture · Subscription billing · Role-based
             access · Production-hardened
           </p>
@@ -117,13 +117,13 @@ export default function SaaSServicePage() {
               href="https://wa.me/918735001217"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-accent text-bg font-syne font-semibold px-8 py-4 rounded-lg hover:bg-accent/90 transition-colors text-center"
+              className="inline-block bg-accent text-white font-syne font-semibold px-8 py-4 rounded-lg hover:bg-accent/90 transition-colors text-center"
             >
               Discuss Your SaaS Idea
             </a>
             <Link
               href="/contact"
-              className="inline-block border border-bg/30 text-bg font-syne font-semibold px-8 py-4 rounded-lg hover:border-bg/60 transition-colors text-center"
+              className="inline-block border border-ink/20 text-ink font-syne font-semibold px-8 py-4 rounded-lg hover:border-ink/40 transition-colors text-center"
             >
               Get a Proposal
             </Link>
@@ -248,15 +248,15 @@ export default function SaaSServicePage() {
       {/* Tech Stack */}
       <section className="bg-card py-20">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="bg-ink rounded-2xl px-10 py-10 flex flex-col md:flex-row items-start md:items-center gap-6">
+          <div className="bg-gray-100 rounded-2xl px-10 py-10 flex flex-col md:flex-row items-start md:items-center gap-6">
             <div className="flex-1">
               <p className="font-dm text-accent text-sm uppercase tracking-widest mb-2">
                 Tech Stack
               </p>
-              <h3 className="font-syne text-bg text-2xl font-bold mb-2">
+              <h3 className="font-syne text-ink text-2xl font-bold mb-2">
                 Modern, proven, scalable
               </h3>
-              <p className="font-dm text-bg/60 text-sm">
+              <p className="font-dm text-ink-light text-sm">
                 We use the same stack across all our own products — so you
                 get a team that knows it deeply, not just theoretically.
               </p>
@@ -265,7 +265,7 @@ export default function SaaSServicePage() {
               {techStack.map((tech) => (
                 <span
                   key={tech}
-                  className="bg-bg/10 text-bg font-dm text-xs px-3 py-1.5 rounded-full border border-bg/20"
+                  className="bg-ink/5 text-ink font-dm text-xs px-3 py-1.5 rounded-full border border-ink/10"
                 >
                   {tech}
                 </span>
@@ -276,12 +276,12 @@ export default function SaaSServicePage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="bg-ink py-24">
+      <section className="bg-gray-50 py-24">
         <div className="max-w-5xl mx-auto px-6 text-center">
-          <h2 className="font-syne text-3xl md:text-5xl font-bold text-bg mb-5">
+          <h2 className="font-syne text-3xl md:text-5xl font-bold text-ink mb-5">
             Let's build your SaaS together.
           </h2>
-          <p className="font-dm text-bg/60 text-lg mb-10 max-w-xl mx-auto">
+          <p className="font-dm text-ink-light text-lg mb-10 max-w-xl mx-auto">
             Share your idea over WhatsApp and we'll come back with a
             scope, timeline, and honest estimate — no sales pitch.
           </p>
