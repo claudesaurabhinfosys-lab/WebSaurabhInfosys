@@ -24,25 +24,21 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Package output
+      - name: Setup SSH
         run: |
-          cd out
-          zip -r ../deploy.zip . -x "*.htaccess" -x "extract.php" -x "phptest.php" -x "deploy-webhook.php" -x "4e472060b5dd251fff9f2f80eefa8bdb.txt"
-          cd ..
-          echo "Package size: $(du -sh deploy.zip)"
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts 2>/dev/null || true
 
-      - name: Deploy via webhook
+      - name: Deploy via rsync
         run: |
-          RESPONSE=$(curl -s -w "\n%{http_code}" -X POST \
-            -F "secret=${{ secrets.WEBHOOK_SECRET }}" \
-            -F "deploy_path=${{ secrets.DEPLOY_PATH }}" \
-            -F "file=@deploy.zip" \
-            https://saurabhinfosys.com/deploy-webhook.php)
-          HTTP_CODE=$(echo "$RESPONSE" | tail -1)
-          BODY=$(echo "$RESPONSE" | head -1)
-          echo "Response: $BODY"
-          echo "HTTP Code: $HTTP_CODE"
-          if [ "$HTTP_CODE" != "200" ]; then
-            echo "Deploy failed with HTTP $HTTP_CODE"
-            exit 1
-          fi
+          rsync -av --delete \
+            --exclude='.htaccess' \
+            --exclude='extract.php' \
+            --exclude='phptest.php' \
+            --exclude='deploy-webhook.php' \
+            --exclude='4e472060b5dd251fff9f2f80eefa8bdb.txt' \
+            -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no" \
+            out/ \
+            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/saurabhinfosys.com/public_html/
