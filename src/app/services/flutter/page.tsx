@@ -101,7 +101,7 @@ export default function FlutterPage() {
             </a>
             <Link
               href="/portfolio"
-              className="inline-flex items-center gap-2 border-2 border-ink text-ink font-syne font-semibold px-7 py-3.5 rounded-full hover:bg-ink hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 border-2 border-ink text-ink font-syne font-semibold px-7 py-3.5 rounded-full hover:bg-accent hover:text-white transition-colors"
             >
               View Portfolio
             </Link>
@@ -110,35 +110,35 @@ export default function FlutterPage() {
       </section>
 
       {/* ── Platform Badges ── */}
-      <section className="bg-ink py-10 px-6">
+      <section className="bg-gray-50 py-10 px-6 border-y border-ink/8">
         <div className="max-w-5xl mx-auto">
           <div className="flex flex-wrap items-center justify-center gap-6 md:gap-10">
             {/* iOS */}
-            <div className="flex items-center gap-3 text-white">
+            <div className="flex items-center gap-3 text-ink">
               <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 opacity-80">
                 <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
               </svg>
               <span className="font-syne font-semibold text-lg">iOS</span>
             </div>
-            <div className="w-px h-8 bg-white/20 hidden md:block" />
+            <div className="w-px h-8 bg-ink/8 hidden md:block" />
             {/* Android */}
-            <div className="flex items-center gap-3 text-white">
+            <div className="flex items-center gap-3 text-ink">
               <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 opacity-80">
                 <path d="M17.523 15.341a.961.961 0 01-.96.961.961.961 0 01-.961-.96.961.961 0 01.96-.962.961.961 0 01.961.961zm-10.046 0a.961.961 0 01-.96.961.961.961 0 01-.961-.96.961.961 0 01.96-.962.961.961 0 01.961.961zm10.369-4.957l1.914-3.313a.397.397 0 00-.145-.543.397.397 0 00-.543.145l-1.938 3.355A11.44 11.44 0 0012 9.187c-1.783 0-3.465.422-4.934 1.16L5.128 7.02a.397.397 0 00-.543-.145.397.397 0 00-.145.543L6.354 10.73C3.647 12.27 1.837 15.11 1.837 18.37H22.16c0-3.26-1.81-6.1-4.314-7.986z" />
               </svg>
               <span className="font-syne font-semibold text-lg">Android</span>
             </div>
-            <div className="w-px h-8 bg-white/20 hidden md:block" />
+            <div className="w-px h-8 bg-ink/8 hidden md:block" />
             {/* App Store */}
-            <div className="flex items-center gap-3 text-white">
+            <div className="flex items-center gap-3 text-ink">
               <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 opacity-80">
                 <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" />
               </svg>
               <span className="font-syne font-semibold text-lg">App Store</span>
             </div>
-            <div className="w-px h-8 bg-white/20 hidden md:block" />
+            <div className="w-px h-8 bg-ink/8 hidden md:block" />
             {/* Play Store */}
-            <div className="flex items-center gap-3 text-white">
+            <div className="flex items-center gap-3 text-ink">
               <svg viewBox="0 0 24 24" fill="currentColor" className="w-8 h-8 opacity-80">
                 <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-3.199a1 1 0 010 1.732L15.394 12l2.304-2.303zM5.864 2.658L16.8 8.99l-2.302 2.302-8.635-8.635z" />
               </svg>
@@ -188,9 +188,9 @@ export default function FlutterPage() {
                 key={item.name}
                 className="bg-card rounded-2xl overflow-hidden border border-ink/8 hover:shadow-xl transition-shadow group"
               >
-                <div className="bg-ink p-6 flex items-center justify-between">
+                <div className="bg-gray-100 p-6 flex items-center justify-between">
                   <span className="text-4xl">{item.flag}</span>
-                  <span className="text-white/40 font-syne text-xs uppercase tracking-wider">
+                  <span className="text-ink-light font-syne text-xs uppercase tracking-wider">
                     {item.category}
                   </span>
                 </div>
@@ -241,12 +241,12 @@ export default function FlutterPage() {
       </section>
 
       {/* ── Bottom CTA ── */}
-      <section className="bg-ink py-20 px-6">
+      <section className="bg-gray-50 py-20 px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-syne font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-white mb-5">
+          <h2 className="font-syne font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-ink mb-5">
             Ready to build your Flutter app?
           </h2>
-          <p className="text-white/60 text-lg mb-10">
+          <p className="text-ink-light text-lg mb-10">
             From your first Figma screen to live on both stores — we handle it
             all. Let&apos;s talk about your app idea today.
           </p>
@@ -261,7 +261,7 @@ export default function FlutterPage() {
             </a>
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 border-2 border-white/30 text-white font-syne font-semibold px-8 py-4 rounded-full hover:border-white transition-colors text-lg"
+              className="inline-flex items-center gap-2 border-2 border-ink/20 text-ink font-syne font-semibold px-8 py-4 rounded-full hover:border-ink transition-colors text-lg"
             >
               Send an Email
             </Link>
