@@ -103,7 +103,7 @@ export default function SSMSPage() {
               href="https://wa.me/918735001217"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 bg-ink text-white font-syne font-semibold text-base px-8 py-4 rounded-lg hover:bg-ink/80 transition-colors"
+              className="flex items-center justify-center gap-2 border border-ink/20 text-ink font-syne font-semibold text-base px-8 py-4 rounded-lg hover:bg-ink/5 transition-colors"
             >
               <span>💬</span> WhatsApp Us
             </a>
@@ -174,22 +174,22 @@ export default function SSMSPage() {
               One plan. Everything included. No hidden fees.
             </p>
           </div>
-          <div className="bg-ink rounded-3xl p-8 md:p-10 text-center">
-            <p className="font-dm text-white/60 text-sm uppercase tracking-widest mb-3">
+          <div className="bg-gray-100 rounded-3xl p-8 md:p-10 text-center">
+            <p className="font-dm text-ink-light text-sm uppercase tracking-widest mb-3">
               Annual Plan
             </p>
             <div className="mb-2">
-              <span className="font-syne text-6xl font-bold text-white">
+              <span className="font-syne text-6xl font-bold text-ink">
                 ₹999
               </span>
-              <span className="font-dm text-white/60 text-lg ml-2">/year</span>
+              <span className="font-dm text-ink-light text-lg ml-2">/year</span>
             </div>
             <p className="font-dm text-accent font-semibold text-sm mb-8">
               Everything included
             </p>
             <ul className="text-left space-y-3 mb-10">
               {includedFeatures.map((item) => (
-                <li key={item} className="flex items-center gap-3 font-dm text-white/80 text-sm">
+                <li key={item} className="flex items-center gap-3 font-dm text-ink text-sm">
                   <span className="text-accent font-bold">✓</span>
                   {item}
                 </li>
@@ -226,12 +226,12 @@ export default function SSMSPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="bg-ink py-24">
+      <section className="bg-gray-50 py-24">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="font-syne text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
+          <h2 className="font-syne text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-ink mb-6">
             Ready to modernise your school?
           </h2>
-          <p className="font-dm text-white/60 text-lg mb-10 max-w-xl mx-auto">
+          <p className="font-dm text-ink-light text-lg mb-10 max-w-xl mx-auto">
             Start your free trial today — no credit card required. Our team
             will help you get set up within 24 hours.
           </p>
@@ -248,7 +248,7 @@ export default function SSMSPage() {
               href="https://wa.me/918735001217"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-2 bg-white/10 text-white font-syne font-semibold text-base px-8 py-4 rounded-lg hover:bg-white/20 transition-colors"
+              className="flex items-center justify-center gap-2 border border-ink/20 text-ink font-syne font-semibold text-base px-8 py-4 rounded-lg hover:bg-ink/5 transition-colors"
             >
               <span>💬</span> Chat on WhatsApp
             </a>
