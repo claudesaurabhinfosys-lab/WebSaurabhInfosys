@@ -288,13 +288,13 @@ export default function MySamparkPage() {
       </section>
 
       {/* How It Works */}
-      <section className="bg-ink py-24">
+      <section className="bg-gray-50 py-24">
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-14">
-            <h2 className="font-syne text-4xl font-bold text-white mb-4">
+            <h2 className="font-syne text-4xl font-bold text-ink mb-4">
               Start posting in 3 steps
             </h2>
-            <p className="font-dm text-white/60 text-lg max-w-xl mx-auto">
+            <p className="font-dm text-ink-light text-lg max-w-xl mx-auto">
               No complicated setup. Go from sign-up to scheduled in under 2
               minutes.
             </p>
@@ -321,10 +321,10 @@ export default function MySamparkPage() {
                 <div className="font-syne text-5xl font-bold text-accent/30 mb-4">
                   {item.step}
                 </div>
-                <h3 className="font-syne text-xl font-bold text-white mb-3">
+                <h3 className="font-syne text-xl font-bold text-ink mb-3">
                   {item.title}
                 </h3>
-                <p className="font-dm text-white/60 text-sm leading-relaxed">
+                <p className="font-dm text-ink-light text-sm leading-relaxed">
                   {item.desc}
                 </p>
               </div>
@@ -360,12 +360,12 @@ export default function MySamparkPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="bg-ink py-24">
+      <section className="bg-gray-50 py-24">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="font-syne text-4xl md:text-5xl font-bold text-white mb-6">
+          <h2 className="font-syne text-4xl md:text-5xl font-bold text-ink mb-6">
             Ready to grow your social media presence?
           </h2>
-          <p className="font-dm text-white/60 text-lg mb-10 max-w-xl mx-auto">
+          <p className="font-dm text-ink-light text-lg mb-10 max-w-xl mx-auto">
             Join 2,000+ creators and brands using MySampark to schedule
             smarter, post faster, and grow their audience with AI.
           </p>
@@ -380,12 +380,12 @@ export default function MySamparkPage() {
             </a>
             <a
               href="mailto:info@mysampark.com"
-              className="flex items-center justify-center gap-2 bg-white/10 text-white font-syne font-semibold text-base px-8 py-4 rounded-lg hover:bg-white/20 transition-colors"
+              className="flex items-center justify-center gap-2 border border-ink/20 text-ink font-syne font-semibold text-base px-8 py-4 rounded-lg hover:bg-ink/5 transition-colors"
             >
               ✉️ Contact the Team
             </a>
           </div>
-          <p className="font-dm text-white/30 text-sm mt-6">
+          <p className="font-dm text-ink-light text-sm mt-6">
             Free plan available · No credit card required
           </p>
         </div>
