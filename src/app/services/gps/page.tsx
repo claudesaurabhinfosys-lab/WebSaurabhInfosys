@@ -68,7 +68,7 @@ export default function GPSServicePage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-ink text-bg py-24">
+      <section className="bg-gray-50 py-24">
         <div className="max-w-5xl mx-auto px-6">
           <p className="font-dm text-accent text-sm uppercase tracking-widest mb-4">
             GPS &amp; Fleet Management
@@ -77,7 +77,7 @@ export default function GPSServicePage() {
             Know where your fleet is,{" "}
             <span className="text-accent">every second.</span>
           </h1>
-          <p className="font-dm text-lg md:text-xl text-bg/75 max-w-2xl mb-10">
+          <p className="font-dm text-lg md:text-xl text-ink-light max-w-2xl mb-10">
             Real-time GPS tracking and fleet intelligence for logistics,
             transport, and delivery businesses. Cut fuel costs, reduce idle
             time, and keep customers informed — all from one dashboard.
@@ -87,13 +87,13 @@ export default function GPSServicePage() {
               href="https://wa.me/918735001217"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block bg-accent text-bg font-syne font-semibold px-8 py-4 rounded-lg hover:bg-accent/90 transition-colors text-center"
+              className="inline-block bg-accent text-white font-syne font-semibold px-8 py-4 rounded-lg hover:bg-accent/90 transition-colors text-center"
             >
               Request a Live Demo
             </a>
             <Link
               href="/contact"
-              className="inline-block border border-bg/30 text-bg font-syne font-semibold px-8 py-4 rounded-lg hover:border-bg/60 transition-colors text-center"
+              className="inline-block border border-ink/20 text-ink font-syne font-semibold px-8 py-4 rounded-lg hover:border-ink/40 transition-colors text-center"
             >
               Talk to Us
             </Link>
@@ -174,15 +174,15 @@ export default function GPSServicePage() {
       {/* Tech Stack Callout */}
       <section className="bg-bg py-20">
         <div className="max-w-5xl mx-auto px-6">
-          <div className="bg-ink rounded-2xl px-10 py-10 flex flex-col md:flex-row items-start md:items-center gap-6">
+          <div className="bg-gray-100 rounded-2xl px-10 py-10 flex flex-col md:flex-row items-start md:items-center gap-6">
             <div className="flex-1">
               <p className="font-dm text-accent text-sm uppercase tracking-widest mb-2">
                 Tech Stack
               </p>
-              <h3 className="font-syne text-bg text-2xl font-bold mb-2">
+              <h3 className="font-syne text-ink text-2xl font-bold mb-2">
                 Built for performance at scale
               </h3>
-              <p className="font-dm text-bg/60 text-sm">
+              <p className="font-dm text-ink-light text-sm">
                 Built on React + Node.js + WebSockets + Google Maps API — a
                 proven stack delivering sub-second updates even across 100+
                 simultaneous vehicle streams.
@@ -193,7 +193,7 @@ export default function GPSServicePage() {
                 (tech) => (
                   <span
                     key={tech}
-                    className="bg-bg/10 text-bg font-dm text-xs px-3 py-1.5 rounded-full border border-bg/20"
+                    className="bg-ink/5 text-ink font-dm text-xs px-3 py-1.5 rounded-full border border-ink/10"
                   >
                     {tech}
                   </span>
@@ -205,12 +205,12 @@ export default function GPSServicePage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="bg-ink py-24">
+      <section className="bg-gray-50 py-24">
         <div className="max-w-5xl mx-auto px-6 text-center">
-          <h2 className="font-syne text-3xl md:text-5xl font-bold text-bg mb-5">
+          <h2 className="font-syne text-3xl md:text-5xl font-bold text-ink mb-5">
             Ready to track your fleet?
           </h2>
-          <p className="font-dm text-bg/60 text-lg mb-10 max-w-xl mx-auto">
+          <p className="font-dm text-ink-light text-lg mb-10 max-w-xl mx-auto">
             We'll set you up with a live demo using your own vehicle data.
             Most clients go live within 2 weeks.
           </p>
@@ -218,7 +218,7 @@ export default function GPSServicePage() {
             href="https://wa.me/918735001217"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-accent text-bg font-syne font-semibold px-10 py-4 rounded-lg hover:bg-accent/90 transition-colors"
+            className="inline-block bg-accent text-white font-syne font-semibold px-10 py-4 rounded-lg hover:bg-accent/90 transition-colors"
           >
             WhatsApp Us Now
           </a>
