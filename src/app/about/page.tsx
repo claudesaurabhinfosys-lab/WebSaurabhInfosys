@@ -53,16 +53,16 @@ export default function AboutPage() {
   return (
     <main className="font-dm">
       {/* Hero */}
-      <section className="bg-ink py-20 md:py-24">
+      <section className="bg-gray-50 py-20 md:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-accent font-syne font-semibold text-sm uppercase tracking-widest mb-4">
             About Us
           </p>
-          <h1 className="font-syne text-4xl md:text-6xl font-bold text-bg leading-tight max-w-4xl">
+          <h1 className="font-syne text-4xl md:text-6xl font-bold text-ink leading-tight max-w-4xl">
             Building India&apos;s AI-first future{" "}
             <span className="text-accent">from Ahmedabad</span>
           </h1>
-          <p className="mt-6 text-bg/60 text-lg md:text-xl max-w-2xl leading-relaxed">
+          <p className="mt-6 text-ink-light text-lg md:text-xl max-w-2xl leading-relaxed">
             A full-stack software and AI studio based in Ahmedabad — with 80+ clients
             across India, UK, Europe, Asia Pacific, the Americas, and the Gulf.
             We specialise in AI automation, mobile apps, and SaaS platforms, with an
@@ -139,13 +139,13 @@ export default function AboutPage() {
       </section>
 
       {/* Markets Section */}
-      <section className="bg-ink py-20 md:py-24">
+      <section className="bg-gray-50 py-20 md:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="font-syne text-3xl md:text-4xl font-bold text-bg mb-4">
+            <h2 className="font-syne text-3xl md:text-4xl font-bold text-ink mb-4">
               Markets we serve
             </h2>
-            <p className="text-bg/50 text-lg max-w-xl mx-auto">
+            <p className="text-ink-light text-lg max-w-xl mx-auto">
               Our clients are spread across India, Europe, Asia Pacific,
               the Americas, and the Gulf — united by a need for reliable,
               fast, cost-effective software.
@@ -155,16 +155,16 @@ export default function AboutPage() {
             {MARKETS.map((market) => (
               <div
                 key={market.name}
-                className="bg-bg/5 border border-bg/10 rounded-2xl p-8 hover:bg-bg/10 transition-colors"
+                className="bg-surface border border-ink/8 rounded-2xl p-8 hover:bg-ink/3 transition-colors"
               >
                 <span className="text-3xl mb-4 block">{market.flags}</span>
-                <h3 className="font-syne font-bold text-bg text-xl mb-1">
+                <h3 className="font-syne font-bold text-ink text-xl mb-1">
                   {market.name}
                 </h3>
                 <p className="text-accent text-sm font-semibold mb-3">
                   {market.tagline}
                 </p>
-                <p className="text-bg/50 text-sm leading-relaxed">{market.desc}</p>
+                <p className="text-ink-light text-sm leading-relaxed">{market.desc}</p>
               </div>
             ))}
           </div>
@@ -266,12 +266,12 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-ink py-20 md:py-24">
+      <section className="bg-gray-50 py-20 md:py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-syne text-3xl md:text-5xl font-bold text-bg mb-6">
+          <h2 className="font-syne text-3xl md:text-5xl font-bold text-ink mb-6">
             Ready to work with us?
           </h2>
-          <p className="text-bg/60 text-lg mb-10 max-w-xl mx-auto">
+          <p className="text-ink-light text-lg mb-10 max-w-xl mx-auto">
             Drop us a message on WhatsApp — we reply within 2 hours on business
             days.
           </p>
@@ -286,7 +286,7 @@ export default function AboutPage() {
             </a>
             <Link
               href="/portfolio"
-              className="inline-block bg-bg/10 text-bg font-syne font-semibold px-8 py-4 rounded-xl hover:bg-bg/20 transition-colors text-base border border-bg/20"
+              className="inline-block border border-ink/20 text-ink font-syne font-semibold px-8 py-4 rounded-xl hover:bg-ink/5 transition-colors text-base"
             >
               View Our Work
             </Link>
