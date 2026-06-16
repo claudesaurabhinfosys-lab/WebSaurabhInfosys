@@ -52,7 +52,7 @@ export default function Footer() {
             </p>
             <div className="flex flex-col gap-2 text-sm text-ink-light">
               <a href={`https://wa.me/${COMPANY.whatsapp}`} target="_blank" rel="noopener noreferrer" className="hover:text-accent transition-colors">
-                📱 WhatsApp: +91 {COMPANY.whatsapp}
+                📱 WhatsApp: {COMPANY.phone}
               </a>
               <a href={`mailto:${COMPANY.email}`} className="hover:text-accent transition-colors">
                 ✉️ {COMPANY.email}
