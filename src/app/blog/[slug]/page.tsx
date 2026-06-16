@@ -103,11 +103,11 @@ export default function BlogPostPage({
     <main className="bg-bg text-ink font-dm">
 
       {/* ── Hero ── */}
-      <section className="bg-ink pt-24 pb-16 px-6">
+      <section className="bg-gradient-to-br from-indigo-50 to-purple-50 pt-24 pb-16 px-6">
         <div className="max-w-3xl mx-auto">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-white/50 hover:text-white text-sm mb-8 transition-colors"
+            className="inline-flex items-center gap-2 text-ink-light hover:text-ink text-sm mb-8 transition-colors"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16l-4-4m0 0l4-4m-4 4h18" />
@@ -118,7 +118,7 @@ export default function BlogPostPage({
           <div className="flex flex-wrap items-center gap-3 mb-5">
             <span
               className={`text-xs font-semibold px-3 py-1 rounded-full ${
-                CATEGORY_COLORS[post.category] ?? "bg-white/10 text-white"
+                CATEGORY_COLORS[post.category] ?? "bg-ink/8 text-ink"
               }`}
             >
               {post.category}
@@ -130,10 +130,10 @@ export default function BlogPostPage({
             )}
           </div>
 
-          <h1 className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl leading-tight text-white mb-5">
+          <h1 className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl leading-tight text-ink mb-5">
             {post.title}
           </h1>
-          <p className="text-white/50 text-sm">
+          <p className="text-ink-light text-sm">
             {formatDate(post.date)} · {post.readTime}
           </p>
         </div>
@@ -155,12 +155,12 @@ export default function BlogPostPage({
       </section>
 
       {/* ── CTA ── */}
-      <section className="bg-ink py-16 px-6">
+      <section className="bg-gray-50 py-16 px-6">
         <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-syne font-bold text-2xl sm:text-3xl text-white mb-4">
+          <h2 className="font-syne font-bold text-2xl sm:text-3xl text-ink mb-4">
             Want to implement this for your business?
           </h2>
-          <p className="text-white/60 text-base mb-10 max-w-xl mx-auto">
+          <p className="text-ink-light text-base mb-10 max-w-xl mx-auto">
             Saurabh Infosys builds AI automation, AI-enabled apps, and MVPs for
             Indian businesses. Let&apos;s talk about your project.
           </p>
@@ -175,7 +175,7 @@ export default function BlogPostPage({
             </a>
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 border-2 border-white/30 text-white font-syne font-semibold px-8 py-4 rounded-full hover:border-white transition-colors"
+              className="inline-flex items-center gap-2 border-2 border-ink/20 text-ink font-syne font-semibold px-8 py-4 rounded-full hover:border-ink transition-colors"
             >
               More Articles
             </Link>
