@@ -27,11 +27,11 @@ export default function PortfolioPage() {
   return (
     <main className="font-dm">
       {/* Hero / Header */}
-      <section className="bg-ink pt-28 pb-0 relative overflow-hidden">
+      <section className="bg-gradient-to-br from-indigo-50 via-white to-purple-50 pt-28 pb-0 relative overflow-hidden">
         {/* Dot-grid background */}
         <div
           className="absolute inset-0 opacity-[0.04]"
-          style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "28px 28px" }}
+          style={{ backgroundImage: "radial-gradient(circle, rgba(9,9,11,0.15) 1px, transparent 1px)", backgroundSize: "28px 28px" }}
         />
         {/* Accent glow */}
         <div className="absolute -top-40 -right-40 w-96 h-96 bg-accent/20 rounded-full blur-3xl pointer-events-none" />
@@ -43,12 +43,12 @@ export default function PortfolioPage() {
           </p>
 
           {/* Headline */}
-          <h1 className="font-syne text-5xl md:text-7xl font-bold text-white leading-[1.05] mb-5">
+          <h1 className="font-syne text-5xl md:text-7xl font-bold text-ink leading-[1.05] mb-5">
             38 Projects.<br />
-            <span className="text-white/35">Real Results.</span>
+            <span className="text-ink-light">Real Results.</span>
           </h1>
 
-          <p className="text-white/50 text-lg max-w-2xl mb-14 leading-relaxed">
+          <p className="text-ink-light text-lg max-w-2xl mb-14 leading-relaxed">
             From AI agents and Flutter apps to SaaS platforms and GPS systems — built
             for clients across India, the UK, the US, Australia, and Hong Kong.
           </p>
@@ -56,23 +56,23 @@ export default function PortfolioPage() {
           {/* Client flags */}
           <div className="flex flex-wrap items-center gap-3 mb-14">
             {["🇮🇳 India", "🇬🇧 UK", "🇺🇸 USA", "🇦🇺 Australia", "🇭🇰 Hong Kong"].map((f) => (
-              <span key={f} className="text-white/50 text-sm bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">
+              <span key={f} className="text-ink-light text-sm bg-ink/5 border border-ink/10 px-3 py-1.5 rounded-full">
                 {f}
               </span>
             ))}
           </div>
 
           {/* Stats bar — sits at the bottom of the hero */}
-          <div className="grid grid-cols-2 md:grid-cols-4 border-t border-white/10">
+          <div className="grid grid-cols-2 md:grid-cols-4 border-t border-ink/10">
             {[
               { value: "38",   label: "Projects delivered" },
               { value: "80+",  label: "Happy clients" },
               { value: "4.9",  label: "Rating on Clutch" },
               { value: "4+",   label: "Years building" },
             ].map((s) => (
-              <div key={s.label} className="py-7 px-2 md:px-6 first:pl-0 border-r border-white/10 last:border-r-0">
-                <p className="font-syne font-bold text-3xl md:text-4xl text-white mb-1">{s.value}</p>
-                <p className="text-white/40 text-sm">{s.label}</p>
+              <div key={s.label} className="py-7 px-2 md:px-6 first:pl-0 border-r border-ink/8 last:border-r-0">
+                <p className="font-syne font-bold text-3xl md:text-4xl text-ink mb-1">{s.value}</p>
+                <p className="text-ink-light text-sm">{s.label}</p>
               </div>
             ))}
           </div>
@@ -80,7 +80,7 @@ export default function PortfolioPage() {
       </section>
 
       {/* Filters */}
-      <div className="bg-ink border-b border-bg/10 sticky top-0 z-10">
+      <div className="bg-white border-b border-ink/10 sticky top-0 z-10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-3 overflow-x-auto py-4 scrollbar-hide no-scrollbar">
             {PORTFOLIO_CATEGORIES.map((cat) => (
@@ -90,7 +90,7 @@ export default function PortfolioPage() {
                 className={`flex-shrink-0 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                   activeCategory === cat
                     ? "bg-accent text-white"
-                    : "bg-bg/10 text-bg/70 hover:bg-bg/20 hover:text-bg"
+                    : "bg-ink/8 text-ink/70 hover:bg-ink/15 hover:text-ink"
                 }`}
               >
                 {cat}
@@ -179,13 +179,13 @@ export default function PortfolioPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="bg-ink py-20 md:py-24">
+      <section className="bg-gray-50 py-20 md:py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-syne text-3xl md:text-5xl font-bold text-bg mb-6">
+          <h2 className="font-syne text-3xl md:text-5xl font-bold text-ink mb-6">
             Your project could be{" "}
             <span className="text-accent">next on this list</span>
           </h2>
-          <p className="text-bg/60 text-lg mb-10 max-w-2xl mx-auto">
+          <p className="text-ink-light text-lg mb-10 max-w-2xl mx-auto">
             Whether you need an AI agent, a mobile app, or a full SaaS platform
             — we&apos;ve built it before and we&apos;ll build it right.
           </p>
@@ -198,7 +198,7 @@ export default function PortfolioPage() {
             </Link>
             <Link
               href="/services"
-              className="inline-block bg-bg/10 text-bg font-syne font-semibold px-8 py-4 rounded-xl hover:bg-bg/20 transition-colors text-base border border-bg/20"
+              className="inline-block bg-ink/8 text-ink font-syne font-semibold px-8 py-4 rounded-xl hover:bg-ink/15 transition-colors text-base border border-ink/20"
             >
               View Our Services
             </Link>
