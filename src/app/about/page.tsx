@@ -76,8 +76,8 @@ export default function AboutPage() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { value: COMPANY.stats.clients, label: "Happy Clients" },
-              { value: COMPANY.stats.projects + " projects", label: "Delivered" },
+              { value: COMPANY.stats.clients, label: "Clients Worldwide" },
+              { value: COMPANY.stats.projects, label: "Projects Delivered" },
               { value: COMPANY.stats.years + " years", label: "In Business" },
               { value: COMPANY.stats.saasProducts + " SaaS", label: "Products Live" },
             ].map((stat) => (
