@@ -113,7 +113,7 @@ export default function Testimonials() {
           viewport={{ once: true }}
           transition={{ delay: 0.3 }}
         >
-          <a href="https://clutch.co" target="_blank" rel="noopener noreferrer"
+          <a href="https://clutch.co/profile/saurabh-infosys" target="_blank" rel="noopener noreferrer"
              className="group inline-flex items-center gap-3 px-6 py-3 rounded-2xl border border-ink/8 bg-surface hover:border-accent/30 transition-all hover:shadow-lg hover:shadow-accent/8">
             <span className="text-xl">⭐</span>
             <div>
