@@ -84,7 +84,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Saurabh Infosys. All rights reserved.
           </p>
           <div className="flex items-center gap-4 text-xs text-ink-light">
-            <a href="https://clutch.co" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-accent transition-colors">
+            <a href="https://clutch.co/profile/saurabh-infosys" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 hover:text-accent transition-colors">
               <span>⭐</span> 4.9/5 on Clutch
             </a>
             <span className="text-ink/20">|</span>
