@@ -8,7 +8,7 @@ export const COMPANY = {
   whatsapp: "918735001217",
   stats: {
     clients: "80+",
-    projects: "100+",
+    projects: "150+",
     years: "4+",
     saasProducts: "3",
     clutchRating: "4.9",
