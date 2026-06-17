@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 
 const stats = [
   { value: 80, suffix: "+", label: "Clients Worldwide", icon: "🌍" },
-  { value: 100, suffix: "+", label: "Projects Shipped", icon: "🚀" },
+  { value: 150, suffix: "+", label: "Projects Delivered", icon: "🚀" },
   { value: 4,  suffix: "+", label: "Years Building", icon: "⚙️" },
   { value: 4.9, suffix: "★", label: "Clutch Rating", icon: "⭐", isFloat: true },
   { value: 3,  suffix: "",  label: "Own SaaS Products", icon: "📦" },
