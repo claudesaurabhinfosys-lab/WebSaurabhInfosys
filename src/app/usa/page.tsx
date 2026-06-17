@@ -213,9 +213,9 @@ export default function USAPage() {
       <section className="bg-gray-50 border-y border-ink/8 py-10 px-6">
         <div className="max-w-5xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-8 text-center">
           {[
-            { value: "80+", label: "Global Clients" },
-            { value: "4.9 Stars", label: "Clutch Rating" },
-            { value: "4+", label: "US Projects Live" },
+            { value: "150+", label: "Projects Delivered" },
+            { value: "80+", label: "Clients Worldwide" },
+            { value: "4.9★", label: "Clutch Rating" },
             { value: "2 Weeks", label: "Average Delivery" },
           ].map((s) => (
             <div key={s.label}>
