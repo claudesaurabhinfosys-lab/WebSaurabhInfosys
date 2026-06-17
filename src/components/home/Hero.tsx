@@ -276,7 +276,7 @@ export default function Hero() {
               {[
                 { n: "80+", l: "Clients" },
                 { n: "4.9★", l: "Clutch" },
-                { n: "100+", l: "Projects" },
+                { n: "150+", l: "Projects" },
                 { n: "4+", l: "Years" },
               ].map((s, i) => (
                 <div key={i} className="flex items-center gap-2">
