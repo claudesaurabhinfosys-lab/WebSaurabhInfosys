@@ -44,7 +44,7 @@ export default function PortfolioPage() {
 
           {/* Headline */}
           <h1 className="font-syne text-5xl md:text-7xl font-bold text-ink leading-[1.05] mb-5">
-            100+ Projects.<br />
+            150+ Projects.<br />
             <span className="text-ink-light">Real Results.</span>
           </h1>
 
@@ -65,7 +65,7 @@ export default function PortfolioPage() {
           {/* Stats bar — sits at the bottom of the hero */}
           <div className="grid grid-cols-2 md:grid-cols-4 border-t border-ink/10">
             {[
-              { value: "100+", label: "Projects delivered" },
+              { value: "150+", label: "Projects Delivered" },
               { value: "80+",  label: "Happy clients" },
               { value: "4.9",  label: "Rating on Clutch" },
               { value: "4+",   label: "Years building" },
