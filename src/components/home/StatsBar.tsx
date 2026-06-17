@@ -40,26 +40,30 @@ function AnimatedNumber({ value, suffix, isFloat }: { value: number; suffix: str
 
 export default function StatsBar() {
   return (
-    <section className="relative py-20 border-y border-ink/6 overflow-hidden">
-      <div className="absolute inset-0 bg-surface" />
-      <div className="absolute inset-0 bg-grid opacity-50" />
+    <section className="relative py-24 border-y border-ink/6 overflow-hidden">
+      {/* Subtle animated gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-surface via-indigo-50/30 to-violet-50/20" />
+      <div className="absolute inset-0 bg-grid opacity-30" />
+      {/* Accent glow orbs */}
+      <div className="absolute top-0 left-1/4 w-64 h-64 bg-accent/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 right-1/4 w-48 h-48 bg-purple-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px bg-ink/6 rounded-2xl overflow-hidden border border-ink/6 [&>*:last-child]:col-span-2 sm:[&>*:last-child]:col-span-1">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-px bg-ink/6 rounded-2xl overflow-hidden border border-ink/6 shadow-sm [&>*:last-child]:col-span-2 sm:[&>*:last-child]:col-span-1">
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}
-              className="bg-surface flex flex-col items-center justify-center text-center px-6 py-8 group hover:bg-card-hover transition-colors"
+              className="bg-surface/90 backdrop-blur-sm flex flex-col items-center justify-center text-center px-6 py-10 group hover:bg-white transition-all duration-300"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.07 }}
             >
-              <div className="text-2xl mb-3 group-hover:scale-110 transition-transform">{stat.icon}</div>
-              <div className="text-3xl sm:text-4xl font-extrabold gradient-text mb-1.5 tabular-nums">
+              <div className="text-2xl mb-3 group-hover:scale-110 transition-transform duration-300">{stat.icon}</div>
+              <div className="text-4xl sm:text-5xl font-black gradient-text mb-2 tabular-nums tracking-tight font-syne">
                 <AnimatedNumber value={stat.value} suffix={stat.suffix} isFloat={stat.isFloat} />
               </div>
-              <p className="text-xs sm:text-sm text-ink-light font-medium tracking-wide">{stat.label}</p>
+              <p className="text-xs sm:text-sm text-ink-light font-semibold tracking-wide uppercase">{stat.label}</p>
             </motion.div>
           ))}
         </div>
