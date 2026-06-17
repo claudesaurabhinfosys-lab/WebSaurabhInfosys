@@ -159,12 +159,6 @@ export default function ContactPage() {
                   </div>
                 </div>
 
-                {/* Map placeholder */}
-                <div className="mt-6 bg-ink/5 rounded-xl h-32 flex items-center justify-center border border-ink/10">
-                  <p className="text-ink/30 text-sm text-center px-4">
-                    Ahmedabad, Gujarat, India — map coming soon
-                  </p>
-                </div>
               </div>
             </div>
 
@@ -268,6 +262,26 @@ export default function ContactPage() {
                 </p>
               </form>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Google Map */}
+      <section className="bg-bg py-16 md:py-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="font-syne text-2xl font-bold text-ink mb-8 text-center">Find Us</h2>
+          <div className="rounded-2xl overflow-hidden border border-ink/8 shadow-sm">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235013.56270752985!2d72.43965498681641!3d23.020522499999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba8f6137%3A0x7d1546e60f432b39!2sSaurabh%20Infosys!5e0!3m2!1sen!2sin!4v1716000000000!5m2!1sen!2sin"
+              width="100%"
+              height="400"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              className="rounded-2xl"
+              title="Saurabh Infosys Location"
+            />
           </div>
         </div>
       </section>
