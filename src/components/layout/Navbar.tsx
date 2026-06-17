@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -8,7 +8,7 @@ import { COMPANY } from "@/lib/data";
 const navLinks = [
   {
     label: "Services",
-    href: "/services/ai-agents",
+    href: "/services",
     dropdown: [
       { label: "AI Agents & Bots", href: "/services/ai-agents" },
       { label: "Vibe Coding / MVPs", href: "/services/vibe-coding" },
