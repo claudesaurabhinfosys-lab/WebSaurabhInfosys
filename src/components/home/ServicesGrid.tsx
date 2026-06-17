@@ -19,7 +19,7 @@ const spans = ["lg:col-span-2", "", "", "", "", "lg:col-span-2"];
 
 export default function ServicesGrid() {
   return (
-    <section className="py-28 relative overflow-hidden">
+    <section className="py-28 relative overflow-hidden bg-gradient-to-br from-bg to-gray-50">
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-accent/4 rounded-full blur-[120px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-purple-600/4 rounded-full blur-[100px] pointer-events-none" />
 
@@ -52,10 +52,9 @@ export default function ServicesGrid() {
               >
                 <Link href={`/services/${service.slug}`} className="block h-full group">
                   <div
-                    className={`relative h-full rounded-2xl border border-ink/7 bg-gradient-to-br ${c.bg} p-6 overflow-hidden transition-all duration-300 cursor-pointer hover:border-opacity-80`}
-                    style={{ "--hover-border": c.border } as React.CSSProperties}
-                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = c.border; (e.currentTarget as HTMLElement).style.transform = "translateY(-4px)"; (e.currentTarget as HTMLElement).style.boxShadow = `0 16px 48px ${c.border}18`; }}
-                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = ""; (e.currentTarget as HTMLElement).style.transform = ""; (e.currentTarget as HTMLElement).style.boxShadow = ""; }}
+                    className={`relative h-full rounded-2xl border border-ink/7 bg-surface bg-gradient-to-br ${c.bg} p-6 overflow-hidden transition-all duration-300 cursor-pointer hover:shadow-lg hover:-translate-y-1`}
+                    onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.borderColor = c.border; (e.currentTarget as HTMLElement).style.boxShadow = `0 16px 48px ${c.border}18`; }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.borderColor = ""; (e.currentTarget as HTMLElement).style.boxShadow = ""; }}
                   >
                     {/* Number */}
                     <span
