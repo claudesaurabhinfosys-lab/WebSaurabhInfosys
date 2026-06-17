@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { COMPANY } from "@/lib/data";
 
 const navLinks = [
@@ -45,12 +45,22 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
+  const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const handleMouseEnter = (label: string) => {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setOpenDropdown(label);
+  };
+
+  const handleMouseLeave = () => {
+    closeTimer.current = setTimeout(() => setOpenDropdown(null), 150);
+  };
 
   return (
     <header className={`sticky top-0 z-50 transition-all duration-500 ${scrolled ? "bg-bg/80 backdrop-blur-2xl border-b border-ink/6 shadow-[0_1px_40px_rgba(0,0,0,0.04)]" : "bg-transparent"}`}>
@@ -74,9 +84,9 @@ export default function Navbar() {
           {navLinks.map((link) => (
             <div
               key={link.label}
-              className="relative group"
-              onMouseEnter={() => link.dropdown && setOpenDropdown(link.label)}
-              onMouseLeave={() => setOpenDropdown(null)}
+              className="relative"
+              onMouseEnter={() => link.dropdown && handleMouseEnter(link.label)}
+              onMouseLeave={() => link.dropdown && handleMouseLeave()}
             >
               <Link
                 href={link.href}
@@ -84,22 +94,28 @@ export default function Navbar() {
               >
                 {link.label}
                 {link.dropdown && (
-                  <svg className="w-3 h-3 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg
+                    className={`w-3 h-3 mt-0.5 transition-transform duration-200 ${openDropdown === link.label ? "rotate-180" : ""}`}
+                    fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                  >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 )}
               </Link>
               {link.dropdown && openDropdown === link.label && (
-                <div className="absolute top-full left-0 mt-1 w-52 bg-bg border border-ink/10 rounded-xl shadow-xl overflow-hidden">
-                  {link.dropdown.map((item) => (
-                    <Link
-                      key={item.href}
-                      href={item.href}
-                      className="block px-4 py-2.5 text-sm text-ink/70 hover:text-ink hover:bg-ink/5 transition-colors"
-                    >
-                      {item.label}
-                    </Link>
-                  ))}
+                <div className="absolute top-full left-0 pt-2 w-52">
+                  <div className="bg-bg border border-ink/10 rounded-xl shadow-xl overflow-hidden">
+                    {link.dropdown.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        onClick={() => setOpenDropdown(null)}
+                        className="block px-4 py-2.5 text-sm text-ink/70 hover:text-ink hover:bg-ink/5 transition-colors"
+                      >
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
                 </div>
               )}
             </div>
