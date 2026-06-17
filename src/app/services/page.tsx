@@ -3,12 +3,12 @@ import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Our Services | Saurabh Infosys — AI, Flutter, SaaS & More",
-  description: "Explore all services offered by Saurabh Infosys: AI Agents, Vibe Coding MVPs, Flutter Apps, GPS & Fleet Systems, SaaS Platforms, and Digital Marketing. 100+ projects delivered.",
+  description: "Explore all services offered by Saurabh Infosys: AI Agents, Vibe Coding MVPs, Flutter Apps, GPS & Fleet Systems, SaaS Platforms, and Digital Marketing. 150+ projects delivered.",
   keywords: ["software development services India", "AI agents development", "Flutter app development", "SaaS platform development", "GPS fleet management", "digital marketing India"],
   alternates: { canonical: "https://saurabhinfosys.com/services" },
   openGraph: {
     title: "Our Services — Saurabh Infosys",
-    description: "AI Agents, Flutter Apps, SaaS Platforms, GPS Systems & more. 100+ projects delivered for clients in India, UK, USA & Gulf.",
+    description: "AI Agents, Flutter Apps, SaaS Platforms, GPS Systems & more. 150+ projects delivered for clients in India, UK, USA & Gulf.",
     url: "https://saurabhinfosys.com/services",
     type: "website",
   },
@@ -83,15 +83,15 @@ export default function ServicesPage() {
           </p>
           <div className="mt-8 flex items-center justify-center gap-6 text-sm text-ink-light flex-wrap">
             <span className="flex items-center gap-1.5">
-              <span className="text-accent font-bold">100+</span> projects delivered
+              <span className="text-accent font-bold">150+</span> Projects Delivered
             </span>
             <span className="w-1 h-1 rounded-full bg-ink/20 hidden sm:block" />
             <span className="flex items-center gap-1.5">
-              <span className="text-accent font-bold">80+</span> clients worldwide
+              <span className="text-accent font-bold">80+</span> Clients Worldwide
             </span>
             <span className="w-1 h-1 rounded-full bg-ink/20 hidden sm:block" />
             <span className="flex items-center gap-1.5">
-              <span className="text-accent font-bold">4.9★</span> on Clutch
+              <span className="text-accent font-bold">4.9★</span> Clutch Rating
             </span>
           </div>
         </div>
