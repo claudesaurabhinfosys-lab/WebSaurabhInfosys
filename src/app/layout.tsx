@@ -127,6 +127,13 @@ export default function RootLayout({
             gtag('config', 'G-6DRPCYYNQ5');
           `}
         </Script>
+        {/* Global animated background — grid + floating orbs */}
+        <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
+          <div className="absolute inset-0 bg-grid" />
+          <div className="absolute -top-[20%] left-[15%] w-[800px] h-[800px] rounded-full bg-accent/8 blur-[160px] animate-float" />
+          <div className="absolute top-[30%] right-[-10%] w-[600px] h-[600px] rounded-full bg-purple-600/8 blur-[140px] animate-float2" />
+          <div className="absolute -bottom-[20%] left-[40%] w-[500px] h-[500px] rounded-full bg-blue-600/6 blur-[120px] animate-float" />
+        </div>
         <Navbar />
         <main>{children}</main>
         <Footer />
