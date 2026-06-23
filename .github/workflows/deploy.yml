@@ -29,23 +29,21 @@ jobs:
           cp scripts/contact.php.template out/contact.php
           sed -i "s/GMAIL_APP_PASSWORD_PLACEHOLDER/${{ secrets.GMAIL_APP_PASSWORD }}/" out/contact.php
 
-      - name: Zip build output
-        run: zip -r build.zip out/
-
-      - name: Upload zip and trigger webhook
+      - name: Setup SSH
         run: |
-          TAG="deploy-$(date +%Y%m%d%H%M%S)"
-          gh release create "$TAG" build.zip \
-            --repo ${{ github.repository }} \
-            --title "Deploy $TAG" \
-            --notes "Automated deploy" \
-            --latest
-          ZIP_URL=$(gh release view "$TAG" --repo ${{ github.repository }} --json assets --jq '.assets[0].url')
-          PAYLOAD="{\"action\":\"deploy\",\"client_payload\":{\"zip_url\":\"${ZIP_URL}\",\"token\":\"${{ secrets.GITHUB_TOKEN }}\"}}"
-          SIG="sha256=$(echo -n "$PAYLOAD" | openssl dgst -sha256 -hmac "${{ secrets.DEPLOY_WEBHOOK_SECRET }}" | cut -d' ' -f2)"
-          curl -s -X POST "https://saurabhinfosys.com/deploy-webhook.php" \
-            -H "Content-Type: application/json" \
-            -H "X-Hub-Signature-256: $SIG" \
-            -d "$PAYLOAD"
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts 2>/dev/null || true
+
+      - name: Deploy via rsync
+        run: |
+          rsync -av --delete \
+            --exclude=.htaccess \
+            --exclude=extract.php \
+            --exclude=phptest.php \
+            --exclude=deploy-webhook.php \
+            --exclude=4e472060b5dd251fff9f2f80eefa8bdb.txt \
+            -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no" \
+            out/ \
+            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/saurabhinfosys.com/public_html/
