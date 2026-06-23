@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { COMPANY } from "@/lib/data";
+import ContactForm from "@/components/contact/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact Saurabh Infosys | Get a Free Quote — Ahmedabad, India",
@@ -9,14 +10,6 @@ export const metadata: Metadata = {
   openGraph: { title: "Contact Saurabh Infosys — Get a Free Quote", description: "Start your project today. We reply within 2 hours on WhatsApp.", url: "https://saurabhinfosys.com/contact", type: "website" },
   twitter: { card: "summary_large_image", title: "Contact Saurabh Infosys", description: "Start your project. We reply within 2 hours on WhatsApp." },
 };
-
-const BUDGET_OPTIONS = [
-  "Under ₹50K",
-  "₹50K–₹2L",
-  "₹2L–₹5L",
-  "₹5L+",
-  "Let's discuss",
-];
 
 const TARGET_MARKETS = [
   { flag: "🇮🇳", label: "India" },
@@ -40,9 +33,7 @@ export default function ContactPage() {
             <span className="text-accent">together</span>
           </h1>
           <p className="mt-6 text-ink-light text-lg md:text-xl max-w-2xl leading-relaxed">
-            We prefer WhatsApp — it&apos;s fast, personal, and we&apos;re always
-            on it. Send us a message and expect a reply within 2 hours on
-            business days.
+            We prefer WhatsApp — it&apos;s fast, personal, and we&apos;re always on it. Send us a message and expect a reply within 2 hours on business days.
           </p>
         </div>
       </section>
@@ -54,11 +45,9 @@ export default function ContactPage() {
 
             {/* Left: Contact Methods */}
             <div className="space-y-6">
-              <h2 className="font-syne text-2xl font-bold text-ink mb-8">
-                Contact methods
-              </h2>
+              <h2 className="font-syne text-2xl font-bold text-ink mb-8">Contact methods</h2>
 
-              {/* WhatsApp — Primary */}
+              {/* WhatsApp */}
               <div className="bg-green-50 rounded-2xl p-8 border border-green-200">
                 <div className="flex items-start gap-4 mb-4">
                   <div className="flex-shrink-0 w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
@@ -69,22 +58,17 @@ export default function ContactPage() {
                   <div>
                     <div className="flex items-center gap-2 mb-1">
                       <h3 className="font-syne font-bold text-ink text-lg">WhatsApp</h3>
-                      <span className="px-2 py-0.5 bg-green-100 text-green-700 text-xs font-semibold rounded-full">
-                        Preferred
-                      </span>
+                      <span className="px-2 py-0.5 bg-green-100 text-green-700 text-xs font-semibold rounded-full">Preferred</span>
                     </div>
                     <p className="text-ink-light text-sm">Usually reply within 2 hours</p>
                   </div>
                 </div>
                 <p className="text-ink-light text-sm mb-6 leading-relaxed">
-                  The fastest way to reach us. Describe your project and
-                  we&apos;ll get back to you quickly with honest advice — no
-                  sales pitch.
+                  The fastest way to reach us. Describe your project and we&apos;ll get back to you quickly with honest advice — no sales pitch.
                 </p>
                 <a
                   href={`https://wa.me/${COMPANY.whatsapp}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-green-500 hover:bg-green-600 text-white font-syne font-semibold px-6 py-3 rounded-xl transition-colors text-sm"
                 >
                   Chat Now on WhatsApp
@@ -104,10 +88,7 @@ export default function ContactPage() {
                   </div>
                   <h3 className="font-syne font-bold text-ink text-base">Email</h3>
                 </div>
-                <a
-                  href={`mailto:${COMPANY.email}`}
-                  className="text-accent font-semibold hover:underline text-sm"
-                >
+                <a href={`mailto:${COMPANY.email}`} className="text-accent font-semibold hover:underline text-sm">
                   {COMPANY.email}
                 </a>
                 <p className="text-ink/40 text-xs mt-1">We reply within 24 hours</p>
@@ -123,20 +104,15 @@ export default function ContactPage() {
                   </div>
                   <h3 className="font-syne font-bold text-ink text-base">Phone</h3>
                 </div>
-                <a
-                  href={`tel:${COMPANY.phone.replace(/\s/g, "")}`}
-                  className="text-accent font-semibold hover:underline text-sm"
-                >
+                <a href={`tel:${COMPANY.phone.replace(/\s/g, "")}`} className="text-accent font-semibold hover:underline text-sm">
                   {COMPANY.phone}
                 </a>
                 <p className="text-ink/40 text-xs mt-1">Mon–Sat, 10am–7pm IST</p>
               </div>
 
-              {/* Office Info */}
+              {/* Office */}
               <div className="bg-card rounded-2xl p-6 border border-ink/5">
-                <h3 className="font-syne font-bold text-ink text-base mb-4">
-                  Office
-                </h3>
+                <h3 className="font-syne font-bold text-ink text-base mb-4">Office</h3>
                 <div className="space-y-3 text-sm">
                   <div className="flex items-start gap-3">
                     <svg className="w-4 h-4 text-ink/40 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
@@ -158,109 +134,13 @@ export default function ContactPage() {
                     <span className="text-ink/60">{COMPANY.website}</span>
                   </div>
                 </div>
-
               </div>
             </div>
 
             {/* Right: Contact Form */}
             <div>
-              <h2 className="font-syne text-2xl font-bold text-ink mb-8">
-                Send us a message
-              </h2>
-              <form
-                action="/api/contact"
-                method="POST"
-                className="bg-card rounded-2xl p-8 border border-ink/5 space-y-6"
-              >
-                {/* Name */}
-                <div>
-                  <label
-                    htmlFor="name"
-                    className="block text-ink/70 text-sm font-medium mb-2"
-                  >
-                    Your name <span className="text-accent">*</span>
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    placeholder="Rahul Sharma"
-                    className="w-full bg-bg border border-ink/10 rounded-xl px-4 py-3 text-ink placeholder-ink/30 text-sm focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
-                  />
-                </div>
-
-                {/* Email */}
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block text-ink/70 text-sm font-medium mb-2"
-                  >
-                    Email address <span className="text-accent">*</span>
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    placeholder="rahul@company.com"
-                    className="w-full bg-bg border border-ink/10 rounded-xl px-4 py-3 text-ink placeholder-ink/30 text-sm focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors"
-                  />
-                </div>
-
-                {/* Message */}
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="block text-ink/70 text-sm font-medium mb-2"
-                  >
-                    Tell us about your project{" "}
-                    <span className="text-accent">*</span>
-                  </label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    required
-                    rows={5}
-                    placeholder="I need a Flutter app that does X, Y, Z. My timeline is..."
-                    className="w-full bg-bg border border-ink/10 rounded-xl px-4 py-3 text-ink placeholder-ink/30 text-sm focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors resize-none"
-                  />
-                </div>
-
-                {/* Budget */}
-                <div>
-                  <label
-                    htmlFor="budget"
-                    className="block text-ink/70 text-sm font-medium mb-2"
-                  >
-                    Budget range
-                  </label>
-                  <select
-                    id="budget"
-                    name="budget"
-                    className="w-full bg-bg border border-ink/10 rounded-xl px-4 py-3 text-ink text-sm focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent transition-colors appearance-none cursor-pointer"
-                  >
-                    <option value="">Select a range…</option>
-                    {BUDGET_OPTIONS.map((opt) => (
-                      <option key={opt} value={opt}>
-                        {opt}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-
-                {/* Submit */}
-                <button
-                  type="submit"
-                  className="w-full bg-accent hover:bg-accent/90 text-white font-syne font-semibold px-6 py-4 rounded-xl transition-colors text-base"
-                >
-                  Send Message
-                </button>
-
-                <p className="text-ink/30 text-xs text-center">
-                  Or just WhatsApp us — it&apos;s faster.
-                </p>
-              </form>
+              <h2 className="font-syne text-2xl font-bold text-ink mb-8">Send us a message</h2>
+              <ContactForm />
             </div>
           </div>
         </div>
@@ -273,20 +153,16 @@ export default function ContactPage() {
           <div className="rounded-2xl overflow-hidden border border-ink/8 shadow-sm">
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235013.56270752985!2d72.43965498681641!3d23.020522499999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e848aba8f6137%3A0x7d1546e60f432b39!2sSaurabh%20Infosys!5e0!3m2!1sen!2sin!4v1716000000000!5m2!1sen!2sin"
-              width="100%"
-              height="400"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
+              width="100%" height="400" style={{ border: 0 }}
+              allowFullScreen loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              className="rounded-2xl"
-              title="Saurabh Infosys Location"
+              className="rounded-2xl" title="Saurabh Infosys Location"
             />
           </div>
         </div>
       </section>
 
-      {/* Target Markets Strip */}
+      {/* Target Markets */}
       <section className="bg-card py-12 border-t border-ink/5">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <p className="text-center text-ink/40 text-sm font-medium mb-6 uppercase tracking-widest">
@@ -294,14 +170,9 @@ export default function ContactPage() {
           </p>
           <div className="flex items-center justify-center flex-wrap gap-6">
             {TARGET_MARKETS.map((m) => (
-              <div
-                key={m.label}
-                className="flex items-center gap-2 bg-bg rounded-xl px-5 py-3 border border-ink/5"
-              >
+              <div key={m.label} className="flex items-center gap-2 bg-bg rounded-xl px-5 py-3 border border-ink/5">
                 <span className="text-xl">{m.flag}</span>
-                <span className="font-syne font-semibold text-ink text-sm">
-                  {m.label}
-                </span>
+                <span className="font-syne font-semibold text-ink text-sm">{m.label}</span>
               </div>
             ))}
           </div>
