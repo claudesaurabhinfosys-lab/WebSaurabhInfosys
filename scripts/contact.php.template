@@ -17,32 +17,60 @@ $budget  = trim(strip_tags($data['budget'] ?? 'Not specified'));
 if (!$name || !$message) { http_response_code(400); echo json_encode(['ok'=>false,'error'=>'Name and message are required.']); exit; }
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { http_response_code(400); echo json_encode(['ok'=>false,'error'=>'Invalid email address.']); exit; }
 
-$subject = "New enquiry from {$name} via saurabhinfosys.com";
-$body    = "You have a new project enquiry:\r\n\r\n"
-         . "Name:    {$name}\r\n"
-         . "Email:   {$email}\r\n"
-         . "Budget:  {$budget}\r\n\r\n"
-         . "Message:\r\n{$message}";
-
-$headers  = implode("\r\n", [
-    "From: Saurabh Infosys Website <noreply@saurabhinfosys.com>",
-    "Reply-To: {$name} <{$email}>",
-    "MIME-Version: 1.0",
-    "Content-Type: text/plain; charset=UTF-8",
-]);
-
+$smtpHost   = 'ssl://smtp.gmail.com';
+$smtpPort   = 465;
+$smtpUser   = 'Sales@saurabhinfosys.com';
+$smtpPass   = 'GMAIL_APP_PASSWORD_PLACEHOLDER';
 $recipients = ['Sales@saurabhinfosys.com', 'arun1711996@gmail.com', 'info@saurabhinfosys.com'];
-$failures   = [];
 
-foreach ($recipients as $to) {
-    $sent = mail($to, $subject, $body, $headers);
-    if (!$sent) $failures[] = $to;
+function smtp_cmd($conn, $cmd, $expect) {
+    if ($cmd !== null) fwrite($conn, $cmd . "\r\n");
+    $res = '';
+    while ($line = fgets($conn, 512)) {
+        $res .= $line;
+        if (substr($line, 3, 1) === ' ') break;
+    }
+    $code = (int)substr($res, 0, 3);
+    if ($code !== $expect) { error_log("SMTP expected $expect got $code: " . trim($res)); return false; }
+    return $res;
 }
 
-if (count($failures) === count($recipients)) {
-    error_log('Contact form: mail() failed for all recipients');
-    http_response_code(500);
-    echo json_encode(['ok'=>false,'error'=>'Could not send message. Please WhatsApp us instead.']);
-} else {
+try {
+    $conn = @fsockopen($smtpHost, $smtpPort, $errno, $errstr, 15);
+    if (!$conn) throw new Exception("Connection failed ($errno): $errstr");
+    stream_set_timeout($conn, 15);
+
+    if (!smtp_cmd($conn, null, 220))                       throw new Exception("No greeting");
+    if (!smtp_cmd($conn, "EHLO saurabhinfosys.com", 250))  throw new Exception("EHLO failed");
+    if (!smtp_cmd($conn, "AUTH LOGIN", 334))               throw new Exception("AUTH LOGIN failed");
+    if (!smtp_cmd($conn, base64_encode($smtpUser), 334))   throw new Exception("Username failed");
+    if (!smtp_cmd($conn, base64_encode($smtpPass), 235))   throw new Exception("Password failed - passlen:" . strlen($smtpPass));
+
+    $subject = "New enquiry from {$name} via saurabhinfosys.com";
+    $body    = "New project enquiry:\r\n\r\nName:   {$name}\r\nEmail:  {$email}\r\nBudget: {$budget}\r\n\r\nMessage:\r\n{$message}";
+    $hdrs    = implode("\r\n", [
+        "From: Saurabh Infosys <{$smtpUser}>",
+        "Reply-To: {$name} <{$email}>",
+        "To: " . implode(', ', $recipients),
+        "Subject: {$subject}",
+        "MIME-Version: 1.0",
+        "Content-Type: text/plain; charset=UTF-8",
+    ]);
+
+    if (!smtp_cmd($conn, "MAIL FROM:<{$smtpUser}>", 250)) throw new Exception("MAIL FROM failed");
+    foreach ($recipients as $to) {
+        if (!smtp_cmd($conn, "RCPT TO:<{$to}>", 250)) throw new Exception("RCPT TO failed: $to");
+    }
+    if (!smtp_cmd($conn, "DATA", 354)) throw new Exception("DATA failed");
+    fwrite($conn, "{$hdrs}\r\n\r\n{$body}\r\n.\r\n");
+    $res = ''; while ($line = fgets($conn, 512)) { $res .= $line; if (substr($line, 3, 1) === ' ') break; }
+    if ((int)substr($res, 0, 3) !== 250) throw new Exception("Message rejected: $res");
+    smtp_cmd($conn, "QUIT", 221);
+    fclose($conn);
+
     echo json_encode(['ok'=>true,'message'=>'Message sent! We will reply within 2 hours.']);
+} catch (Exception $e) {
+    error_log('Contact form: ' . $e->getMessage());
+    http_response_code(500);
+    echo json_encode(['ok'=>false,'error'=>'Could not send message. Please WhatsApp us instead.','debug'=>$e->getMessage()]);
 }
