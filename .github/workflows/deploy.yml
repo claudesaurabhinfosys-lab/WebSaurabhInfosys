@@ -29,73 +29,75 @@ jobs:
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
         run: |
           cat > out/contact.php << 'PHPEOF'
-          <?php
-          header('Content-Type: application/json');
-          header('Access-Control-Allow-Origin: https://saurabhinfosys.com');
-          header('Access-Control-Allow-Methods: POST, OPTIONS');
-          header('Access-Control-Allow-Headers: Content-Type');
-          if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') { http_response_code(200); exit; }
-          if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['ok'=>false,'error'=>'Method not allowed']); exit; }
-          $raw = file_get_contents('php://input');
-          $data = json_decode($raw, true) ?: $_POST;
-          $name    = trim(strip_tags($data['name'] ?? ''));
-          $email   = trim($data['email'] ?? '');
-          $message = trim(strip_tags($data['message'] ?? ''));
-          $budget  = trim(strip_tags($data['budget'] ?? 'Not specified'));
-          if (!$name || !$message) { http_response_code(400); echo json_encode(['ok'=>false,'error'=>'Name and message are required.']); exit; }
-          if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { http_response_code(400); echo json_encode(['ok'=>false,'error'=>'Invalid email address.']); exit; }
-          $smtpHost = 'smtp.gmail.com';
-          $smtpPort = 587;
-          $smtpUser = 'Sales@saurabhinfosys.com';
-          $smtpPass = 'GMAIL_APP_PASSWORD_PLACEHOLDER';
-          $mailTo   = 'Sales@saurabhinfosys.com';
-          function smtp_cmd($conn, $cmd, $expect) {
-              if ($cmd !== null) fwrite($conn, $cmd . "\r\n");
-              $res = '';
-              while ($line = fgets($conn, 512)) { $res .= $line; if (substr($line, 3, 1) === ' ') break; }
-              return ((int)substr($res, 0, 3) === $expect) ? $res : false;
-          }
-          try {
-              $conn = @fsockopen('tcp://' . $smtpHost, $smtpPort, $errno, $errstr, 15);
-              if (!$conn) throw new Exception("Connection failed");
-              stream_set_timeout($conn, 15);
-              if (!smtp_cmd($conn, null, 220)) throw new Exception("No greeting");
-              if (!smtp_cmd($conn, "EHLO saurabhinfosys.com", 250)) throw new Exception("EHLO failed");
-              if (!smtp_cmd($conn, "STARTTLS", 220)) throw new Exception("STARTTLS failed");
-              stream_socket_enable_crypto($conn, true, STREAM_CRYPTO_METHOD_TLS_CLIENT);
-              if (!smtp_cmd($conn, "EHLO saurabhinfosys.com", 250)) throw new Exception("EHLO post-TLS failed");
-              if (!smtp_cmd($conn, "AUTH LOGIN", 334)) throw new Exception("AUTH LOGIN failed");
-              if (!smtp_cmd($conn, base64_encode($smtpUser), 334)) throw new Exception("Username failed");
-              if (!smtp_cmd($conn, base64_encode($smtpPass), 235)) throw new Exception("Password failed");
-              $subject = "New enquiry from {$name} via saurabhinfosys.com";
-              $body    = "Name: {$name}\r\nEmail: {$email}\r\nBudget: {$budget}\r\n\r\nMessage:\r\n{$message}";
-              $hdrs    = "From: {$smtpUser}\r\nReply-To: {$name} <{$email}>\r\nMIME-Version: 1.0\r\nContent-Type: text/plain; charset=UTF-8";
-              if (!smtp_cmd($conn, "MAIL FROM:<{$smtpUser}>", 250)) throw new Exception("MAIL FROM failed");
-              if (!smtp_cmd($conn, "RCPT TO:<{$mailTo}>", 250)) throw new Exception("RCPT TO failed");
-              if (!smtp_cmd($conn, "DATA", 354)) throw new Exception("DATA failed");
-              fwrite($conn, "To: {$mailTo}\r\nSubject: {$subject}\r\n{$hdrs}\r\n\r\n{$body}\r\n.\r\n");
-              $res = '';
-              while ($line = fgets($conn, 512)) { $res .= $line; if (substr($line, 3, 1) === ' ') break; }
-              if ((int)substr($res, 0, 3) !== 250) throw new Exception("Message rejected");
-              smtp_cmd($conn, "QUIT", 221);
-              fclose($conn);
-              echo json_encode(['ok'=>true,'message'=>'Message sent! We will reply within 2 hours.']);
-          } catch (Exception $e) {
-              error_log('Contact form: ' . $e->getMessage());
-              http_response_code(500);
-              echo json_encode(['ok'=>false,'error'=>'Could not send message. Please WhatsApp us instead.']);
-          }
-          PHPEOF
+<?php
+header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: https://saurabhinfosys.com');
+header('Access-Control-Allow-Methods: POST, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type');
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') { http_response_code(200); exit; }
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') { http_response_code(405); echo json_encode(['ok'=>false,'error'=>'Method not allowed']); exit; }
+$raw = file_get_contents('php://input');
+$data = json_decode($raw, true) ?: $_POST;
+$name    = trim(strip_tags($data['name'] ?? ''));
+$email   = trim($data['email'] ?? '');
+$message = trim(strip_tags($data['message'] ?? ''));
+$budget  = trim(strip_tags($data['budget'] ?? 'Not specified'));
+if (!$name || !$message) { http_response_code(400); echo json_encode(['ok'=>false,'error'=>'Name and message are required.']); exit; }
+if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { http_response_code(400); echo json_encode(['ok'=>false,'error'=>'Invalid email address.']); exit; }
+$smtpHost = 'smtp.gmail.com';
+$smtpPort = 587;
+$smtpUser = 'Sales@saurabhinfosys.com';
+$smtpPass = 'GMAIL_APP_PASSWORD_PLACEHOLDER';
+$mailTo   = 'Sales@saurabhinfosys.com';
+function smtp_cmd($conn, $cmd, $expect) {
+    if ($cmd !== null) fwrite($conn, $cmd . "\r\n");
+    $res = '';
+    while ($line = fgets($conn, 512)) { $res .= $line; if (substr($line, 3, 1) === ' ') break; }
+    return ((int)substr($res, 0, 3) === $expect) ? $res : false;
+}
+try {
+    $conn = @fsockopen('tcp://' . $smtpHost, $smtpPort, $errno, $errstr, 15);
+    if (!$conn) throw new Exception("Connection failed");
+    stream_set_timeout($conn, 15);
+    if (!smtp_cmd($conn, null, 220)) throw new Exception("No greeting");
+    if (!smtp_cmd($conn, "EHLO saurabhinfosys.com", 250)) throw new Exception("EHLO failed");
+    if (!smtp_cmd($conn, "STARTTLS", 220)) throw new Exception("STARTTLS failed");
+    stream_socket_enable_crypto($conn, true, STREAM_CRYPTO_METHOD_TLS_CLIENT);
+    if (!smtp_cmd($conn, "EHLO saurabhinfosys.com", 250)) throw new Exception("EHLO post-TLS failed");
+    if (!smtp_cmd($conn, "AUTH LOGIN", 334)) throw new Exception("AUTH LOGIN failed");
+    if (!smtp_cmd($conn, base64_encode($smtpUser), 334)) throw new Exception("Username failed");
+    if (!smtp_cmd($conn, base64_encode($smtpPass), 235)) throw new Exception("Password failed");
+    $subject = "New enquiry from {$name} via saurabhinfosys.com";
+    $body    = "Name: {$name}\r\nEmail: {$email}\r\nBudget: {$budget}\r\n\r\nMessage:\r\n{$message}";
+    $hdrs    = "From: {$smtpUser}\r\nReply-To: {$name} <{$email}>\r\nMIME-Version: 1.0\r\nContent-Type: text/plain; charset=UTF-8";
+    if (!smtp_cmd($conn, "MAIL FROM:<{$smtpUser}>", 250)) throw new Exception("MAIL FROM failed");
+    if (!smtp_cmd($conn, "RCPT TO:<{$mailTo}>", 250)) throw new Exception("RCPT TO failed");
+    if (!smtp_cmd($conn, "DATA", 354)) throw new Exception("DATA failed");
+    fwrite($conn, "To: {$mailTo}\r\nSubject: {$subject}\r\n{$hdrs}\r\n\r\n{$body}\r\n.\r\n");
+    $res = '';
+    while ($line = fgets($conn, 512)) { $res .= $line; if (substr($line, 3, 1) === ' ') break; }
+    if ((int)substr($res, 0, 3) !== 250) throw new Exception("Message rejected");
+    smtp_cmd($conn, "QUIT", 221);
+    fclose($conn);
+    echo json_encode(['ok'=>true,'message'=>'Message sent! We will reply within 2 hours.']);
+} catch (Exception $e) {
+    error_log('Contact form: ' . $e->getMessage());
+    http_response_code(500);
+    echo json_encode(['ok'=>false,'error'=>'Could not send message. Please WhatsApp us instead.']);
+}
+PHPEOF
           sed -i "s/GMAIL_APP_PASSWORD_PLACEHOLDER/${GMAIL_APP_PASSWORD}/" out/contact.php
 
-      - name: Deploy via FTP
+      - name: Deploy via SFTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
-          server: ${{ secrets.FTP_HOST }}
-          username: ${{ secrets.FTP_USER }}
-          password: ${{ secrets.FTP_PASSWORD }}
+          server: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          private-key: ${{ secrets.SSH_KEY }}
+          protocol: sftp
+          port: 22
           local-dir: ./out/
-          server-dir: /public_html/
+          server-dir: /home/saurabhinfosys.com/public_html/
           exclude: |
             **/.git*
             **/.git*/**
