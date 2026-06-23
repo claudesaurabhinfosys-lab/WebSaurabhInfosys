@@ -34,6 +34,7 @@ jobs:
         with:
           server: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
+          password: ""
           private-key: ${{ secrets.SSH_KEY }}
           protocol: sftp
           port: 22
