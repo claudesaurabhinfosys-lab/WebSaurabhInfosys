@@ -132,7 +132,7 @@ export default function ContactPage() {
           </div>
           <div className="rounded-3xl overflow-hidden border border-ink/8 shadow-lg">
             <iframe
-              src="https://maps.google.com/maps?q=Aastha-99,+Behin+Bharvi+Tower,+Nr+NH-8,+Kailash+Colony,+CTM,+Amraiwadi,+Ahmedabad,+Gujarat+380026,+India&t=&z=17&ie=UTF8&iwloc=&output=embed"
+              src="https://maps.google.com/maps?q=XJWP%2BXP+Ahmedabad,+Gujarat&t=&z=17&ie=UTF8&iwloc=&output=embed"
               width="100%"
               height="400"
               style={{ border: 0 }}
