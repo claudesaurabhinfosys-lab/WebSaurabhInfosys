@@ -25,9 +25,18 @@ jobs:
         run: npm run build
 
       - name: Generate contact.php
+        env:
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
         run: |
-          cp scripts/contact.php.template out/contact.php
-          sed -i "s/GMAIL_APP_PASSWORD_PLACEHOLDER/${{ secrets.GMAIL_APP_PASSWORD }}/" out/contact.php
+          python3 -c "
+          import os
+          with open('scripts/contact.php.template') as f:
+              content = f.read()
+          content = content.replace('GMAIL_APP_PASSWORD_PLACEHOLDER', os.environ['GMAIL_APP_PASSWORD'])
+          with open('out/contact.php', 'w') as f:
+              f.write(content)
+          print('contact.php generated, password length:', len(os.environ['GMAIL_APP_PASSWORD']))
+          "
 
       - name: Setup SSH
         run: |
