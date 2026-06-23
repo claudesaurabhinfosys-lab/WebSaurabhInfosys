@@ -24,21 +24,19 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Setup SSH
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts 2>/dev/null || true
-
-      - name: Deploy via rsync
-        run: |
-          rsync -av --delete \
-            --exclude='.htaccess' \
-            --exclude='extract.php' \
-            --exclude='phptest.php' \
-            --exclude='deploy-webhook.php' \
-            --exclude='4e472060b5dd251fff9f2f80eefa8bdb.txt' \
-            -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no" \
-            out/ \
-            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/saurabhinfosys.com/public_html/
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USER }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./out/
+          server-dir: /public_html/
+          exclude: |
+            **/.git*
+            **/.git*/**
+            .htaccess
+            extract.php
+            phptest.php
+            deploy-webhook.php
+            4e472060b5dd251fff9f2f80eefa8bdb.txt
