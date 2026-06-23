@@ -17,10 +17,11 @@ export default function ContactPage() {
   return (
     <main className="font-dm">
       {/* Hero + Form — everything above the fold */}
-      <section className="bg-gradient-to-br from-indigo-50 via-white to-purple-50 py-16 md:py-24 relative overflow-hidden">
-        <div className="absolute inset-0 bg-grid opacity-40 pointer-events-none" />
-        <div className="absolute -top-32 -right-32 w-96 h-96 bg-accent/6 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute -bottom-16 -left-16 w-64 h-64 bg-purple-500/6 rounded-full blur-3xl pointer-events-none" />
+      <section className="relative py-16 md:py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-grid pointer-events-none" />
+        <div className="absolute -top-[20%] left-[15%] w-[800px] h-[800px] rounded-full bg-accent/8 blur-[160px] animate-float pointer-events-none" />
+        <div className="absolute top-[30%] right-[-10%] w-[600px] h-[600px] rounded-full bg-purple-600/8 blur-[140px] animate-float2 pointer-events-none" />
+        <div className="absolute -bottom-[20%] left-[40%] w-[500px] h-[500px] rounded-full bg-blue-600/6 blur-[120px] animate-float pointer-events-none" />
 
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
