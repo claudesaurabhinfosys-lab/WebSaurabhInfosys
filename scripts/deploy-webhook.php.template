@@ -1,0 +1,109 @@
+<?php
+// GitHub Deploy Webhook
+// Triggered by GitHub Actions after a successful build + release upload
+
+define('WEBHOOK_SECRET', 'WEBHOOK_SECRET_PLACEHOLDER');
+define('GITHUB_REPO',    'claudesaurabhinfosys-lab/WebSaurabhInfosys');
+define('DEPLOY_PATH',    '/home/saurabhinfosys.com/public_html');
+define('TMP_ZIP',        '/tmp/deploy_build.zip');
+
+header('Content-Type: application/json');
+
+// Verify GitHub signature
+$payload   = file_get_contents('php://input');
+$signature = $_SERVER['HTTP_X_HUB_SIGNATURE_256'] ?? '';
+$expected  = 'sha256=' . hash_hmac('sha256', $payload, WEBHOOK_SECRET);
+
+if (!hash_equals($expected, $signature)) {
+    http_response_code(403);
+    echo json_encode(['ok' => false, 'error' => 'Invalid signature']);
+    exit;
+}
+
+$data  = json_decode($payload, true);
+$event = $_SERVER['HTTP_X_GITHUB_EVENT'] ?? '';
+
+// Only act on repository_dispatch event with deploy action
+if ($event !== 'repository_dispatch' || ($data['action'] ?? '') !== 'deploy') {
+    echo json_encode(['ok' => true, 'message' => 'Ignored']);
+    exit;
+}
+
+$zipUrl = $data['client_payload']['zip_url'] ?? '';
+if (!$zipUrl) {
+    http_response_code(400);
+    echo json_encode(['ok' => false, 'error' => 'No zip_url in payload']);
+    exit;
+}
+
+// Download the zip
+$token = $data['client_payload']['token'] ?? '';
+$ctx   = stream_context_create([
+    'http' => [
+        'header'  => "Authorization: token {$token}\r\nUser-Agent: SaurabhInfosys-Deploy\r\nAccept: application/octet-stream\r\n",
+        'timeout' => 120,
+        'follow_location' => true,
+    ]
+]);
+
+$zip = file_get_contents($zipUrl, false, $ctx);
+if (!$zip) {
+    http_response_code(500);
+    echo json_encode(['ok' => false, 'error' => 'Failed to download zip']);
+    exit;
+}
+
+file_put_contents(TMP_ZIP, $zip);
+
+// Extract zip to a temp dir then sync to public_html
+$tmpDir = '/tmp/deploy_extract_' . time();
+mkdir($tmpDir, 0755, true);
+
+$za = new ZipArchive();
+if ($za->open(TMP_ZIP) !== true) {
+    http_response_code(500);
+    echo json_encode(['ok' => false, 'error' => 'Failed to open zip']);
+    exit;
+}
+$za->extractTo($tmpDir);
+$za->close();
+
+// Files are in tmpDir/out/ — copy to public_html preserving protected files
+$protected = ['.htaccess', 'extract.php', 'phptest.php', 'deploy-webhook.php', '4e472060b5dd251fff9f2f80eefa8bdb.txt'];
+
+// Remove old files except protected ones
+$iter = new RecursiveIteratorIterator(
+    new RecursiveDirectoryIterator(DEPLOY_PATH, RecursiveDirectoryIterator::SKIP_DOTS),
+    RecursiveIteratorIterator::CHILD_FIRST
+);
+foreach ($iter as $file) {
+    $rel = str_replace(DEPLOY_PATH . '/', '', $file->getPathname());
+    $base = basename($rel);
+    if (in_array($base, $protected)) continue;
+    if ($file->isDir()) @rmdir($file->getPathname());
+    else @unlink($file->getPathname());
+}
+
+// Copy new files
+$srcDir = $tmpDir . '/out';
+if (!is_dir($srcDir)) $srcDir = $tmpDir;
+$iter2 = new RecursiveIteratorIterator(
+    new RecursiveDirectoryIterator($srcDir, RecursiveDirectoryIterator::SKIP_DOTS),
+    RecursiveIteratorIterator::SELF_FIRST
+);
+foreach ($iter2 as $file) {
+    $rel  = str_replace($srcDir . '/', '', $file->getPathname());
+    $dest = DEPLOY_PATH . '/' . $rel;
+    if ($file->isDir()) {
+        @mkdir($dest, 0755, true);
+    } else {
+        @copy($file->getPathname(), $dest);
+    }
+}
+
+// Cleanup
+@unlink(TMP_ZIP);
+array_map('unlink', glob("$tmpDir/*"));
+@rmdir($tmpDir);
+
+echo json_encode(['ok' => true, 'message' => 'Deployed successfully']);
