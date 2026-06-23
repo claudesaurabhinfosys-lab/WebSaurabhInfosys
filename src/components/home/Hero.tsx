@@ -204,11 +204,11 @@ export default function Hero() {
             >
               <span className="block text-ink">We Ship</span>
 
-              <span className="block relative h-[2.6em] sm:h-[1.2em]">
+              <span className="block relative h-[1.2em]">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={wordIdx}
-                    className="gradient-text absolute left-0"
+                    className="gradient-text absolute left-0 whitespace-nowrap"
                     initial={{ y: 50, opacity: 0, filter: "blur(8px)" }}
                     animate={{ y: 0, opacity: 1, filter: "blur(0px)" }}
                     exit={{ y: -50, opacity: 0, filter: "blur(8px)" }}
