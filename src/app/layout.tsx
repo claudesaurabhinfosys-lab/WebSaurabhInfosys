@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -111,9 +112,6 @@ export default function RootLayout({
             },
           }) }}
         />
-        {/* Google Analytics */}
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-6DRPCYYNQ5" />
-        <script dangerouslySetInnerHTML={{ __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6DRPCYYNQ5');` }} />
       </head>
       <body className="font-montserrat bg-bg text-ink antialiased">
 
@@ -124,6 +122,15 @@ export default function RootLayout({
           <div className="absolute top-[30%] right-[-10%] w-[600px] h-[600px] rounded-full bg-purple-600/8 blur-[140px] animate-float2" />
           <div className="absolute -bottom-[20%] left-[40%] w-[500px] h-[500px] rounded-full bg-blue-600/6 blur-[120px] animate-float" />
         </div>
+        {/* Google Analytics */}
+        <Script
+          id="ga-inline"
+          strategy="beforeInteractive"
+        >{`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6DRPCYYNQ5');`}</Script>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-6DRPCYYNQ5"
+          strategy="afterInteractive"
+        />
         <Navbar />
         <main>{children}</main>
         <Footer />
