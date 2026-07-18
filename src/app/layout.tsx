@@ -126,9 +126,9 @@ export default function RootLayout({
         <Script
           id="ga-inline"
           strategy="beforeInteractive"
-        >{`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-6DRPCYYNQ5');`}</Script>
+        >{`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-CET86HGWMB');`}</Script>
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-6DRPCYYNQ5"
+          src="https://www.googletagmanager.com/gtag/js?id=G-CET86HGWMB"
           strategy="afterInteractive"
         />
         <Navbar />
