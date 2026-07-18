@@ -1,10 +1,11 @@
-name: Build & Deploy to saurabhinfosys.com
-
+name: Build & Package saurabhinfosys.com
 on:
+  push:
+    branches: [main]
   workflow_dispatch:
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -33,24 +34,11 @@ jobs:
           content = content.replace('GMAIL_APP_PASSWORD_PLACEHOLDER', os.environ['GMAIL_APP_PASSWORD'])
           with open('out/contact.php', 'w') as f:
               f.write(content)
-          print('contact.php generated, password length:', len(os.environ['GMAIL_APP_PASSWORD']))
           "
 
-      - name: Setup SSH
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_KEY }}" > ~/.ssh/id_ed25519
-          chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts 2>/dev/null || true
-
-      - name: Deploy via rsync
-        run: |
-          rsync -av --delete \
-            --exclude=.htaccess \
-            --exclude=extract.php \
-            --exclude=phptest.php \
-            --exclude=deploy-webhook.php \
-            --exclude=4e472060b5dd251fff9f2f80eefa8bdb.txt \
-            -e "ssh -i ~/.ssh/id_ed25519 -o StrictHostKeyChecking=no" \
-            out/ \
-            ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home/saurabhinfosys.com/public_html/
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: site-build
+          path: out/
+          retention-days: 7
