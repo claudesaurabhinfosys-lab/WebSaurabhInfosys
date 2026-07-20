@@ -22,6 +22,9 @@ const links = {
     { label: "Contact", href: "/contact" },
     { label: "Blog", href: "/blog" },
   ],
+  Legal: [
+    { label: "MySampark Privacy Policy", href: "/products/mysampark/privacy-policy" },
+  ],
   "We Serve": [
     { label: "AI Company USA", href: "/usa" },
     { label: "AI Company Singapore", href: "/singapore" },
