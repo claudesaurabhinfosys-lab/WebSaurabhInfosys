@@ -1,5 +1,7 @@
 import type { MetadataRoute } from "next";
 
+export const dynamic = "force-static";
+
 const BASE = "https://saurabhinfosys.com";
 
 const BLOG_SLUGS = [

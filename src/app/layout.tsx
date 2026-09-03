@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import { Montserrat } from "next/font/google";
+import { Montserrat, Manrope } from "next/font/google";
+import localFont from "next/font/local";
 import Script from "next/script";
+import { Toaster } from "sonner";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -9,6 +11,23 @@ const montserrat = Montserrat({
   subsets: ["latin"],
   variable: "--font-montserrat",
   weight: ["300", "400", "500", "600", "700", "800"],
+});
+
+const manrope = Manrope({
+  subsets: ["latin"],
+  variable: "--font-manrope",
+  weight: ["400", "500", "600", "700", "800"],
+});
+
+const clashDisplay = localFont({
+  src: [
+    { path: "../../public/font/clash-display/ClashDisplay-Regular.woff2", weight: "400", style: "normal" },
+    { path: "../../public/font/clash-display/ClashDisplay-Medium.woff2", weight: "500", style: "normal" },
+    { path: "../../public/font/clash-display/ClashDisplay-Semibold.woff2", weight: "600", style: "normal" },
+    { path: "../../public/font/clash-display/ClashDisplay-Bold.woff2", weight: "700", style: "normal" },
+  ],
+  variable: "--font-clash",
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -82,7 +101,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={montserrat.variable}>
+    <html lang="en" className={`${montserrat.variable} ${manrope.variable} ${clashDisplay.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -114,14 +133,6 @@ export default function RootLayout({
         />
       </head>
       <body className="font-montserrat bg-bg text-ink antialiased">
-
-        {/* Global animated background — grid + floating orbs */}
-        <div className="fixed inset-0 -z-10 pointer-events-none overflow-hidden">
-          <div className="absolute inset-0 bg-grid" />
-          <div className="absolute -top-[20%] left-[15%] w-[800px] h-[800px] rounded-full bg-accent/8 blur-[160px] animate-float" />
-          <div className="absolute top-[30%] right-[-10%] w-[600px] h-[600px] rounded-full bg-purple-600/8 blur-[140px] animate-float2" />
-          <div className="absolute -bottom-[20%] left-[40%] w-[500px] h-[500px] rounded-full bg-blue-600/6 blur-[120px] animate-float" />
-        </div>
         {/* Google Analytics */}
         <Script
           id="ga-inline"
@@ -134,6 +145,7 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <Toaster position="bottom-right" richColors />
       </body>
     </html>
   );

@@ -15,6 +15,133 @@
   --border: rgba(9, 9, 11, 0.07);
   --glow: rgba(79, 70, 229, 0.2);
   --glow2: rgba(124, 58, 237, 0.15);
+
+  /* ─────────────────────────────────────────────
+     Saurabh Infosys design system
+     Brand tokens — never hardcode a colour or size
+     in a component; reference these instead.
+     ───────────────────────────────────────────── */
+
+  /* Brand */
+  --si-brand: #5235F6;
+  --si-brand-hover: #4129D6;
+  --si-brand-tint: rgba(82, 53, 246, 0.1);
+
+  /* Surfaces */
+  --si-surface: #FFFFFF;
+  --si-surface-soft: #F1F1F1;
+  --si-surface-muted: #EBEBEB;
+  --si-surface-warm: #FFFFF7;
+  --si-surface-ink: #0E0E0E;
+  --si-surface-black: #000000;
+
+  /* Text */
+  --si-text-strong: #000000;
+  --si-text-body: #475569;
+  --si-text-muted: #64748B;
+  --si-text-soft: #787878;
+  --si-text-faint: #9F9F9F;
+  --si-text-dim: #A3A3A3;
+  --si-text-on-dark: #FFFFFF;
+  --si-text-on-dark-soft: rgba(255, 255, 255, 0.8);
+  --si-text-on-dark-dim: #7A7A7A;
+
+  /* Lines */
+  --si-line: #E2E8F0;
+  --si-line-on-dark: rgba(255, 255, 255, 0.12);
+
+  /* Type families */
+  --si-font-heading: var(--font-clash), Georgia, sans-serif;
+  --si-font-body: var(--font-manrope), sans-serif;
+
+  /* Type scale */
+  --si-display-1: 7rem;
+  --si-display-2: 5.5rem;
+  --si-h1: 4rem;
+  --si-h2: 3.5rem;
+  --si-h3: 3.5rem;
+  --si-h4: 3rem;
+  --si-h5: 2.5rem;
+  --si-h6: 2rem;
+  --si-text-base: 1.5rem;
+  --si-text-lg: 1.25rem;
+  --si-text-sm: 1.125rem;
+  --si-text-smm: 1rem;
+  --si-text-xs: 0.875rem;
+  --si-text-2xs: 0.75rem;
+
+  /* Weights */
+  --si-weight-light: 300;
+  --si-weight-normal: 400;
+  --si-weight-medium: 500;
+  --si-weight-semibold: 600;
+  --si-weight-bold: 700;
+
+  /* Rhythm */
+  --si-section-gap: 5rem;
+  --si-space-block: 4rem;
+  --si-space-stack: 2rem;
+
+  /* Shell */
+  --si-container: 83rem;
+  --si-gutter: 1.5rem;
+  --si-radius: 1rem;
+  --si-radius-sm: 0.5rem;
+  --si-radius-lg: 1.5rem;
+  --si-radius-pill: 6.25rem;
+  --si-inset: 0.5rem;
+
+  /* Motion */
+  --si-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --si-duration: 0.4s;
+}
+
+@media screen and (max-width: 991px) {
+  :root {
+    --si-display-1: 4.85rem;
+    --si-display-2: 4.5rem;
+    --si-h1: 3.75rem;
+    --si-h2: 3rem;
+    --si-h3: 2.75rem;
+    --si-h4: 2rem;
+    --si-h5: 1.75rem;
+    --si-h6: 1.5rem;
+    --si-text-base: 1.356rem;
+    --si-section-gap: 4rem;
+    --si-space-block: 3.75rem;
+    --si-space-stack: 1.75rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  :root {
+    --si-display-1: 4rem;
+    --si-display-2: 3.5rem;
+    --si-h1: 3rem;
+    --si-h2: 2.75rem;
+    --si-text-base: 1.25rem;
+    --si-section-gap: 3rem;
+    --si-space-block: 3.5rem;
+    --si-space-stack: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  :root {
+    --si-display-1: 2.5rem;
+    --si-display-2: 2.56rem;
+    --si-h1: 2.25rem;
+    --si-h2: 2rem;
+    --si-h3: 1.75rem;
+    --si-h4: 1.5rem;
+    --si-h5: 1.375rem;
+    --si-h6: 1.25rem;
+    --si-text-base: 1.125rem;
+    --si-text-lg: 1.125rem;
+    --si-section-gap: 2rem;
+    --si-space-block: 2rem;
+    --si-space-stack: 1.35rem;
+  }
 }
 
 
@@ -37,15 +164,6 @@ body {
 }
 
 /* ── Keyframes ── */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50%       { transform: translateY(-18px); }
-}
-@keyframes float2 {
-  0%, 100% { transform: translateY(0px) translateX(0px); }
-  33%       { transform: translateY(-12px) translateX(8px); }
-  66%       { transform: translateY(8px) translateX(-6px); }
-}
 @keyframes gradient-shift {
   0%, 100% { background-position: 0% 50%; }
   50%       { background-position: 100% 50%; }
@@ -80,8 +198,6 @@ body {
 }
 
 /* ── Animation classes ── */
-.animate-float         { animation: float 7s ease-in-out infinite; }
-.animate-float2        { animation: float2 9s ease-in-out infinite; }
 .animate-gradient      { animation: gradient-shift 6s ease infinite; background-size: 200% 200%; }
 .animate-marquee       { animation: marquee 30s linear infinite; }
 .animate-shimmer       { position: relative; overflow: hidden; }
@@ -134,19 +250,6 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.bg-grid {
-  background-image:
-    linear-gradient(var(--border) 1px, transparent 1px),
-    linear-gradient(90deg, var(--border) 1px, transparent 1px);
-  background-size: 40px 40px;
-}
-
-.bg-dots {
-  background-image: radial-gradient(circle, var(--ink-light) 1px, transparent 1px);
-  background-size: 28px 28px;
-  opacity: 0.07;
-}
-
 /* Glowing card border on hover */
 .card-glow {
   position: relative;
@@ -174,4 +277,624 @@ body {
 @layer utilities {
   .text-balance { text-wrap: balance; }
   .font-display { font-family: var(--font-montserrat), sans-serif; font-variation-settings: 'wght' 800; }
+}
+
+/* ═══════════════════════════════════════════════
+   Base element typography (Saurabh Infosys scale).
+   Lives in @layer base so any Tailwind utility on a
+   page still wins — existing pages stay untouched.
+   ═══════════════════════════════════════════════ */
+@layer base {
+  /* :where() keeps these at zero specificity, so any role class
+     (.si-display, .si-section-title, …) or utility always wins. */
+  :where(.si-page) :where(h1, h2, h3, h4, h5, h6) {
+    font-family: var(--si-font-heading);
+    color: var(--si-text-strong);
+    font-weight: var(--si-weight-normal);
+    letter-spacing: 0;
+    margin: 0;
+  }
+  :where(.si-page) :where(h1) { font-size: var(--si-display-1); line-height: 1.2em; }
+  :where(.si-page) :where(h2) { font-size: var(--si-h2); line-height: 1.3em; }
+  :where(.si-page) :where(h3) { font-size: var(--si-h3); line-height: 1.3em; }
+  :where(.si-page) :where(h4) { font-size: var(--si-h4); line-height: 1.5em; }
+  :where(.si-page) :where(h5) { font-size: var(--si-h5); line-height: 1.5em; }
+  :where(.si-page) :where(h6) { font-size: var(--si-h6); line-height: 1.5em; }
+
+  :where(.si-page) {
+    font-family: var(--si-font-body);
+    font-size: var(--si-text-base);
+    line-height: 1.4em;
+    font-weight: var(--si-weight-normal);
+    color: var(--si-text-muted);
+    background-color: var(--si-surface);
+  }
+  :where(.si-page) :where(p) { letter-spacing: 0; margin-bottom: 0; }
+}
+
+/* ═══════════════════════════════════════════════
+   Saurabh Infosys — layout shell
+   ═══════════════════════════════════════════════ */
+.si-container {
+  width: 100%;
+  max-width: var(--si-container);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--si-gutter);
+  padding-right: var(--si-gutter);
+}
+.si-section {
+  padding-top: var(--si-section-gap);
+  padding-bottom: var(--si-section-gap);
+}
+.si-stack-block { gap: var(--si-space-block); }
+.si-pb-stack { padding-bottom: var(--si-space-stack); }
+.si-pt-stack { padding-top: var(--si-space-stack); }
+
+/* ── Type roles ── */
+.si-display {
+  font-family: var(--si-font-heading);
+  font-size: var(--si-display-2);
+  line-height: 0.9em;
+  font-weight: var(--si-weight-semibold);
+}
+.si-title {
+  font-family: var(--si-font-heading);
+  font-size: var(--si-h1);
+  line-height: 1.2em;
+  font-weight: var(--si-weight-semibold);
+}
+.si-section-title {
+  font-family: var(--si-font-heading);
+  font-size: var(--si-h2);
+  line-height: 0.9em;
+  font-weight: var(--si-weight-semibold);
+  text-transform: uppercase;
+}
+.si-stat {
+  font-family: var(--si-font-heading);
+  font-size: var(--si-h1);
+  line-height: 1em;
+  font-weight: var(--si-weight-semibold);
+}
+.si-metric {
+  font-family: var(--si-font-heading);
+  font-size: var(--si-h4);
+  line-height: 1em;
+  font-weight: var(--si-weight-bold);
+}
+.si-card-title {
+  font-family: var(--si-font-heading);
+  font-size: var(--si-h6);
+  line-height: 0.9em;
+  font-weight: var(--si-weight-semibold);
+}
+.si-lead { font-size: var(--si-text-base); line-height: 1.4em; }
+.si-body { font-size: var(--si-text-lg); line-height: 1.5em; font-weight: var(--si-weight-medium); }
+.si-body-sm { font-size: var(--si-text-sm); line-height: 1.5em; }
+.si-body-xs { font-size: var(--si-text-smm); line-height: 1.5em; }
+.si-caption { font-size: var(--si-text-2xs); line-height: 1.3em; }
+
+/* ── Colour roles ── */
+.si-on-dark { color: var(--si-text-on-dark); }
+.si-on-dark-soft { color: var(--si-text-on-dark-soft); }
+.si-on-dark-dim { color: var(--si-text-on-dark-dim); }
+.si-ink { color: var(--si-text-strong); }
+.si-muted { color: var(--si-text-muted); }
+.si-soft { color: var(--si-text-soft); }
+.si-faint { color: var(--si-text-faint); }
+.si-dim { color: var(--si-text-dim); }
+.si-accent { color: var(--si-brand); }
+.si-bg-brand { background-color: var(--si-brand); }
+.si-bg-surface { background-color: var(--si-surface); }
+.si-bg-soft { background-color: var(--si-surface-soft); }
+.si-bg-muted { background-color: var(--si-surface-muted); }
+.si-bg-ink { background-color: var(--si-surface-ink); }
+.si-bg-black { background-color: var(--si-surface-black); }
+
+/* ── Section rule header (— LABEL) ── */
+.si-rule-header {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.si-rule {
+  flex: none;
+  width: 1.5rem;
+  height: 0.0625rem;
+  background-color: var(--si-text-muted);
+}
+.si-rule-header--light .si-rule { background-color: var(--si-text-on-dark-soft); }
+
+/* ═══════════════════════════════════════════════
+   Clients — logos read muted at rest and resolve to
+   full contrast on hover (Flux cross-fades a grey and
+   a coloured logo; our marks are type + flag, so the
+   same reveal is done with colour and saturation).
+   ═══════════════════════════════════════════════ */
+.si-client-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+}
+.si-client-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 2rem 0.75rem;
+  border-radius: var(--si-radius-sm);
+  background-color: var(--si-surface-soft);
+  transition: background-color var(--si-duration) var(--si-ease);
+}
+.si-client-card:hover { background-color: var(--si-surface-muted); }
+
+.si-client-meta {
+  color: var(--si-text-muted);
+  text-align: center;
+}
+.si-client-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-align: center;
+}
+/* Stands in for a client logo mark: muted at rest, brand colour on hover.
+   Drawn in CSS so it renders identically on every platform (flag emoji
+   are not supported on Windows at all). */
+.si-client-mark {
+  flex: none;
+  width: 1.35rem;
+  height: 1.35rem;
+  border-radius: 0.35rem;
+  background-color: var(--si-text-faint);
+  opacity: 0.55;
+  transition: background-color var(--si-duration) var(--si-ease),
+    opacity var(--si-duration) var(--si-ease), transform var(--si-duration) var(--si-ease);
+}
+.si-client-card:hover .si-client-mark {
+  background-color: var(--si-brand);
+  opacity: 1;
+  transform: rotate(45deg);
+}
+.si-client-name {
+  font-family: var(--si-font-heading);
+  font-size: 1.5rem;
+  line-height: 1.2em;
+  font-weight: var(--si-weight-semibold);
+  color: var(--si-text-faint);
+  transition: color var(--si-duration) var(--si-ease);
+}
+.si-client-card:hover .si-client-name { color: var(--si-text-strong); }
+
+@media screen and (max-width: 991px) {
+  .si-client-name { font-size: 1.25rem; }
+  .si-client-mark { width: 1.1rem; height: 1.1rem; }
+}
+@media screen and (max-width: 767px) {
+  .si-client-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ═══════════════════════════════════════════════
+   Navigation
+   ═══════════════════════════════════════════════ */
+.si-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+}
+.si-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+/* White wordmark lockup — sized by height, aspect kept (never cropped) */
+.si-brand-logo {
+  width: auto;
+  height: 4.25rem;
+  object-fit: contain;
+}
+.si-brand-name {
+  font-family: var(--si-font-heading);
+  font-size: var(--si-h6);
+  line-height: 1;
+  font-weight: var(--si-weight-semibold);
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  color: var(--si-text-on-dark);
+}
+.si-brand-dot {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 2px;
+  background-color: var(--si-brand);
+}
+/* Nav collapses at 991px (menu + CTA out, toggle in). Owned here rather
+   than via utilities, so these component rules can't outrank the switch. */
+.si-nav-menu {
+  display: none;
+  align-items: center;
+  gap: 1rem;
+}
+.si-nav-cta--bar { display: none; }
+@media screen and (min-width: 992px) {
+  .si-nav-menu { display: flex; }
+  .si-nav-cta--bar { display: inline-block; }
+}
+.si-nav-link {
+  position: relative;
+  padding: 0 0.5rem;
+  font-size: var(--si-text-sm);
+  line-height: 1.2em;
+  font-weight: var(--si-weight-medium);
+  color: var(--si-text-on-dark);
+  transition: color var(--si-duration) var(--si-ease);
+}
+.si-nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0.5rem;
+  right: 0.5rem;
+  bottom: -0.35rem;
+  height: 1px;
+  background-color: var(--si-brand);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--si-duration) var(--si-ease);
+}
+.si-nav-link:hover { color: var(--si-brand); }
+.si-nav-link:hover::after { transform: scaleX(1); }
+
+.si-nav-cta {
+  padding: 1rem 1.25rem;
+  border-radius: var(--si-radius-pill);
+  background-color: var(--si-brand);
+  color: var(--si-text-on-dark);
+  font-size: var(--si-text-xs);
+  line-height: 1.2em;
+  font-weight: var(--si-weight-bold);
+  transition: background-color var(--si-duration) var(--si-ease),
+    color var(--si-duration) var(--si-ease);
+}
+.si-nav-cta:hover {
+  background-color: var(--si-surface);
+  color: var(--si-brand);
+}
+
+.si-nav-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0.75rem;
+  border-radius: 0.75rem;
+  background-color: var(--si-surface-soft);
+  color: var(--si-brand);
+  transition: background-color var(--si-duration) var(--si-ease),
+    color var(--si-duration) var(--si-ease);
+}
+.si-nav-toggle[aria-expanded="true"] {
+  background-color: var(--si-brand);
+  color: var(--si-text-on-dark);
+}
+/* declared after the toggle so it wins the cascade on equal specificity */
+@media screen and (min-width: 992px) {
+  .si-nav-toggle { display: none; }
+}
+
+.si-nav-drawer {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 1.5rem 1.75rem;
+  border-radius: var(--si-radius);
+  background-color: var(--si-surface);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+.si-nav-drawer-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.25rem;
+}
+.si-nav-drawer-link {
+  display: flex;
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0.625rem 0;
+  font-size: var(--si-text-sm);
+  line-height: 1.2em;
+  font-weight: var(--si-weight-medium);
+  color: var(--si-text-strong);
+  border-bottom: 1px solid var(--si-line);
+  transition: color var(--si-duration) var(--si-ease);
+}
+.si-nav-drawer-link:last-of-type { border-bottom: none; }
+.si-nav-drawer-menu .si-nav-cta {
+  margin-top: 1rem;
+  text-align: center;
+}
+.si-nav-drawer-link:hover { color: var(--si-brand); }
+
+/* ═══════════════════════════════════════════════
+   Hero
+   ═══════════════════════════════════════════════ */
+.si-hero {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin: var(--si-inset) var(--si-inset) 0;
+  border-radius: var(--si-radius);
+  min-height: 90vh;
+  overflow: hidden;
+  /* Airy high-key photo, so the copy side carries its own scrim:
+     1. left scrim  — contrast for the headline / nav
+     2. base fade   — the vertical wash to black at the foot
+     3. photograph                                              */
+  background-image:
+    /* 1. nav band only — keeps 18px nav links at AA without dimming the photo */
+    linear-gradient(rgba(0, 0, 0, 0.55) 0rem, rgba(0, 0, 0, 0) 11rem),
+    /* 2. copy-side scrim */
+      linear-gradient(
+        100deg,
+        rgba(0, 0, 0, 0.62) 0%,
+        rgba(0, 0, 0, 0.28) 38%,
+        rgba(0, 0, 0, 0) 64%
+      ),
+    /* 3. vertical wash to black at the foot */
+      linear-gradient(rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.05) 30%, rgba(0, 0, 0, 0.82) 100%),
+    /* 4. photograph */ var(--si-hero-image);
+  background-position: 0 0, 0 0, 0 0, 50%;
+  background-repeat: no-repeat, repeat, repeat, no-repeat;
+  background-size: 100% 11rem, auto, auto, cover;
+}
+.si-hero-body {
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 3rem;
+}
+.si-hero-title {
+  max-width: 35rem;
+  margin-top: 4rem;
+}
+/* headings sit on the dark hero, so they opt out of the base ink colour */
+.si-hero-title h1,
+.si-on-dark h1,
+.si-on-dark h2,
+.si-on-dark h3 {
+  color: var(--si-text-on-dark);
+}
+
+.si-hero-headline {
+  font-family: var(--si-font-heading);
+  font-size: var(--si-display-2);
+  line-height: 0.9em;
+  font-weight: var(--si-weight-semibold);
+  color: var(--si-text-on-dark);
+}
+/* Each line rides in its own mask so it can slide up on load;
+   the padding keeps descenders (g, p) from being clipped. */
+.si-hero-line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.4rem;
+}
+.si-hero-line > span {
+  display: block;
+  animation: si-line-rise 0.9s var(--si-ease) both;
+}
+.si-hero-line:nth-child(2) > span { animation-delay: 0.08s; }
+.si-hero-line:nth-child(3) > span { animation-delay: 0.16s; }
+
+@keyframes si-line-rise {
+  from { transform: translateY(101%); }
+  to { transform: translateY(0); }
+}
+
+/* ≥1280px — the headline steps up to the display-1 size */
+@media screen and (min-width: 1280px) {
+  .si-hero-title {
+    max-width: 45.9375rem;
+    margin-top: 5rem;
+  }
+  .si-hero-headline { font-size: var(--si-display-1); }
+}
+.si-hero-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2.5rem;
+  /* single source for the vertical rhythm inside the hero copy:
+     headline -> subtext and subtext -> button always match */
+  --si-hero-stack: 1.75rem;
+  margin-top: var(--si-hero-stack);
+}
+.si-hero-lead {
+  max-width: 39rem;
+  color: var(--si-text-on-dark-soft);
+  font-weight: var(--si-weight-normal);
+}
+.si-hero-actions { padding-top: var(--si-hero-stack); }
+
+.si-hero-services { width: 100%; max-width: 25.3125rem; }
+.si-hero-services-label {
+  font-family: var(--si-font-heading);
+  font-size: var(--si-text-lg);
+  line-height: 1.2em;
+  font-weight: var(--si-weight-semibold);
+  text-transform: uppercase;
+  color: var(--si-text-on-dark-soft);
+}
+.si-hero-services-rule {
+  width: 100%;
+  height: 1px;
+  margin: 1rem 0;
+  background-color: var(--si-surface);
+}
+.si-hero-service {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--si-surface);
+  font-size: var(--si-text-sm);
+  font-weight: var(--si-weight-semibold);
+  color: var(--si-text-on-dark);
+  transition: color var(--si-duration) var(--si-ease),
+    border-color var(--si-duration) var(--si-ease);
+}
+.si-hero-service:hover {
+  color: var(--si-brand);
+  border-bottom-color: var(--si-brand);
+}
+
+/* ── Hero · tablet (≤991px) ──
+   Headline centres and goes full width, the copy + service
+   list sit side by side beneath it, nav collapses to the menu. */
+@media screen and (max-width: 991px) {
+  .si-hero { min-height: auto; }
+  .si-hero-body {
+    min-height: auto;
+    padding-top: 5rem;
+    padding-bottom: 1.75rem;
+    justify-content: flex-start;
+  }
+  .si-hero-title {
+    max-width: none;
+    margin-top: 0;
+    text-align: center;
+  }
+  .si-hero-row {
+    --si-hero-stack: 1.75rem;
+    padding-top: 3rem;
+    margin-top: 0;
+    align-items: flex-end;
+  }
+  .si-hero-copy {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 100%;
+  }
+  .si-hero-lead { max-width: 20rem; }
+  .si-hero-services { width: 100%; max-width: none; }
+
+  .si-nav { padding-top: 1rem; padding-bottom: 1rem; }
+}
+
+/* ── Hero · mobile (≤767px) — copy and service list stack ── */
+@media screen and (max-width: 767px) {
+  .si-hero-row {
+    --si-hero-stack: 2.5rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 3.5rem;
+    padding-top: var(--si-hero-stack);
+  }
+  .si-hero-lead { max-width: 100%; }
+}
+
+/* ── Hero · small mobile (≤479px) ── */
+@media screen and (max-width: 479px) {
+  .si-hero-body { padding-top: 4rem; }
+  .si-hero-row {
+    --si-hero-stack: 2rem;
+    padding-top: var(--si-hero-stack);
+    gap: 3rem;
+  }
+  .si-hero-copy { align-items: center; }
+  .si-hero-lead {
+    font-size: var(--si-text-sm);
+    text-align: center;
+  }
+  .si-brand-logo { height: 3.25rem; }
+  .si-nav-toggle { padding: 0.75rem 0.625rem; }
+}
+
+/* ═══════════════════════════════════════════════
+   Pill button — text slide-up + diagonal arrow swap
+   ═══════════════════════════════════════════════ */
+.si-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.25rem 0.25rem 0.25rem 1.25rem;
+  border-radius: var(--si-radius-pill);
+  font-family: var(--si-font-body);
+  transition: background-color var(--si-duration) var(--si-ease),
+    color var(--si-duration) var(--si-ease);
+}
+.si-btn--brand { background-color: var(--si-brand); color: var(--si-text-on-dark); }
+.si-btn--brand:hover { background-color: var(--si-brand-hover); }
+.si-btn--light { background-color: var(--si-surface); color: var(--si-text-strong); }
+.si-btn--outline {
+  border: 1px solid var(--si-text-strong);
+  color: var(--si-text-strong);
+}
+.si-btn--outline:hover {
+  background-color: var(--si-text-strong);
+  color: var(--si-text-on-dark);
+}
+
+.si-btn-label {
+  position: relative;
+  overflow: hidden;
+  font-size: var(--si-text-smm);
+  line-height: 1.2em;
+  font-weight: var(--si-weight-medium);
+}
+.si-btn-label-out { position: absolute; inset: 0; transform: translateY(101%); }
+.si-btn:hover .si-btn-label-in { transform: translateY(-101%); }
+.si-btn:hover .si-btn-label-out { transform: translateY(0); }
+.si-btn-label-in,
+.si-btn-label-out { transition: transform var(--si-duration) var(--si-ease); }
+
+.si-btn-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--si-radius-pill);
+  overflow: hidden;
+}
+.si-btn-icon--light { background-color: var(--si-surface); color: var(--si-text-strong); }
+.si-btn-icon--dark { background-color: var(--si-text-strong); color: var(--si-text-on-dark); }
+.si-btn--outline:hover .si-btn-icon--dark {
+  background-color: var(--si-surface);
+  color: var(--si-text-strong);
+}
+.si-btn-arrow-out { position: absolute; transform: translate(-100%, 100%); }
+.si-btn:hover .si-btn-arrow-in { transform: translate(100%, -100%); }
+.si-btn:hover .si-btn-arrow-out { transform: translate(0, 0); }
+.si-btn-arrow-in,
+.si-btn-arrow-out { transition: transform var(--si-duration) var(--si-ease); }
+
+/* ── Redesign helpers ── */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

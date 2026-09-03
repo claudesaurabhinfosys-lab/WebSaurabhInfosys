@@ -1209,3 +1209,31 @@ export const TESTIMONIALS = [
     rating: 5,
   },
 ];
+
+export const HOME_FAQS = [
+  {
+    question: "How long does a typical project take?",
+    answer:
+      "Timelines depend on scope. A vibe-coded MVP ships in about 2 weeks. A Flutter app or SaaS platform typically runs 6–12 weeks, covering discovery, design, build, and testing. AI automation pilots (WhatsApp bots, RAG systems) can go live in 1–2 weeks.",
+  },
+  {
+    question: "What services do you offer for digital projects?",
+    answer:
+      "AI automation and integration, vibe coding / MVP development, Flutter mobile apps, GPS and fleet management systems, SaaS platform development, and digital marketing tools — see our Services page for the full breakdown.",
+  },
+  {
+    question: "What is your pricing model?",
+    answer:
+      "Most projects are fixed-price based on a scoped requirement document, so you know the cost upfront. Ongoing work (maintenance, retainers, AI automation support) is billed monthly. We share a detailed quote before any work begins.",
+  },
+  {
+    question: "Do you provide support after launch?",
+    answer:
+      "Yes. Every project includes a post-launch support window, and we offer ongoing maintenance retainers for bug fixes, updates, and monitoring. Our own SaaS products (SSMS, MySociety, MySampark) run on the same support process we offer clients.",
+  },
+  {
+    question: "Can you work with our existing team or codebase?",
+    answer:
+      "Absolutely. We regularly integrate into existing CRMs, ERPs, and codebases — including fixing and extending apps originally built with AI tools like Lovable, Bolt, or Cursor. Share your repo and we'll assess it within 24 hours.",
+  },
+];
