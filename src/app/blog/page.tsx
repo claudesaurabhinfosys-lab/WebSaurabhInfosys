@@ -31,7 +31,7 @@ export default function BlogPage() {
     <main className="bg-bg text-ink font-dm">
 
       {/* ── Hero ── */}
-      <section className="bg-gradient-to-br from-indigo-50 to-purple-50 pt-24 pb-16 px-6">
+      <section className="bg-gradient-to-br from-sky-50 to-cyan-50 pt-24 pb-16 px-6">
         <div className="max-w-5xl mx-auto">
           <span className="inline-block bg-accent text-white text-xs font-syne font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-6">
             Blog
@@ -48,7 +48,7 @@ export default function BlogPage() {
       {/* ── New Posts ── */}
       <section className="bg-bg py-16 px-6">
         <div className="max-w-5xl mx-auto">
-          <p className="font-syne font-bold text-xs uppercase tracking-widest text-accent mb-3">
+          <p className="font-syne font-bold text-xs uppercase tracking-widest text-accent-dark mb-3">
             Latest Articles
           </p>
           <h2 className="font-syne font-bold text-2xl sm:text-3xl text-ink mb-10">
@@ -56,7 +56,7 @@ export default function BlogPage() {
           </h2>
 
           {/* Featured first post */}
-          <Link href={`/blog/${newPosts[0].slug}`} className="block bg-gradient-to-br from-accent/5 to-purple-500/5 border border-accent/15 rounded-3xl p-8 sm:p-10 mb-6 group hover:border-accent/30 transition-colors">
+          <Link href={`/blog/${newPosts[0].slug}`} className="block bg-gradient-to-br from-accent/5 to-cyan-500/5 border border-accent/15 rounded-3xl p-8 sm:p-10 mb-6 group hover:border-accent/30 transition-colors">
             <div className="flex flex-wrap items-center gap-3 mb-5">
               <span className={`text-xs font-semibold px-3 py-1 rounded-full ${CATEGORY_COLORS[newPosts[0].category] ?? "bg-ink/10 text-ink/60"}`}>
                 {newPosts[0].category}
@@ -64,11 +64,11 @@ export default function BlogPage() {
               <span className="text-xs font-semibold px-3 py-1 rounded-full bg-accent text-white">New</span>
               <span className="text-ink/40 text-sm">{formatDate(newPosts[0].date)} · {newPosts[0].readTime}</span>
             </div>
-            <h3 className="font-syne font-bold text-2xl sm:text-3xl text-ink mb-4 leading-snug group-hover:text-accent transition-colors">
+            <h3 className="font-syne font-bold text-2xl sm:text-3xl text-ink mb-4 leading-snug group-hover:text-accent-dark transition-colors">
               {newPosts[0].title}
             </h3>
             <p className="text-ink/65 leading-relaxed mb-6 max-w-2xl">{newPosts[0].excerpt}</p>
-            <span className="inline-flex items-center gap-2 text-accent font-syne font-semibold group-hover:gap-3 transition-all">
+            <span className="inline-flex items-center gap-2 text-accent-dark font-syne font-semibold group-hover:gap-3 transition-all">
               Read article
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -88,7 +88,7 @@ export default function BlogPage() {
                     <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-accent text-white">New</span>
                   </div>
                   <div className="flex-1">
-                    <h3 className="font-syne font-bold text-base text-ink leading-snug mb-2 group-hover:text-accent transition-colors">
+                    <h3 className="font-syne font-bold text-base text-ink leading-snug mb-2 group-hover:text-accent-dark transition-colors">
                       {post.title}
                     </h3>
                     <p className="text-ink/55 text-sm leading-relaxed line-clamp-3">{post.excerpt}</p>
@@ -104,7 +104,7 @@ export default function BlogPage() {
       {/* ── Older Posts ── */}
       <section className="bg-card py-16 px-6 border-t border-ink/6">
         <div className="max-w-5xl mx-auto">
-          <p className="font-syne font-bold text-xs uppercase tracking-widest text-accent mb-3">
+          <p className="font-syne font-bold text-xs uppercase tracking-widest text-accent-dark mb-3">
             More Articles
           </p>
           <h2 className="font-syne font-bold text-2xl sm:text-3xl text-ink mb-10">
@@ -118,7 +118,7 @@ export default function BlogPage() {
                     {post.category}
                   </span>
                   <div className="flex-1">
-                    <h3 className="font-syne font-bold text-base text-ink leading-snug mb-2 group-hover:text-accent transition-colors">
+                    <h3 className="font-syne font-bold text-base text-ink leading-snug mb-2 group-hover:text-accent-dark transition-colors">
                       {post.title}
                     </h3>
                     <p className="text-ink/55 text-sm leading-relaxed line-clamp-3">{post.excerpt}</p>

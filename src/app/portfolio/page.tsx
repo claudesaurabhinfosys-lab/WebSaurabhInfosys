@@ -27,7 +27,7 @@ export default function PortfolioPage() {
   return (
     <main className="font-dm">
       {/* Hero / Header */}
-      <section className="bg-gradient-to-br from-indigo-50 via-white to-purple-50 pt-28 pb-0 relative overflow-hidden">
+      <section className="bg-gradient-to-br from-sky-50 via-white to-cyan-50 pt-28 pb-0 relative overflow-hidden">
         {/* Dot-grid background */}
         <div
           className="absolute inset-0 opacity-[0.04]"
@@ -38,7 +38,7 @@ export default function PortfolioPage() {
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           {/* Label */}
-          <p className="text-accent font-syne font-semibold text-sm uppercase tracking-widest mb-5">
+          <p className="text-accent-dark font-syne font-semibold text-sm uppercase tracking-widest mb-5">
             Our Work
           </p>
 
@@ -136,7 +136,7 @@ export default function PortfolioPage() {
 
                   {/* Title + description */}
                   <div className="flex-1">
-                    <h3 className="font-syne font-bold text-ink text-lg leading-snug mb-2 group-hover:text-accent transition-colors">
+                    <h3 className="font-syne font-bold text-ink text-lg leading-snug mb-2 group-hover:text-accent-dark transition-colors">
                       {project.title}
                     </h3>
                     <p className="text-ink/60 text-sm leading-relaxed">
@@ -157,7 +157,7 @@ export default function PortfolioPage() {
                   </div>
 
                   {/* CTA */}
-                  <div className="inline-flex items-center gap-1.5 text-accent font-syne font-semibold text-sm group-hover:gap-2.5 transition-all mt-auto pt-2">
+                  <div className="inline-flex items-center gap-1.5 text-accent-dark font-syne font-semibold text-sm group-hover:gap-2.5 transition-all mt-auto pt-2">
                     View Case Study
                     <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -183,7 +183,7 @@ export default function PortfolioPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-syne text-3xl md:text-5xl font-bold text-ink mb-6">
             Your project could be{" "}
-            <span className="text-accent">next on this list</span>
+            <span className="text-accent-dark">next on this list</span>
           </h2>
           <p className="text-ink-light text-lg mb-10 max-w-2xl mx-auto">
             Whether you need an AI agent, a mobile app, or a full SaaS platform

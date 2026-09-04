@@ -12,7 +12,7 @@
 - **Location:** Ahmedabad, Gujarat, India
 - **Website:** https://saurabhinfosys.com
 - **Design Reference:** [Flux Studio Agency](https://flux-studio-agency.webflow.io/)
-- **Primary Color:** `#5235F6` (vibrant electric purple from Flux Studio reference)
+- **Primary Color:** `#00A0E3` (vibrant logo blue from Flux Studio reference)
 
 ---
 
@@ -241,8 +241,8 @@ export function ActionButton() {
 - Never use default system fonts or Arial
 
 ### Color Palette
-- **Primary:** `#5235F6` (Flux Studio electric purple)
-- **Primary Hover:** `#4129D6`
+- **Primary:** `#00A0E3` (Flux Studio logo blue)
+- **Primary Hover:** `#0086C0`
 - **Dark Surfaces:** `#0E0E0E` (Hero, Testimonials, Footer, Dark Contrast Sections)
 - **Light Surfaces:** `#FFFFFF` / `#F1F1F1` (Content sections, clean cards)
 - **Dividers / Borders:** `#E2E8F0` / `#EBEBEB`
@@ -328,7 +328,7 @@ Before pushing or considering any task complete:
 - [ ] Every route has a server `page.tsx`, `loading.tsx`, and `error.tsx`
 - [ ] Dynamic routes correctly `await params` (Next.js 16 standard)
 - [ ] HugeIcons is used for all icons (no Lucide)
-- [ ] Primary color is `#5235F6`
+- [ ] Primary color is `#00A0E3`
 - [ ] Mobile responsive at 375px, 768px, 1024px, 1440px
 - [ ] Animations respect `prefers-reduced-motion`
 - [ ] All interactive controls have visible focus rings and accessible hit areas (≥44px on mobile)

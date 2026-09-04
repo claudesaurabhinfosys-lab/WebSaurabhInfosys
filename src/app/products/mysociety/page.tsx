@@ -70,7 +70,7 @@ export default function MySocietyPage() {
       {/* Hero */}
       <section className="bg-bg py-24">
         <div className="max-w-5xl mx-auto px-6 text-center">
-          <div className="inline-block bg-accent/10 text-accent font-dm font-semibold text-sm px-4 py-1.5 rounded-full mb-6 uppercase tracking-wide">
+          <div className="inline-block bg-accent/10 text-accent-dark font-dm font-semibold text-sm px-4 py-1.5 rounded-full mb-6 uppercase tracking-wide">
             Society Management System
           </div>
           <h1 className="font-syne text-5xl md:text-6xl font-bold text-ink leading-tight mb-6">
@@ -84,7 +84,7 @@ export default function MySocietyPage() {
             work every month.
           </p>
           <div className="mb-10">
-            <span className="font-syne text-3xl font-bold text-accent">
+            <span className="font-syne text-3xl font-bold text-accent-dark">
               ₹5
             </span>
             <span className="font-dm text-ink-light text-base ml-1">
@@ -180,7 +180,7 @@ export default function MySocietyPage() {
           <div className="bg-ink/3 border border-ink/8 rounded-3xl p-8 md:p-10">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
               <div>
-                <p className="font-syne text-4xl font-bold text-accent mb-2">
+                <p className="font-syne text-4xl font-bold text-accent-dark mb-2">
                   ₹500
                 </p>
                 <p className="font-dm text-ink-light text-sm">
@@ -209,7 +209,7 @@ export default function MySocietyPage() {
                 For a{" "}
                 <span className="font-semibold text-ink">100-flat society</span>{" "}
                 — just{" "}
-                <span className="text-accent font-semibold">₹500/month</span>.
+                <span className="text-accent-dark font-semibold">₹500/month</span>.
                 Saves{" "}
                 <span className="font-semibold text-ink">
                   10+ hours of manual work
@@ -244,7 +244,7 @@ export default function MySocietyPage() {
                 /flat/month
               </span>
             </div>
-            <p className="font-dm text-accent font-semibold text-sm mb-8">
+            <p className="font-dm text-accent-dark font-semibold text-sm mb-8">
               All features included
             </p>
             <ul className="text-left space-y-3 mb-10">
@@ -253,7 +253,7 @@ export default function MySocietyPage() {
                   key={item}
                   className="flex items-center gap-3 font-dm text-ink text-sm"
                 >
-                  <span className="text-accent font-bold">✓</span>
+                  <span className="text-accent-dark font-bold">✓</span>
                   {item}
                 </li>
               ))}

@@ -82,7 +82,7 @@ function renderBlock(block: ContentBlock, i: number) {
       <ul key={i} className="space-y-2 pl-1">
         {block.items.map((item, j) => (
           <li key={j} className="flex items-start gap-3 text-ink/75">
-            <span className="text-accent mt-1 flex-shrink-0 text-sm">▸</span>
+            <span className="text-accent-dark mt-1 flex-shrink-0 text-sm">▸</span>
             <span>{item}</span>
           </li>
         ))}
@@ -103,7 +103,7 @@ export default function BlogPostPage({
     <main className="bg-bg text-ink font-dm">
 
       {/* ── Hero ── */}
-      <section className="bg-gradient-to-br from-indigo-50 to-purple-50 pt-24 pb-16 px-6">
+      <section className="bg-gradient-to-br from-sky-50 to-cyan-50 pt-24 pb-16 px-6">
         <div className="max-w-3xl mx-auto">
           <Link
             href="/blog"

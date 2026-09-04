@@ -11,15 +11,21 @@ const config: Config = {
       colors: {
         bg: "var(--bg)",
         ink: "var(--ink)",
-        accent: "var(--accent)",
-        "accent-dark": "var(--accent-dark)",
+        // channel form so /opacity modifiers (bg-accent/10) actually emit CSS
+        accent: "rgb(var(--accent-rgb) / <alpha-value>)",
+        "accent-dark": "rgb(var(--accent-dark-rgb) / <alpha-value>)",
+        "accent-2": "rgb(var(--accent2-rgb) / <alpha-value>)",
         "ink-light": "var(--ink-light)",
         card: "var(--card)",
 
         // Redesign — Flux Studio token system (see redesign.md)
-        primary: "#5235F6",
-        "primary-hover": "#4129D6",
-        "primary-light": "rgba(82, 53, 246, 0.1)",
+        // Brand blue = the logo blue #00A0E3 (rgb 0 160 227 / hsl 198 100% 45%)
+        primary: "rgb(var(--si-brand-rgb) / <alpha-value>)",
+        "primary-hover": "rgb(var(--si-brand-hover-rgb) / <alpha-value>)",
+        // darker step for brand-coloured TEXT on light surfaces (4.9:1)
+        "primary-ink": "rgb(var(--si-brand-ink-rgb) / <alpha-value>)",
+        "primary-light": "var(--si-brand-tint)",
+        "primary-soft": "var(--si-brand-soft)",
         black: "#000000",
         "black-2": "#0E0E0E",
         "white-2": "#F1F1F1",

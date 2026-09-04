@@ -70,7 +70,7 @@ export default function SSMSPage() {
       {/* Hero */}
       <section className="bg-bg py-24">
         <div className="max-w-5xl mx-auto px-6 text-center">
-          <div className="inline-block bg-accent/10 text-accent font-dm font-semibold text-sm px-4 py-1.5 rounded-full mb-6 uppercase tracking-wide">
+          <div className="inline-block bg-accent/10 text-accent-dark font-dm font-semibold text-sm px-4 py-1.5 rounded-full mb-6 uppercase tracking-wide">
             School Management System
           </div>
           <h1 className="font-syne text-5xl md:text-6xl font-bold text-ink leading-tight mb-6">
@@ -83,7 +83,7 @@ export default function SSMSPage() {
             fees to transport — built for Indian schools of every size.
           </p>
           <div className="mb-10">
-            <span className="font-syne text-3xl font-bold text-accent">
+            <span className="font-syne text-3xl font-bold text-accent-dark">
               ₹999/year
             </span>
             <span className="font-dm text-ink-light text-sm ml-2">
@@ -184,13 +184,13 @@ export default function SSMSPage() {
               </span>
               <span className="font-dm text-ink-light text-lg ml-2">/year</span>
             </div>
-            <p className="font-dm text-accent font-semibold text-sm mb-8">
+            <p className="font-dm text-accent-dark font-semibold text-sm mb-8">
               Everything included
             </p>
             <ul className="text-left space-y-3 mb-10">
               {includedFeatures.map((item) => (
                 <li key={item} className="flex items-center gap-3 font-dm text-ink text-sm">
-                  <span className="text-accent font-bold">✓</span>
+                  <span className="text-accent-dark font-bold">✓</span>
                   {item}
                 </li>
               ))}

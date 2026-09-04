@@ -186,7 +186,7 @@ export default function USAPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <section className="bg-gradient-to-br from-blue-50 via-white to-indigo-50 pt-28 pb-20 px-6">
+      <section className="bg-gradient-to-br from-blue-50 via-white to-sky-50 pt-28 pb-20 px-6">
         <div className="max-w-5xl mx-auto text-center">
           <div className="inline-block bg-blue-100 border border-blue-200 text-blue-700 text-sm font-medium px-4 py-1.5 rounded-full mb-6">
             Serving US Businesses

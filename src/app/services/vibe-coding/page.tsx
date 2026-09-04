@@ -71,7 +71,7 @@ export default function VibeCodingPage() {
           </span>
           <h1 className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight text-ink mb-6 max-w-4xl">
             Vibe coding &amp; AI-enabled apps in{" "}
-            <span className="text-accent">2 weeks</span>
+            <span className="text-accent-dark">2 weeks</span>
           </h1>
           <p className="text-lg md:text-xl text-ink/70 max-w-2xl mb-10 leading-relaxed">
             India&apos;s leading vibe coding studio — we use AI-accelerated development to build production-ready AI-enabled apps and MVPs at a fraction of traditional cost. Validate your idea before the market moves on.
@@ -119,7 +119,7 @@ export default function VibeCodingPage() {
             href={`https://wa.me/${COMPANY.whatsapp}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="shrink-0 inline-flex items-center bg-white text-accent font-syne font-bold px-7 py-3.5 rounded-full hover:bg-accent hover:text-white transition-colors"
+            className="shrink-0 inline-flex items-center bg-white text-accent-dark font-syne font-bold px-7 py-3.5 rounded-full hover:bg-accent hover:text-white transition-colors"
           >
             Get a Quote
           </a>
@@ -129,7 +129,7 @@ export default function VibeCodingPage() {
       {/* ── Features ── */}
       <section className="bg-card py-20 px-6">
         <div className="max-w-5xl mx-auto">
-          <p className="font-syne font-bold text-xs uppercase tracking-widest text-accent mb-3">
+          <p className="font-syne font-bold text-xs uppercase tracking-widest text-accent-dark mb-3">
             What&apos;s Included
           </p>
           <h2 className="font-syne font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-ink mb-12">
@@ -142,7 +142,7 @@ export default function VibeCodingPage() {
                 className="bg-bg rounded-2xl p-6 border border-ink/8 hover:border-accent/40 hover:shadow-lg transition-all group"
               >
                 <span className="text-3xl mb-4 block">{featureIcons[i]}</span>
-                <p className="font-syne font-semibold text-ink text-lg group-hover:text-accent transition-colors">
+                <p className="font-syne font-semibold text-ink text-lg group-hover:text-accent-dark transition-colors">
                   {feature}
                 </p>
               </div>
@@ -154,7 +154,7 @@ export default function VibeCodingPage() {
       {/* ── Timeline Visual ── */}
       <section className="bg-bg py-20 px-6">
         <div className="max-w-5xl mx-auto">
-          <p className="font-syne font-bold text-xs uppercase tracking-widest text-accent mb-3">
+          <p className="font-syne font-bold text-xs uppercase tracking-widest text-accent-dark mb-3">
             Timeline
           </p>
           <h2 className="font-syne font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-ink mb-12">
@@ -212,7 +212,7 @@ export default function VibeCodingPage() {
       {/* ── Use Cases ── */}
       <section className="bg-card py-20 px-6">
         <div className="max-w-5xl mx-auto">
-          <p className="font-syne font-bold text-xs uppercase tracking-widest text-accent mb-3">
+          <p className="font-syne font-bold text-xs uppercase tracking-widest text-accent-dark mb-3">
             Use Cases
           </p>
           <h2 className="font-syne font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-ink mb-12">
@@ -238,7 +238,7 @@ export default function VibeCodingPage() {
       {/* ── FAQ ── */}
       <section className="bg-bg py-20 px-6">
         <div className="max-w-5xl mx-auto">
-          <p className="font-syne font-bold text-xs uppercase tracking-widest text-accent mb-3">FAQ</p>
+          <p className="font-syne font-bold text-xs uppercase tracking-widest text-accent-dark mb-3">FAQ</p>
           <h2 className="font-syne font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-ink mb-12">
             Questions about vibe coding &amp; AI-enabled apps
           </h2>

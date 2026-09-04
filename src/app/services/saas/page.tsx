@@ -96,12 +96,12 @@ export default function SaaSServicePage() {
       {/* Hero */}
       <section className="bg-gray-50 py-24">
         <div className="max-w-5xl mx-auto px-6">
-          <p className="font-dm text-accent text-sm uppercase tracking-widest mb-4">
+          <p className="font-dm text-accent-dark text-sm uppercase tracking-widest mb-4">
             SaaS Platform Development
           </p>
           <h1 className="font-syne text-4xl md:text-6xl font-bold leading-tight mb-6">
             We don't just build SaaS.{" "}
-            <span className="text-accent">We run our own.</span>
+            <span className="text-accent-dark">We run our own.</span>
           </h1>
           <p className="font-dm text-lg md:text-xl text-ink-light max-w-2xl mb-6">
             SSMS, MySociety, and MySampark are SaaS products we built and
@@ -134,7 +134,7 @@ export default function SaaSServicePage() {
       {/* Features */}
       <section className="bg-bg py-24">
         <div className="max-w-5xl mx-auto px-6">
-          <p className="font-dm text-accent text-sm uppercase tracking-widest mb-3">
+          <p className="font-dm text-accent-dark text-sm uppercase tracking-widest mb-3">
             What we build in
           </p>
           <h2 className="font-syne text-3xl md:text-4xl font-bold text-ink mb-4">
@@ -166,7 +166,7 @@ export default function SaaSServicePage() {
       {/* Use Cases */}
       <section className="bg-card py-24">
         <div className="max-w-5xl mx-auto px-6">
-          <p className="font-dm text-accent text-sm uppercase tracking-widest mb-3">
+          <p className="font-dm text-accent-dark text-sm uppercase tracking-widest mb-3">
             Use Cases
           </p>
           <h2 className="font-syne text-3xl md:text-4xl font-bold text-ink mb-14">
@@ -190,7 +190,7 @@ export default function SaaSServicePage() {
       {/* Own SaaS Products */}
       <section className="bg-bg py-24">
         <div className="max-w-5xl mx-auto px-6">
-          <p className="font-dm text-accent text-sm uppercase tracking-widest mb-3">
+          <p className="font-dm text-accent-dark text-sm uppercase tracking-widest mb-3">
             Proof of Work
           </p>
           <h2 className="font-syne text-3xl md:text-4xl font-bold text-ink mb-4">
@@ -220,7 +220,7 @@ export default function SaaSServicePage() {
                 </h3>
                 <p
                   className={`font-dm text-xs uppercase tracking-widest mb-4 ${
-                    p.accent ? "text-bg/70" : "text-accent"
+                    p.accent ? "text-bg/70" : "text-accent-dark"
                   }`}
                 >
                   {p.tagline}
@@ -234,7 +234,7 @@ export default function SaaSServicePage() {
                 </p>
                 <span
                   className={`inline-block mt-6 font-dm text-sm font-medium underline underline-offset-2 ${
-                    p.accent ? "text-bg" : "text-accent"
+                    p.accent ? "text-bg" : "text-accent-dark"
                   }`}
                 >
                   View product →
@@ -250,7 +250,7 @@ export default function SaaSServicePage() {
         <div className="max-w-5xl mx-auto px-6">
           <div className="bg-gray-100 rounded-2xl px-10 py-10 flex flex-col md:flex-row items-start md:items-center gap-6">
             <div className="flex-1">
-              <p className="font-dm text-accent text-sm uppercase tracking-widest mb-2">
+              <p className="font-dm text-accent-dark text-sm uppercase tracking-widest mb-2">
                 Tech Stack
               </p>
               <h3 className="font-syne text-ink text-2xl font-bold mb-2">

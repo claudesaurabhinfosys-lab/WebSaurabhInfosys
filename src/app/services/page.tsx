@@ -21,7 +21,7 @@ const serviceList = [
     title: "AI Agents & Bots",
     description: "WhatsApp automation bots, RAG knowledge bases, voice agents, and custom AI workflows that run your business operations 24/7 without human intervention.",
     features: ["WhatsApp Bots", "RAG Systems", "Voice Agents", "CRM Integration"],
-    gradient: "from-indigo-500/8 to-violet-500/8",
+    gradient: "from-sky-500/8 to-violet-500/8",
   },
   {
     slug: "vibe-coding",
@@ -71,27 +71,27 @@ export default function ServicesPage() {
       {/* Hero */}
       <section className="bg-gradient-to-br from-bg to-gray-50 py-20 md:py-28">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-accent font-syne font-semibold text-sm uppercase tracking-widest mb-4">
+          <p className="text-accent-dark font-syne font-semibold text-sm uppercase tracking-widest mb-4">
             What We Build
           </p>
           <h1 className="font-syne text-4xl md:text-6xl font-bold text-ink leading-tight max-w-4xl mx-auto">
             Services that drive{" "}
-            <span className="text-accent">real business impact</span>
+            <span className="text-accent-dark">real business impact</span>
           </h1>
           <p className="mt-6 text-ink-light text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
             From AI automation to mobile apps and SaaS platforms — we ship production-ready software that businesses across India, UK, USA &amp; Gulf rely on every day.
           </p>
           <div className="mt-8 flex items-center justify-center gap-6 text-sm text-ink-light flex-wrap">
             <span className="flex items-center gap-1.5">
-              <span className="text-accent font-bold">150+</span> Projects Delivered
+              <span className="text-accent-dark font-bold">150+</span> Projects Delivered
             </span>
             <span className="w-1 h-1 rounded-full bg-ink/20 hidden sm:block" />
             <span className="flex items-center gap-1.5">
-              <span className="text-accent font-bold">80+</span> Clients Worldwide
+              <span className="text-accent-dark font-bold">80+</span> Clients Worldwide
             </span>
             <span className="w-1 h-1 rounded-full bg-ink/20 hidden sm:block" />
             <span className="flex items-center gap-1.5">
-              <span className="text-accent font-bold">4.9★</span> Clutch Rating
+              <span className="text-accent-dark font-bold">4.9★</span> Clutch Rating
             </span>
           </div>
         </div>
@@ -118,7 +118,7 @@ export default function ServicesPage() {
                 </div>
 
                 {/* Title */}
-                <h2 className="font-syne font-bold text-xl text-ink mb-3 group-hover:text-accent transition-colors">
+                <h2 className="font-syne font-bold text-xl text-ink mb-3 group-hover:text-accent-dark transition-colors">
                   {service.title}
                 </h2>
 
@@ -137,7 +137,7 @@ export default function ServicesPage() {
                 </div>
 
                 {/* CTA */}
-                <div className="inline-flex items-center gap-2 text-sm font-semibold text-accent group-hover:gap-3 transition-all">
+                <div className="inline-flex items-center gap-2 text-sm font-semibold text-accent-dark group-hover:gap-3 transition-all">
                   Learn More
                   <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -150,7 +150,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Bottom CTA */}
-      <section className="bg-gradient-to-br from-accent to-accent2 py-20">
+      <section className="bg-gradient-to-br from-accent to-accent-2 py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <h2 className="font-syne text-3xl md:text-4xl font-bold text-white mb-4">
             Not sure which service fits your needs?
@@ -163,7 +163,7 @@ export default function ServicesPage() {
               href="https://wa.me/918735001217"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 bg-white text-accent font-syne font-bold px-8 py-4 rounded-xl hover:bg-white/95 transition-colors shadow-lg"
+              className="inline-flex items-center gap-2 bg-white text-accent-dark font-syne font-bold px-8 py-4 rounded-xl hover:bg-white/95 transition-colors shadow-lg"
             >
               WhatsApp Us
             </a>

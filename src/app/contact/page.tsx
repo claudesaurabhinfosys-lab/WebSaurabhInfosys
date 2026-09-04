@@ -25,13 +25,13 @@ export default function ContactPage() {
             {/* Left: Info */}
             <div className="flex flex-col gap-8">
               <div>
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/8 border border-accent/15 text-accent text-sm font-semibold mb-6">
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/8 border border-accent/15 text-accent-dark text-sm font-semibold mb-6">
                   <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
                   Available for new projects
                 </span>
                 <h1 className="font-syne text-4xl md:text-5xl font-bold text-ink leading-tight mb-4">
                   Let&apos;s build something{" "}
-                  <span className="text-accent">remarkable</span>
+                  <span className="text-accent-dark">remarkable</span>
                 </h1>
                 <p className="text-ink-light text-lg leading-relaxed">
                   We reply within 2 hours on business days. WhatsApp is fastest — or fill the form and we&apos;ll get back to you.
@@ -70,7 +70,7 @@ export default function ContactPage() {
                   className="flex items-center gap-4 p-5 border-b border-ink/6 hover:bg-gray-50 transition-colors group"
                 >
                   <div className="w-10 h-10 rounded-xl bg-accent/10 flex items-center justify-center flex-shrink-0">
-                    <svg className="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                    <svg className="w-5 h-5 text-accent-dark" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
                     </svg>
                   </div>

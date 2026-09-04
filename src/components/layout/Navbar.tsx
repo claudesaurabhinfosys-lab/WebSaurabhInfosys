@@ -80,7 +80,7 @@ export default function Navbar() {
               className="rounded-lg object-cover"
             />
           <span className="font-bold text-ink text-lg leading-none">
-            Saurabh<span className="text-accent">Infosys</span>
+            Saurabh<span className="text-accent-dark">Infosys</span>
           </span>
         </Link>
 

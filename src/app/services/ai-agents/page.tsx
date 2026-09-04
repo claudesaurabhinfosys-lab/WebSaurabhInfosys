@@ -91,7 +91,7 @@ export default function AIAgentsPage() {
           </span>
           <h1 className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight text-ink mb-6 max-w-4xl">
             AI automation &amp; integration{" "}
-            <span className="text-accent">that works 24/7</span>
+            <span className="text-accent-dark">that works 24/7</span>
           </h1>
           <p className="text-lg md:text-xl text-ink/70 max-w-2xl mb-10 leading-relaxed">
             We deliver AI automation services and AI integration for Indian businesses — WhatsApp bots that qualify leads, RAG systems that answer customer
@@ -128,7 +128,7 @@ export default function AIAgentsPage() {
       {/* ── Features ── */}
       <section className="bg-card py-20 px-6">
         <div className="max-w-5xl mx-auto">
-          <p className="font-syne font-bold text-xs uppercase tracking-widest text-accent mb-3">
+          <p className="font-syne font-bold text-xs uppercase tracking-widest text-accent-dark mb-3">
             What We Build
           </p>
           <h2 className="font-syne font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-ink mb-12">
@@ -141,7 +141,7 @@ export default function AIAgentsPage() {
                 className="bg-bg rounded-2xl p-6 border border-ink/8 hover:border-accent/40 hover:shadow-lg transition-all group"
               >
                 <span className="text-3xl mb-4 block">{featureIcons[i]}</span>
-                <p className="font-syne font-semibold text-ink text-lg group-hover:text-accent transition-colors">
+                <p className="font-syne font-semibold text-ink text-lg group-hover:text-accent-dark transition-colors">
                   {feature}
                 </p>
               </div>
@@ -153,7 +153,7 @@ export default function AIAgentsPage() {
       {/* ── Use Cases ── */}
       <section className="bg-bg py-20 px-6">
         <div className="max-w-5xl mx-auto">
-          <p className="font-syne font-bold text-xs uppercase tracking-widest text-accent mb-3">
+          <p className="font-syne font-bold text-xs uppercase tracking-widest text-accent-dark mb-3">
             Use Cases
           </p>
           <h2 className="font-syne font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-ink mb-12">
@@ -179,7 +179,7 @@ export default function AIAgentsPage() {
       {/* ── Process ── */}
       <section className="bg-gray-50 py-20 px-6">
         <div className="max-w-5xl mx-auto">
-          <p className="font-syne font-bold text-xs uppercase tracking-widest text-accent mb-3">
+          <p className="font-syne font-bold text-xs uppercase tracking-widest text-accent-dark mb-3">
             Our Process
           </p>
           <h2 className="font-syne font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-ink mb-14">
@@ -208,7 +208,7 @@ export default function AIAgentsPage() {
       {/* ── FAQ ── */}
       <section className="bg-card py-20 px-6">
         <div className="max-w-5xl mx-auto">
-          <p className="font-syne font-bold text-xs uppercase tracking-widest text-accent mb-3">FAQ</p>
+          <p className="font-syne font-bold text-xs uppercase tracking-widest text-accent-dark mb-3">FAQ</p>
           <h2 className="font-syne font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-ink mb-12">
             Common questions about AI automation &amp; integration
           </h2>

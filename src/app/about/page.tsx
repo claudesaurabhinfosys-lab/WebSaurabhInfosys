@@ -55,12 +55,12 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="bg-gray-50 py-20 md:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-accent font-syne font-semibold text-sm uppercase tracking-widest mb-4">
+          <p className="text-accent-dark font-syne font-semibold text-sm uppercase tracking-widest mb-4">
             About Us
           </p>
           <h1 className="font-syne text-4xl md:text-6xl font-bold text-ink leading-tight max-w-4xl">
             Building India&apos;s AI-first future{" "}
-            <span className="text-accent">from Ahmedabad</span>
+            <span className="text-accent-dark">from Ahmedabad</span>
           </h1>
           <p className="mt-6 text-ink-light text-lg md:text-xl max-w-2xl leading-relaxed">
             A full-stack software and AI studio based in Ahmedabad — with 80+ clients
@@ -161,7 +161,7 @@ export default function AboutPage() {
                 <h3 className="font-syne font-bold text-ink text-xl mb-1">
                   {market.name}
                 </h3>
-                <p className="text-accent text-sm font-semibold mb-3">
+                <p className="text-accent-dark text-sm font-semibold mb-3">
                   {market.tagline}
                 </p>
                 <p className="text-ink-light text-sm leading-relaxed">{market.desc}</p>
@@ -198,14 +198,14 @@ export default function AboutPage() {
                       {client.flag} {client.country}
                     </p>
                   </div>
-                  <span className="flex-shrink-0 px-3 py-1 bg-accent/10 text-accent text-xs rounded-full font-semibold">
+                  <span className="flex-shrink-0 px-3 py-1 bg-accent/10 text-accent-dark text-xs rounded-full font-semibold">
                     {client.category}
                   </span>
                 </div>
                 <p className="text-ink/75 text-sm leading-relaxed mb-4">
                   {client.description}
                 </p>
-                <div className="inline-block px-3 py-1 bg-accent/10 text-accent text-xs font-semibold rounded-full">
+                <div className="inline-block px-3 py-1 bg-accent/10 text-accent-dark text-xs font-semibold rounded-full">
                   {client.highlight}
                 </div>
               </div>
@@ -220,7 +220,7 @@ export default function AboutPage() {
           <div className="text-center mb-12">
             <h2 className="font-syne text-3xl md:text-4xl font-bold text-ink mb-4">
               World-class software at{" "}
-              <span className="text-accent">startup-friendly prices</span>
+              <span className="text-accent-dark">startup-friendly prices</span>
             </h2>
             <p className="text-ink/70 text-lg max-w-2xl mx-auto">
               Why Ahmedabad? Because it gives us every advantage — and we pass

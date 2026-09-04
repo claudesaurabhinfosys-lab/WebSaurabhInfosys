@@ -177,20 +177,20 @@ export default function MySamparkPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-br from-indigo-50 via-white to-purple-50 py-24">
+      <section className="bg-gradient-to-br from-sky-50 via-white to-cyan-50 py-24">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <div className="flex justify-center mb-8">
             <a href="https://mysampark.com" target="_blank" rel="noopener noreferrer">
               <Image src="/mysampark-logo.svg" alt="MySampark" width={200} height={37} priority />
             </a>
           </div>
-          <div className="inline-block bg-accent/10 text-accent font-dm font-semibold text-sm px-4 py-1.5 rounded-full mb-6 uppercase tracking-wide">
+          <div className="inline-block bg-accent/10 text-accent-dark font-dm font-semibold text-sm px-4 py-1.5 rounded-full mb-6 uppercase tracking-wide">
             AI Social Media Automation
           </div>
           <h1 className="font-syne text-5xl md:text-6xl font-bold text-ink leading-tight mb-6">
             Turn every comment
             <br />
-            <span className="text-accent">into a customer</span>
+            <span className="text-accent-dark">into a customer</span>
           </h1>
           <p className="font-dm text-ink-light text-lg md:text-xl max-w-2xl mx-auto mb-10">
             MySampark automatically replies to your comments, sends DMs, and captures leads 24/7 — so you never miss a potential customer again.
@@ -272,7 +272,7 @@ export default function MySamparkPage() {
       <section className="bg-bg py-24">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-14">
-            <span className="font-dm text-accent font-semibold text-sm uppercase tracking-wide">Six AI Workflows</span>
+            <span className="font-dm text-accent-dark font-semibold text-sm uppercase tracking-wide">Six AI Workflows</span>
             <h2 className="font-syne text-4xl font-bold text-ink mt-3 mb-4">One intelligent workspace</h2>
             <p className="font-dm text-ink-light text-lg max-w-xl mx-auto">
               From publishing to customer replies and performance insights — keep your social media moving on autopilot.
@@ -307,7 +307,7 @@ export default function MySamparkPage() {
               { hours: "4 hrs/week", area: "Analytics & Reporting" },
             ].map((item) => (
               <div key={item.area} className="bg-surface border border-ink/8 rounded-2xl p-6 text-center">
-                <div className="font-syne text-2xl font-bold text-accent mb-2">{item.hours}</div>
+                <div className="font-syne text-2xl font-bold text-accent-dark mb-2">{item.hours}</div>
                 <div className="font-dm text-ink-light text-sm">saved on {item.area}</div>
               </div>
             ))}
@@ -331,7 +331,7 @@ export default function MySamparkPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {teams.map((t) => (
               <div key={t.team} className="bg-card rounded-2xl p-6 border border-ink/5">
-                <p className="text-accent font-syne font-semibold text-xs uppercase tracking-wider mb-1">{t.team}</p>
+                <p className="text-accent-dark font-syne font-semibold text-xs uppercase tracking-wider mb-1">{t.team}</p>
                 <h3 className="font-syne font-bold text-ink text-base mb-2">{t.use}</h3>
                 <p className="font-dm text-ink-light text-sm leading-relaxed">{t.desc}</p>
               </div>
@@ -344,7 +344,7 @@ export default function MySamparkPage() {
       <section className="bg-gray-50 py-24">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-center mb-14">
-            <span className="font-dm text-accent font-semibold text-sm uppercase tracking-wide">Pricing</span>
+            <span className="font-dm text-accent-dark font-semibold text-sm uppercase tracking-wide">Pricing</span>
             <h2 className="font-syne text-4xl font-bold text-ink mt-3 mb-4">Flexible credits. Scale as you grow.</h2>
             <p className="font-dm text-ink-light text-lg max-w-xl mx-auto">
               Choose a plan that fits your team. All plans include bonus credits on top of your base allocation.
@@ -371,7 +371,7 @@ export default function MySamparkPage() {
                   <span className="font-syne text-3xl font-bold text-ink">{plan.price}</span>
                   <span className="font-dm text-ink-light text-sm line-through ml-2">{plan.original}</span>
                 </div>
-                <p className="font-dm text-accent text-xs font-semibold mb-4">{plan.bonus}</p>
+                <p className="font-dm text-accent-dark text-xs font-semibold mb-4">{plan.bonus}</p>
                 <div className="bg-ink/4 rounded-xl p-3 mb-5 text-center">
                   <div className="font-syne font-bold text-ink text-xl">{plan.total}</div>
                   <div className="font-dm text-ink-light text-xs">Total credits ({plan.base} base)</div>

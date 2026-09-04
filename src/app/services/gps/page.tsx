@@ -70,12 +70,12 @@ export default function GPSServicePage() {
       {/* Hero */}
       <section className="bg-gray-50 py-24">
         <div className="max-w-5xl mx-auto px-6">
-          <p className="font-dm text-accent text-sm uppercase tracking-widest mb-4">
+          <p className="font-dm text-accent-dark text-sm uppercase tracking-widest mb-4">
             GPS &amp; Fleet Management
           </p>
           <h1 className="font-syne text-4xl md:text-6xl font-bold leading-tight mb-6">
             Know where your fleet is,{" "}
-            <span className="text-accent">every second.</span>
+            <span className="text-accent-dark">every second.</span>
           </h1>
           <p className="font-dm text-lg md:text-xl text-ink-light max-w-2xl mb-10">
             Real-time GPS tracking and fleet intelligence for logistics,
@@ -118,7 +118,7 @@ export default function GPSServicePage() {
       {/* Features */}
       <section className="bg-bg py-24">
         <div className="max-w-5xl mx-auto px-6">
-          <p className="font-dm text-accent text-sm uppercase tracking-widest mb-3">
+          <p className="font-dm text-accent-dark text-sm uppercase tracking-widest mb-3">
             Features
           </p>
           <h2 className="font-syne text-3xl md:text-4xl font-bold text-ink mb-4">
@@ -150,7 +150,7 @@ export default function GPSServicePage() {
       {/* Use Cases */}
       <section className="bg-card py-24">
         <div className="max-w-5xl mx-auto px-6">
-          <p className="font-dm text-accent text-sm uppercase tracking-widest mb-3">
+          <p className="font-dm text-accent-dark text-sm uppercase tracking-widest mb-3">
             Use Cases
           </p>
           <h2 className="font-syne text-3xl md:text-4xl font-bold text-ink mb-14">
@@ -176,7 +176,7 @@ export default function GPSServicePage() {
         <div className="max-w-5xl mx-auto px-6">
           <div className="bg-gray-100 rounded-2xl px-10 py-10 flex flex-col md:flex-row items-start md:items-center gap-6">
             <div className="flex-1">
-              <p className="font-dm text-accent text-sm uppercase tracking-widest mb-2">
+              <p className="font-dm text-accent-dark text-sm uppercase tracking-widest mb-2">
                 Tech Stack
               </p>
               <h3 className="font-syne text-ink text-2xl font-bold mb-2">

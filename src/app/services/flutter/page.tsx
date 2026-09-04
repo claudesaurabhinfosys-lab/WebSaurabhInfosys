@@ -64,7 +64,7 @@ export default function FlutterPage() {
           </span>
           <h1 className="font-syne font-bold text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl leading-tight text-ink mb-6 max-w-4xl">
             Cross-platform apps that{" "}
-            <span className="text-accent">users love</span>
+            <span className="text-accent-dark">users love</span>
           </h1>
           <p className="text-lg md:text-xl text-ink/70 max-w-2xl mb-6 leading-relaxed">
             One codebase. Two stores. We&apos;ve shipped Flutter apps trusted by
@@ -151,7 +151,7 @@ export default function FlutterPage() {
       {/* ── Features ── */}
       <section className="bg-card py-20 px-6">
         <div className="max-w-5xl mx-auto">
-          <p className="font-syne font-bold text-xs uppercase tracking-widest text-accent mb-3">
+          <p className="font-syne font-bold text-xs uppercase tracking-widest text-accent-dark mb-3">
             What We Deliver
           </p>
           <h2 className="font-syne font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-ink mb-12">
@@ -164,7 +164,7 @@ export default function FlutterPage() {
                 className="bg-bg rounded-2xl p-6 border border-ink/8 hover:border-accent/40 hover:shadow-lg transition-all group"
               >
                 <span className="text-3xl mb-4 block">{featureIcons[i]}</span>
-                <p className="font-syne font-semibold text-ink text-lg group-hover:text-accent transition-colors">
+                <p className="font-syne font-semibold text-ink text-lg group-hover:text-accent-dark transition-colors">
                   {feature}
                 </p>
               </div>
@@ -176,7 +176,7 @@ export default function FlutterPage() {
       {/* ── Portfolio Highlights ── */}
       <section className="bg-bg py-20 px-6">
         <div className="max-w-5xl mx-auto">
-          <p className="font-syne font-bold text-xs uppercase tracking-widest text-accent mb-3">
+          <p className="font-syne font-bold text-xs uppercase tracking-widest text-accent-dark mb-3">
             Portfolio Highlights
           </p>
           <h2 className="font-syne font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-ink mb-12">
@@ -198,13 +198,13 @@ export default function FlutterPage() {
                   <h3 className="font-syne font-bold text-xl text-ink mb-1">
                     {item.name}
                   </h3>
-                  <p className="text-accent text-xs font-syne font-semibold uppercase tracking-wide mb-3">
+                  <p className="text-accent-dark text-xs font-syne font-semibold uppercase tracking-wide mb-3">
                     {item.country}
                   </p>
                   <p className="text-ink/65 text-sm leading-relaxed mb-4">
                     {item.description}
                   </p>
-                  <span className="inline-block bg-accent/10 text-accent text-xs font-syne font-semibold px-3 py-1 rounded-full">
+                  <span className="inline-block bg-accent/10 text-accent-dark text-xs font-syne font-semibold px-3 py-1 rounded-full">
                     {item.highlight}
                   </span>
                 </div>
@@ -217,7 +217,7 @@ export default function FlutterPage() {
       {/* ── Use Cases ── */}
       <section className="bg-card py-20 px-6">
         <div className="max-w-5xl mx-auto">
-          <p className="font-syne font-bold text-xs uppercase tracking-widest text-accent mb-3">
+          <p className="font-syne font-bold text-xs uppercase tracking-widest text-accent-dark mb-3">
             Use Cases
           </p>
           <h2 className="font-syne font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-ink mb-12">

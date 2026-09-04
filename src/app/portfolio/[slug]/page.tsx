@@ -92,7 +92,7 @@ export default function PortfolioSlugPage({
           </h2>
           <div className="flex flex-wrap gap-3">
             {project.tech.map((t) => (
-              <span key={t} className="px-4 py-2 bg-accent/10 text-accent font-mono text-sm rounded-lg font-semibold">
+              <span key={t} className="px-4 py-2 bg-accent/10 text-accent-dark font-mono text-sm rounded-lg font-semibold">
                 {t}
               </span>
             ))}

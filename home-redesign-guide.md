@@ -2,7 +2,7 @@
 
 > **Design Source:** Reference screenshots from `public/home/image (55).png` through `image (65).png`  
 > **Aesthetic Model:** [Flux Studio Agency](https://flux-studio-agency.webflow.io/)  
-> **Brand & Primary Color:** Saurabh Infosys (`#5235F6` electric purple, `#000000` pitch black, `#0E0E0E` dark surface, `#F1F1F1` light surface)  
+> **Brand & Primary Color:** Saurabh Infosys (`#00A0E3` logo blue, `#000000` pitch black, `#0E0E0E` dark surface, `#F1F1F1` light surface)  
 > **Typography:** **Clash Display** (Headings / Display) + **Manrope** (Body / Subtitles / UI)  
 > **Icons:** **HugeIcons** exclusively (`@hugeicons/react` + `@hugeicons/core-free-icons`)
 
@@ -21,9 +21,9 @@ The homepage consists of **11 distinct sections** in strict visual progression:
 | **05** | **Work Process Bento** | `image (59).png` | Pure White (`#FFFFFF`) | 3-column asymmetric bento (Discover, Define, Design, Deliver) |
 | **06** | **Featured Projects** | `image (60).png` | Pure White (`#FFFFFF`) | 2-column staggered masonry with frosted circle badges |
 | **07** | **Testimonials Carousel** | `image (61).png` | Pitch Black (`#000000`) | Purple rating card (4.9★) + portrait cards with quote reveals |
-| **08** | **FAQ Accordion** | `image (62).png` | Pure White (`#FFFFFF`) | Active item in purple (`#5235F6`), rounded accordion cards |
+| **08** | **FAQ Accordion** | `image (62).png` | Pure White (`#FFFFFF`) | Active item in blue (`#00A0E3`), rounded accordion cards |
 | **09** | **Latest Blog / Insights** | `image (63).png` | Pure White (`#FFFFFF`) | 3-column card grid with pill tags & read time badges |
-| **10** | **CTA Banner** | `image (64).png` | Electric Purple (`#5235F6`) | Centered display typography + white pill button |
+| **10** | **CTA Banner** | `image (64).png` | logo blue (`#00A0E3`) | Centered display typography + white pill button |
 | **11** | **Global Footer** | `image (65).png` | Pitch Black (`#000000`) | 5-column sitemap, brand bio, newsletter pill input |
 
 ---
@@ -39,8 +39,8 @@ The homepage consists of **11 distinct sections** in strict visual progression:
 - **Em-Dash Header Pattern:** `— LABEL` in `font-display uppercase tracking-wider text-xs md:text-sm font-semibold`
 
 ### Color Reference
-- **Primary Purple:** `#5235F6`
-- **Primary Purple Hover:** `#4129D6`
+- **Primary Blue:** `#00A0E3`
+- **Primary Blue Hover:** `#0086C0`
 - **Dark Surface (Hero / Cards):** `#0E0E0E`
 - **Pure Dark (About / Testimonials / Footer):** `#000000`
 - **Light Surface (Cards / FAQ / Clients):** `#F1F1F1`
@@ -66,11 +66,11 @@ The homepage consists of **11 distinct sections** in strict visual progression:
 
 2. **Floating Navbar:**
    - `absolute top-0 inset-x-0 z-30 px-6 md:px-12 py-6 flex items-center justify-between`
-   - **Brand Logo (Left):** "Saurabh Infosys" / "Flux Studio" in Clash Display Semibold `text-2xl text-white tracking-tight` with a small purple square dot (`size-2 bg-[#5235F6] inline-block ml-1 rounded-[2px]`).
+   - **Brand Logo (Left):** "Saurabh Infosys" / "Flux Studio" in Clash Display Semibold `text-2xl text-white tracking-tight` with a small blue square dot (`size-2 bg-[#00A0E3] inline-block ml-1 rounded-[2px]`).
    - **Nav Links (Center):** Projects, Service, About, Blog, Contact, Pages ▾.
      - `text-white/80 hover:text-white text-sm font-medium transition-colors`
    - **Header CTA (Right):** "Start a Project"
-     - Pill button: `bg-[#5235F6] hover:bg-[#4129D6] text-white px-6 py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all shadow-md active:scale-95`
+     - Pill button: `bg-[#00A0E3] hover:bg-[#0086C0] text-white px-6 py-2.5 rounded-full text-xs md:text-sm font-semibold transition-all shadow-md active:scale-95`
 
 3. **Hero Main Content (Bottom Left):**
    - Positioned in bottom-left quadrant (`pb-12 md:pb-20 px-6 md:px-12 max-w-2xl`).
@@ -81,7 +81,7 @@ The homepage consists of **11 distinct sections** in strict visual progression:
      - Manrope, `text-white/80 text-base md:text-lg leading-relaxed mt-6 max-w-xl`.
      - *"We craft thoughtful digital experiences that blend creativity, strategy, and technology — helping brands grow with clarity and purpose."*
    - **Action Button:**
-     - Pill: `bg-[#5235F6] hover:bg-[#4129D6] text-white pl-6 pr-2 py-2 rounded-full inline-flex items-center gap-4 mt-8 group cursor-pointer`.
+     - Pill: `bg-[#00A0E3] hover:bg-[#0086C0] text-white pl-6 pr-2 py-2 rounded-full inline-flex items-center gap-4 mt-8 group cursor-pointer`.
      - Text: *"Get in Touch"* (`text-sm font-medium`).
      - Icon block: White circle (`size-10 rounded-full bg-white text-black flex items-center justify-center transition-transform group-hover:rotate-45`).
      - HugeIcon: `<HugeiconsIcon icon={ArrowRight01Icon} size={18} />`.
@@ -95,7 +95,7 @@ The homepage consists of **11 distinct sections** in strict visual progression:
      - Web Development ↗
      - Web & UI/UX Design ↗
      - Digital Marketing ↗
-   - Each item: `py-3.5 border-b border-white/10 flex items-center justify-between text-white text-sm font-medium hover:text-[#5235F6] hover:border-[#5235F6] transition-colors cursor-pointer`.
+   - Each item: `py-3.5 border-b border-white/10 flex items-center justify-between text-white text-sm font-medium hover:text-[#00A0E3] hover:border-[#00A0E3] transition-colors cursor-pointer`.
 
 ---
 
@@ -137,7 +137,7 @@ The homepage consists of **11 distinct sections** in strict visual progression:
 3. **Right Column (2×2 Bento Stats Grid — 7 Cols):**
    - Outer wrapper: `rounded-2xl p-2 bg-[#1C1C1C] grid grid-cols-1 sm:grid-cols-2 gap-2`.
    - **Card 1 (Top Left — Vibrant Purple Accent):**
-     - Background: `bg-[#5235F6]` (`p-8 md:p-10 rounded-xl flex flex-col justify-between min-h-[160px] md:min-h-[190px]`).
+     - Background: `bg-[#00A0E3]` (`p-8 md:p-10 rounded-xl flex flex-col justify-between min-h-[160px] md:min-h-[190px]`).
      - Number: Clash Display Semibold, `text-5xl md:text-6xl text-white font-bold tracking-tight`. *"320+"*
      - Label: Manrope Medium, `text-white/90 text-sm md:text-base mt-4`. *"Projects Delivered"*
    - **Card 2 (Top Right — Crisp Light Card):**
@@ -170,7 +170,7 @@ The homepage consists of **11 distinct sections** in strict visual progression:
 2. **Numbered Service Rows (Interactive Accordion / Hover Reveal):**
    - 4 horizontal full-width rows with divider lines `border-t border-[#E2E8F0]`.
    - **Row 1:** `1. Brand Identity`
-     - Left: Clash Display Semibold `text-xl md:text-2xl text-[#1E293B] hover:text-[#5235F6] cursor-pointer transition-colors`.
+     - Left: Clash Display Semibold `text-xl md:text-2xl text-[#1E293B] hover:text-[#00A0E3] cursor-pointer transition-colors`.
      - Right: 2-column bullet list of capabilities:
        - Column A: • Core Identity • Brand Voice • Print & Packaging Design
        - Column B: • Creative Direction • Rebranding
@@ -222,8 +222,8 @@ The homepage consists of **11 distinct sections** in strict visual progression:
          - Title: Clash Display Bold, `text-2xl text-white`. *"Design"*
          - Text: `text-xs text-white/80 mt-1`. *"Transforming ideas into visual experiences with precision, creativity and purpose."*
 
-       - **Card 4: "Deliver" (Bottom Right — Solid Electric Purple):**
-         - `rounded-2xl bg-[#5235F6] min-h-[240px] md:min-h-[260px] flex flex-col justify-end p-6 md:p-8`.
+       - **Card 4: "Deliver" (Bottom Right — Solid logo blue):**
+         - `rounded-2xl bg-[#00A0E3] min-h-[240px] md:min-h-[260px] flex flex-col justify-end p-6 md:p-8`.
          - Title: Clash Display Bold, `text-2xl text-white`. *"Deliver"*
          - Text: `text-xs md:text-sm text-white/90 mt-1 leading-relaxed`. *"Launching, testing, and refining to ensure a seamless, high-performing"*
 
@@ -278,7 +278,7 @@ The homepage consists of **11 distinct sections** in strict visual progression:
    - `flex items-center gap-4 mt-12 overflow-x-auto no-scrollbar pb-4`
 
    - **Card 1 (Static Purple Rating Card):**
-     - `w-44 md:w-52 h-72 md:h-80 shrink-0 rounded-2xl bg-[#5235F6] p-6 flex flex-col justify-center items-center text-center`.
+     - `w-44 md:w-52 h-72 md:h-80 shrink-0 rounded-2xl bg-[#00A0E3] p-6 flex flex-col justify-center items-center text-center`.
      - Rating: Clash Display Bold `text-5xl text-white`. *"4.9"*
      - Review count: `text-white/80 text-xs font-medium mt-2`. *"150+ Reviews"*
      - Stars: 5 white filled stars `flex gap-1 text-white text-xs mt-3`. ★★★★★
@@ -306,7 +306,7 @@ The homepage consists of **11 distinct sections** in strict visual progression:
    - Container: `max-w-3xl mx-auto flex flex-col gap-3`.
 
    - **Active Card (Top Card in Purple):**
-     - `bg-[#5235F6] text-white rounded-2xl p-6 md:p-8 transition-all`.
+     - `bg-[#00A0E3] text-white rounded-2xl p-6 md:p-8 transition-all`.
      - Question row: `flex justify-between items-center text-base md:text-lg font-bold`.
        - Text: *"How long does a typical project take?"*
        - Icon: Minus `—` icon.
@@ -344,7 +344,7 @@ The homepage consists of **11 distinct sections** in strict visual progression:
        - Floating category badge (Top Right): `absolute top-3 right-3 px-3 py-1 rounded-full bg-black/40 backdrop-blur-md text-white text-[11px] font-semibold`. e.g., *"Insights"*, *"Illustration"*, *"Branding"*.
      - **Post Meta:** Below image, `mt-4 flex flex-col gap-1`:
        - Date: `text-[11px] text-[#787878] font-medium`. e.g., *"June 24, 2026"*
-       - Title: Clash Display Bold, `text-base md:text-lg text-black hover:text-[#5235F6] transition-colors leading-snug cursor-pointer`.
+       - Title: Clash Display Bold, `text-base md:text-lg text-black hover:text-[#00A0E3] transition-colors leading-snug cursor-pointer`.
        - Excerpt: `text-xs text-[#64748B] line-clamp-2 leading-relaxed`.
        - Bottom Read Time: `inline-block self-start mt-2 px-3 py-1 rounded-full bg-[#EBEBEB] text-black text-[10px] font-semibold`. e.g., *"6 min read"*.
 
@@ -356,7 +356,7 @@ The homepage consists of **11 distinct sections** in strict visual progression:
 
 #### Visual Structure
 1. **Container:**
-   - `w-full bg-[#5235F6] rounded-2xl py-24 md:py-32 px-6 flex flex-col items-center justify-center text-center my-8 md:my-16`.
+   - `w-full bg-[#00A0E3] rounded-2xl py-24 md:py-32 px-6 flex flex-col items-center justify-center text-center my-8 md:my-16`.
 
 2. **Typography:**
    - Clash Display Bold, `text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-bold tracking-tight max-w-4xl leading-[1.1]`.
@@ -400,9 +400,9 @@ The homepage consists of **11 distinct sections** in strict visual progression:
    - **Right (Newsletter):**
      - Heading: `text-white text-base md:text-lg font-bold`. *"Subscribe to our newsletter"*
      - Helper text: `text-white/50 text-xs mt-1 mb-4`. *"Stay up to date with our newest products and design articles."*
-     - Input pill container: `flex items-center rounded-full border border-white/20 p-1.5 bg-black max-w-md w-full focus-within:border-[#5235F6] transition-all`.
+     - Input pill container: `flex items-center rounded-full border border-white/20 p-1.5 bg-black max-w-md w-full focus-within:border-[#00A0E3] transition-all`.
        - Input field: `bg-transparent text-white placeholder:text-white/40 text-xs md:text-sm px-4 outline-none flex-1`.
-       - Submit button: `bg-[#5235F6] hover:bg-[#4129D6] text-white px-6 py-2.5 rounded-full text-xs font-semibold transition-colors cursor-pointer`. *"Subscribe"*
+       - Submit button: `bg-[#00A0E3] hover:bg-[#0086C0] text-white px-6 py-2.5 rounded-full text-xs font-semibold transition-colors cursor-pointer`. *"Subscribe"*
 
 4. **Bottom Copyright Row:**
    - `pt-8 flex flex-col sm:flex-row justify-between items-center text-[11px] text-white/50 gap-4`.
@@ -464,7 +464,7 @@ Before approving the homepage implementation, verify against these checks:
 
 3. **About Section (`image 57`):**
    - [ ] Pitch-black background with white uppercase heading
-   - [ ] Top-left stat card is solid purple (`#5235F6`) with "320+ Projects Delivered"
+   - [ ] Top-left stat card is solid purple (`#00A0E3`) with "320+ Projects Delivered"
    - [ ] Other 3 cards are off-white with dark typography
 
 4. **Services List (`image 58`):**
@@ -484,7 +484,7 @@ Before approving the homepage implementation, verify against these checks:
    - [ ] Portrait photograph cards with name tags and hover quotes
 
 8. **FAQs (`image 62`):**
-   - [ ] Active question card in solid `#5235F6` with minus icon
+   - [ ] Active question card in solid `#00A0E3` with minus icon
    - [ ] Inactive cards in `#F1F1F1` with plus icons
 
 9. **Blog Grid (`image 63`):**
@@ -492,7 +492,7 @@ Before approving the homepage implementation, verify against these checks:
    - [ ] Read time pill badges
 
 10. **CTA Banner (`image 64`):**
-    - [ ] Vibrant `#5235F6` background with centered Clash Display headline
+    - [ ] Vibrant `#00A0E3` background with centered Clash Display headline
     - [ ] White pill button with black circle arrow
 
 11. **Footer (`image 65`):**

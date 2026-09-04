@@ -88,12 +88,12 @@ export default function DigitalMarketingServicePage() {
       {/* Hero */}
       <section className="bg-gray-50 py-24">
         <div className="max-w-5xl mx-auto px-6">
-          <p className="font-dm text-accent text-sm uppercase tracking-widest mb-4">
+          <p className="font-dm text-accent-dark text-sm uppercase tracking-widest mb-4">
             Digital Marketing Tools
           </p>
           <h1 className="font-syne text-4xl md:text-6xl font-bold leading-tight mb-6">
             Reach 10,000 customers{" "}
-            <span className="text-accent">for the cost of a lunch.</span>
+            <span className="text-accent-dark">for the cost of a lunch.</span>
           </h1>
           <p className="font-dm text-lg md:text-xl text-ink-light max-w-2xl mb-6">
             Bulk WhatsApp campaigns, SMS automation, and email marketing —
@@ -125,7 +125,7 @@ export default function DigitalMarketingServicePage() {
       {/* Features */}
       <section className="bg-bg py-24">
         <div className="max-w-5xl mx-auto px-6">
-          <p className="font-dm text-accent text-sm uppercase tracking-widest mb-3">
+          <p className="font-dm text-accent-dark text-sm uppercase tracking-widest mb-3">
             Features
           </p>
           <h2 className="font-syne text-3xl md:text-4xl font-bold text-ink mb-4">
@@ -157,7 +157,7 @@ export default function DigitalMarketingServicePage() {
       {/* Use Cases */}
       <section className="bg-card py-24">
         <div className="max-w-5xl mx-auto px-6">
-          <p className="font-dm text-accent text-sm uppercase tracking-widest mb-3">
+          <p className="font-dm text-accent-dark text-sm uppercase tracking-widest mb-3">
             Use Cases
           </p>
           <h2 className="font-syne text-3xl md:text-4xl font-bold text-ink mb-14">
@@ -200,7 +200,7 @@ export default function DigitalMarketingServicePage() {
             <div className="shrink-0">
               <Link
                 href="/products/mysampark"
-                className="inline-block bg-bg text-accent font-syne font-semibold px-8 py-4 rounded-lg hover:bg-bg/90 transition-colors whitespace-nowrap"
+                className="inline-block bg-bg text-accent-dark font-syne font-semibold px-8 py-4 rounded-lg hover:bg-bg/90 transition-colors whitespace-nowrap"
               >
                 Explore MySampark →
               </Link>
@@ -212,7 +212,7 @@ export default function DigitalMarketingServicePage() {
       {/* Pricing */}
       <section className="bg-card py-24">
         <div className="max-w-5xl mx-auto px-6">
-          <p className="font-dm text-accent text-sm uppercase tracking-widest mb-3">
+          <p className="font-dm text-accent-dark text-sm uppercase tracking-widest mb-3">
             Pricing
           </p>
           <h2 className="font-syne text-3xl md:text-4xl font-bold text-ink mb-4">
@@ -234,7 +234,7 @@ export default function DigitalMarketingServicePage() {
               >
                 <p
                   className={`font-dm text-xs uppercase tracking-widest mb-4 ${
-                    p.highlight ? "text-accent" : "text-accent"
+                    p.highlight ? "text-accent-dark" : "text-accent-dark"
                   }`}
                 >
                   {p.channel}

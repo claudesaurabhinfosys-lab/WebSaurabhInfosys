@@ -56,7 +56,7 @@ export default function ProjectsSection() {
               </div>
               <div className="flex items-end justify-between pt-4">
                 <div>
-                  <p className="si-body font-bold text-black transition-colors duration-300 group-hover:text-primary">
+                  <p className="si-body font-bold text-black transition-colors duration-300 group-hover:text-primary-ink">
                     {project.title}
                   </p>
                   <p className="si-body-xs text-deep-gray-1">{project.category}</p>

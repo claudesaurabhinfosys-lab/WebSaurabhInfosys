@@ -12,7 +12,7 @@ export default function MySamparkPrivacyPolicy() {
       <section className="relative py-16 md:py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
-            <p className="text-sm text-accent font-semibold uppercase tracking-widest mb-3">MySampark · Legal</p>
+            <p className="text-sm text-accent-dark font-semibold uppercase tracking-widest mb-3">MySampark · Legal</p>
             <h1 className="font-syne text-4xl md:text-5xl font-bold text-ink mb-4">Privacy Policy</h1>
             <p className="text-ink-light text-sm">Effective May 30, 2026 · Version 1.0 · Last updated May 30, 2026</p>
           </div>
@@ -160,7 +160,7 @@ export default function MySamparkPrivacyPolicy() {
 
             <Section id="6" title="6. Consent & Notice">
               <p>In compliance with Section 6 of the DPDP Act, 2023, we obtain your consent before processing your personal data. Our consent is free, specific, informed, unconditional, and unambiguous.</p>
-              <p>You may withdraw your consent at any time by contacting us at <a href="mailto:info@mysampark.com" className="text-accent hover:underline">info@mysampark.com</a> or through the Platform settings. Upon withdrawal, we will cease processing your personal data for the purposes for which consent was withdrawn, unless retention is required by law.</p>
+              <p>You may withdraw your consent at any time by contacting us at <a href="mailto:info@mysampark.com" className="text-accent-dark hover:underline">info@mysampark.com</a> or through the Platform settings. Upon withdrawal, we will cease processing your personal data for the purposes for which consent was withdrawn, unless retention is required by law.</p>
             </Section>
 
             <Section id="7" title="7. Social Media Platform Integrations">
@@ -290,15 +290,15 @@ export default function MySamparkPrivacyPolicy() {
 
             <Section id="14" title="14. How to Exercise Your Rights">
               <InfoBox>
-                <p><strong>Email:</strong> <a href="mailto:info@mysampark.com" className="text-accent hover:underline">info@mysampark.com</a> — include &quot;Privacy Data Request&quot; in the subject line</p>
+                <p><strong>Email:</strong> <a href="mailto:info@mysampark.com" className="text-accent-dark hover:underline">info@mysampark.com</a> — include &quot;Privacy Data Request&quot; in the subject line</p>
                 <p><strong>In-App:</strong> Use the Settings page to update or manage your data directly</p>
               </InfoBox>
               <p>To protect your privacy, we must verify your identity before processing any data request. Response timelines: DPDP Act — within a reasonable timeframe; GDPR — within 30 days (extendable by 60 days); CCPA — within 45 days (extendable by 45 days).</p>
-              <p>To request complete account deletion, email <a href="mailto:info@mysampark.com" className="text-accent hover:underline">info@mysampark.com</a> with subject &quot;Account Deletion Request&quot;. Upon deletion, all social media connections will be disconnected, all OAuth tokens revoked, and all personal data permanently erased.</p>
+              <p>To request complete account deletion, email <a href="mailto:info@mysampark.com" className="text-accent-dark hover:underline">info@mysampark.com</a> with subject &quot;Account Deletion Request&quot;. Upon deletion, all social media connections will be disconnected, all OAuth tokens revoked, and all personal data permanently erased.</p>
             </Section>
 
             <Section id="15" title="15. Children's Privacy">
-              <p>MY SAMPARK is not intended for users under the age of 18. We do not knowingly process personal data of children without verifiable parental or guardian consent. If you believe we have collected data from a child, please contact us immediately at <a href="mailto:info@mysampark.com" className="text-accent hover:underline">info@mysampark.com</a>.</p>
+              <p>MY SAMPARK is not intended for users under the age of 18. We do not knowingly process personal data of children without verifiable parental or guardian consent. If you believe we have collected data from a child, please contact us immediately at <a href="mailto:info@mysampark.com" className="text-accent-dark hover:underline">info@mysampark.com</a>.</p>
             </Section>
 
             <Section id="16" title="16. Cookies & Tracking Technologies">
@@ -313,7 +313,7 @@ export default function MySamparkPrivacyPolicy() {
               <InfoBox>
                 <p className="font-syne font-bold text-ink mb-1">Saurabh Infosys</p>
                 <p>Data Fiduciary / Data Controller for MY SAMPARK</p>
-                <p>Grievance Officer / Data Protection Officer: <a href="mailto:info@mysampark.com" className="text-accent hover:underline">info@mysampark.com</a></p>
+                <p>Grievance Officer / Data Protection Officer: <a href="mailto:info@mysampark.com" className="text-accent-dark hover:underline">info@mysampark.com</a></p>
               </InfoBox>
               <p>For GDPR-related inquiries, you also have the right to lodge a complaint with your local data protection supervisory authority. For DPDP Act-related inquiries, you may file a complaint with the Data Protection Board of India (DPBI).</p>
               <p className="text-xs text-ink/40 pt-4 border-t border-ink/8">This Privacy Policy was last updated on May 30, 2026.</p>

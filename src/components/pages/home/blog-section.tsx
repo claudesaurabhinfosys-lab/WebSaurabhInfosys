@@ -57,7 +57,7 @@ export default function BlogSection() {
 
               <div className="flex items-center justify-between gap-4">
                 <div className="max-w-[14rem]">
-                  <h3 className="si-body-xs font-bold text-black transition-colors duration-300 group-hover:text-primary">
+                  <h3 className="si-body-xs font-bold text-black transition-colors duration-300 group-hover:text-primary-ink">
                     {post.title}
                   </h3>
                   <p className="si-body-xs mt-1 line-clamp-2 text-deep-gray-1">{post.excerpt}</p>

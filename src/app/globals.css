@@ -9,12 +9,16 @@
   --ink-light: #71717A;
   --card: #FFFFFF;
   --card-hover: #F4F4F8;
-  --accent: #4F46E5;
-  --accent-dark: #4338CA;
-  --accent2: #7C3AED;
+  --accent: #00A0E3;
+  --accent-dark: #0077A8;
+  --accent2: #0057B8;
+  /* channel-only copies so Tailwind's /opacity modifiers resolve */
+  --accent-rgb: 0 160 227;
+  --accent-dark-rgb: 0 119 168;
+  --accent2-rgb: 0 87 184;
   --border: rgba(9, 9, 11, 0.07);
-  --glow: rgba(79, 70, 229, 0.2);
-  --glow2: rgba(124, 58, 237, 0.15);
+  --glow: rgba(0, 160, 227, 0.2);
+  --glow2: rgba(0, 87, 184, 0.15);
 
   /* ─────────────────────────────────────────────
      Saurabh Infosys design system
@@ -22,10 +26,17 @@
      in a component; reference these instead.
      ───────────────────────────────────────────── */
 
-  /* Brand */
-  --si-brand: #5235F6;
-  --si-brand-hover: #4129D6;
-  --si-brand-tint: rgba(82, 53, 246, 0.1);
+  /* Brand — logo blue #00A0E3 (hsl 198 100% 45%) */
+  --si-brand: #00A0E3;
+  --si-brand-hover: #0086C0;
+  /* Small brand-coloured text on white: #00A0E3 is only 2.9:1, so text
+     roles use this darker step (4.9:1). Fills stay the exact logo blue. */
+  --si-brand-ink: #0077A8;
+  --si-brand-tint: rgba(0, 160, 227, 0.1);
+  --si-brand-soft: #E5F6FD;
+  --si-brand-rgb: 0 160 227;
+  --si-brand-hover-rgb: 0 134 192;
+  --si-brand-ink-rgb: 0 119 168;
 
   /* Surfaces */
   --si-surface: #FFFFFF;
@@ -213,14 +224,14 @@ body {
 
 /* ── Design tokens ── */
 .gradient-text {
-  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 50%, #EC4899 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent2) 50%, #38BDF8 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-text-blue {
-  background: linear-gradient(135deg, #3B82F6, var(--accent));
+  background: linear-gradient(135deg, #38BDF8, var(--accent2));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -231,7 +242,7 @@ body {
 }
 
 .gradient-bg-animated {
-  background: linear-gradient(135deg, var(--accent), var(--accent2), #EC4899, var(--accent));
+  background: linear-gradient(135deg, var(--accent), var(--accent2), #38BDF8, var(--accent));
   background-size: 300% 300%;
   animation: gradient-shift 5s ease infinite;
 }
@@ -384,7 +395,11 @@ body {
 .si-soft { color: var(--si-text-soft); }
 .si-faint { color: var(--si-text-faint); }
 .si-dim { color: var(--si-text-dim); }
-.si-accent { color: var(--si-brand); }
+/* brand-coloured text on light surfaces — uses the AA-safe step */
+.si-accent { color: var(--si-brand-ink); }
+/* brand text on dark surfaces — the exact logo blue reads 7:1 on black */
+.si-on-dark .si-accent,
+.si-accent-on-dark { color: var(--si-brand); }
 .si-bg-brand { background-color: var(--si-brand); }
 .si-bg-surface { background-color: var(--si-surface); }
 .si-bg-soft { background-color: var(--si-surface-soft); }
@@ -563,7 +578,7 @@ body {
 }
 .si-nav-cta:hover {
   background-color: var(--si-surface);
-  color: var(--si-brand);
+  color: var(--si-brand-ink);
 }
 
 .si-nav-toggle {
@@ -573,7 +588,7 @@ body {
   padding: 1rem 0.75rem;
   border-radius: 0.75rem;
   background-color: var(--si-surface-soft);
-  color: var(--si-brand);
+  color: var(--si-brand-ink);
   transition: background-color var(--si-duration) var(--si-ease),
     color var(--si-duration) var(--si-ease);
 }
@@ -617,7 +632,7 @@ body {
   margin-top: 1rem;
   text-align: center;
 }
-.si-nav-drawer-link:hover { color: var(--si-brand); }
+.si-nav-drawer-link:hover { color: var(--si-brand-ink); }
 
 /* ═══════════════════════════════════════════════
    Hero
