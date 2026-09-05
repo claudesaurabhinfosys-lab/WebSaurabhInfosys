@@ -630,24 +630,8 @@
 
 .hero { padding-top: var(--_perimeter---padding--padding-12xl); }
 
-/* flex-start, not the default stretch: the offer card should keep its own
-   height rather than growing to match the headline column. */
-.hero-header-wrap {
-  gap: var(--_perimeter---gap--gap-5xl);
-  justify-content: space-between;
-  align-items: flex-start;
-  display: flex;
-}
-
-.hero-left {
-  gap: var(--_perimeter---gap--gap-8xl);
-  flex-flow: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  max-width: 910px;
-  display: flex;
-}
-
+/* inline-flex, not flex: the badge sits in a full-width block and must
+   shrink to its content instead of spanning the container */
 .hero-badge {
   padding: var(--_perimeter---padding--padding-m);
   gap: var(--_perimeter---gap--gap-l);
@@ -655,7 +639,8 @@
   background-color: var(--colors--snow-white);
   justify-content: flex-start;
   align-items: center;
-  display: flex;
+  display: inline-flex;
+  margin-bottom: var(--_perimeter---margin--margin-xl);
 }
 
 .badge-icon {
@@ -676,72 +661,11 @@
   text-transform: uppercase;
 }
 
-/* 288 rather than the reference's 248: our email address is longer than
-   theirs, and truncating a contact address is worse than a wider card. */
-.hero-right {
-  width: 100%;
-  max-width: 288px;
-  padding: var(--_perimeter---padding--padding-xxl);
-  gap: var(--_perimeter---gap--gap-l);
-  border-radius: var(--_border-radius---radius-l);
-  background-color: var(--colors--snow-white);
-  flex-flow: column;
-  justify-content: space-between;
-  display: flex;
-}
-
-.hero-cta-image {
-  border-radius: var(--_border-radius---radius-l);
-  width: 100%;
-  height: 164px;
-  overflow: hidden;
-}
-
-.hero-image { width: 100%; height: 100%; }
-
-.hero-main-wrap {
-  height: 300vh;
-  margin-top: var(--_perimeter---padding--padding-7xl);
-}
-
-.hero-sticky {
-  height: 100vh;
-  position: sticky;
-  top: 0;
-}
-
-.hero-image-wrap {
-  border-radius: var(--_border-radius---radius-xl);
-  width: 50%;
-  height: 40vh;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative;
-  overflow: hidden;
-}
-
-.hero-image-label {
-  padding: var(--_perimeter---padding--padding-xxs) var(--_perimeter---padding--padding-s);
-  border-radius: var(--_border-radius---radius-s);
-  background-color: var(--colors--white-lite);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  position: absolute;
-  inset: 10px auto auto 10px;
-}
-
-.hero-label { color: var(--colors--cloud-gray); }
-
 /* ============================================================
    Breakpoints — mirrored from the reference build
    ============================================================ */
 
 @media screen and (max-width: 991px) {
-  .h6-medium.hero-title {
-    font-size: var(--_typography---paragraph-01--font-size);
-    line-height: var(--_typography---paragraph-01--line-height);
-  }
-  .fit-cover.hero-image { object-position: 50% 100%; }
   .navbar-wrapper { border-radius: 10px; }
   .navbar-right { flex: 0 auto; padding-left: 0; }
   .navbar-left { flex: 0 auto; }
@@ -749,33 +673,19 @@
   .nav-button-wrapper { display: none; }
   .nav-menu-button { display: flex; }
   .hero { padding-top: var(--_perimeter---padding--padding-11xl); }
-  .hero-left {
-    gap: var(--_perimeter---gap--gap-xxxl);
-    max-width: 500px;
-  }
   .ds-root .hero-heading {
     font-size: var(--_typography---h2--font-size);
     line-height: var(--_typography---h2--line-height);
   }
-  .hero-cta-image { height: 120px; }
-  .hero-main-wrap { height: auto; }
-  .hero-sticky { height: auto; position: static; }
-  .hero-image-wrap { width: 100%; height: 350px; }
 }
 
 @media screen and (max-width: 767px) {
   .navbar-right { gap: var(--_perimeter---gap--gap-8xl); }
-  .hero-left { max-width: 400px; }
   .hero-badge {
     padding: var(--_perimeter---padding--padding-xs);
     border-radius: var(--_border-radius---radius-s);
   }
   .badge-icon { border-radius: var(--_border-radius---radius-xs); }
-  .hero-right { display: none; }
-  .hero-image-wrap {
-    border-radius: var(--_border-radius---radius-l);
-    height: 280px;
-  }
 }
 
 @media screen and (max-width: 479px) {
@@ -792,7 +702,6 @@
   }
   .badge-icon { width: 28px; height: 28px; }
   .badge-text-wrap { gap: var(--_perimeter---gap--gap-xs); }
-  .hero-image-wrap { height: 200px; }
 }
 
 /* ============================================================
@@ -2089,4 +1998,267 @@
   line-height: 18px;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+
+/* ============================================================
+   Hero header row — headline left, offer card right.
+   ============================================================ */
+
+/* flex-start, not the default stretch: the offer card keeps its own height
+   rather than growing to match the headline column. */
+.hero-header-wrap {
+  gap: var(--_perimeter---gap--gap-5xl);
+  justify-content: space-between;
+  align-items: flex-start;
+  display: flex;
+}
+
+.hero-left {
+  gap: var(--_perimeter---gap--gap-8xl);
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  max-width: 1040px;
+  width: 100%;
+  display: flex;
+}
+
+/* the launch card and the positioning line share the bottom of the column */
+.hero-bottom-row {
+  gap: var(--_perimeter---gap--gap-9xl);
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  display: flex;
+}
+
+.hero-bottom-copy {
+  color: var(--colors--graphite-gray);
+  width: 100%;
+  max-width: 400px;
+}
+
+/* 288 rather than the reference's 248: our email address is longer than
+   theirs, and truncating a contact address is worse than a wider card. */
+.hero-right {
+  width: 100%;
+  max-width: 288px;
+  padding: var(--_perimeter---padding--padding-xxl);
+  gap: var(--_perimeter---gap--gap-l);
+  border-radius: var(--_border-radius---radius-l);
+  background-color: var(--colors--snow-white);
+  flex-flow: column;
+  justify-content: space-between;
+  display: flex;
+}
+
+.hero-cta-image {
+  border-radius: var(--_border-radius---radius-l);
+  width: 100%;
+  height: 164px;
+  overflow: hidden;
+}
+
+.hero-image { width: 100%; height: 100%; }
+
+/* ---- Launch card, sitting under the headline ---- */
+
+.hero-launch-card {
+  padding: var(--_perimeter---padding--padding-l);
+  padding-right: var(--_perimeter---padding--padding-8xl);
+  gap: var(--_perimeter---gap--gap-xxl);
+  border-radius: var(--_border-radius---radius-xl);
+  background-color: var(--colors--snow-white);
+  align-items: center;
+  max-width: 420px;
+  display: inline-flex;
+  position: relative;
+  text-decoration: none;
+  transition: background-color var(--duration-hover) var(--ease-hover),
+              transform var(--duration-press) var(--ease-out);
+}
+
+.hero-launch-thumb {
+  flex: none;
+  width: 104px;
+  height: 104px;
+  border-radius: var(--_border-radius---radius-m);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--_perimeter---padding--padding-s);
+  background-color: var(--colors--white);
+}
+
+.hero-launch-logo { width: 100%; height: auto; }
+
+.hero-launch-body {
+  gap: var(--_perimeter---gap--gap-xxs);
+  flex-flow: column;
+  justify-content: center;
+  display: flex;
+}
+
+.hero-launch-eyebrow { color: var(--colors--brand); text-transform: uppercase; }
+.hero-launch-title { color: var(--colors--midnight-black); }
+.hero-launch-copy { color: var(--colors--steel-gray); }
+
+.hero-launch-arrow {
+  position: absolute;
+  top: var(--_perimeter---padding--padding-xxl);
+  right: var(--_perimeter---padding--padding-xxl);
+  width: 18px;
+  height: 18px;
+  display: flex;
+  overflow: hidden;
+}
+
+.hero-launch-arrow-mask {
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  transition: transform var(--duration-swap) var(--ease-hover);
+}
+
+.hero-launch-arrow svg { flex: none; }
+
+@media (hover: hover) and (pointer: fine) {
+  .hero-launch-card:hover { background-color: var(--colors--cloud-gray); }
+  .hero-launch-card:hover .hero-launch-arrow-mask { transform: translateX(100%); }
+}
+
+.hero-launch-card:active { transform: scale(0.99); }
+
+/* ============================================================
+   Hero trust strip — a labelled rule, the client row, and one
+   quote. Real names, real words; no logo wall we cannot fill.
+   ============================================================ */
+
+.hero-intro-wrap {
+  margin-top: var(--_perimeter---padding--padding-13xl);
+  flex-flow: column;
+  justify-content: center;
+  display: flex;
+  position: relative;
+}
+
+.hero-brand-wrap { width: 100%; max-width: 900px; margin-left: auto; margin-right: auto; }
+
+.hero-brand-title-wrap {
+  gap: var(--_perimeter---gap--gap-xl);
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 783px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+}
+
+.hero-brand-divider { background-color: var(--colors--silver-mist); width: 100%; height: 1px; }
+
+.hero-brand-title {
+  color: var(--colors--gray);
+  text-align: center;
+  text-transform: uppercase;
+  flex: none;
+}
+
+.hero-brand-list {
+  margin-top: var(--_perimeter---padding--padding-4xl);
+  gap: var(--_perimeter---gap--gap-l);
+  justify-content: space-between;
+  display: flex;
+}
+
+.hero-brand-item {
+  padding: var(--_perimeter---padding--padding-l);
+  border-radius: var(--_border-radius---radius-l);
+  color: var(--colors--graphite-gray);
+  transition: background-color var(--duration-hover) var(--ease-hover);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .hero-brand-item:hover { background-color: var(--colors--snow-white); }
+}
+
+.hero-intro-details-wrap {
+  width: 100%;
+  max-width: 940px;
+  margin-top: var(--_perimeter---margin--margin-xxxxl);
+  margin-left: auto;
+  margin-right: auto;
+  gap: var(--_perimeter---gap--gap-6xl);
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+}
+
+.hero-intro-heading {
+  font-family: var(--font-family--heading);
+  color: var(--colors--midnight-black);
+  font-size: var(--_typography---h3--font-size);
+  line-height: var(--_typography---h3--line-height);
+  font-weight: var(--font-weight--medium);
+  text-align: center;
+  letter-spacing: var(--letter-spacing--letter-spacing-m);
+}
+
+.hero-quote-info {
+  gap: var(--_perimeter---gap--gap-xxxs);
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+}
+
+.align-center { text-align: center; }
+.author-tagline { color: var(--colors--graphite-gray); }
+
+@media screen and (max-width: 991px) {
+  .hero-left { gap: var(--_perimeter---gap--gap-xxxl); max-width: 500px; }
+  .hero-intro-wrap { margin-top: var(--_perimeter---padding--padding-11xl); }
+  .hero-cta-image { height: 120px; }
+  .hero-intro-details-wrap { margin-top: var(--_perimeter---margin--margin-xxl); }
+}
+
+@media screen and (max-width: 767px) {
+  .hero-left { max-width: 100%; }
+  .hero-right { display: none; }
+  .hero-bottom-row {
+    gap: var(--_perimeter---gap--gap-8xl);
+    flex-flow: column;
+    align-items: flex-start;
+  }
+  .hero-bottom-copy { max-width: 100%; }
+  .hero-brand-title { max-width: 300px; }
+  .hero-brand-list {
+    gap: var(--_perimeter---gap--gap-xxl) var(--_perimeter---gap--gap-xxxl);
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    display: grid;
+  }
+  .hero-brand-item { padding: var(--_perimeter---padding--padding-none); }
+  .hero-intro-details-wrap { gap: var(--_perimeter---gap--gap-4xl); }
+  .hero-intro-heading {
+    font-size: var(--_typography---h4--font-size);
+    line-height: var(--_typography---h4--line-height);
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .hero-brand-title {
+    max-width: 200px;
+    font-size: var(--_typography---caption--font-size);
+    line-height: var(--_typography---caption--line-height);
+  }
+  .hero-brand-title-wrap { gap: var(--_perimeter---gap--gap-l); }
+  .hero-intro-details-wrap { gap: var(--_perimeter---gap--gap-l); }
+  .hero-intro-heading {
+    font-size: var(--_typography---h5--font-size);
+    line-height: var(--_typography---h5--line-height);
+  }
 }

@@ -18,9 +18,8 @@ timings are ported from it verbatim; typeface, colour and content are ours.
 3. **Motion needs a reason.** Feedback, spatial consistency, state change, or
    preventing a jarring jump. "It looks cool" on something seen daily is a
    reason to remove it.
-4. **`transform` and `opacity` only.** The two exceptions, both deliberate:
-   accordion `height` (no transform equivalent) and the hero showreel's
-   `width`/`height` (the reference's signature scroll move).
+4. **`transform` and `opacity` only.** One exception, deliberate: accordion
+   `height`, which has no transform equivalent.
 5. **Reduced motion and hover gating ship with the animation**, never as a
    follow-up pass.
 6. **Restraint on the dark panels.** Workflow, work and footer are the only
@@ -162,11 +161,11 @@ resolve. Interactive motion stays under 300ms.
 Three places only, all `framer-motion` `useScroll` mapped to explicit
 progress ranges, all disabled below 992px where the layout goes static:
 
-1. **Hero showreel** — 28%→50% progress: `50% / 40vh` → `100% / 100vh`;
-   50%→60%: sticky opacity 1 → 0.8.
-2. **Work list** — the left column of titles translates against scroll behind
+1. **Work list** — the left column of titles translates against scroll behind
    top and bottom gradient covers.
-3. **Nothing else.** Parallax on body content is not part of this system.
+2. **Clients** — three colour panels wipe the viewport, then the grid resolves.
+3. **Testimonials** — the card row translates horizontally.
+4. **Nothing else.** Parallax on body content is not part of this system.
 
 ### 3.4 Rules
 
@@ -201,7 +200,8 @@ Order, and what each section is for. Content comes from
 
 | # | Section | Reference | Surface | Purpose | Data |
 | --- | --- | --- | --- | --- | --- |
-| 1 | Hero | `hero` | Light | Positioning + showreel | `COMPANY` |
+| 1 | Hero | `hero` | Light | Positioning + latest launch + CTA | `COMPANY` |
+| 1b | Proof | — | Light | Four real numbers | `COMPANY.stats` |
 | 2 | Work | `work-v6` | Dark panel | Proof: what we shipped | `PORTFOLIO_PROJECTS` |
 | 3 | Intro | `intro-v4` | Light | The one-sentence argument | static |
 | 4 | Clients | `companies` | Light | Logo strip, trust | `CLIENTS` |
@@ -231,14 +231,31 @@ Each section gives layout, content mapping and motion. Exact CSS lives in
 
 ### 6.1 Hero — `hero-section.tsx`
 
-Rating badge, two-tone H1, a 248px offer card on the right, then a sticky
-showreel below.
+Two parts, one section.
 
-**Motion.** Four staggered `<Reveal>`s (badge, heading, card, showreel).
-Scroll-driven showreel: over a 300vh runway, 28%→50% takes the frame from
-`50% / 40vh` to `100% / 100vh`; 50%→60% drops sticky opacity to 0.8. Desktop
-only — below 992px the runway collapses and the frame is a static image, so
-the component keys on the breakpoint to drop framer-motion's inline styles.
+**Header row.** Left: rating badge, the two-line H1 whose grey second line
+rotates, and the latest-launch card. Right: the "Have a serious project?"
+card — heading, one line of copy, email button. The card is the reason the
+row exists: it is the only thing on the page a visitor can act on without
+scrolling, so it stays visible at first paint.
+
+**Trust strip.** A labelled rule, the client row, then one client quote with
+name and role. Real names and real words — we have no client logo files, so
+the row is set in type rather than faked with placeholder marks.
+
+No hero media. The reference's sticky showreel was a stock video frame
+standing in for footage we do not have, and it cost 300vh of scroll to say
+nothing. That space went to clients and a quote instead: a visitor gives
+about three seconds to answer *what do you do, for whom, does it work, what
+next*, and a video they have to click answers none of them.
+
+A stats band (clients / projects / rating / years) was tried here and cut —
+four bare numbers in a grid read as filler next to a named client saying what
+was actually built.
+
+**Motion.** Staggered `<Reveal>`s and the rotating headline tail. No
+scroll-driven motion; the section is a server component, with the rotating
+word and the reveals as client leaves.
 
 ### 6.2 Work — `work-section.tsx`
 

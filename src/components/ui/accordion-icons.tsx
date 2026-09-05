@@ -76,3 +76,18 @@ export function SocialIcon({ name }: { name: keyof typeof SOCIALS | string }) {
     </svg>
   );
 }
+
+/** Diagonal out-arrow — marks a card that leaves the page. */
+export function ArrowUpRightIcon({ stroke = "#141414" }: { stroke?: string }) {
+  return (
+    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+      <path
+        d="M5 13L13 5M13 5H6M13 5V12"
+        stroke={stroke}
+        strokeWidth="1.5"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+    </svg>
+  );
+}
