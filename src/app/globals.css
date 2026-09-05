@@ -62,8 +62,8 @@
   --si-line-on-dark: rgba(255, 255, 255, 0.12);
 
   /* Type families */
-  --si-font-heading: var(--font-clash), Georgia, sans-serif;
-  --si-font-body: var(--font-manrope), sans-serif;
+  --si-font-heading: var(--font-raveo), Arial, sans-serif;
+  --si-font-body: var(--font-raveo), Arial, sans-serif;
 
   /* Type scale */
   --si-display-1: 7rem;
@@ -167,11 +167,13 @@ body {
 
 html {
   scroll-behavior: smooth;
-  overflow-x: hidden;
+  /* clip, not hidden: overflow-x:hidden turns html into a scroll container
+     and kills position:sticky further down the tree. */
+  overflow-x: clip;
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 /* ── Keyframes ── */
@@ -287,7 +289,7 @@ body {
 
 @layer utilities {
   .text-balance { text-wrap: balance; }
-  .font-display { font-family: var(--font-montserrat), sans-serif; font-variation-settings: 'wght' 800; }
+  .font-display { font-family: var(--font-raveo), sans-serif; font-variation-settings: 'wght' 800; }
 }
 
 /* ═══════════════════════════════════════════════

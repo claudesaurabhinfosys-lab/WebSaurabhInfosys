@@ -1,20 +1,25 @@
-import PillButton from "@/components/ui/pill-button";
+import { SectionBadge } from "@/components/ui/section-badge";
+import { Reveal } from "@/components/ui/reveal";
+import { PrimaryButton } from "@/components/ui/ds-button";
 
 export default function CtaSection() {
   return (
-    <section className="mx-2">
-      <div
-        className="flex min-h-[24rem] items-center justify-center rounded-2xl px-6 md:min-h-[38.4375rem]"
-        style={{
-          backgroundImage:
-            "linear-gradient(281deg, var(--si-surface-muted), var(--si-brand) 50%, var(--si-surface-muted))",
-        }}
-      >
-        <div className="flex max-w-[55.5625rem] flex-col items-center si-stack-block text-center">
-          <h2 className="si-title font-clash text-white">Let&rsquo;s Build Something That Scales.</h2>
-          <PillButton href="/contact" variant="light">
-            Start a Project
-          </PillButton>
+    <section className="cta ds-root">
+      <div className="container">
+        <div className="cta-wrap">
+          <div className="cta-content-wrap">
+            <Reveal>
+              <SectionBadge label="Contact" />
+            </Reveal>
+            <Reveal index={1}>
+              <h2 className="cta-heading">
+                Let&rsquo;s turn ambition <span className="text-gray">into execution.</span>
+              </h2>
+            </Reveal>
+          </div>
+          <Reveal index={2}>
+            <PrimaryButton href="/contact" label="Work with us" />
+          </Reveal>
         </div>
       </div>
     </section>

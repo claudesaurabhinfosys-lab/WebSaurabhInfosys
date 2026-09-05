@@ -43,11 +43,16 @@ const config: Config = {
         "deep-blue": "#0F172A",
       },
       fontFamily: {
-        syne: ["var(--font-montserrat)", "sans-serif"],
-        dm: ["var(--font-montserrat)", "sans-serif"],
-        montserrat: ["var(--font-montserrat)", "sans-serif"],
-        clash: ["var(--font-clash)", "Georgia", "sans-serif"],
-        manrope: ["var(--font-manrope)", "sans-serif"],
+        // Every alias resolves to the design-system faces; the legacy
+        // font-clash / font-syne / font-montserrat class names across the
+        // older pages keep working and pick up the redesign automatically.
+        raveo: ["var(--font-raveo)", "Raveo", "sans-serif"],
+        mono: ["var(--font-dm-mono)", "DM Mono", "monospace"],
+        syne: ["var(--font-raveo)", "sans-serif"],
+        dm: ["var(--font-raveo)", "sans-serif"],
+        montserrat: ["var(--font-raveo)", "sans-serif"],
+        clash: ["var(--font-raveo)", "sans-serif"],
+        manrope: ["var(--font-raveo)", "sans-serif"],
       },
       maxWidth: {
         "container-fluid": "83rem",

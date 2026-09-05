@@ -1,32 +1,28 @@
 import type { Metadata } from "next";
-import { Montserrat, Manrope } from "next/font/google";
+import { DM_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import Script from "next/script";
 import { Toaster } from "sonner";
 import "./globals.css";
+import "./design-system.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  variable: "--font-montserrat",
-  weight: ["300", "400", "500", "600", "700", "800"],
+/* Design-system faces. Raveo is the display/body face — one variable file
+   carrying a weight axis (100-900) and an optical-size axis (14-32), so
+   headings pick up the display cut automatically via font-optical-sizing.
+   DM Mono is the secondary face for badges, labels and captions. */
+const raveo = localFont({
+  src: "../../public/font/raveo/RaveoVF.woff2",
+  weight: "100 900",
+  variable: "--font-raveo",
+  display: "swap",
 });
 
-const manrope = Manrope({
+const dmMono = DM_Mono({
   subsets: ["latin"],
-  variable: "--font-manrope",
-  weight: ["400", "500", "600", "700", "800"],
-});
-
-const clashDisplay = localFont({
-  src: [
-    { path: "../../public/font/clash-display/ClashDisplay-Regular.woff2", weight: "400", style: "normal" },
-    { path: "../../public/font/clash-display/ClashDisplay-Medium.woff2", weight: "500", style: "normal" },
-    { path: "../../public/font/clash-display/ClashDisplay-Semibold.woff2", weight: "600", style: "normal" },
-    { path: "../../public/font/clash-display/ClashDisplay-Bold.woff2", weight: "700", style: "normal" },
-  ],
-  variable: "--font-clash",
+  variable: "--font-dm-mono",
+  weight: ["300", "400", "500"],
   display: "swap",
 });
 
@@ -101,7 +97,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${montserrat.variable} ${manrope.variable} ${clashDisplay.variable}`}>
+    <html lang="en" className={`${raveo.variable} ${dmMono.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -132,7 +128,7 @@ export default function RootLayout({
           }) }}
         />
       </head>
-      <body className="font-montserrat bg-bg text-ink antialiased">
+      <body className="ds-root antialiased">
         {/* Google Analytics */}
         <Script
           id="ga-inline"

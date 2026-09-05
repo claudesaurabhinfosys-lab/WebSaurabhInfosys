@@ -1,11 +1,10 @@
 import Link from "next/link";
-import { COMPANY, SERVICES } from "@/lib/data";
-import { SITE_CONFIG } from "@/lib/constants";
-import NewsletterForm from "./newsletter-form";
+import { COMPANY } from "@/lib/data";
+import { SocialIcon } from "@/components/ui/accordion-icons";
 
-const COLUMNS = [
+const MENUS = [
   {
-    heading: "Company",
+    title: "Company",
     links: [
       { label: "Home", href: "/" },
       { label: "About", href: "/about" },
@@ -15,11 +14,17 @@ const COLUMNS = [
     ],
   },
   {
-    heading: "Services",
-    links: SERVICES.map((service) => ({ label: service.shortTitle, href: `/services/${service.slug}` })),
+    title: "Services",
+    links: [
+      { label: "AI Automation", href: "/services/ai-agents" },
+      { label: "Vibe Coding", href: "/services/vibe-coding" },
+      { label: "Flutter Apps", href: "/services/flutter" },
+      { label: "SaaS Platforms", href: "/services/saas" },
+      { label: "GPS & Fleet", href: "/services/gps" },
+    ],
   },
   {
-    heading: "Products",
+    title: "Products",
     links: [
       { label: "SSMS — School ERP", href: "/products/ssms" },
       { label: "MySociety", href: "/products/mysociety" },
@@ -27,103 +32,100 @@ const COLUMNS = [
       { label: "Privacy Policy", href: "/products/mysampark/privacy-policy" },
     ],
   },
-  {
-    heading: "Connect",
-    links: [
-      { label: "LinkedIn", href: SITE_CONFIG.links.linkedin, external: true },
-      { label: "WhatsApp", href: `https://wa.me/${COMPANY.whatsapp}`, external: true },
-      { label: "USA", href: "/usa" },
-      { label: "Singapore", href: "/singapore" },
-    ],
-  },
 ];
 
 export default function Footer() {
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="mx-2 mb-2">
-      <div className="rounded-2xl bg-black pb-[3.75rem] pt-[4.38rem]">
-        <div className="si-container">
-          <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
-            {COLUMNS.map((col) => (
-              <div key={col.heading} className="flex flex-col items-start gap-2">
-                <h3 className="si-body-xs mb-1 font-semibold text-white">{col.heading}</h3>
-                {col.links.map((link) =>
-                  "external" in link && link.external ? (
-                    <a
-                      key={link.label}
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="si-body-xs text-gray-5 transition-colors duration-300 hover:text-white-4"
-                    >
-                      {link.label}
-                    </a>
-                  ) : (
-                    <Link
-                      key={link.label}
-                      href={link.href}
-                      className="si-body-xs text-gray-5 transition-colors duration-300 hover:text-white-4"
-                    >
-                      {link.label}
-                    </Link>
-                  )
-                )}
-              </div>
-            ))}
+    <footer className="footer ds-root">
+      <div className="container">
+        <div className="footer-wrap">
+          <div className="footer-top-wrap">
+            <div className="footer-brand-column">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/SaurabhInfosysWhite.png"
+                alt="Saurabh Infosys"
+                className="footer-brand"
+              />
+              <div className="paragraph-02 footer-brand-title">{COMPANY.tagline}</div>
+            </div>
 
-            <div className="flex flex-col items-start gap-2">
-              <h3 className="si-body-xs mb-1 font-semibold text-white">Contact</h3>
-              <span className="si-body-xs text-gray-5">{COMPANY.location}</span>
-              <a
-                href={`mailto:${COMPANY.email}`}
-                className="si-body-xs text-gray-5 transition-colors duration-300 hover:text-white-4"
-              >
-                {COMPANY.email}
-              </a>
+            <div className="footer-menu-column">
+              <div className="footer-menu-list-wrap">
+                {MENUS.map((menu) => (
+                  <div className="footer-menu-group" key={menu.title}>
+                    <div className="paragraph-03 footer-menu-title">{menu.title}</div>
+                    <div className="footer-menu-list">
+                      {menu.links.map((link) => (
+                        <Link key={link.href} href={link.href} className="paragraph-02 footer-menu">
+                          {link.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
 
-          <div className="flex flex-col justify-between gap-10 py-16 lg:flex-row lg:items-center">
-            <div className="max-w-[23.5rem]">
-              <span className="si-card-title font-clash text-white">Saurabh Infosys.</span>
-              <div className="pt-4">
-                <p className="si-body font-normal leading-snug text-gray-5">
-                  AI-first software studio building agents, apps, and SaaS platforms for clients worldwide.
-                </p>
+          <div className="footer-bottom-wrap">
+            <div className="footer-info-column">
+              <div className="footer-info-list">
+                <div className="paragraph-03 footer-info-title">Head office</div>
+                <div className="paragraph-02 footer-menu">{COMPANY.location}</div>
+              </div>
+              <div className="footer-info-list">
+                <div className="paragraph-03 footer-info-title">Email</div>
+                <a href={`mailto:${COMPANY.email}`} className="paragraph-02 footer-menu">
+                  {COMPANY.email}
+                </a>
+              </div>
+              <div className="footer-info-list">
+                <div className="paragraph-03 footer-info-title">Phone</div>
+                <a
+                  href={`tel:${COMPANY.phone.replace(/\s/g, "")}`}
+                  className="paragraph-02 footer-menu"
+                >
+                  {COMPANY.phone}
+                </a>
               </div>
             </div>
 
-            <div className="w-full max-w-[25.25rem]">
-              <h3 className="si-lead font-semibold leading-snug text-white">
-                Subscribe to our newsletter
-              </h3>
-              <p className="si-body-xs mb-4 mt-1 text-gray-5">
-                Get product updates and engineering notes — no spam.
-              </p>
-              <NewsletterForm />
+            <div className="footer-social-column">
+              <div className="footer-social-list-wrap">
+                <a
+                  href="https://www.linkedin.com/company/saurabh-infosys"
+                  className="footer-social-link"
+                  aria-label="Saurabh Infosys on LinkedIn"
+                >
+                  <SocialIcon name="linkedin" />
+                </a>
+                <a
+                  href={`https://wa.me/${COMPANY.whatsapp}`}
+                  className="footer-social-link"
+                  aria-label="Message us on WhatsApp"
+                >
+                  <SocialIcon name="whatsapp" />
+                </a>
+                <a
+                  href={`mailto:${COMPANY.email}`}
+                  className="footer-social-link"
+                  aria-label="Email Saurabh Infosys"
+                >
+                  <SocialIcon name="email" />
+                </a>
+              </div>
             </div>
           </div>
 
-          <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
-            <p className="si-caption text-gray-5">
-              &copy; Copyright {new Date().getFullYear()} | Designed &amp; Developed by Saurabh Infosys
-            </p>
-            <div className="si-caption flex items-center gap-4 text-gray-5">
-              <a
-                href="https://clutch.co"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition-colors duration-300 hover:text-white-4"
-              >
-                4.9★ on Clutch
-              </a>
-              <span>&bull;</span>
-              <Link
-                href="/products/mysampark/privacy-policy"
-                className="transition-colors duration-300 hover:text-white-4"
-              >
-                Privacy Policy
-              </Link>
+          <div className="footer-copyright-wrap">
+            <div className="paragraph-03 copyright-title">
+              © {year} {COMPANY.name}. All rights reserved.
+            </div>
+            <div className="paragraph-03 copyright-title">
+              {COMPANY.stats.clutchRating}★ on Clutch · {COMPANY.stats.clients} clients
             </div>
           </div>
         </div>
