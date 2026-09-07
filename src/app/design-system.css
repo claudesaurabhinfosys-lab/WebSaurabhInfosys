@@ -146,6 +146,8 @@
   --duration-press: 140ms;   /* :active feedback */
   --duration-hover: 200ms;   /* colour, small shifts */
   --duration-swap: 350ms;    /* button label + arrow mask slide */
+  --duration-fill: 300ms;    /* a surface filling with colour */
+  --duration-open: 500ms;    /* a service row opening on hover */
   --duration-panel: 400ms;   /* accordion open / close */
   --duration-reveal: 800ms;  /* section entrance on scroll */
   --stagger-step: 80ms;      /* delay between staggered children */
@@ -385,8 +387,7 @@
   height: 11px;
 }
 
-.badge-wrap.accent .badge-dot,
-.badge-wrap.dark .badge-dot { background-color: var(--colors--white); }
+.badge-wrap.accent .badge-dot { background-color: var(--colors--white); }
 
 .badge-title { text-transform: uppercase; }
 .badge-wrap.dark .badge-title { color: var(--colors--white); }
@@ -927,10 +928,15 @@
 
 /* the scrubbed statement is H5-sized, not display-sized — it is a
    paragraph that happens to be an h2 for outline purposes */
-.intro-v4-heading {
+/* One step down from H2, with the leading opened up — it is a statement
+   several lines long, not a headline. The .ds-root prefix is required: the
+   element is an <h2>, so `.ds-root h2` (0,1,1) outranks a bare
+   `.intro-v4-heading` (0,1,0) and repaints it at display size. */
+.ds-root .intro-v4-heading {
   text-align: center;
-  font-size: var(--_typography---h5--font-size);
-  line-height: var(--_typography---h5--line-height);
+  font-size: var(--_typography---h3--font-size);
+  line-height: 110%;
+  letter-spacing: var(--letter-spacing--letter-spacing-m);
 }
 .intro-v4-heading .word { transition: color var(--duration-hover) linear; }
 
@@ -972,10 +978,12 @@
   text-align: center;
 }
 
+/* H6, not H4: the tail is a qualifier on the figure, and at H4 the line
+   "2 weeks from kickoff." broke across two lines in a 477px card */
 .intro-price-duration {
   font-family: var(--font-family--heading);
   color: var(--colors--steel-gray);
-  font-size: var(--_typography---h4--font-size);
+  font-size: var(--_typography---h6--font-size);
   line-height: var(--_typography---h1--line-height);
   font-weight: var(--font-weight--medium);
   letter-spacing: var(--letter-spacing--letter-spacing-s);
@@ -986,16 +994,16 @@
 
 @media screen and (max-width: 991px) {
   .intro-v4 { padding-top: var(--_perimeter---padding--padding-12xl); }
-  .intro-v4-heading {
-    font-size: var(--_typography---h6--font-size);
-    line-height: var(--_typography---h6--line-height);
+  .ds-root .intro-v4-heading {
+    font-size: var(--_typography---h4--font-size);
+    line-height: 115%;
   }
 }
 
 @media screen and (max-width: 479px) {
-  .intro-v4-heading {
-    font-size: var(--_typography---paragraph-01--font-size);
-    line-height: var(--_typography---paragraph-01--line-height);
+  .ds-root .intro-v4-heading {
+    font-size: var(--_typography---h5--font-size);
+    line-height: 120%;
   }
   .intro-v4-price {
     font-size: var(--_typography---h3--font-size);
@@ -1045,6 +1053,8 @@
 .companies-list {
   border-top: 1px solid var(--colors--cloud-gray);
   border-right: 1px solid var(--colors--cloud-gray);
+  background-color: var(--colors--white);
+  transition: background-color var(--duration-fill) var(--ease-hover);
   flex-flow: column;
   justify-content: center;
   align-items: center;
@@ -1057,21 +1067,39 @@
   text-align: center;
 }
 
-.companies-client { color: var(--colors--midnight-black); }
-.companies-meta { color: var(--colors--steel-gray); }
+.companies-client {
+  color: var(--colors--midnight-black);
+  opacity: 0.8;
+  transition: opacity var(--duration-fill) var(--ease-hover),
+              color var(--duration-fill) var(--ease-hover);
+}
+
+.companies-meta {
+  color: var(--colors--steel-gray);
+  transition: color var(--duration-fill) var(--ease-hover);
+}
+
+/* the cell fills with the accent and the type reverses out white */
+@media (hover: hover) and (pointer: fine) {
+  .companies-list:hover { background-color: var(--colors--brand-accent); }
+  .companies-list:hover .companies-client {
+    opacity: 1;
+    color: var(--colors--white);
+  }
+  .companies-list:hover .companies-meta { color: var(--colors--white); }
+}
 
 /* The three wipes. Full-bleed panels scaled from the centre — the
    reference grows width/height, which is the same picture but forces
    layout on every frame. */
-/* Rounded so a half-grown panel reads as an expanding card in the same
-   language as the rest of the page, rather than a flat colour flash. The
-   radius is invisible once it fills the viewport. */
+/* Square, and sized in vw/vh from their static position — the reference
+   grows width/height rather than scaling, and the panels carry no inset so
+   they expand from where flow puts them. */
 .companies-bg {
   position: absolute;
-  inset: 0;
-  border-radius: var(--_border-radius---radius-6xl);
-  transform-origin: center;
-  will-change: transform;
+  width: 0;
+  height: 0;
+  will-change: width, height;
 }
 
 .companies-bg.black { background-color: var(--colors--midnight-black); }
@@ -1138,6 +1166,24 @@
   background-color: var(--colors--midnight-black);
   position: relative;
   overflow: hidden;
+}
+
+/* Two hairline rings bleeding off the panel edges. Decorative only, and
+   the panel already clips them. */
+.workflow-circle {
+  border: 1px solid var(--colors--charcoal-shadow);
+  border-radius: 50%;
+  width: 1100px;
+  height: 1100px;
+  position: absolute;
+  inset: -12% -32% 0% auto;
+  pointer-events: none;
+}
+
+.workflow-circle._02 { inset: auto -34% -65% auto; }
+
+@media screen and (max-width: 991px) {
+  .workflow-circle { width: 700px; height: 700px; }
 }
 
 .workflow-v3-inner {
@@ -1293,7 +1339,11 @@
   display: flex;
 }
 
-.services-v8-number { width: 100%; max-width: 110px; color: var(--colors--steel-gray); }
+.ds-root .services-v8-number {
+  width: 100%;
+  max-width: 110px;
+  color: var(--colors--steel-gray);
+}
 
 .services-v8-arrow {
   flex: none;
@@ -1306,6 +1356,11 @@
 }
 
 .services-v8-item.is-open .services-v8-arrow { transform: rotate(45deg); }
+.services-v8-arrow { transition: transform var(--duration-open) var(--ease-hover); }
+
+/* the glyph fills its box rather than stretching past it, so it tracks the
+   54 → 40px step down at 991 */
+.services-v8-arrow svg { flex: none; width: 100%; height: 100%; }
 
 .services-v8-bottom { overflow: hidden; }
 
@@ -1388,13 +1443,17 @@
   overflow: hidden;
 }
 
+/* the row overflows its own box on purpose — that overflow is exactly the
+   distance the scroll has to travel */
 .testimonial-v1-main-wrap {
   gap: var(--_perimeter---gap--gap-xl);
   width: 100%;
+  align-items: stretch;
   display: flex;
+  will-change: transform;
 }
 
-.testimonial-v1-list { flex: none; width: 100%; max-width: 566px; }
+.testimonial-v1-list { flex: none; width: 566px; display: flex; }
 
 .testimonial-v1-card {
   padding: var(--_perimeter---gap--gap-6xl);
@@ -1519,7 +1578,7 @@
   padding: var(--_perimeter---padding--padding-xxxl);
   border-radius: var(--_border-radius---radius-xl);
   background-color: var(--colors--white);
-  transition: background-color var(--duration-hover) var(--ease-hover);
+  transition: background-color var(--duration-fill) var(--ease-hover);
 }
 
 .faq-item.is-open { background-color: var(--colors--snow-white); }
@@ -1601,6 +1660,7 @@
 }
 
 .blog-v6-card {
+  height: 100%;
   padding: var(--_perimeter---padding--padding-xxl);
   border-radius: var(--_border-radius---radius-xl);
   background-color: var(--colors--snow-white);
@@ -1622,20 +1682,90 @@
 .blog-v6-title { color: var(--colors--midnight-black); }
 .blog-v6-excerpt { color: var(--colors--steel-gray); }
 
-.blog-v6-more {
+/* the copy block takes the slack so the read-more row sits on the same
+   baseline in every card, whatever the title and excerpt run to */
+.blog-v6-content {
+  flex: 1;
+  gap: var(--_perimeter---gap--gap-l);
+  flex-flow: column;
+  display: flex;
+}
+
+.blog-v6-image-wrap {
+  border-radius: var(--_border-radius---radius-l);
+  height: 200px;
+  overflow: hidden;
+}
+
+.blog-v6-visual {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(140deg, var(--colors--brand-accent), var(--colors--midnight-black));
+  transition: transform var(--duration-panel) var(--ease-hover);
+}
+
+/* Read more: a rule that wipes in from the left while the arrow slides
+   through its mask and the pill fills with the accent. */
+.blog-inner-link-wrap {
   margin-top: auto;
-  padding-top: var(--_perimeter---padding--padding-xxl);
-  border-top: 1px solid var(--colors--cloud-gray);
+  gap: var(--_perimeter---gap--gap-xl);
   justify-content: space-between;
   align-items: center;
   display: flex;
 }
 
-.blog-v6-more-arrow { transition: transform var(--duration-hover) var(--ease-out); }
+.read-more-wrap { position: relative; overflow: hidden; }
+
+.read-more-title {
+  font-weight: var(--font-weight--normal);
+  text-transform: uppercase;
+}
+
+.read-more-line {
+  background-color: var(--colors--midnight-black);
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  inset: auto 0% 0%;
+  transform: translateX(-101%);
+  transition: transform var(--duration-panel) var(--ease-hover);
+}
+
+.blog-arrow-wrap {
+  border-radius: var(--_border-radius---radius-s);
+  background-color: var(--colors--white);
+  justify-content: center;
+  align-items: center;
+  flex: none;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  overflow: hidden;
+  transition: background-color var(--duration-panel) var(--ease-hover);
+}
+
+.blog-arrow-mask {
+  justify-content: flex-end;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  transition: transform var(--duration-panel) var(--ease-hover);
+}
+
+.blog-arrow-mask svg { flex: none; width: 38px; }
 
 @media (hover: hover) and (pointer: fine) {
-  .blog-v6-card:hover { background-color: var(--colors--cloud-gray); }
-  .blog-v6-card:hover .blog-v6-more-arrow { transform: translateX(4px); }
+  .blog-v6-card:hover .blog-v6-visual { transform: scale(1.15); }
+  .blog-v6-card:hover .read-more-line { transform: translateX(0%); }
+  .blog-v6-card:hover .blog-arrow-mask { transform: translateX(100%); }
+  .blog-v6-card:hover .blog-arrow-wrap { background-color: var(--colors--brand-accent); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .blog-v6-visual,
+  .read-more-line,
+  .blog-arrow-mask { transition: none; }
 }
 
 .blog-v6-card:active { transform: scale(0.99); }
@@ -1643,6 +1773,7 @@
 @media screen and (max-width: 991px) {
   .blog-v6 { padding-top: var(--_perimeter---padding--padding-12xl); }
   .blog-v6-list { grid-template-columns: 1fr 1fr; }
+  .blog-arrow-wrap { width: 36px; height: 36px; }
   .blog-v6-head-left h2,
   .faq-left h2 {
     font-size: var(--_typography---h4--font-size);
@@ -1652,6 +1783,7 @@
 
 @media screen and (max-width: 767px) {
   .blog-v6-list { grid-template-columns: 1fr; }
+  .blog-arrow-wrap { width: 32px; height: 32px; }
   .blog-v6-head-wrap { flex-flow: column; align-items: flex-start; }
 }
 
@@ -1681,22 +1813,30 @@
   display: flex;
 }
 
-.cta-heading { text-align: center; }
+/* Display scale, not H2 scale — the reference sets this at the H1 size.
+   It stays an <h2> element so the page keeps one H1 in the hero. */
+.ds-root .cta-heading {
+  text-align: center;
+  font-size: var(--_typography---h1--font-size);
+  line-height: var(--_typography---h1--line-height);
+  letter-spacing: var(--letter-spacing--letter-spacing-l);
+}
 
 @media screen and (max-width: 991px) {
   .cta { padding-top: var(--_perimeter---padding--padding-12xl); }
   .cta-wrap { max-width: 500px; }
   .cta-content-wrap { gap: var(--_perimeter---gap--gap-xxxl); }
-  .cta-heading {
-    font-size: var(--_typography---h3--font-size);
-    line-height: var(--_typography---h3--line-height);
+  .ds-root .cta-heading {
+    font-size: var(--_typography---h2--font-size);
+    line-height: var(--_typography---h2--line-height);
+    letter-spacing: var(--letter-spacing--letter-spacing-m);
   }
 }
 
 @media screen and (max-width: 479px) {
-  .cta-heading {
-    font-size: var(--_typography---h4--font-size);
-    line-height: var(--_typography---h4--line-height);
+  .ds-root .cta-heading {
+    font-size: var(--_typography---h3--font-size);
+    line-height: var(--_typography---h3--line-height);
   }
 }
 
@@ -1732,7 +1872,7 @@
   display: flex;
 }
 
-.footer-brand { width: 150px; }
+.footer-brand { width: 118px; }
 .footer-brand-title { color: var(--colors--silver-mist); }
 
 .footer-menu-column { justify-content: flex-end; display: flex; }
@@ -1812,6 +1952,7 @@
 .footer-social-link {
   border-radius: var(--_border-radius---radius-8xl);
   background-color: var(--colors--dark-slate);
+  color: var(--colors--white);
   justify-content: center;
   align-items: center;
   width: 44px;
@@ -1846,7 +1987,7 @@
   .footer-bottom-wrap { grid-template-columns: 1fr; }
   .footer-menu-column,
   .footer-social-column { justify-content: flex-start; }
-  .footer-brand { width: 120px; }
+  .footer-brand { width: 100px; }
   .footer-bottom-wrap { margin-top: var(--_perimeter---margin--margin-xxl); }
 }
 
@@ -1982,6 +2123,12 @@
    ============================================================ */
 
 .secondary-button.fit { width: 100%; min-width: 0; }
+
+/* tighter horizontal padding so the full address fits the narrow card */
+.secondary-button.fit .secondary-btn-text-wrap {
+  padding-left: var(--_perimeter---padding--padding-s);
+  padding-right: var(--_perimeter---padding--padding-s);
+}
 .secondary-button.fit .secondary-btn-text-wrap { min-width: 0; }
 
 .secondary-button.fit .secondary-btn-mask {
@@ -2024,12 +2171,22 @@
   display: flex;
 }
 
-/* the launch card and the positioning line share the bottom of the column */
+/* The launch card and the positioning line hold opposite corners of the
+   row under the headline; flex-end keeps the copy on the baseline of the
+   card rather than floating in the middle of it. */
 .hero-bottom-row {
+  margin-top: var(--_perimeter---margin--margin-xxl);
   gap: var(--_perimeter---gap--gap-9xl);
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
   width: 100%;
+  display: flex;
+}
+
+.hero-bottom-end {
+  gap: var(--_perimeter---gap--gap-4xl);
+  flex-flow: column;
+  align-items: flex-end;
   display: flex;
 }
 
@@ -2037,14 +2194,16 @@
   color: var(--colors--graphite-gray);
   width: 100%;
   max-width: 400px;
+  text-align: right;
 }
 
-/* 288 rather than the reference's 248: our email address is longer than
-   theirs, and truncating a contact address is worse than a wider card. */
+/* 260 is the floor: any narrower and the email address inside the card
+   starts truncating, which is worse than a slightly wider card. */
+.hero-aside { width: 100%; max-width: 260px; display: flex; }
+
 .hero-right {
   width: 100%;
-  max-width: 288px;
-  padding: var(--_perimeter---padding--padding-xxl);
+  padding: var(--_perimeter---padding--padding-xl);
   gap: var(--_perimeter---gap--gap-l);
   border-radius: var(--_border-radius---radius-l);
   background-color: var(--colors--snow-white);
@@ -2052,6 +2211,8 @@
   justify-content: space-between;
   display: flex;
 }
+
+.hero-right-copy { color: var(--colors--steel-gray); }
 
 .hero-cta-image {
   border-radius: var(--_border-radius---radius-l);
@@ -2219,21 +2380,24 @@
 .author-tagline { color: var(--colors--graphite-gray); }
 
 @media screen and (max-width: 991px) {
-  .hero-left { gap: var(--_perimeter---gap--gap-xxxl); max-width: 500px; }
-  .hero-intro-wrap { margin-top: var(--_perimeter---padding--padding-11xl); }
-  .hero-cta-image { height: 120px; }
-  .hero-intro-details-wrap { margin-top: var(--_perimeter---margin--margin-xxl); }
-}
-
-@media screen and (max-width: 767px) {
-  .hero-left { max-width: 100%; }
-  .hero-right { display: none; }
+  .hero-header-wrap { flex-flow: column; }
+  .hero-left { gap: var(--_perimeter---gap--gap-xxxl); max-width: 100%; }
+  .hero-aside { max-width: 100%; }
   .hero-bottom-row {
     gap: var(--_perimeter---gap--gap-8xl);
     flex-flow: column;
     align-items: flex-start;
   }
-  .hero-bottom-copy { max-width: 100%; }
+  .hero-bottom-copy { max-width: 100%; text-align: left; }
+  .hero-intro-wrap { margin-top: var(--_perimeter---padding--padding-11xl); }
+  .hero-right-copy { color: var(--colors--steel-gray); }
+
+.hero-cta-image { height: 120px; }
+  .hero-intro-details-wrap { margin-top: var(--_perimeter---margin--margin-xxl); }
+}
+
+@media screen and (max-width: 767px) {
+  .hero-left { max-width: 100%; }
   .hero-brand-title { max-width: 300px; }
   .hero-brand-list {
     gap: var(--_perimeter---gap--gap-xxl) var(--_perimeter---gap--gap-xxxl);

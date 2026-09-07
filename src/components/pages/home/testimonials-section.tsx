@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useSpring, useTransform } from "framer-motion";
 import { TESTIMONIALS } from "@/lib/data";
 import { useIsDesktop } from "@/lib/use-is-desktop";
@@ -42,14 +42,33 @@ function TestimonialCard({ item }: { item: Testimonial }) {
 }
 
 /**
- * Desktop: a 400vh runway with a sticky viewport, the card row translating
- * horizontally against scroll. Below 992px the runway collapses and the same
- * cards run as a CSS marquee — off the main thread, so it stays smooth while
- * the rest of the page is still loading.
+ * Desktop: the section is a tall runway with a sticky viewport, and the card
+ * row translates sideways as you scroll down it.
+ *
+ * The travel distance is measured, not guessed — `scrollWidth - clientWidth`
+ * is exactly the overflow, so the last card lands flush against the right
+ * edge at 100% progress instead of stopping short or running past.
+ *
+ * Below 992px the runway collapses and the same cards run as a CSS marquee,
+ * which stays smooth while the rest of the page is still loading.
  */
 export default function TestimonialsSection() {
   const wrapRef = useRef<HTMLDivElement>(null);
+  const trackRef = useRef<HTMLDivElement>(null);
   const isDesktop = useIsDesktop();
+  const [distance, setDistance] = useState(0);
+
+  useEffect(() => {
+    const track = trackRef.current;
+    if (!track) return;
+
+    const measure = () => setDistance(Math.max(0, track.scrollWidth - track.clientWidth));
+    measure();
+
+    const observer = new ResizeObserver(measure);
+    observer.observe(track);
+    return () => observer.disconnect();
+  }, [isDesktop]);
 
   const { scrollYProgress } = useScroll({
     target: wrapRef,
@@ -57,8 +76,7 @@ export default function TestimonialsSection() {
   });
 
   const smoothed = useSpring(scrollYProgress, { stiffness: 80, damping: 24, mass: 0.5 });
-  const shift = useTransform(smoothed, [0.1, 0.9], [4, -68], { clamp: true });
-  const transform = useTransform(shift, (v) => `translateX(${v}%)`);
+  const transform = useTransform(smoothed, (v) => `translateX(${-v * distance}px)`);
 
   return (
     <section className="testimonial-v1 ds-root">
@@ -71,7 +89,8 @@ export default function TestimonialsSection() {
 
             <motion.div
               className="testimonial-v1-main-wrap"
-              style={isDesktop ? { transform } : undefined}
+              ref={trackRef}
+              style={isDesktop && distance > 0 ? { transform } : undefined}
             >
               {TESTIMONIALS.map((item) => (
                 <TestimonialCard key={item.name} item={item} />

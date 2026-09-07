@@ -1,5 +1,5 @@
 import { CLIENTS, COMPANY, TESTIMONIALS } from "@/lib/data";
-import { SecondaryButton } from "@/components/ui/ds-button";
+import { PrimaryButton, SecondaryButton } from "@/components/ui/ds-button";
 import { StarBadgeIcon } from "@/components/ui/icons";
 import { ArrowUpRightIcon } from "@/components/ui/accordion-icons";
 import { RotatingText } from "@/components/ui/rotating-text";
@@ -31,8 +31,7 @@ export default function HeroSection() {
               <div className="hero-badge">
                 <StarBadgeIcon />
                 <div className="badge-text-wrap">
-                  <div className="paragraph-03 rating">Rating</div>
-                  <div className="paragraph-03">{COMPANY.stats.clutchRating}</div>
+                  <div className="paragraph-03 rating">Available for work</div>
                 </div>
               </div>
             </Reveal>
@@ -43,59 +42,68 @@ export default function HeroSection() {
                 <RotatingText texts={TAILS} className="text-gray" />
               </h1>
             </Reveal>
-
-            <Reveal index={2} className="hero-bottom-row">
-              <a
-                href="https://mysampark.com"
-                target="_blank"
-                rel="noreferrer"
-                className="hero-launch-card"
-              >
-                <div className="hero-launch-thumb">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src="/mysampark-logo.svg" alt="" className="hero-launch-logo" />
-                </div>
-                <div className="hero-launch-body">
-                  <div className="paragraph-03 hero-launch-eyebrow">New launch</div>
-                  <div className="paragraph-m-01 hero-launch-title">MySampark</div>
-                  <div className="caption hero-launch-copy">
-                    Housing society management, live across India.
-                  </div>
-                </div>
-                {/* same masked slide as the buttons: one glyph leaves, an
-                    identical one arrives */}
-                <span className="hero-launch-arrow">
-                  <span className="hero-launch-arrow-mask">
-                    <ArrowUpRightIcon />
-                    <ArrowUpRightIcon />
-                  </span>
-                </span>
-              </a>
-
-              <p className="paragraph-01 hero-bottom-copy">
-                AI automation, mobile apps and SaaS platforms for teams who need
-                them working in weeks, not quarters.
-              </p>
-            </Reveal>
           </div>
 
-          <Reveal index={3} className="hero-right">
-            <div className="h6-medium hero-title">Have a serious project?</div>
-            <div className="hero-cta-image">
-              <img
-                src="/images/hero/placeholder-card.webp"
-                alt="Saurabh Infosys delivery team"
-                className="fit-cover hero-image"
+          <Reveal index={2} className="hero-aside">
+            <div className="hero-right">
+              <div className="h6-medium hero-title">Have a serious project?</div>
+              <div className="hero-cta-image">
+                <img
+                  src="/images/hero/placeholder-card.webp"
+                  alt="Saurabh Infosys delivery team"
+                  className="fit-cover hero-image"
+                />
+              </div>
+              <SecondaryButton
+                href={`mailto:${COMPANY.email}`}
+                label={COMPANY.email}
+                external
+                className="fit"
               />
             </div>
-            <SecondaryButton
-              href={`mailto:${COMPANY.email}`}
-              label={COMPANY.email}
-              external
-              className="fit"
-            />
           </Reveal>
         </div>
+
+
+        {/* Full-container row: the launch card holds the left corner, the
+            positioning line and CTA hold the right. Outside hero-left so its
+            right edge is the container edge, not the headline column's. */}
+        <Reveal index={3} className="hero-bottom-row">
+          <a
+            href="https://mysampark.com"
+            target="_blank"
+            rel="noreferrer"
+            className="hero-launch-card"
+          >
+            <div className="hero-launch-thumb">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/mysampark-logo.svg" alt="" className="hero-launch-logo" />
+            </div>
+            <div className="hero-launch-body">
+              <div className="paragraph-03 hero-launch-eyebrow">New launch</div>
+              <div className="paragraph-m-01 hero-launch-title">MySampark</div>
+              <div className="caption hero-launch-copy">
+                Housing society management, live across India.
+              </div>
+            </div>
+            {/* same masked slide as the buttons: one glyph leaves, an
+                identical one arrives */}
+            <span className="hero-launch-arrow">
+              <span className="hero-launch-arrow-mask">
+                <ArrowUpRightIcon />
+                <ArrowUpRightIcon />
+              </span>
+            </span>
+          </a>
+
+          <div className="hero-bottom-end">
+            <p className="paragraph-01 hero-bottom-copy">
+              AI automation, mobile apps and SaaS platforms for teams who need
+              them working in weeks, not quarters.
+            </p>
+            <PrimaryButton href="/contact" label="Start a project" />
+          </div>
+        </Reveal>
 
         <div className="hero-intro-wrap">
           <div className="hero-brand-wrap">

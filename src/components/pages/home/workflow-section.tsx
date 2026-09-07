@@ -8,24 +8,24 @@ import { ArrowDownIcon } from "@/components/ui/accordion-icons";
 
 const STEPS = [
   {
-    title: "Scoping and success metrics",
+    title: "Scope and success metrics",
     tags: ["#Week 0", "#Discovery"],
-    copy: "We start by agreeing what success looks like — the metric that moves, the constraints we are working inside, and the timeline. Nothing gets built before that is written down.",
+    copy: "We agree what success looks like before anything gets built: the number that has to move, the constraints we are working inside, and the date. It goes in writing, and it is what we measure against at the end.",
   },
   {
     title: "Architecture and data model",
     tags: ["#Week 1", "#Design"],
-    copy: "The data model and integration surface come next. Getting this right is what lets the product change later without a rewrite, so we spend real time here rather than rushing to screens.",
+    copy: "Next we settle how the data is shaped and where it connects to the systems you already run. Getting this right is what lets the product change later without a rewrite, so we spend real time here instead of rushing to screens.",
   },
   {
-    title: "Build in weekly increments",
+    title: "Build, one week at a time",
     tags: ["#Week 2+", "#Delivery"],
-    copy: "You see working software every week, on a staging URL you can use. Feedback lands in the next increment rather than a change request queue at the end.",
+    copy: "You get working software every week on a staging link you can open and use. Your feedback goes into the next week's build, so nothing waits for a change request queue at the end.",
   },
   {
-    title: "Launch, measure, iterate",
+    title: "Launch, measure, refine",
     tags: ["#Launch", "#Support"],
-    copy: "We ship, instrument, and watch the metric we agreed on. Support and iteration continue past launch — the first version is a starting point, not a handover.",
+    copy: "We ship it, add the tracking, and watch the number we agreed on in week zero. Support and improvements carry on after launch — the first version is where the product starts, not where we hand it over.",
   },
 ];
 
@@ -38,6 +38,9 @@ export default function WorkflowSection() {
     <section className="workflow-v3 ds-root">
       <div className="container">
         <div className="workflow-v3-wrap">
+          <div className="workflow-circle" aria-hidden="true" />
+          <div className="workflow-circle _02" aria-hidden="true" />
+
           <div className="workflow-v3-inner">
             <Reveal>
               <SectionBadge label="Workflow" variant="dark" />

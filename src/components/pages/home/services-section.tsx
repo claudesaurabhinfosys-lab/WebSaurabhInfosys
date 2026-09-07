@@ -6,11 +6,16 @@ import { SERVICES } from "@/lib/data";
 import { SectionBadge } from "@/components/ui/section-badge";
 import { Reveal } from "@/components/ui/reveal";
 import { PlusIcon } from "@/components/ui/accordion-icons";
-import { SecondaryButton } from "@/components/ui/ds-button";
+import { PrimaryButton } from "@/components/ui/ds-button";
 
 export default function ServicesSection() {
-  const [open, setOpen] = useState(0);
+  // `pinned` is what a click or keyboard press selected; `hovered` wins while
+  // the pointer is over a row and falls back to `pinned` on leave. Hover alone
+  // would leave the section unusable on touch and by keyboard.
+  const [pinned, setPinned] = useState(0);
+  const [hovered, setHovered] = useState<number | null>(null);
   const reduce = useReducedMotion();
+  const open = hovered ?? pinned;
 
   return (
     <section className="services-v8 ds-root">
@@ -27,13 +32,17 @@ export default function ServicesSection() {
                 key={service.slug}
                 index={i}
                 className={`services-v8-item${isOpen ? " is-open" : ""}`}
+                onMouseEnter={() => setHovered(i)}
+                onMouseLeave={() => setHovered(null)}
               >
                 <button
                   type="button"
                   className="services-v8-top"
                   aria-expanded={isOpen}
                   aria-controls={`service-panel-${service.slug}`}
-                  onClick={() => setOpen(isOpen ? -1 : i)}
+                  onClick={() => setPinned(isOpen ? -1 : i)}
+                  onFocus={() => setHovered(i)}
+                  onBlur={() => setHovered(null)}
                 >
                   <div className="services-v8-title-wrap">
                     <div className="h3 services-v8-number">
@@ -42,7 +51,7 @@ export default function ServicesSection() {
                     <h3>{service.title}</h3>
                   </div>
                   <div className="services-v8-arrow">
-                    <PlusIcon size={28} />
+                    <PlusIcon size={54} />
                   </div>
                 </button>
 
@@ -54,7 +63,7 @@ export default function ServicesSection() {
                       initial={reduce ? { opacity: 0 } : { height: 0, opacity: 0 }}
                       animate={reduce ? { opacity: 1 } : { height: "auto", opacity: 1 }}
                       exit={reduce ? { opacity: 0 } : { height: 0, opacity: 0 }}
-                      transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+                      transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
                     >
                       <div className="services-v8-bottom-content">
                         {/* TODO: swap the gradient for real service imagery */}
@@ -72,7 +81,7 @@ export default function ServicesSection() {
                               ))}
                             </div>
                           </div>
-                          <SecondaryButton
+                          <PrimaryButton
                             href={`/services/${service.slug}`}
                             label="See details"
                           />

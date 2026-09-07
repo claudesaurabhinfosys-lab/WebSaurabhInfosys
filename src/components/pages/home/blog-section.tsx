@@ -29,13 +29,29 @@ export default function BlogSection() {
           {LATEST.map((post, i) => (
             <Reveal key={post.slug} index={i}>
               <Link href={`/blog/${post.slug}`} className="blog-v6-card">
-                {/* TODO: swap the gradient for each post's cover image */}
-                <div className="blog-v6-image-wrap" />
-                <h3 className="h6-medium blog-v6-title">{post.title}</h3>
-                <p className="paragraph-02 blog-v6-excerpt">{post.excerpt}</p>
-                <div className="blog-v6-more">
-                  <span className="paragraph-03">Read more</span>
-                  <ArrowRightIcon />
+                <div className="blog-v6-image-wrap">
+                  {/* TODO: swap the gradient for each post's cover image */}
+                  <div className="blog-v6-visual" />
+                </div>
+
+                <div className="blog-v6-content">
+                  <h3 className="h6-medium blog-v6-title">{post.title}</h3>
+                  <p className="paragraph-02 blog-v6-excerpt">{post.excerpt}</p>
+                </div>
+
+                <div className="blog-inner-link-wrap">
+                  <div className="read-more-wrap">
+                    <div className="paragraph-03 read-more-title">Read more</div>
+                    <div className="read-more-line" />
+                  </div>
+                  {/* two identical glyphs: only the slide reads, the pill
+                      colour carries the change */}
+                  <div className="blog-arrow-wrap">
+                    <div className="blog-arrow-mask">
+                      <ArrowRightIcon />
+                      <ArrowRightIcon />
+                    </div>
+                  </div>
                 </div>
               </Link>
             </Reveal>
