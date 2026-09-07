@@ -157,6 +157,285 @@ export const SERVICES = [
   },
 ];
 
+/** The four stages every engagement runs through, whatever the service. */
+export const SERVICE_PROCESS = [
+  {
+    badge: "Align",
+    number: "01",
+    detail: "We agree the number that has to move, the constraints, and the date — in writing.",
+  },
+  {
+    badge: "Architect",
+    number: "02",
+    detail: "We settle the data model and where it meets the systems you already run.",
+  },
+  {
+    badge: "Build",
+    number: "03",
+    detail: "Working software every week on a staging link you can open and use.",
+  },
+  {
+    badge: "Validate",
+    number: "04",
+    detail: "We measure against the number we agreed, then refine on real usage.",
+  },
+];
+
+export type ServiceDetail = {
+  /** two paragraphs for the overview section */
+  overview: string[];
+  /** the one line on the overview card, beside the CTA */
+  note: string;
+  faqs: { q: string; a: string }[];
+  seo: { title: string; description: string; keywords: string[] };
+};
+
+export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
+  "ai-agents": {
+    overview: [
+      "AI automation is about putting the repetitive parts of your operation — answering the same questions, qualifying the same leads, moving the same data between systems — onto agents that run without anyone watching them.",
+      "We build the agent, connect it to the tools you already run, and hand over something your team can operate: WhatsApp bots, RAG knowledge bases, voice agents in Hindi and English, and GPT integrations into your existing CRM or ERP.",
+    ],
+    note: "Most agents go live in 2–3 weeks. Simple WhatsApp bots ship in under a week.",
+    faqs: [
+      {
+        q: "What AI automation services does Saurabh Infosys offer?",
+        a: "We build WhatsApp automation bots, RAG knowledge base systems, voice agents, lead qualification bots, and custom AI workflows that automate your business operations 24/7.",
+      },
+      {
+        q: "Can you integrate AI into my existing software or CRM?",
+        a: "Yes. We specialise in AI integration — connecting GPT-4o, LangChain, and custom AI models to your existing CRM, ERP, WhatsApp, or any business tool via APIs.",
+      },
+      {
+        q: "How long does it take to build and deploy an AI agent?",
+        a: "Most AI agents go live within 2–3 weeks. Simple WhatsApp bots can be ready in under a week. Complex RAG systems or voice agents typically take 3–4 weeks.",
+      },
+      {
+        q: "What is the cost of AI automation services in India?",
+        a: "AI automation projects start from ₹50,000 depending on complexity. WhatsApp bots, CRM integrations, and RAG systems are priced based on scope. Contact us on WhatsApp for a free quote.",
+      },
+    ],
+    seo: {
+      title: "AI Automation & AI Integration Services India | Saurabh Infosys",
+      description:
+        "Top AI automation & AI integration company in India. Build WhatsApp bots, RAG systems, voice agents & integrate AI into your existing software. 80+ clients, 4.9★ Clutch. Ahmedabad.",
+      keywords: [
+        "AI automation services India",
+        "AI integration services India",
+        "AI automation company Ahmedabad",
+        "WhatsApp bot development India",
+        "RAG knowledge base India",
+        "voice agent development India",
+        "ChatGPT integration India",
+        "AI chatbot development India",
+      ],
+    },
+  },
+
+  "vibe-coding": {
+    overview: [
+      "Vibe coding is AI-accelerated development: the AI does the heavy lifting on scaffolding, UI and boilerplate, and our engineers spend their time on the decisions that actually determine whether the product works.",
+      "The result is a production-ready MVP in two weeks rather than two months — auth, payments, an admin dashboard and the full source code, all yours at handover.",
+    ],
+    note: "MVPs from ₹75,000, delivered in 14 days with full source code.",
+    faqs: [
+      {
+        q: "What is vibe coding?",
+        a: "Vibe coding is an AI-accelerated software development approach where AI tools do heavy lifting — writing code, generating UI, and scaffolding backends — allowing developers to ship 5–10x faster. Saurabh Infosys uses vibe coding to deliver production-ready MVPs in just 2 weeks.",
+      },
+      {
+        q: "How much does MVP development cost in India?",
+        a: "Our MVP development starts from ₹75,000 and includes a fully production-ready app, admin dashboard, payment integration, and full source code — delivered in 14 days.",
+      },
+      {
+        q: "What are AI-enabled apps?",
+        a: "AI-enabled apps are mobile or web applications with built-in AI features — smart search, AI chatbots, personalised recommendations, automation, or document processing. We build AI-enabled apps for startups and enterprises across India, UK, USA and the Gulf.",
+      },
+      {
+        q: "How fast can you build an AI-enabled app?",
+        a: "Using vibe coding and AI-accelerated development, we can ship a basic AI-enabled app in 2 weeks. Apps with advanced AI features like RAG, voice, or custom models typically take 3–5 weeks.",
+      },
+    ],
+    seo: {
+      title: "Vibe Coding & AI-Enabled App Development India | ₹75,000 | Saurabh Infosys",
+      description:
+        "India's #1 vibe coding studio — ship AI-enabled apps & MVPs in 2 weeks from ₹75,000. AI-accelerated development using latest AI tools. Trusted by startups across India, UK & USA.",
+      keywords: [
+        "vibe coding India",
+        "AI enabled app development India",
+        "MVP development India",
+        "rapid MVP development India",
+        "AI-accelerated development",
+        "build MVP 2 weeks",
+        "startup MVP India",
+        "AI app development Ahmedabad",
+      ],
+    },
+  },
+
+  flutter: {
+    overview: [
+      "One Flutter codebase gives you iOS and Android without running two teams, two backlogs and two release cycles — which is why the apps we have shipped this way reach 30,000+ users across 20 countries.",
+      "We take it the whole way: architecture, offline-first data, push notifications, the backend it talks to, and the store listings on both App Store and Play Store.",
+    ],
+    note: "From a first build to a store listing, or a rewrite of the native app you already have.",
+    faqs: [
+      {
+        q: "Why build with Flutter instead of native iOS and Android?",
+        a: "One Flutter codebase ships to both platforms, so you fund one team and one release cycle instead of two. For most business and consumer apps the performance is indistinguishable from native, and the saved budget goes into the product instead of into duplicated work.",
+      },
+      {
+        q: "Do you handle App Store and Play Store deployment?",
+        a: "Yes. We handle the full release: developer accounts, signing, store listings, screenshots, review submissions, and the updates after launch.",
+      },
+      {
+        q: "Can you take over an existing app?",
+        a: "Yes. We migrate legacy native apps to a single Flutter codebase, and we also pick up half-finished Flutter projects — we start by reading the code and telling you honestly what is salvageable.",
+      },
+      {
+        q: "Does the app work without a connection?",
+        a: "Where it should. We build offline-first where the use case needs it — data is cached locally and synced when the connection returns, so field staff and low-signal users are not blocked.",
+      },
+    ],
+    seo: {
+      title: "Flutter App Development Company India | iOS & Android | Saurabh Infosys",
+      description:
+        "Cross-platform iOS & Android Flutter apps by India's top Flutter developers. Trusted by 30K+ users globally. Deployed to App Store & Play Store. Ahmedabad, India.",
+      keywords: [
+        "Flutter app development India",
+        "Flutter developer Ahmedabad",
+        "iOS Android app development",
+        "cross-platform mobile app India",
+        "Flutter app company Gujarat",
+        "mobile app development India",
+        "hire Flutter developer India",
+      ],
+    },
+  },
+
+  gps: {
+    overview: [
+      "Fleet software earns its keep in the details: where every vehicle is right now, which driver is braking hard, which route burns fuel it does not need to, and when the next service is due.",
+      "We build that as one dashboard on live GPS data — geo-fence alerts to WhatsApp or SMS, driver scoring, route optimisation and maintenance logs — for transport operators, delivery fleets and school buses.",
+    ],
+    note: "Currently tracking 200+ vehicles in production, with real-time data and no downtime.",
+    faqs: [
+      {
+        q: "Which GPS hardware does the system work with?",
+        a: "We integrate with standard GPS trackers that report over GPRS or 4G, so you are not locked to one vendor. If you already have devices fitted, we work with those rather than asking you to replace the fleet.",
+      },
+      {
+        q: "How live is the tracking?",
+        a: "Positions stream continuously to a live map — no page refresh. Update frequency depends on the device and your data plan, and is typically a few seconds.",
+      },
+      {
+        q: "Can parents or customers see the tracking?",
+        a: "Yes. School transport gets a parent-facing view with arrival alerts, and delivery fleets can share a live tracking link with the end customer automatically.",
+      },
+      {
+        q: "How long does a fleet system take to build?",
+        a: "A working tracking dashboard is usually live in about 2 weeks. Analytics, driver scoring and maintenance modules are layered on after that, in the order they matter to you.",
+      },
+    ],
+    seo: {
+      title: "GPS Fleet Tracking & Management Software India | Saurabh Infosys",
+      description:
+        "Custom real-time GPS fleet tracking systems for logistics, transport & delivery companies. Live maps, driver behaviour analytics, route optimisation. Built in India.",
+      keywords: [
+        "GPS fleet management India",
+        "fleet tracking software India",
+        "vehicle tracking system",
+        "GPS tracking Ahmedabad",
+        "fleet management software Gujarat",
+        "real-time GPS tracking",
+        "logistics software India",
+        "transport management system India",
+      ],
+    },
+  },
+
+  saas: {
+    overview: [
+      "We run three SaaS products of our own, so the parts teams usually discover late — tenant isolation, billing edge cases, the admin tooling support actually needs — are things we have already been on the wrong side of.",
+      "That experience goes into what we build for you: multi-tenant architecture, subscription billing, role-based access, an admin dashboard, and an API-first core that does not need a rewrite when the second big customer arrives.",
+    ],
+    note: "We build what we operate — SSMS, MySociety and MySampark are all ours.",
+    faqs: [
+      {
+        q: "What does multi-tenant actually mean for my product?",
+        a: "Every customer's data is isolated from every other customer's while sharing one deployment. It is what lets you onboard the tenth client without standing up a tenth server — and it is far cheaper to build in at the start than to retrofit later.",
+      },
+      {
+        q: "Which payment and billing systems do you integrate?",
+        a: "Razorpay and Stripe are the usual choices depending on whether you are billing in India or internationally. We wire subscriptions, plan changes, failed-payment handling and invoicing, not just the checkout.",
+      },
+      {
+        q: "Do I own the code?",
+        a: "Yes. You get the full source, the infrastructure configuration, and a handover your own team can pick up. Nothing is locked to us.",
+      },
+      {
+        q: "Can you take a SaaS product that already exists and scale it?",
+        a: "Yes. We audit the current architecture first and tell you what is holding it back, then work through it in priority order rather than proposing a rewrite by default.",
+      },
+    ],
+    seo: {
+      title: "SaaS Platform Development Company India | Multi-Tenant | Saurabh Infosys",
+      description:
+        "We build multi-tenant SaaS platforms with subscription billing, RBAC & scalable cloud infra. We operate 3 live SaaS products ourselves — so we build what works.",
+      keywords: [
+        "SaaS development India",
+        "multi-tenant SaaS India",
+        "SaaS platform development",
+        "subscription billing software India",
+        "SaaS developer Ahmedabad",
+        "cloud software development India",
+        "B2B SaaS development",
+      ],
+    },
+  },
+
+  "digital-marketing": {
+    overview: [
+      "Reaching your customer list should not cost more than the margin on the sale. We build the tooling that sends bulk WhatsApp, SMS and email at per-message rates, with the contact management and analytics around it.",
+      "It runs on MySampark, our own marketing platform — so the campaign builder, the delivery reporting and the developer API are software we operate daily rather than a stack we resell.",
+    ],
+    note: "WhatsApp from ₹0.35, SMS from ₹0.12, email from ₹0.02 per message. No monthly fee.",
+    faqs: [
+      {
+        q: "How much does bulk WhatsApp marketing cost?",
+        a: "Pricing is per message — WhatsApp from ₹0.35, SMS from ₹0.12 and email from ₹0.02 — with no monthly platform fee, so a campaign costs what you actually send.",
+      },
+      {
+        q: "Is this compliant with WhatsApp Business policy?",
+        a: "Campaigns run through the official WhatsApp Business API with approved message templates and opt-in handling. That is the difference between a channel that keeps working and a number that gets blocked.",
+      },
+      {
+        q: "Can it connect to my CRM or online store?",
+        a: "Yes. There is a developer API for pushing contacts and triggering campaigns, so orders, signups or CRM stage changes can fire messages without anyone exporting a spreadsheet.",
+      },
+      {
+        q: "Can I run this under my own brand?",
+        a: "Yes. Agencies and resellers run white-labelled versions of the platform for their own client base.",
+      },
+    ],
+    seo: {
+      title: "Bulk WhatsApp & SMS Marketing Platform India | Saurabh Infosys",
+      description:
+        "Send bulk WhatsApp, SMS & email campaigns at India's lowest rates. Pay-per-use from ₹0.02/message. No monthly fee. Powered by MySampark — trusted by SMBs across India.",
+      keywords: [
+        "bulk WhatsApp marketing India",
+        "SMS marketing India",
+        "bulk SMS India",
+        "WhatsApp Business API India",
+        "email marketing India",
+        "digital marketing automation India",
+        "bulk messaging platform India",
+        "MySampark",
+      ],
+    },
+  },
+};
+
 export const PRODUCTS = [
   {
     slug: "ssms",

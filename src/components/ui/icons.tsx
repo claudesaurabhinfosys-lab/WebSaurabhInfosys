@@ -72,6 +72,33 @@ export function MenuIcon({ open }: { open: boolean }) {
   );
 }
 
+/**
+ * The 313px ring of mono type behind the testimonial cards. `textLength` is
+ * the circle's exact circumference (2π × 136), so the label always closes the
+ * loop seamlessly whatever the font metrics do.
+ */
+export function QuoteRingIcon() {
+  return (
+    <svg
+      className="testimonials-v1-circle"
+      width="313"
+      height="313"
+      viewBox="0 0 314 314"
+      fill="none"
+      aria-hidden="true"
+    >
+      <defs>
+        <path id="quote-ring-path" d="M157 21a136 136 0 1 1-.1 0" fill="none" />
+      </defs>
+      <text className="testimonials-v1-ring-text">
+        <textPath href="#quote-ring-path" textLength="854" lengthAdjust="spacing">
+          Testimonials · Testimonials · Testimonials ·
+        </textPath>
+      </text>
+    </svg>
+  );
+}
+
 /** 60px white circle with a diagonal up-right arrow — the work card hover badge. */
 export function WorkArrowIcon() {
   return (

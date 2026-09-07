@@ -2,18 +2,31 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { COMPANY } from "@/lib/data";
 import { PrimaryButton } from "@/components/ui/ds-button";
 import { GlobeIcon, MenuIcon } from "@/components/ui/icons";
 
-const NAV_LINKS = [
+const NAV_LINKS_BEFORE = [
   { label: "About", href: "/about" },
   { label: "Works", href: "/portfolio" },
-  { label: "Services", href: "/services" },
-  { label: "Blog", href: "/blog" },
-  { label: "Products", href: "/products/ssms" },
+];
+
+const NAV_LINKS_AFTER = [{ label: "Blog", href: "/blog" }];
+
+const SERVICES_DROPDOWN = [
+  { label: "All Services", href: "/services" },
+  { label: "AI Automation", href: "/services/ai-agents" },
+  { label: "Vibe Coding", href: "/services/vibe-coding" },
+  { label: "Flutter Apps", href: "/services/flutter" },
+  { label: "SaaS Platforms", href: "/services/saas" },
+];
+
+const PRODUCTS_DROPDOWN = [
+  { label: "SSMS — School ERP", href: "/products/ssms" },
+  { label: "MySociety", href: "/products/mysociety" },
+  { label: "MySampark", href: "/products/mysampark" },
 ];
 
 const MOBILE_PAGES = [
@@ -40,6 +53,79 @@ const MOBILE_PRODUCTS = [
   { label: "USA", href: "/usa" },
   { label: "Singapore", href: "/singapore" },
 ];
+
+type NavItem = { label: string; href: string };
+
+const renderLink = (isCurrent: (href: string) => boolean) => (item: NavItem) => (
+  <Link
+    key={item.href}
+    href={item.href}
+    className={`menu-link${isCurrent(item.href) ? " is-current" : ""}`}
+  >
+    {item.label}
+  </Link>
+);
+
+/** Hover/focus-driven flyout. Opens on mouse enter or keyboard focus,
+ *  closes on mouse leave, blur outside the panel, or Escape (which also
+ *  returns focus to the trigger). */
+function NavDropdown({
+  label,
+  href,
+  items,
+  isCurrent,
+}: {
+  label: string;
+  href: string;
+  items: NavItem[];
+  isCurrent: (href: string) => boolean;
+}) {
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+  const toggleRef = useRef<HTMLAnchorElement>(null);
+  const panelId = `nav-dropdown-${useId()}`;
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false);
+        toggleRef.current?.focus();
+      }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
+
+  return (
+    <div
+      ref={rootRef}
+      className="nav-dropdown"
+      onMouseEnter={() => setOpen(true)}
+      onMouseLeave={() => setOpen(false)}
+      onFocus={() => setOpen(true)}
+      onBlur={(e) => {
+        if (!rootRef.current?.contains(e.relatedTarget as Node)) setOpen(false);
+      }}
+    >
+      <Link
+        ref={toggleRef}
+        href={href}
+        className={`menu-link nav-dropdown-toggle${isCurrent(href) ? " is-current" : ""}`}
+        aria-haspopup="true"
+        aria-expanded={open}
+        aria-controls={panelId}
+      >
+        {label}
+      </Link>
+      <div className="nav-dropdown-list" id={panelId} data-open={open}>
+        <div className="nav-dropdown-list-inner">
+          <div className="dropdown-menu-wrap">{items.map(renderLink(isCurrent))}</div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 /** "GMT 8:23" — ticks every 30s, rendered only after mount so SSR and
  *  client markup can never disagree. */
@@ -97,15 +183,7 @@ export default function Navbar() {
   const isCurrent = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href);
 
-  const link = (item: { label: string; href: string }) => (
-    <Link
-      key={item.href}
-      href={item.href}
-      className={`menu-link${isCurrent(item.href) ? " is-current" : ""}`}
-    >
-      {item.label}
-    </Link>
-  );
+  const link = renderLink(isCurrent);
 
   return (
     <section id="Navbar" className="navbar ds-root">
@@ -118,7 +196,23 @@ export default function Navbar() {
             </Link>
 
             <div className="navbar-menu-wrap">
-              <div className="menu-list">{NAV_LINKS.map(link)}</div>
+              <div className="menu-list">
+                {NAV_LINKS_BEFORE.map(link)}
+                <NavDropdown
+                  label="Services"
+                  href="/services"
+                  items={SERVICES_DROPDOWN}
+                  isCurrent={isCurrent}
+                />
+                {NAV_LINKS_AFTER.map(link)}
+                <NavDropdown
+                  label="Products"
+                  href="/products/ssms"
+                  items={PRODUCTS_DROPDOWN}
+                  isCurrent={isCurrent}
+                />
+              </div>
+              <div className="nav-divider" />
               <GmtClock />
             </div>
           </div>
