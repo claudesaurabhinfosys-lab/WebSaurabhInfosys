@@ -29,7 +29,6 @@ const MENUS = [
       { label: "SSMS — School ERP", href: "/products/ssms" },
       { label: "MySociety", href: "/products/mysociety" },
       { label: "MySampark", href: "/products/mysampark" },
-      { label: "Privacy Policy", href: "/products/mysampark/privacy-policy" },
     ],
   },
 ];
@@ -49,17 +48,25 @@ export default function Footer() {
                 alt="Saurabh Infosys"
                 className="footer-brand"
               />
-              <div className="paragraph-02 footer-brand-title">{COMPANY.tagline}</div>
+              <div className="paragraph-02 footer-brand-title">
+                {COMPANY.tagline}
+              </div>
             </div>
 
             <div className="footer-menu-column">
               <div className="footer-menu-list-wrap">
                 {MENUS.map((menu) => (
                   <div className="footer-menu-group" key={menu.title}>
-                    <div className="paragraph-03 footer-menu-title">{menu.title}</div>
+                    <div className="paragraph-03 footer-menu-title">
+                      {menu.title}
+                    </div>
                     <div className="footer-menu-list">
                       {menu.links.map((link) => (
-                        <Link key={link.href} href={link.href} className="paragraph-02 footer-menu">
+                        <Link
+                          key={link.href}
+                          href={link.href}
+                          className="paragraph-02 footer-menu"
+                        >
                           {link.label}
                         </Link>
                       ))}
@@ -73,12 +80,19 @@ export default function Footer() {
           <div className="footer-bottom-wrap">
             <div className="footer-info-column">
               <div className="footer-info-list">
-                <div className="paragraph-03 footer-info-title">Head office</div>
-                <div className="paragraph-02 footer-menu">{COMPANY.location}</div>
+                <div className="paragraph-03 footer-info-title">
+                  Head office
+                </div>
+                <div className="paragraph-02 footer-menu">
+                  {COMPANY.location}
+                </div>
               </div>
               <div className="footer-info-list">
                 <div className="paragraph-03 footer-info-title">Email</div>
-                <a href={`mailto:${COMPANY.email}`} className="paragraph-02 footer-menu">
+                <a
+                  href={`mailto:${COMPANY.email}`}
+                  className="paragraph-02 footer-menu"
+                >
                   {COMPANY.email}
                 </a>
               </div>
@@ -125,7 +139,8 @@ export default function Footer() {
               © {year} {COMPANY.name}. All rights reserved.
             </div>
             <div className="paragraph-03 copyright-title">
-              {COMPANY.stats.clutchRating}★ on Clutch · {COMPANY.stats.clients} clients
+              {COMPANY.stats.clutchRating}★ on Clutch · {COMPANY.stats.clients}{" "}
+              clients
             </div>
           </div>
         </div>
