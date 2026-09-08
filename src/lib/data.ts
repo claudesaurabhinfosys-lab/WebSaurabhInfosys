@@ -546,6 +546,12 @@ export const CLIENTS = [
   },
 ];
 
+/** One titled prose block on a case study page, between two images. */
+export interface CaseStudySection {
+  title: string;
+  body: string;
+}
+
 export interface PortfolioProject {
   id: number;
   slug: string;
@@ -554,6 +560,26 @@ export interface PortfolioProject {
   description: string;
   tech: string[];
   highlights: string[];
+
+  /* ---- Case study fields, all optional -------------------------------
+     /portfolio/<slug> renders whatever is present and drops the row or
+     block when it is not. Nothing here is inferred or filled in with a
+     placeholder — an empty field means we do not have that fact yet.
+
+     client / location / year / url   extra rows in the spec table
+     overview                         the opening statement; falls back
+                                      to `description`
+     sections                         titled prose between the images
+     images                           real project shots, in page order:
+                                      hero, then one per slot. Falls back
+                                      to the shared placeholder pool.     */
+  client?: string;
+  location?: string;
+  year?: string;
+  url?: string;
+  overview?: string;
+  sections?: CaseStudySection[];
+  images?: string[];
 }
 
 export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
@@ -619,7 +645,7 @@ export type ContentBlock =
   | { type: "h2"; text: string }
   | { type: "ul"; items: string[] };
 
-interface BlogPostData {
+export interface BlogPostData {
   slug: string;
   title: string;
   category: string;
@@ -1516,3 +1542,173 @@ export const HOME_FAQS = [
       "Absolutely. We regularly integrate into existing CRMs, ERPs, and codebases — including fixing and extending apps originally built with AI tools like Lovable, Bolt, or Cursor. Share your repo and we'll assess it within 24 hours.",
   },
 ];
+
+/* ============================================================
+   About page content.
+
+   Every string here is lifted verbatim from the previous
+   /about page — it is copy Saurabh Infosys already published,
+   not new writing. The reference's awards table and team grid
+   had no equivalent in our content, so the awards section is
+   dropped and the team grid carries MARKETS instead.
+   ============================================================ */
+
+export interface AboutMarket {
+  flags: string;
+  name: string;
+  tagline: string;
+  desc: string;
+}
+
+/** The five regions we sell into. Renders in the team-v1 grid. */
+export const ABOUT_MARKETS: AboutMarket[] = [
+  {
+    flags: "🇮🇳",
+    name: "India",
+    tagline: "Domestic Market",
+    desc: "SMBs, startups, schools, and housing societies across Gujarat, Delhi, and Mumbai. Our roots and our largest market.",
+  },
+  {
+    flags: "🇬🇧🇩🇪🇧🇪🇭🇷",
+    name: "Europe",
+    tagline: "European Markets",
+    desc: "UK, Germany, Belgium, and Croatia clients seeking world-class software at startup-friendly prices. SaaS platforms, mobile apps, and AI integrations.",
+  },
+  {
+    flags: "🇸🇬🇲🇾🇭🇰",
+    name: "Asia Pacific",
+    tagline: "APAC Markets",
+    desc: "Singapore, Malaysia, and Hong Kong clients across healthcare, logistics, and fintech. Time-zone aligned and English-first.",
+  },
+  {
+    flags: "🇺🇸",
+    name: "Americas",
+    tagline: "North America",
+    desc: "US clients who want Silicon Valley quality at a fraction of the cost. Startups and scale-ups building AI-enabled products fast.",
+  },
+  {
+    flags: "🇦🇪🇸🇦",
+    name: "Gulf Region",
+    tagline: "Middle East",
+    desc: "UAE, Saudi Arabia, and broader GCC clients. Fintech, retail tech, and enterprise software.",
+  },
+];
+
+/**
+ * The principles that guide our work. Renders in the beliefs carousel.
+ *
+ * Each one is drawn from something already true and already published
+ * elsewhere on the site — the shipping-fast-without-cutting-quality line,
+ * the three SaaS products we operate, the English-first team, the 2024 AI
+ * shift, and the same-care-as-our-own promise. Nothing here is a new claim.
+ */
+export const ABOUT_BELIEFS = [
+  {
+    title: "Shipping fast is a discipline, not a shortcut",
+    body: "We move quickly because the foundations are right, not because we skipped them. Speed that creates rework is not speed.",
+  },
+  {
+    title: "We run what we build",
+    body: "Three of our own SaaS products are live and in daily use. Operating them holds us to the same standard we ask of every client project.",
+  },
+  {
+    title: "Communication is part of the deliverable",
+    body: "Every engineer and PM on the team works in English, inside your hours. Software that arrives without context is unfinished work.",
+  },
+  {
+    title: "AI is a tool, not the pitch",
+    body: "We went all-in on AI in 2024 because it solves real problems for real businesses. We use it where it earns its place, not where it makes a better slide.",
+  },
+  {
+    title: "Every project gets the care we would give our own",
+    body: "From first consultation to final delivery, the standard does not move — whether the client is a school in Ahmedabad or a scale-up in London.",
+  },
+];
+
+/**
+ * The Ahmedabad advantages, kept from the previous /about page.
+ *
+ * Nothing renders these today — the beliefs carousel took the principles
+ * above instead. Left here so the copy is not lost if it earns a section.
+ */
+export const ABOUT_ADVANTAGES = [
+  {
+    title: "Cost Advantage",
+    body: "Our rates are 60–70% lower than UK/US agencies with zero compromise on code quality or communication.",
+  },
+  {
+    title: "Timezone Overlap",
+    body: "IST works naturally with UK mornings and Australian afternoons. Gulf clients share near-identical hours.",
+  },
+  {
+    title: "English-First Team",
+    body: "Every engineer and PM on our team communicates fluently in English. No lost-in-translation moments.",
+  },
+  {
+    title: "Top-Tier Talent",
+    body: "Ahmedabad is home to IIM, IIT Gandhinagar, and dozens of top engineering colleges feeding our talent pipeline.",
+  },
+];
+
+export const ABOUT = {
+  /* about-v1 — hero */
+  note: "Ahmedabad, India",
+  badgeLabel: "Clutch rating",
+  /** the odometer: digits roll, suffix is static */
+  heroStat: { value: "4.9", suffix: "★" },
+  heroStatCaption: "Across 33 reviews from 80+ clients",
+  heroTitle:
+    "A full-stack software and AI studio building for teams across India, the UK, Europe, Asia Pacific, the Americas, and the Gulf.",
+  /* the reference plays a showreel here; we have no footage, so the
+     panel carries the positioning line and the social row */
+  panelCopy:
+    "We specialise in AI automation, mobile apps, and SaaS platforms — with an obsession for quality and shipping fast. World-class software, built from India, without compromising on quality or communication.",
+
+  /* identity — the two split-text statements, then the story */
+  identityBadge: "Who we are",
+  identityLead:
+    "Saurabh Infosys is an Ahmedabad-based software and AI studio building applications and digital products for businesses of all sizes. We work with Flutter, React, Next.js, Node.js, and the latest AI platforms.",
+  identitySub:
+    "We work closely with our clients from initial consultation through to final delivery — treating every project with the same care we would our own.",
+  identityBody: [
+    "From our first international project — a Flutter app for a Hong Kong dental lab now serving 30,000+ customers across 20 countries — we have proved that world-class software can be built from India without compromising on quality or communication.",
+    "In 2024 we went all-in on AI. WhatsApp AI bots, agentic workflows, RAG knowledge bases, voice agents — we are building practical AI for Indian and global businesses today.",
+  ],
+
+  /* intro-v1 — the statement and the four counters */
+  introHeading:
+    "Three live SaaS products of our own. Building and operating them keeps us sharp, accountable, and familiar with what it actually takes to ship.",
+  introAuthor: "SSMS · MySociety · MySampark",
+  introAuthorRole: "Products we build and run",
+
+  /* brand-v1 */
+  brandBadge: "Clients",
+
+  /* role-v1 */
+  roleBadge: "Our role",
+  roleLead:
+    "We go beyond writing code. Our role is to help shape direction, bring clarity across teams, and build systems that reduce friction and accelerate meaningful progress.",
+  roleSub:
+    "We embed ourselves into your workflow — working closely with founders, product managers, and engineers to ensure every decision supports long-term product growth.",
+
+  /* workflow */
+  workflowBadge: "Workflow",
+  workflowSteps: [
+    { title: "Align", subtitle: "Goals, scope, and constraints" },
+    { title: "Architect", subtitle: "Research-led product structure" },
+    { title: "Execute", subtitle: "Focused build and systems" },
+    { title: "Validate", subtitle: "Test, refine, and optimise" },
+  ],
+
+  /* team-v1, carrying the markets */
+  marketsBadge: "Markets",
+  marketsHeading: "Built in Ahmedabad, shipping to six markets",
+
+  /* beliefs */
+  beliefsBadge: "Beliefs",
+  beliefsHeading: "Principles that guide our work",
+
+  /* contact-v1 */
+  contactHeading:
+    "Have a project in mind or want to collaborate — let’s get in touch!",
+};
