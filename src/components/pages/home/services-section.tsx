@@ -66,8 +66,15 @@ export default function ServicesSection() {
                       transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
                     >
                       <div className="services-v8-bottom-content">
-                        {/* TODO: swap the gradient for real service imagery */}
-                        <div className="services-v8-image-wrap" />
+                        <div className="services-v8-image-wrap">
+                          {/* eslint-disable-next-line @next/next/no-img-element */}
+                          <img
+                            src={`/images/services/${service.slug}.webp`}
+                            alt={service.title}
+                            className="fit-cover"
+                            loading="lazy"
+                          />
+                        </div>
                         <div className="services-v8-details-wrap">
                           <div>
                             <p className="paragraph-02 services-v8-subtitle">

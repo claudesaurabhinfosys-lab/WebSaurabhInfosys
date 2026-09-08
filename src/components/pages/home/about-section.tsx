@@ -3,7 +3,6 @@ import { Reveal } from "@/components/ui/reveal";
 import { SectionBadge } from "@/components/ui/section-badge";
 import { SplitText } from "@/components/ui/split-text";
 import { PrimaryButton } from "@/components/ui/ds-button";
-import { workImage } from "@/components/pages/portfolio/work-images";
 
 /**
  * about-v5. The heading spans the column, the badge holds the left rail,
@@ -46,11 +45,10 @@ export default function AboutSection() {
           </Reveal>
 
           <div className="about-v5-image-wrap">
-            {/* TODO: a real studio photograph */}
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src={workImage(undefined, 1, 0)}
-              alt="The Saurabh Infosys studio in Ahmedabad"
+              src="/images/about/studio.webp"
+              alt="Tactile craft — hand placing polished stone in ceramic vessel"
               className="fit-cover"
               loading="lazy"
             />

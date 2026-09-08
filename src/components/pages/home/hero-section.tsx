@@ -108,13 +108,16 @@ export default function HeroSection() {
 
             <Reveal delay={0.2} className="hero-aside">
               <div className="hero-right">
-                <div className="h6-medium hero-title">Have a serious project?</div>
+                <div className="h6-medium hero-title">
+                  Have a serious
+                  <br />
+                  project?
+                </div>
                 <div className="hero-cta-image">
-                  {/* TODO: a real photograph of the delivery team */}
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={workImage(undefined, 4, 0)}
-                    alt="The Saurabh Infosys delivery team"
+                    src="/images/hero/contact-card.webp"
+                    alt="Creative directors in natural sunlight against open sky"
                     className="fit-cover hero-image"
                   />
                 </div>

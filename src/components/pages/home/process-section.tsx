@@ -5,7 +5,6 @@ import { HOME_PROCESS } from "@/lib/data";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionBadge } from "@/components/ui/section-badge";
 import { PrimaryButton } from "@/components/ui/ds-button";
-import { workImage } from "@/components/pages/portfolio/work-images";
 
 /**
  * process-v2. Four step cards in a row; the open one widens and shows its
@@ -70,10 +69,9 @@ export default function ProcessSection() {
                     >
                       <div className="process-main-content">
                         <div className="process-image-wrap">
-                          {/* TODO: real imagery per step */}
                           {/* eslint-disable-next-line @next/next/no-img-element */}
                           <img
-                            src={workImage(undefined, i, 0)}
+                            src={`/images/process/step-0${i + 1}.webp`}
                             alt=""
                             className="fit-cover"
                             loading="lazy"
