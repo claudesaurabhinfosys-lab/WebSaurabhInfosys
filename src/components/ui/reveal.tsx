@@ -22,14 +22,21 @@ type RevealProps = HTMLMotionProps<"div"> & {
   index?: number;
   /** extra delay in seconds, added on top of the stagger */
   delay?: number;
-  /** how far into the viewport before it fires */
+  /**
+   * How far into the viewport before it fires.
+   *
+   * Vertical-only on purpose. A bare "-15%" also shrinks the observer
+   * root horizontally by 15% of the viewport width — 216px at 1440 — so
+   * anything narrow sitting against the left or right edge never
+   * intersects and stays parked at opacity 0.
+   */
   margin?: string;
 };
 
 export function Reveal({
   index = 0,
   delay = 0,
-  margin = "-15%",
+  margin = "-15% 0px",
   children,
   ...rest
 }: RevealProps) {

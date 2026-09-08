@@ -1758,3 +1758,261 @@ export const HOME_PROCESS = {
 export const HOME_CLIENTS = {
   heading: "Trusted by teams across four continents",
 };
+
+
+/* ============================================================
+   Product page content, second pass.
+
+   Sourced from the live product sites — sms.saurabhinfosys.com,
+   mysociety.saurabhinfosys.com and mysampark.com — so the wording
+   here is what each product already says about itself.
+
+   Pricing is deliberately absent: these pages send people to the
+   product to see current pricing rather than carrying a second
+   copy of it that can drift.
+   ============================================================ */
+
+export interface ProductPage {
+  /** the mono label beside the hero heading */
+  label: string;
+  /** one line under the label */
+  tagline: string;
+  /** the hero counter: a real, checkable number */
+  stat: { value: string; suffix?: string; label: string };
+  /** intro-v3, the long "what it is" paragraph */
+  overview: string;
+  /** brand-v2 — the apps or channels it spans */
+  worksWith: { heading: string; items: string[] };
+  /** services-v1 — three cards, first ink, second brand tint, third snow */
+  highlights: { title: string; desc: string }[];
+  /** purpose-v1 — why it exists */
+  purpose: { heading: string; paragraphs: string[] };
+  /** statistics-v2 — a line from the product, then the numbers */
+  quote: string;
+  numbers: { value: string; suffix?: string; label: string }[];
+  /** workflow-v2 — how a rollout runs */
+  steps: { label: string; desc: string }[];
+  /** the module table */
+  modules: { name: string; desc: string; role: string }[];
+  /** the FAQ panel; omitted products simply do not render it */
+  faqs?: { q: string; a: string }[];
+}
+
+export const PRODUCT_PAGES: Record<string, ProductPage> = {
+  ssms: {
+    label: "School Management System",
+    tagline: "Transform your school management experience",
+    stat: { value: "24", suffix: "/7", label: "Support and onboarding" },
+    overview:
+      "Our school management platform is designed to simplify every aspect of educational administration. From seamless student enrollment to real-time communication with parents, and efficient resource handling — we empower schools to operate smarter, faster, and more transparently.",
+    worksWith: {
+      heading: "One platform, four dedicated apps",
+      items: ["Admin Portal", "Teacher App", "Staff App", "Parent App", "Student Portal"],
+    },
+    highlights: [
+      {
+        title: "Admin Portal",
+        desc: "Complete control over school operations — admissions, student and staff records, fee collections, transport, and real-time communication, with powerful reporting and customisable settings.",
+      },
+      {
+        title: "Teacher & Staff Apps",
+        desc: "Simplify teaching operations. Attendance, timetables, leave, salary records and class communication, all from a purpose-built app rather than a cut-down version of the admin panel.",
+      },
+      {
+        title: "Parent App",
+        desc: "Parents stay connected anytime — their child's attendance, fees, results and daily timetable in one place, with instant WhatsApp alerts for anything that needs their attention.",
+      },
+    ],
+    purpose: {
+      heading: "Why SSMS is the right choice",
+      paragraphs: [
+        "SSMS provides a secure, intelligent, and user-centric environment that empowers educators, engages students, and simplifies school operations, all while maintaining the highest standards of quality and performance.",
+        "It integrates academic management, communication, finance, and reporting into one cohesive system — ensuring smooth workflows, informed decision-making, and stronger connections across your entire institution. From admissions to alumni, it covers the complete student lifecycle.",
+      ],
+    },
+    quote:
+      "Choosing the right management system can define your institution's future.",
+    numbers: [
+      { value: "8", suffix: "+", label: "Modules across the student lifecycle" },
+      { value: "4", label: "Role-specific apps, not one shared login" },
+      { value: "24", suffix: "/7", label: "Support after go-live" },
+    ],
+    steps: [
+      { label: "Scope", desc: "We map your structure — classes, sections, fee heads and staff roles — before anything is configured." },
+      { label: "Configure", desc: "Workflows, reports and user roles are tailored to how your school already runs, not the other way round." },
+      { label: "Migrate", desc: "Existing student, staff and fee records are imported and checked against your own registers." },
+      { label: "Go live", desc: "Fast implementation with our team on hand, so daily operations are never interrupted." },
+    ],
+    modules: [
+      { name: "Student Management", desc: "Attendance, profiles and academic records in one record per student", role: "Admin · Teacher" },
+      { name: "Seating Management", desc: "Exam and classroom seating plans generated from live rolls", role: "Admin" },
+      { name: "Leave Management", desc: "Student and staff leave requests with an approval trail", role: "Admin · Staff" },
+      { name: "Real-time Communication", desc: "WhatsApp and in-app alerts for attendance, fees and notices", role: "All roles" },
+      { name: "Timetable Overview", desc: "Daily and weekly class schedules, visible to parents and students", role: "Teacher · Parent" },
+      { name: "Salary Management", desc: "Staff salaries, profiles and payroll records", role: "Admin" },
+    ],
+    faqs: [
+      { q: "Who gets their own app?", a: "Four role-specific apps ship with the platform: an Admin Portal with full control and real-time insights, a Teacher App and a Staff App for daily teaching operations, and a Parent App so families can stay connected anytime." },
+      { q: "Can it be customised to how our school runs?", a: "Yes. Workflows, reports and user roles are all adjustable — you can modify settings, fields and options to fit your school's structure rather than changing how you work to fit the software." },
+      { q: "How long does implementation take?", a: "Our team sets the system up to your requirements with minimal disruption to daily operations. Existing student, staff and fee records are imported and checked against your own registers before you go live." },
+      { q: "Does it work on phones?", a: "The interface adapts to desktop, tablet and smartphone, so administrators, teachers and parents can all use it from wherever they are." },
+      { q: "What happens after go-live?", a: "Support continues after launch. You get onboarding, help configuring anything you want to change, and someone to call when you need them." },
+    ],
+  },
+
+  mysociety: {
+    label: "Society Management System",
+    tagline: "Transform your society management experience",
+    stat: { value: "3", label: "Purpose-built apps" },
+    overview:
+      "A complete digital platform connecting admins, members, and staff — making daily operations smoother, faster, and more transparent. From resident management to billing, manage it all from one smart dashboard.",
+    worksWith: {
+      heading: "Three dedicated apps, one platform",
+      items: ["Admin App", "Member App", "Staff App"],
+    },
+    highlights: [
+      {
+        title: "Admin App",
+        desc: "Full society control. Complete setup and structure, user management and role assignment, maintenance billing and tracking, amenities and visitor management, and a reports dashboard.",
+      },
+      {
+        title: "Member App",
+        desc: "Everything residents need. View notices and announcements, book amenities by time-slot, pre-approve visitor entries, track maintenance bills and dues, and follow event schedules.",
+      },
+      {
+        title: "Staff App",
+        desc: "Streamlined daily operations. View assigned maintenance tasks, update status in real time, handle visitor check-in and check-out, and receive admin updates over a secure login.",
+      },
+    ],
+    purpose: {
+      heading: "Why societies trust our platform",
+      paragraphs: [
+        "All operations in one place — manage members, billing, amenities and more from a single platform, with admin, member and staff roles carrying the permissions each actually needs.",
+        "Clear maintenance tracking and payment history means no more confusion over dues. Pre-approved entries and real-time tracking keep the gate organised, and paperless workflows save hours of manual work every week.",
+      ],
+    },
+    quote: "Built by society management experts, designed for simplicity.",
+    numbers: [
+      { value: "8", label: "Modules from setup to analytics" },
+      { value: "3", label: "Role-specific apps" },
+      { value: "0", label: "Paper registers at the gate" },
+    ],
+    steps: [
+      { label: "Register", desc: "Set the society up flat-wise, number-wise or block-wise to match how your complex is actually laid out." },
+      { label: "Onboard", desc: "Add members, staff and roles, with access permissions assigned per role rather than shared." },
+      { label: "Bill", desc: "Generate maintenance bills, track payments and manage dues with a history every resident can see." },
+      { label: "Operate", desc: "Notices, amenity bookings, visitor logs and maintenance tasks run day to day from one dashboard." },
+    ],
+    modules: [
+      { name: "Society Setup", desc: "Register flat-wise, number-wise or block-wise structure", role: "Admin" },
+      { name: "User Management", desc: "Members, staff, roles and access permissions", role: "Admin" },
+      { name: "Maintenance Billing", desc: "Generate bills, track payments and manage dues", role: "Admin · Member" },
+      { name: "Amenities Booking", desc: "Book amenities with time-slot management", role: "Member" },
+      { name: "Visitor Tracking", desc: "Pre-approved entries with check-in and check-out logging", role: "Staff · Member" },
+      { name: "Notices & Events", desc: "Publish notices, schedule events and create polls", role: "Admin · Member" },
+      { name: "Task Management", desc: "Assign maintenance tasks and track completion", role: "Admin · Staff" },
+      { name: "Reports & Analytics", desc: "Comprehensive reports with downloadable data", role: "Admin" },
+    ],
+    faqs: [
+      { q: "How is the society structured in the system?", a: "You can register flat-wise, number-wise or block-wise, so the setup matches how your complex is actually laid out rather than forcing one fixed structure." },
+      { q: "Do residents and staff get their own apps?", a: "Yes — three purpose-built apps. Admins get full society control, members get notices, amenity booking, visitor pre-approval and their bills, and staff get assigned tasks with real-time status updates." },
+      { q: "How does visitor management work?", a: "Entries are pre-approved by residents and logged with check-in and check-out times, so the gate has a record and residents get an alert for every visitor." },
+      { q: "Can we see where maintenance money goes?", a: "Bills, payments and dues are all tracked with a history every resident can see, which removes most of the confusion that comes with manual registers." },
+      { q: "How much manual work does it actually remove?", a: "Notices, bookings, visitor logs and maintenance tasks all move to paperless, automated workflows — the hours normally spent on registers and follow-up messages each week." },
+    ],
+  },
+
+  mysampark: {
+    label: "Social media automation",
+    tagline: "Intelligent auto-replies for every comment",
+    stat: { value: "8", suffix: "+", label: "Platforms and integrations" },
+    overview:
+      "MySampark answers every comment and DM with the real price from your own catalog — then schedules your posts across every platform and keeps the whole conversation in one inbox.",
+    worksWith: {
+      heading: "Connects to the channels you already sell on",
+      items: [
+        "Instagram",
+        "Facebook",
+        "LinkedIn",
+        "X (Twitter)",
+        "Pinterest",
+        "YouTube",
+        "WordPress",
+        "Shopify",
+      ],
+    },
+    highlights: [
+      {
+        title: "Auto DM",
+        desc: "A customer comments a keyword on your post and MySampark sends them a private DM with your message, product link or offer. Works on Instagram and Facebook, around the clock, with no one watching the feed.",
+      },
+      {
+        title: "Knowledge Base",
+        desc: "Teach it your products, pricing and FAQs once. It answers customer questions in comments and DMs with the real price from your own catalog — accurately, and at three in the morning.",
+      },
+      {
+        title: "Unified Inbox",
+        desc: "Facebook and Instagram conversations land in one place with smart replies ready to send, so nobody is switching between apps to keep track of who asked what.",
+      },
+    ],
+    purpose: {
+      heading: "Why MySampark exists",
+      paragraphs: [
+        "Most social tools schedule posts and stop there. The conversation that follows a post — the pricing question, the DM, the lead that goes cold overnight — is where the work actually is, and where it usually gets dropped.",
+        "MySampark handles the whole loop: plan and schedule the campaign, answer the comment with a real price, move it to DM, and keep every thread in one inbox with the analytics to show what worked.",
+      ],
+    },
+    quote:
+      "Auto DM, scheduling and a unified inbox — the whole conversation in one place.",
+    numbers: [
+      { value: "8", suffix: "+", label: "Platforms and integrations connected" },
+      { value: "24", suffix: "/7", label: "Replies without anyone watching the feed" },
+      { value: "1", label: "Inbox for every channel" },
+    ],
+    steps: [
+      { label: "Connect", desc: "Link the accounts you already sell on — Instagram, Facebook, LinkedIn and the rest — in a few minutes." },
+      { label: "Teach", desc: "Load your catalog, pricing and FAQs so replies quote the real number rather than a canned line." },
+      { label: "Automate", desc: "Set the keywords that trigger an Auto DM, and schedule the campaign around them." },
+      { label: "Measure", desc: "Track reach, replies and conversions per channel, and feed what worked into the next campaign." },
+    ],
+    modules: [
+      { name: "Campaigns", desc: "Plan, create and schedule weeks of content across every connected platform", role: "Marketing" },
+      { name: "Instagram Auto DM", desc: "Keyword comments trigger an instant private message", role: "Sales" },
+      { name: "Facebook Auto DM", desc: "The same trigger-to-DM loop on Facebook posts", role: "Sales" },
+      { name: "Knowledge Base", desc: "Your catalog, pricing and FAQs behind every AI reply", role: "Product" },
+      { name: "Unified Inbox", desc: "Facebook and Instagram threads in one place with smart replies", role: "Support" },
+      { name: "Analytics", desc: "Reach, likes, comments, shares and engagement per channel", role: "Marketing" },
+      { name: "Partner Marketing", desc: "Personalise and translate campaigns across a distributor network", role: "Partner" },
+      { name: "Chat Widget", desc: "The same AI answering questions on your own website", role: "Support" },
+    ],
+    faqs: [
+      { q: "What is MySampark?", a: "MySampark is an AI social media automation platform for businesses. It helps teams create campaigns, schedule posts, automate comment-to-DM replies, answer product questions with AI, manage inbox conversations, and track analytics — all from one workspace." },
+      { q: "How does Auto DM work?", a: "When a user comments a specific keyword on your post, MySampark automatically sends them a private DM with your preset message, product link, or offer. This works 24/7 without any manual effort." },
+      { q: "What is AI Product Reply?", a: "You teach MySampark your products, pricing, and FAQs. When customers ask questions in comments or DMs, the AI replies with accurate, on-brand answers instantly — even at 3am." },
+      { q: "Which social media platforms are supported?", a: "MySampark supports Instagram, Facebook, LinkedIn, YouTube, Pinterest, and X (Twitter), plus WordPress and Shopify." },
+      { q: "Can I schedule posts in advance?", a: "Yes — you can plan, create, and schedule weeks of content in advance using MySampark's campaign management tools." },
+      { q: "Does MySampark include a unified inbox?", a: "Yes. The unified AI inbox lets you manage Facebook and Instagram conversations from one place and generate smart replies without switching between apps." },
+      { q: "Can MySampark help capture social media leads?", a: "Absolutely. The AI customer engagement feature turns comments and keyword triggers into instant lead conversations via Auto DM — capturing leads even while you sleep." },
+      { q: "How much time can I save?", a: "MySampark users save 30+ hours every week — 10 hrs on content creation, 15 hrs on customer engagement, 8 hrs on campaign management, and 4 hrs on analytics and reporting." },
+    ],
+  },
+};
+
+
+/* ============================================================
+   Contact page content. The response times are carried over from
+   the previous /contact page.
+   ============================================================ */
+
+export const CONTACT = {
+  heading: "Let's Connect",
+  subtitle: "Have a project in mind or want to collaborate?",
+  /** the embed already used on the old page */
+  mapUrl:
+    "https://maps.google.com/maps?q=XJWP%2BXP+Ahmedabad,+Gujarat&t=&z=17&ie=UTF8&iwloc=&output=embed",
+  channels: [
+    { name: "WhatsApp", detail: "Usually within 2 hours", kind: "whatsapp" as const },
+    { name: "Email", detail: "Within 24 hours", kind: "email" as const },
+    { name: "Phone", detail: "Mon–Sat, 10am–7pm IST", kind: "phone" as const },
+  ],
+};

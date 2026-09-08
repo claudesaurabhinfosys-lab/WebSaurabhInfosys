@@ -5901,3 +5901,1112 @@
   }
   .process-tab-menu { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* ============================================================
+   Product detail — /products/<slug>
+   Ported from about-03 (about-v3, purpose-v1, intro-v3),
+   about-02 (value) and home-03 (pricing-v4).
+
+   Deviation, deliberate: about-v3's main row is a 300vh runway
+   with a sticky image on desktop. The reference already collapses
+   it to a static two-column row at 991, and that static form is
+   what this uses at every width — DESIGN.md 3.3 keeps scroll
+   parallax off body content, and the same call was made when the
+   clients runway came off the home page.
+
+   pricing-v4 is the one dark panel on the page, which is what
+   gives the scroll its single punctuation.
+   ============================================================ */
+
+/* ---- about-v3 — the product hero -------------------------------- */
+
+.about-v3 { padding-top: var(--_perimeter---padding--padding-11xl); }
+
+.about-v3-head-wrap {
+  gap: var(--_perimeter---gap--gap-4xl);
+  justify-content: space-between;
+  align-items: flex-end;
+  display: flex;
+}
+
+.about-v3-head-left { width: 100%; max-width: 580px; }
+
+.about-v3-head-right {
+  gap: var(--_perimeter---gap--gap-xl);
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 354px;
+  display: flex;
+}
+
+.paragraph-03.experience-title {
+  color: var(--colors--gray);
+  text-transform: uppercase;
+}
+
+/* a-37 "About Scroll": across this 300vh runway the sticky plate grows
+   from 55% x 60vh at 30% progress to a full-bleed 100% x 100vh at 72%.
+   Width and height are what the reference animates — a scale() cannot
+   reproduce it because the two axes grow by different amounts, and the
+   point of the move is that the shot re-crops rather than stretches. */
+.about-v3-main-wrap {
+  height: 300vh;
+  margin-top: var(--_perimeter---margin--margin-xxxl);
+  justify-content: flex-end;
+  display: flex;
+  position: relative;
+}
+
+.about-v3-left {
+  width: 100%;
+  max-width: 535px;
+  height: 60vh;
+  padding-top: var(--_perimeter---padding--padding-xxxl);
+  padding-bottom: var(--_perimeter---padding--padding-xxxl);
+  gap: var(--_perimeter---gap--gap-8xl);
+  flex-flow: column;
+  justify-content: space-between;
+  display: flex;
+  position: absolute;
+  inset: 0% auto auto 0%;
+}
+
+.about-v3-right {
+  width: 55%;
+  height: 60vh;
+  padding-top: var(--_perimeter---padding--padding-xxxl);
+  padding-bottom: var(--_perimeter---padding--padding-xxxl);
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+}
+
+.about-v3-image-wrap { border-radius: var(--_border-radius---radius-s); overflow: hidden; }
+
+.about-v3-image-wrap { width: 100%; height: 100%; }
+.about-v3-image-wrap img { width: 100%; height: 100%; display: block; }
+
+.about-button-wrap {
+  gap: var(--_perimeter---gap--gap-l);
+  flex-flow: wrap;
+  display: flex;
+}
+
+.about-statistics-wrap {
+  gap: var(--_perimeter---gap--gap-xxxl);
+  grid-template-columns: 1fr 1fr;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  display: grid;
+}
+
+.about-statistics-details {
+  gap: var(--_perimeter---gap--gap-xl);
+  flex-flow: column;
+  display: flex;
+}
+
+.about-statistics-info {
+  color: var(--colors--gray);
+  text-transform: uppercase;
+}
+
+/* the pill row — who the product is for, and what it connects to */
+.product-pill-row {
+  gap: var(--_perimeter---gap--gap-l);
+  flex-flow: wrap;
+  align-items: center;
+  display: flex;
+}
+
+.hero-v2-badge-wrap {
+  padding: var(--_perimeter---padding--padding-xxl) var(--_perimeter---padding--padding-xxxl);
+  gap: var(--_perimeter---gap--gap-s);
+  border-radius: var(--_border-radius---radius-8xl);
+  background-color: var(--colors--snow-white);
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+}
+
+.point {
+  border-radius: var(--_border-radius---radius-8xl);
+  background-color: var(--colors--brand-accent);
+  flex: none;
+  width: 8px;
+  height: 8px;
+}
+
+/* ---- value — the feature grid ----------------------------------- */
+
+.value { padding-top: var(--_perimeter---padding--padding-13xl); }
+.value-head-wrap { width: 100%; max-width: 645px; }
+
+.value-main-wrap {
+  margin-top: var(--_perimeter---margin--margin-xxxxl);
+  gap: var(--_perimeter---gap--gap-xl);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  display: grid;
+}
+
+.value-list {
+  gap: var(--_perimeter---gap--gap-8xl);
+  flex-flow: column;
+  display: flex;
+}
+
+.value-divider-wrap {
+  gap: var(--_perimeter---gap--gap-xs);
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.value-divider {
+  background-color: var(--colors--brand-accent-light);
+  flex: 1;
+  width: 100%;
+  height: 1px;
+}
+
+.value-dot {
+  background-color: var(--colors--brand-accent);
+  flex: none;
+  width: 5px;
+  height: 6px;
+}
+
+.value-content-wrap {
+  gap: var(--_perimeter---gap--gap-xl);
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+}
+
+/* ---- purpose-v1 — what's included ------------------------------- */
+
+.purpose-v1 { padding-top: var(--_perimeter---padding--padding-13xl); }
+
+.purpose-v1-wrap {
+  padding: var(--_perimeter---padding--padding-10xl) var(--_perimeter---padding--padding-7xl);
+  border-radius: var(--_border-radius---radius-5xl);
+  background-color: var(--colors--snow-white);
+}
+
+.purpose-v1-head-wrap {
+  gap: var(--_perimeter---gap--gap-xxxl);
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+}
+
+.purpose-v1-main-wrap {
+  margin-top: var(--_perimeter---margin--margin-xxxl);
+  gap: var(--_perimeter---gap--gap-5xl);
+  justify-content: space-between;
+  align-items: flex-start;
+  display: flex;
+}
+
+.purpose-v1-image-wrap {
+  border-radius: var(--_border-radius---radius-s);
+  width: 100%;
+  max-width: 450px;
+  height: 506px;
+  overflow: hidden;
+}
+
+.purpose-v1-image-wrap img { width: 100%; height: 100%; display: block; }
+
+.purpose-v1-details-wrap {
+  gap: var(--_perimeter---gap--gap-8xl);
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 460px;
+  display: flex;
+}
+
+.purpose-v1-text-wrap {
+  gap: var(--_perimeter---gap--gap-6xl);
+  flex-flow: column;
+  display: flex;
+}
+
+.included-list {
+  gap: var(--_perimeter---gap--gap-l);
+  flex-flow: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+}
+
+.included-item {
+  gap: var(--_perimeter---gap--gap-l);
+  align-items: center;
+  display: flex;
+}
+
+/* ---- intro-v3 — who it is for ----------------------------------- */
+
+.intro-v3 { padding-top: var(--_perimeter---padding--padding-12xl); }
+
+.intro-v3-wrap {
+  gap: var(--_perimeter---gap--gap-5xl);
+  justify-content: space-between;
+  align-items: flex-start;
+  display: flex;
+}
+
+.intro-v3-left { width: 100%; max-width: 380px; }
+
+.intro-v3-right {
+  gap: var(--_perimeter---gap--gap-8xl);
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 654px;
+  display: flex;
+}
+
+.use-case-grid {
+  gap: var(--_perimeter---gap--gap-xl);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
+  display: grid;
+}
+
+.use-case-item {
+  gap: var(--_perimeter---gap--gap-s);
+  flex-flow: column;
+  padding-top: var(--_perimeter---padding--padding-xxl);
+  border-top: 1px solid var(--colors--cloud-gray);
+  display: flex;
+}
+
+/* ---- pricing-v4 — the dark plan panel --------------------------- */
+
+.pricing-v4 { padding-top: var(--_perimeter---padding--padding-13xl); }
+
+.pricing-v4-head-wrap {
+  gap: var(--_perimeter---gap--gap-5xl);
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: flex;
+}
+
+.pricing-v4-main-wrap {
+  margin-top: var(--_perimeter---margin--margin-xxxl);
+  padding: var(--_perimeter---gap--gap-6xl);
+  gap: var(--_perimeter---gap--gap-s);
+  border-radius: var(--_border-radius---radius-5xl);
+  background-color: var(--colors--midnight-black);
+  grid-template-columns: repeat(var(--pricing-columns, 4), minmax(0, 1fr));
+  display: grid;
+}
+
+.pricing-v4-card {
+  height: 100%;
+  padding: var(--_perimeter---gap--gap-6xl);
+  gap: var(--_perimeter---gap--gap-8xl);
+  border-radius: var(--_border-radius---radius-xl);
+  background-color: var(--colors--charcoal-shadow);
+  flex-flow: column;
+  justify-content: space-between;
+  display: flex;
+}
+
+/* the recommended plan lifts out of the row by going darker, not brighter */
+.pricing-v4-card.bg { background-color: var(--colors--dark-slate); }
+
+.pricing-v4-top {
+  gap: var(--_perimeter---gap--gap-6xl);
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+}
+
+/* The badge only appears on the recommended plan, so without a reserved
+   row it pushes that card's name and price out of line with the rest. */
+.pricing-v4-badge-slot { align-items: center; display: flex; }
+
+/* Cards without the badge carry a hidden copy of it as the spacer, so the
+   row always lines up whatever the badge's box works out to. Reserving a
+   height in CSS instead would mean multiplying by the 140% line-height
+   token, which calc() cannot do. */
+.pricing-v4-badge-slot.is-spacer { visibility: hidden; }
+
+.pricing-v4-details {
+  gap: var(--_perimeter---gap--gap-xxxl);
+  flex-flow: column;
+  display: flex;
+}
+
+.pricing-v4-price-wrap {
+  gap: var(--_perimeter---gap--gap-l);
+  align-items: flex-end;
+  display: flex;
+}
+
+.pricing-v4-original {
+  color: var(--colors--silver-mist);
+  text-decoration: line-through;
+}
+
+.pricing-v4-card .h5,
+.pricing-v4-card .h6-medium { color: var(--colors--white); }
+.pricing-v4-card .paragraph-02 { color: var(--colors--cloud-gray); }
+.pricing-v4-card .paragraph-03 { color: var(--colors--silver-mist); }
+
+.pricing-v4-bottom { display: flex; }
+
+@media screen and (max-width: 991px) {
+  .about-v3-head-wrap { align-items: flex-start; }
+  .about-v3-head-left { max-width: 400px; }
+  .about-v3-head-right { max-width: 500px; }
+  .about-v3-main-wrap {
+    margin-top: var(--_perimeter---margin--margin-xxl);
+    gap: var(--_perimeter---gap--gap-xl);
+  }
+  .about-v3-right { width: 100%; height: 300px; }
+  .about-statistics-wrap { gap: var(--_perimeter---gap--gap-xl); }
+  .about-statistics-details { gap: var(--_perimeter---gap--gap-l); }
+  .value-head-wrap { max-width: 500px; }
+  .value-main-wrap {
+    row-gap: var(--_perimeter---gap--gap-4xl);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .value-list { gap: var(--_perimeter---gap--gap-5xl); }
+  .intro-v3-left { max-width: 300px; }
+  .purpose-v1-wrap {
+    padding-right: var(--_perimeter---padding--padding-4xl);
+    padding-left: var(--_perimeter---padding--padding-4xl);
+  }
+  .purpose-v1-image-wrap { max-width: 400px; height: 400px; }
+  .purpose-v1-text-wrap { gap: var(--_perimeter---gap--gap-l); }
+  .hero-v2-badge-wrap {
+    padding: var(--_perimeter---padding--padding-l) var(--_perimeter---padding--padding-xxl);
+  }
+  .pricing-v4-head-wrap { gap: var(--_perimeter---gap--gap-xxxl); max-width: 400px; }
+  .pricing-v4-main-wrap {
+    padding: var(--_perimeter---padding--padding-xxl);
+    border-radius: var(--_border-radius---radius-xxxl);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .pricing-v4-card {
+    padding: var(--_perimeter---padding--padding-4xl);
+    gap: var(--_perimeter---gap--gap-5xl);
+  }
+  .pricing-v4-details { gap: var(--_perimeter---gap--gap-xl); }
+}
+
+@media screen and (max-width: 767px) {
+  .paragraph-03.experience-title { display: none; }
+  .about-v3-head-wrap { gap: var(--_perimeter---gap--gap-xl); flex-flow: column; }
+  .about-v3-head-left,
+  .about-v3-head-right { max-width: 100%; }
+  .about-v3-main-wrap { flex-flow: column; }
+  .about-v3-left { max-width: 100%; }
+  .about-v3-right { height: 240px; }
+  .about-statistics-wrap { gap: var(--_perimeter---gap--gap-l); }
+  .about-statistics-details { gap: var(--_perimeter---gap--gap-m); }
+  .value-head-wrap { max-width: 400px; }
+  .value-list { gap: var(--_perimeter---gap--gap-4xl); }
+  .value-content-wrap { gap: var(--_perimeter---gap--gap-l); }
+  .intro-v3-wrap { gap: var(--_perimeter---gap--gap-xxxl); flex-flow: column; }
+  .intro-v3-right { max-width: 100%; }
+  .purpose-v1-main-wrap {
+    margin-top: var(--_perimeter---margin--margin-l);
+    gap: var(--_perimeter---gap--gap-10xl);
+    flex-flow: column;
+  }
+  .purpose-v1-image-wrap { max-width: 100%; height: 300px; }
+  .purpose-v1-details-wrap { max-width: 100%; }
+  .hero-v2-badge-wrap {
+    padding: var(--_perimeter---padding--padding-m) var(--_perimeter---padding--padding-xl);
+    gap: var(--_perimeter---gap--gap-xs);
+  }
+  .pricing-v4-main-wrap {
+    padding: var(--_perimeter---padding--padding-m);
+    border-radius: var(--_border-radius---radius-xl);
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .pricing-v4-card {
+    padding: var(--_perimeter---padding--padding-xxxl);
+    border-radius: var(--_border-radius---radius-l);
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .value-main-wrap {
+    gap: var(--_perimeter---gap--gap-xxxl);
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .about-v3-main-wrap {
+    margin-top: var(--_perimeter---margin--margin-xl);
+    gap: var(--_perimeter---gap--gap-9xl);
+  }
+  .about-v3-right { height: 200px; }
+  .about-statistics-wrap { gap: var(--_perimeter---gap--gap-m); }
+  .intro-v3-wrap { gap: var(--_perimeter---gap--gap-xl); }
+  .use-case-grid { grid-template-columns: minmax(0, 1fr); }
+  .purpose-v1-wrap {
+    padding-right: var(--_perimeter---padding--padding-xxl);
+    padding-left: var(--_perimeter---padding--padding-xxl);
+  }
+  .purpose-v1-head-wrap { gap: var(--_perimeter---gap--gap-xl); }
+  .purpose-v1-main-wrap { margin-top: var(--_perimeter---margin--margin-m); }
+  .purpose-v1-image-wrap { height: 200px; }
+  .hero-v2-badge-wrap {
+    padding: var(--_perimeter---padding--padding-s) var(--_perimeter---padding--padding-l);
+    gap: var(--_perimeter---gap--gap-xxs);
+  }
+  .pricing-v4-head-wrap { gap: var(--_perimeter---gap--gap-xl); }
+  .pricing-v4-main-wrap { padding: var(--_perimeter---padding--padding-xs); }
+  .pricing-v4-card {
+    padding-right: var(--_perimeter---padding--padding-xxl);
+    padding-left: var(--_perimeter---padding--padding-xxl);
+  }
+  .pricing-v4-top { gap: var(--_perimeter---gap--gap-8xl); }
+  .pricing-v4-details { gap: var(--_perimeter---gap--gap-l); }
+  .pricing-v4-price-wrap { gap: var(--_perimeter---gap--gap-s); }
+}
+
+/* ============================================================
+   Product detail, second pass — ported from about-03.
+   brand-v2 · services-v1 · statistics-v2 · workflow-v2 ·
+   awards table. about-v3, intro-v3 and purpose-v1 are already
+   above; this only adds what they did not cover.
+
+   Deviation, stated: about-03's workflow-v2 is a 450vh sticky
+   runway driven by the template's own GSAP bundle, which is not
+   served publicly. Rather than invent motion I cannot check
+   against the reference, this builds the same composition in the
+   static form the reference itself falls back to — the split
+   heading with the plate between it, then the step cards on the
+   dark panel. DESIGN.md 3.3 keeps extra scroll runways off body
+   content anyway.
+   ============================================================ */
+
+/* ---- brand-v2 — the "works with" rule --------------------------- */
+
+.brand-v2 { padding-top: var(--_perimeter---padding--padding-12xl); }
+
+.brand-v2-head-wrap {
+  gap: var(--_perimeter---gap--gap-xl);
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.brand-v2-divider {
+  background-color: var(--colors--silver-mist);
+  flex: 1;
+  width: 100%;
+  height: 1px;
+}
+
+/* a-38 "Brand V2 Marquee": the list travels 0 to -100% over 35s and
+   loops. Two copies of the row make the wrap seamless. CSS rather than
+   JS so it keeps running while the page is still loading. */
+.brand-v2-main-wrap {
+  margin-top: var(--_perimeter---padding--padding-7xl);
+  position: relative;
+  overflow: hidden;
+}
+
+.brand-v2-marquee { display: flex; }
+
+.brand-v2-list {
+  gap: var(--_perimeter---gap--gap-xl);
+  flex: none;
+  padding-right: var(--_perimeter---gap--gap-xl);
+  display: flex;
+  animation: brand-v2-scroll 35s linear infinite;
+}
+
+@keyframes brand-v2-scroll {
+  from { transform: translateX(0%); }
+  to { transform: translateX(-100%); }
+}
+
+.brand-v2-shadow {
+  pointer-events: none;
+  background-image: linear-gradient(90deg, var(--colors--white) 10%, transparent);
+  width: 100%;
+  max-width: 124px;
+  position: absolute;
+  inset: 0% auto 0% 0%;
+}
+
+.brand-v2-shadow.right {
+  background-image: linear-gradient(90deg, transparent, var(--colors--white) 90%);
+  inset: 0% 0% 0% auto;
+}
+
+/* no logo files, so each mark is the name set in type */
+.brand-v2-logo {
+  padding: var(--_perimeter---padding--padding-l) var(--_perimeter---padding--padding-4xl);
+  border: 1px solid var(--colors--cloud-gray);
+  border-radius: var(--_border-radius---radius-8xl);
+  font-family: var(--font-family--heading);
+  color: var(--colors--graphite-gray);
+  font-size: var(--_typography---paragraph-02--font-size);
+  line-height: var(--_typography---paragraph-02--line-height);
+  font-weight: var(--font-weight--medium);
+}
+
+/* ---- services-v1 — the three feature cards ---------------------- */
+
+.services-v1 {
+  padding-top: var(--_perimeter---padding--padding-13xl);
+  padding-bottom: var(--_perimeter---padding--padding-12xl);
+}
+
+.services-v1-head-wrap {
+  gap: var(--_perimeter---gap--gap-6xl);
+  justify-content: space-between;
+  display: flex;
+}
+
+.services-v1-left {
+  gap: var(--_perimeter---gap--gap-xxxl);
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 624px;
+  display: flex;
+}
+
+.services-v1-right {
+  width: 100%;
+  max-width: 325px;
+  padding: var(--_perimeter---gap--gap-6xl);
+  gap: var(--_perimeter---gap--gap-xxxl);
+  border-radius: var(--_border-radius---radius-xl);
+  background-color: var(--colors--snow-white);
+  flex-flow: column;
+  justify-content: space-between;
+  display: flex;
+}
+
+/* Each card sticks in turn and the next two start lower, so they
+   stack up as the section scrolls past. */
+.services-v1-main-wrap {
+  margin-top: var(--_perimeter---margin--margin-xxxxl);
+  gap: var(--_perimeter---gap--gap-xl);
+  align-items: flex-start;
+  display: flex;
+}
+
+.services-v1-list {
+  flex: 1;
+  position: sticky;
+  top: 100px;
+}
+
+.services-v1-list._02 { margin-top: 600px; }
+.services-v1-list._03 { margin-top: 1200px; }
+
+.services-v1-card {
+  width: 100%;
+  height: 416px;
+  padding: var(--_perimeter---gap--gap-6xl);
+  gap: var(--_perimeter---gap--gap-5xl);
+  border-radius: var(--_border-radius---radius-xl);
+  background-color: var(--colors--midnight-black);
+  flex-flow: column;
+  justify-content: space-between;
+  display: flex;
+  overflow: hidden;
+}
+
+.services-v1-card.purple { background-color: var(--colors--brand-accent-light); }
+.services-v1-card.white { background-color: var(--colors--snow-white); }
+
+.services-v1-top {
+  gap: var(--_perimeter---gap--gap-m);
+  justify-content: space-between;
+  align-items: flex-start;
+  display: flex;
+}
+
+.services-v1-icon {
+  border-radius: var(--_border-radius---radius-s);
+  background-color: var(--colors--brand-accent);
+  color: var(--colors--white);
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  display: flex;
+}
+
+.services-v1-card.purple .services-v1-icon,
+.services-v1-card.white .services-v1-icon {
+  background-color: var(--colors--white);
+  color: var(--colors--midnight-black);
+}
+
+.services-v1-bottom {
+  gap: var(--_perimeter---gap--gap-11xl);
+  flex-flow: column;
+  display: flex;
+}
+
+.services-v1-title-wrap {
+  gap: var(--_perimeter---gap--gap-l);
+  justify-content: space-between;
+  align-items: flex-end;
+  display: flex;
+}
+
+/* the first card is ink, so its copy and number invert */
+.services-v1-card .paragraph-02 { color: var(--colors--cloud-gray); }
+.services-v1-card .paragraph-03,
+.services-v1-card .h6 { color: var(--colors--white); }
+
+.services-v1-card.purple .paragraph-02,
+.services-v1-card.white .paragraph-02 { color: var(--colors--graphite-gray); }
+.services-v1-card.purple .paragraph-03,
+.services-v1-card.white .paragraph-03,
+.services-v1-card.purple .h6,
+.services-v1-card.white .h6 { color: var(--colors--midnight-black); }
+
+/* ---- statistics-v2 — quote over the stacked numbers ------------- */
+
+.statistics-v2 { padding-top: var(--_perimeter---padding--padding-14xl); }
+
+.statistics-v2-content {
+  gap: var(--_perimeter---gap--gap-8xl);
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  max-width: 770px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  display: flex;
+}
+
+.statistics-v2-list-wrap {
+  margin-top: var(--_perimeter---margin--margin-xxxl);
+  gap: var(--_perimeter---gap--gap-11xl);
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+}
+
+/* a-39 / a-40, 400ms ease: the number lifts from half to full and its
+   label opens underneath. Height is the only property that does this. */
+.statistics-v2-list {
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  display: flex;
+}
+
+.statistics-v2-list .statistics-number-wrap {
+  opacity: 0.5;
+  transition: opacity var(--duration-panel) var(--ease-hover);
+}
+
+.statistics-v2-title-wrap {
+  height: 0;
+  overflow: hidden;
+  transition: height var(--duration-panel) var(--ease-hover);
+}
+
+.paragraph-m-01.statistics-v2-title {
+  max-width: 320px;
+  color: var(--colors--gray);
+  text-align: center;
+}
+
+/* ---- workflow-v2 — the split heading and the step panel --------- */
+
+.workflow-v2 { padding-top: var(--_perimeter---padding--padding-13xl); }
+
+/* a-41 "Workflow Scroll" over a 450vh runway with a sticky 100vh stage:
+     20%  the plate sits at 20% x 15vh, both titles centred and lit
+     35%  the titles fly to -80% / +80% and fade out
+     40%  the plate has grown to 100% x 100vh
+     42%  the step cards enter at +100%
+     80%  the step cards have travelled to -40%                        */
+.workflow-v2-wrap { height: 450vh; position: relative; }
+
+/* The stage clips, so the titles are cut off as they fly to +/-80% and
+   the plate opens to full bleed over the top of them. The reference also
+   fades them out on the way; see the note in product-workflow.tsx. */
+.workflow-v2-sticky {
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  display: flex;
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+}
+
+.workflow-v2-title-wrap { width: 38%; position: absolute; }
+
+.workflow-v2-title-wrap.left {
+  justify-content: flex-end;
+  align-items: center;
+  height: 100vh;
+  display: flex;
+  inset: 0% auto 0% 0%;
+}
+
+.workflow-v2-title-wrap.right {
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  display: flex;
+  inset: 0% 0% 0% auto;
+}
+
+/* The titles are absolutely positioned, so without a z-index they paint
+   over the plate. The plate sits above them and the cards above it. */
+.workflow-v2-title-wrap { z-index: 0; }
+
+.workflow-v2-image-wrap {
+  z-index: 1;
+  border-radius: var(--_border-radius---radius-xxxl);
+  flex-flow: column;
+  justify-content: center;
+  width: 20%;
+  height: 15vh;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.workflow-v2-image-wrap img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  position: absolute;
+  inset: 0;
+}
+
+/* the cards ride on top of the plate as it grows */
+.workflow-v2-list-wrap {
+  z-index: 2;
+  gap: var(--_perimeter---gap--gap-m);
+  display: flex;
+  position: absolute;
+  padding-left: var(--_perimeter---padding--padding-5xl);
+}
+
+/* the static form for below 992, where the runway is switched off */
+.workflow-v2-mobile { display: none; }
+
+.workflow-v2-card {
+  width: 300px;
+  flex: none;
+  padding: var(--_perimeter---padding--padding-4xl);
+  gap: var(--_perimeter---gap--gap-8xl);
+  border-radius: var(--_border-radius---radius-xl);
+  background-color: var(--colors--snow-white);
+  flex-flow: column;
+  justify-content: space-between;
+  min-height: 300px;
+  display: flex;
+}
+
+.workflow-v2-number {
+  color: var(--colors--silver-mist);
+  text-align: center;
+}
+
+/* ---- the module table, from awards-v1 --------------------------- */
+
+.modules { padding-top: var(--_perimeter---padding--padding-13xl); }
+
+.modules-head-wrap {
+  gap: var(--_perimeter---gap--gap-xxxl);
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+}
+
+.modules-main-wrap { margin-top: var(--_perimeter---margin--margin-xxxl); }
+
+.modules-title-wrap,
+.modules-list {
+  gap: var(--_perimeter---gap--gap-m);
+  grid-template-columns: 1fr 1.6fr 0.6fr;
+  align-items: center;
+  display: grid;
+}
+
+.modules-list {
+  padding-top: var(--_perimeter---padding--padding-4xl);
+  padding-bottom: var(--_perimeter---padding--padding-4xl);
+  border-bottom: 1px solid var(--colors--cloud-gray);
+}
+
+.modules-title-wrap { padding-bottom: var(--_perimeter---padding--padding-l); }
+
+@media (hover: hover) and (pointer: fine) {
+  .statistics-v2-list:hover .statistics-number-wrap { opacity: 1; }
+  .statistics-v2-list:hover .statistics-v2-title-wrap { height: 46px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .statistics-v2-list .statistics-number-wrap,
+  .statistics-v2-title-wrap { transition: none; }
+}
+
+@media screen and (max-width: 991px) {
+  .services-v1-head-wrap { gap: var(--_perimeter---gap--gap-xxxl); }
+  .services-v1-left { max-width: 460px; }
+  .services-v1-right { max-width: 280px; padding: var(--_perimeter---padding--padding-4xl); }
+  /* the stagger only reads on a tall viewport; below 992 the cards
+     stack in the normal flow */
+  .services-v1-main-wrap { flex-flow: column; }
+  .services-v1-list { position: static; }
+  .services-v1-list._02,
+  .services-v1-list._03 { margin-top: 0; }
+  .services-v1-card { height: auto; min-height: 340px; }
+  /* the runway is switched off and the static block takes over */
+  .workflow-v2-wrap { height: auto; }
+  .workflow-v2-sticky { height: auto; display: none; position: static; }
+  .workflow-v2-mobile { display: block; }
+  .workflow-v2-list-wrap {
+    margin-top: var(--_perimeter---margin--margin-xxl);
+    gap: var(--_perimeter---gap--gap-m);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    padding-left: 0;
+    display: grid;
+    position: static;
+    transform: none;
+  }
+  .workflow-v2-card { width: 100%; }
+  .brand-v2-main-wrap { margin-top: var(--_perimeter---padding--padding-8xl); }
+  .about-v3-main-wrap {
+    height: auto;
+    gap: var(--_perimeter---gap--gap-xl);
+    justify-content: space-between;
+  }
+  .about-v3-left {
+    height: auto;
+    padding-top: var(--_perimeter---padding--padding-none);
+    padding-bottom: var(--_perimeter---padding--padding-none);
+    position: static;
+  }
+  .about-v3-right {
+    width: 100%;
+    height: 300px;
+    padding-top: var(--_perimeter---padding--padding-none);
+    padding-bottom: var(--_perimeter---padding--padding-none);
+    position: static;
+  }
+  .statistics-v2-list-wrap {
+    gap: var(--_perimeter---gap--gap-8xl);
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .services-v1-head-wrap { flex-flow: column; }
+  .services-v1-left,
+  .services-v1-right { max-width: 100%; }
+  .statistics-v2-list-wrap { gap: var(--_perimeter---gap--gap-9xl); }
+
+  .modules-title-wrap,
+  .modules-list { grid-template-columns: 1fr 1fr; }
+  /* the third column is the least load-bearing, so it goes first */
+  .modules-role { display: none; }
+}
+
+@media screen and (max-width: 479px) {
+  .services-v1-card {
+    padding: var(--_perimeter---padding--padding-4xl);
+    min-height: 300px;
+  }
+  .services-v1-bottom { gap: var(--_perimeter---gap--gap-8xl); }
+  .brand-v2-logo {
+    padding: var(--_perimeter---padding--padding-s) var(--_perimeter---padding--padding-xxl);
+  }
+  .workflow-v2-list-wrap { grid-template-columns: minmax(0, 1fr); }
+  .workflow-v2-card { min-height: 0; gap: var(--_perimeter---gap--gap-5xl); }
+  .about-v3-right { height: 200px; }
+  .modules-title-wrap,
+  .modules-list { grid-template-columns: minmax(0, 1fr); }
+  .modules-list { gap: var(--_perimeter---gap--gap-xs); }
+}
+
+
+/* ---- FAQ, the about-03 panel variant ----------------------------
+   Same accordion as the home FAQ, sat on a snow-white panel with the
+   rows flush to its edges rather than carded individually. */
+
+.faq-wrap.v3 {
+  padding: var(--_perimeter---padding--padding-10xl) var(--_perimeter---gap--gap-6xl);
+  border-radius: var(--_border-radius---radius-5xl);
+  background-color: var(--colors--snow-white);
+}
+
+.faq-wrap.v3 .faq-item {
+  padding-right: var(--_perimeter---padding--padding-none);
+  padding-left: var(--_perimeter---padding--padding-none);
+  background-color: var(--colors--snow-white);
+}
+
+@media screen and (max-width: 991px) {
+  .faq-wrap.v3 {
+    padding-right: var(--_perimeter---padding--padding-5xl);
+    padding-left: var(--_perimeter---padding--padding-5xl);
+    border-radius: var(--_border-radius---radius-xl);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .faq-wrap.v3 {
+    padding-right: var(--_perimeter---padding--padding-xxxl);
+    padding-left: var(--_perimeter---padding--padding-xxxl);
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .faq-wrap.v3 {
+    padding-right: var(--_perimeter---padding--padding-xxl);
+    padding-left: var(--_perimeter---padding--padding-xxl);
+    border-radius: var(--_border-radius---radius-l);
+  }
+}
+
+
+/* ============================================================
+   Contact — /contact, ported from the reference contact page.
+
+   A single centred 914px column: heading, one line of subtitle,
+   then the form. The only motion is the standard reveal, at
+   0.1s on the heading and 0.2s on the form (a-79 / a-80).
+
+   The reference stops there. Ours keeps the channel row and the
+   map that were on the old page — a contact page that does not
+   say how to reach us is missing the job it exists to do.
+   ============================================================ */
+
+.contact { padding-top: var(--_perimeter---padding--padding-13xl); }
+
+.contact-wrap {
+  width: 100%;
+  max-width: 914px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact-main-wrap {
+  padding-top: var(--_perimeter---padding--padding-11xl);
+  gap: var(--_perimeter---gap--gap-8xl);
+  flex-flow: column;
+  display: flex;
+}
+
+.h6-medium.contact-subtitle { color: var(--colors--gray); }
+
+.form-block { margin-bottom: var(--_perimeter---margin--margin-none); }
+
+.success-message,
+.error-message {
+  padding: var(--_perimeter---padding--padding-4xl);
+  border-radius: var(--_border-radius---radius-s);
+}
+
+.success-message {
+  background-color: var(--colors--brand-accent-light);
+  color: var(--colors--midnight-black);
+}
+
+.error-message {
+  background-color: var(--colors--snow-white);
+  color: var(--colors--midnight-black);
+}
+
+/* ---- the channel row and map ---------------------------------- */
+
+.contact-channels {
+  gap: var(--_perimeter---gap--gap-xl);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  display: grid;
+}
+
+.contact-channel {
+  padding: var(--_perimeter---padding--padding-4xl);
+  gap: var(--_perimeter---gap--gap-s);
+  border-radius: var(--_border-radius---radius-xl);
+  background-color: var(--colors--snow-white);
+  flex-flow: column;
+  display: flex;
+  text-decoration: none;
+  transition: background-color var(--duration-hover) var(--ease-hover),
+              transform var(--duration-press) var(--ease-out);
+}
+
+.contact-channel:active { transform: scale(0.99); }
+
+.contact-map {
+  margin-top: var(--_perimeter---margin--margin-xxxxl);
+  border-radius: var(--_border-radius---radius-6xl);
+  height: 420px;
+  overflow: hidden;
+}
+
+.contact-map iframe { width: 100%; height: 100%; border: 0; display: block; }
+
+@media (hover: hover) and (pointer: fine) {
+  .contact-channel:hover { background-color: var(--colors--cloud-gray); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-channel { transition: none; }
+}
+
+@media screen and (max-width: 991px) {
+  .contact { padding-top: var(--_perimeter---padding--padding-11xl); }
+  .contact-main-wrap { padding-top: var(--_perimeter---padding--padding-10xl); }
+  .contact-map { height: 340px; }
+}
+
+@media screen and (max-width: 767px) {
+  .contact-channels { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .contact-map {
+    margin-top: var(--_perimeter---margin--margin-xxl);
+    border-radius: var(--_border-radius---radius-5xl);
+    height: 280px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .contact-channels { grid-template-columns: minmax(0, 1fr); }
+  .contact-map { border-radius: var(--_border-radius---radius-xl); height: 240px; }
+  .ds-root .h6-medium.contact-subtitle {
+    font-size: var(--_typography---paragraph-01--font-size);
+    line-height: var(--_typography---paragraph-01--line-height);
+  }
+}

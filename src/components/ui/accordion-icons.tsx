@@ -1,7 +1,9 @@
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
+  Call02Icon,
   Linkedin01Icon,
   Mail01Icon,
+  Tick02Icon,
   WhatsappIcon,
 } from "@hugeicons/core-free-icons";
 
@@ -74,6 +76,7 @@ const SOCIALS = {
   linkedin: Linkedin01Icon,
   whatsapp: WhatsappIcon,
   email: Mail01Icon,
+  phone: Call02Icon,
 } as const;
 
 export function SocialIcon({ name }: { name: keyof typeof SOCIALS | string }) {
@@ -101,5 +104,18 @@ export function ArrowUpRightIcon({ stroke = "#141414" }: { stroke?: string }) {
         strokeLinejoin="round"
       />
     </svg>
+  );
+}
+
+/** The tick beside each item in a product's included list. */
+export function CheckIcon() {
+  return (
+    <HugeiconsIcon
+      icon={Tick02Icon}
+      size={20}
+      color="currentColor"
+      strokeWidth={2}
+      aria-hidden="true"
+    />
   );
 }
