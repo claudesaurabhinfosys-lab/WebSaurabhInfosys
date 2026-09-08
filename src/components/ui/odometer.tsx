@@ -87,7 +87,11 @@ export function Odometer({
   size?: "h1";
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true, margin: "-15%" });
+  /* Vertical-only margin. A bare "-15%" also shrinks the observer root
+     horizontally by 15% of the viewport width (216px at 1440), and a
+     narrow counter sitting in the left column never intersects it — the
+     roll then never fires and the strip stays parked on its lead digit. */
+  const inView = useInView(ref, { once: true, margin: "-15% 0px" });
 
   const label = `${prefix ?? ""}${value}${suffix ?? ""}`;
   let digitIndex = 0;

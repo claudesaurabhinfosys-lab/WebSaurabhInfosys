@@ -1712,3 +1712,49 @@ export const ABOUT = {
   contactHeading:
     "Have a project in mind or want to collaborate — let’s get in touch!",
 };
+
+/* ============================================================
+   Home page content, second pass.
+
+   The process steps are lifted verbatim from the previous
+   workflow section — copy Saurabh Infosys already published.
+   The about block reuses the /about page's own wording.
+   ============================================================ */
+
+export const HOME_ABOUT = {
+  badge: "About us",
+  heading: "An AI-first software studio built for speed and scale",
+  /** the ink paragraph */
+  lead:
+    "Saurabh Infosys is an Ahmedabad-based software and AI studio building applications and digital products for businesses of all sizes. We work with Flutter, React, Next.js, Node.js, and the latest AI platforms.",
+  /** the second paragraph, scrubbed grey to ink on scroll */
+  sub:
+    "We work closely with our clients from initial consultation through to final delivery — treating every project with the same care we would our own.",
+};
+
+export const HOME_PROCESS = {
+  badge: "Our process",
+  heading: "A delivery model designed for momentum",
+  steps: [
+    {
+      title: "Scope and success metrics",
+      copy: "We agree what success looks like before anything gets built: the number that has to move, the constraints we are working inside, and the date. It goes in writing, and it is what we measure against at the end.",
+    },
+    {
+      title: "Architecture and data model",
+      copy: "Next we settle how the data is shaped and where it connects to the systems you already run. Getting this right is what lets the product change later without a rewrite, so we spend real time here instead of rushing to screens.",
+    },
+    {
+      title: "Build, one week at a time",
+      copy: "You get working software every week on a staging link you can open and use. Your feedback goes into the next week's build, so nothing waits for a change request queue at the end.",
+    },
+    {
+      title: "Launch, measure, refine",
+      copy: "We ship it, add the tracking, and watch the number we agreed on in week zero. Support and improvements carry on after launch — the first version is where the product starts, not where we hand it over.",
+    },
+  ],
+};
+
+export const HOME_CLIENTS = {
+  heading: "Trusted by teams across four continents",
+};

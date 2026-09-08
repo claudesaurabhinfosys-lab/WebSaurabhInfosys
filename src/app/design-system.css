@@ -2303,7 +2303,13 @@
 
 /* 260 is the floor: any narrower and the email address inside the card
    starts truncating, which is worse than a slightly wider card. */
-.hero-aside { width: 100%; max-width: 260px; display: flex; }
+.hero-aside { width: 100%; max-width: 300px; display: flex; }
+
+/* The label is nowrap, so without min-width:0 the flex item refuses to
+   shrink and shoves the arrow chip out of the card. The card is wide
+   enough for our address; this is the guard for a longer one. */
+.hero-right .secondary-btn-text-wrap,
+.hero-right .secondary-btn-mask { min-width: 0; }
 
 .hero-right {
   width: 100%;
@@ -3623,6 +3629,8 @@
 
 .work-v1-image-wrap.xs { height: 360px; }
 .work-v1-image-wrap.xl { height: 650px; }
+/* the hero card row — matches .hero-v3-left so all three sit level */
+.work-v1-image-wrap.sm { height: 330px; }
 
 .work-v1-image {
   width: 100%;
@@ -3779,6 +3787,7 @@
   .work-v1-image-wrap { height: 400px; }
   .work-v1-image-wrap.xs { height: 300px; }
   .work-v1-image-wrap.xl { height: 400px; }
+  .work-v1-image-wrap.sm { height: 300px; }
 }
 
 @media screen and (max-width: 767px) {
@@ -3789,6 +3798,7 @@
   .work-v1-image-wrap { height: 320px; }
   .work-v1-image-wrap.xs { height: 240px; }
   .work-v1-image-wrap.xl { height: 300px; }
+  .work-v1-image-wrap.sm { height: 220px; }
   .work-v1-content-wrap { row-gap: var(--_perimeter---gap--gap-m); }
   .work-v1-details { gap: var(--_perimeter---gap--gap-xs); }
 }
@@ -3805,6 +3815,7 @@
   .work-v1-image-wrap,
   .work-v1-image-wrap.xs,
   .work-v1-image-wrap.xl { height: 220px; }
+  .work-v1-image-wrap.sm { height: 200px; }
   .work-v1-content-wrap {
     margin-top: var(--_perimeter---padding--padding-l);
     row-gap: var(--_perimeter---gap--gap-s);
@@ -5324,4 +5335,569 @@
     font-size: var(--_typography---paragraph-01--font-size);
     line-height: var(--_typography---paragraph-01--line-height);
   }
+}
+
+/* ============================================================
+   Home, second pass — ported from home-03.
+   hero-v3 · about-v5 · work-v5 · brand-v3 · process-v2
+
+   All five are light surfaces, exactly as the reference renders
+   them. That leaves the footer as the only dark panel, so the
+   two-dark-panel rhythm note in DESIGN.md no longer describes
+   this page — see the note there.
+
+   The hero and work cards reuse .work-v1-card / .work-button-wrap
+   from the portfolio index, and the counters reuse
+   .statistics-number-wrap from the about page. Nothing is
+   duplicated; only the new wrappers are here.
+   ============================================================ */
+
+/* ---- hero-v3 ---------------------------------------------------- */
+
+.hero-v3 { padding-top: var(--_perimeter---padding--padding-12xl); }
+
+/* home-01's head row: badge and headline left, the contact card right.
+   The card is the only thing on the page a visitor can act on without
+   scrolling, so it sits at first paint. */
+.hero-v3-head-wrap {
+  gap: var(--_perimeter---gap--gap-5xl);
+  justify-content: space-between;
+  align-items: flex-start;
+  display: flex;
+}
+
+.hero-v3-head-left { width: 100%; max-width: 910px; }
+.hero-v3-main-wrap { margin-top: var(--_perimeter---margin--margin-xxxxl); }
+
+.hero-v3-content-wrap {
+  gap: var(--_perimeter---gap--gap-xxxl);
+  display: flex;
+}
+
+.hero-v3-left {
+  width: 100%;
+  max-width: 447px;
+  height: 330px;
+  padding: var(--_perimeter---gap--gap-6xl);
+  border-radius: var(--_border-radius---radius-xs);
+  background-color: var(--colors--snow-white);
+  flex-flow: column;
+  justify-content: space-between;
+  display: flex;
+}
+
+.hero-v3-left-content {
+  gap: var(--_perimeter---gap--gap-6xl);
+  flex-flow: column;
+  align-items: flex-end;
+  display: flex;
+}
+
+.hero-v3-number-wrap {
+  width: 100%;
+  padding-bottom: var(--_perimeter---padding--padding-l);
+  gap: var(--_perimeter---gap--gap-l);
+  border-bottom: 1px solid var(--colors--cloud-gray);
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+}
+
+.hero-v3-link {
+  padding-bottom: var(--_perimeter---padding--padding-xxxs);
+  gap: var(--_perimeter---gap--gap-xs);
+  justify-content: flex-start;
+  align-items: center;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+}
+
+.paragraph-03.hero-v3-link-title {
+  font-family: var(--font-family--body);
+  font-weight: var(--font-weight--semi-bold);
+}
+
+/* the rule wipes in from the left on hover, same trick as the blog card */
+.hero-v3-link-underline {
+  background-color: var(--colors--midnight-black);
+  width: 100%;
+  height: 1px;
+  position: absolute;
+  inset: auto 0% 0%;
+  transform: translateX(-101%);
+  transition: transform var(--duration-fill) var(--ease-hover);
+}
+
+.hero-v3-right {
+  gap: var(--_perimeter---gap--gap-xxxl);
+  flex: 1;
+  grid-template-columns: 0.6fr 1fr;
+  display: grid;
+}
+
+.work-list,
+.work-item { width: 100%; height: 100%; }
+
+.hero-v3-right .work-button-wrap {
+  transition: opacity var(--duration-panel) var(--ease-hover);
+}
+
+.hero-v3-right .work-v1-image {
+  transition: transform var(--duration-panel) var(--ease-hover);
+}
+
+
+/* ---- about-v5 --------------------------------------------------- */
+
+.about-v5 { padding-top: var(--_perimeter---padding--padding-12xl); }
+.about-v5-wrap { position: relative; }
+.about-v5-head-wrap { width: 100%; max-width: 728px; }
+
+.about-v5-main-wrap {
+  width: 100%;
+  max-width: 920px;
+  margin-top: var(--_perimeter---margin--margin-xxxl);
+  gap: var(--_perimeter---gap--gap-xxxl);
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  display: flex;
+}
+
+.about-v5-left { width: 100%; max-width: 200px; }
+
+.about-v5-right {
+  gap: var(--_perimeter---gap--gap-8xl);
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 454px;
+  display: flex;
+}
+
+.about-v5-copy {
+  gap: var(--_perimeter---gap--gap-6xl);
+  flex-flow: column;
+  display: flex;
+}
+
+.about-v5-image-wrap {
+  border-radius: var(--_border-radius---radius-s);
+  width: 100%;
+  max-width: 214px;
+  height: 214px;
+  position: absolute;
+  inset: 0% 0% auto auto;
+  overflow: hidden;
+}
+
+.about-v5-image-wrap img { width: 100%; height: 100%; display: block; }
+
+/* ---- brand-v3 --------------------------------------------------- */
+
+.brand-v3 {
+  padding-top: var(--_perimeter---padding--padding-12xl);
+  overflow: hidden;
+}
+
+.paragraph-03.brand-v3-heading {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.brand-v3-grid {
+  margin-top: var(--_perimeter---margin--margin-xl);
+  gap: var(--_perimeter---gap--gap-xl);
+  grid-template-columns: repeat(var(--brand-v3-columns, 5), minmax(0, 1fr));
+  display: grid;
+}
+
+.brand-v3-item {
+  padding: var(--_perimeter---padding--padding-xxl);
+  border: 1px solid var(--colors--cloud-gray);
+  border-radius: var(--_border-radius---radius-s);
+  background-color: var(--colors--snow-white);
+  gap: var(--_perimeter---gap--gap-xxs);
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 144px;
+  text-align: center;
+  display: flex;
+  overflow: hidden;
+}
+
+.brand-v3-item.white { background-color: var(--colors--white); }
+
+/* ---- work-v5 ---------------------------------------------------- */
+
+.work-v5 { padding-top: var(--_perimeter---padding--padding-13xl); }
+
+.work-v5-wrap {
+  gap: var(--_perimeter---gap--gap-5xl);
+  justify-content: space-between;
+  display: flex;
+}
+
+.work-v5-head-wrap {
+  gap: var(--_perimeter---gap--gap-xxxl);
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 240px;
+  height: 566px;
+  display: flex;
+  position: sticky;
+  top: 50px;
+}
+
+.work-v5-main-wrap {
+  gap: var(--_perimeter---gap--gap-8xl);
+  flex-flow: column;
+  width: 100%;
+  max-width: 1088px;
+  display: flex;
+}
+
+.work-v5-content {
+  gap: var(--_perimeter---gap--gap-5xl);
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.work-v5-image-wrap {
+  border-radius: var(--_border-radius---radius-xl);
+  width: 100%;
+  height: 528px;
+  position: relative;
+  overflow: hidden;
+}
+
+.work-v5-image-wrap img { width: 100%; height: 100%; display: block; }
+
+.work-v5-left-link {
+  width: 100%;
+  max-width: 790px;
+  text-decoration: none;
+  display: block;
+}
+
+.work-v5-info {
+  margin-top: var(--_perimeter---margin--margin-m);
+  gap: var(--_perimeter---gap--gap-m);
+  justify-content: space-between;
+  align-items: center;
+  display: flex;
+}
+
+.work-v5-card {
+  width: 100%;
+  max-width: 240px;
+  padding: var(--_perimeter---padding--padding-xxxl);
+  gap: var(--_perimeter---gap--gap-6xl);
+  border-radius: var(--_border-radius---radius-xl);
+  background-color: var(--colors--snow-white);
+  flex-flow: column;
+  flex: none;
+  display: flex;
+}
+
+.work-v5-text-wrap {
+  gap: var(--_perimeter---gap--gap-xxs);
+  flex-flow: column;
+  justify-content: center;
+  align-items: flex-start;
+  display: flex;
+}
+
+/* the big title only appears at 479, where the info row collapses */
+.h5.work-v5-title { display: none; }
+
+/* ---- process-v2 ------------------------------------------------- */
+
+.process-v2 { padding-top: var(--_perimeter---padding--padding-13xl); }
+
+.process-v2-head-wrap {
+  gap: var(--_perimeter---gap--gap-xxxl);
+  justify-content: space-between;
+  align-items: flex-end;
+  display: flex;
+}
+
+.process-v2-head-left {
+  gap: var(--_perimeter---gap--gap-6xl);
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  max-width: 594px;
+  display: flex;
+}
+
+.process-v2-head-right { flex: none; }
+.process-v2-main-wrap { margin-top: var(--_perimeter---margin--margin-xxxl); }
+
+.process-tab-menu {
+  gap: var(--_perimeter---gap--gap-xl);
+  display: flex;
+}
+
+/* Each step is a card. The open one widens 18% -> 46% and reveals its
+   image and copy; the closed ones show a vertical step label. */
+.process-tab-link {
+  width: 18%;
+  height: 374px;
+  padding: var(--_perimeter---padding--padding-xxxl);
+  border: 0;
+  border-radius: var(--_border-radius---radius-s);
+  background-color: var(--colors--snow-white);
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: width var(--duration-swap) var(--ease-hover);
+}
+
+.process-tab-link.is-active { width: 46%; }
+
+.process-tab-content {
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity var(--duration-swap) var(--ease-hover),
+              transform var(--duration-swap) var(--ease-hover);
+}
+
+.process-tab-link.is-active .process-tab-content {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.process-main-content { height: 100%; display: flex; }
+
+.process-image-wrap {
+  border-radius: var(--_border-radius---radius-s);
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.process-image-wrap img { width: 100%; height: 100%; display: block; }
+
+.process-content-wrap {
+  width: 50%;
+  padding: var(--_perimeter---padding--padding-xxl);
+  gap: var(--_perimeter---gap--gap-xl);
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  display: flex;
+  overflow: hidden;
+}
+
+.process-details-wrap {
+  gap: var(--_perimeter---gap--gap-l);
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  display: flex;
+}
+
+.process-left-content {
+  padding: var(--_perimeter---padding--padding-xxxl);
+  gap: var(--_perimeter---gap--gap-xl);
+  flex-flow: column;
+  justify-content: space-between;
+  display: flex;
+  position: absolute;
+  inset: 0%;
+  opacity: 1;
+  transition: opacity var(--duration-swap) var(--ease-hover);
+}
+
+.process-tab-link.is-active .process-left-content { opacity: 0; }
+
+@media (hover: hover) and (pointer: fine) {
+  .hero-v3-link:hover .hero-v3-link-underline { transform: translateX(0%); }
+  /* a-8: the pill fades in and the shot pushes to 1.15 */
+  .hero-v3-right .work-link:hover .work-button-wrap { opacity: 1; }
+  .hero-v3-right .work-link:hover .work-v1-image { transform: scale(1.15); }
+  .work-v5-left-link:hover .work-button-wrap { opacity: 1; }
+  .work-v5-left-link:hover .work-v5-image-wrap img { transform: scale(1.15); }
+}
+
+.work-v5-image-wrap img {
+  transition: transform var(--duration-panel) var(--ease-hover);
+}
+
+.process-tab-link:active { transform: scale(0.995); }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-v3-link-underline,
+  .hero-v3-right .work-button-wrap,
+  .hero-v3-right .work-v1-image,
+  .work-v5-image-wrap img,
+  .process-tab-link,
+  .process-tab-content,
+  .process-left-content { transition: none; }
+}
+
+@media screen and (max-width: 991px) {
+  .hero-v3 { padding-top: var(--_perimeter---padding--padding-11xl); }
+  .hero-v3-head-wrap { flex-flow: column; }
+  .hero-v3-head-left { max-width: 600px; }
+  .hero-v3-main-wrap { margin-top: var(--_perimeter---margin--margin-xxl); }
+  .hero-v3-content-wrap { gap: var(--_perimeter---gap--gap-l); }
+  .hero-v3-left {
+    max-width: 280px;
+    height: 300px;
+    padding: var(--_perimeter---padding--padding-4xl);
+  }
+  .hero-v3-right {
+    gap: var(--_perimeter---gap--gap-l);
+    grid-template-columns: 1fr 1fr;
+  }
+  .about-v5-main-wrap {
+    max-width: 100%;
+    margin-top: var(--_perimeter---margin--margin-xxl);
+  }
+  .about-v5-image-wrap { display: none; }
+  .brand-v3-grid {
+    gap: var(--_perimeter---gap--gap-l);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .brand-v3-item { height: 100px; }
+  .work-v5-wrap { gap: var(--_perimeter---gap--gap-none); flex-flow: column; }
+  .work-v5-head-wrap { max-width: 100%; height: auto; position: static; }
+  .work-v5-main-wrap { margin-top: var(--_perimeter---margin--margin-xxl); }
+  .work-v5-image-wrap { height: 350px; }
+  .process-v2-head-left {
+    gap: var(--_perimeter---gap--gap-xxxl);
+    max-width: 500px;
+  }
+  /* below 992 every step is open: the cards become a grid and the
+     vertical step label is dropped */
+  .process-tab-menu {
+    gap: var(--_perimeter---gap--gap-xl);
+    grid-template-columns: 1fr 1fr;
+    display: grid;
+  }
+  .process-tab-link,
+  .process-tab-link.is-active { width: 100%; height: auto; }
+  .process-tab-content { opacity: 1; transform: none; }
+  .process-main-content { flex-flow: column-reverse wrap; justify-content: flex-end; }
+  .process-image-wrap { display: none; }
+  .process-content-wrap {
+    width: 100%;
+    padding: var(--_perimeter---padding--padding-none);
+    gap: var(--_perimeter---gap--gap-8xl);
+  }
+  .process-left-content { display: none; }
+  .ds-root .paragraph-m-01.split-text.sm {
+    font-size: var(--_typography---paragraph-02--font-size);
+    line-height: var(--_typography---paragraph-02--line-height);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .hero-v3-head-left { max-width: 500px; }
+  .hero-v3-content-wrap { flex-flow: column; }
+  .hero-v3-left { max-width: 100%; height: 220px; }
+  .about-v5-left { max-width: 120px; }
+  .brand-v3-grid { gap: var(--_perimeter---gap--gap-m); }
+  .brand-v3-item { border-radius: var(--_border-radius---radius-xs); height: 80px; }
+  .work-v5-content { gap: var(--_perimeter---gap--gap-4xl); }
+  .work-v5-image-wrap { height: 260px; }
+  .work-v5-card {
+    padding: var(--_perimeter---padding--padding-xxl);
+    border-radius: var(--_border-radius---radius-l);
+  }
+  .process-v2-head-wrap {
+    gap: var(--_perimeter---gap--gap-8xl);
+    flex-flow: column;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+  .process-v2-head-left { max-width: 450px; }
+  .process-tab-menu { gap: var(--_perimeter---gap--gap-l); }
+  .process-content-wrap { gap: var(--_perimeter---gap--gap-7xl); }
+  .process-details-wrap { gap: var(--_perimeter---gap--gap-m); }
+  .ds-root .h6.process-title {
+    font-size: var(--_typography---paragraph-01--font-size);
+    line-height: var(--_typography---paragraph-01--line-height);
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .hero-v3-left { height: 200px; }
+  .hero-v3-right {
+    gap: var(--_perimeter---gap--gap-xs);
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .about-v5-head-wrap { display: none; }
+  .about-v5-main-wrap {
+    margin-top: var(--_perimeter---margin--margin-none);
+    flex-flow: column;
+  }
+  .about-v5-left {
+    gap: var(--_perimeter---gap--gap-xxxl);
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    max-width: 100%;
+    display: flex;
+  }
+  .brand-v3-grid {
+    gap: var(--_perimeter---gap--gap-s);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .brand-v3-item {
+    height: 60px;
+    padding-right: var(--_perimeter---padding--padding-xs);
+    padding-left: var(--_perimeter---padding--padding-xs);
+  }
+  .paragraph-03.brand-v3-heading {
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .work-v5-content { flex-flow: column; }
+  .work-v5-image-wrap {
+    border-radius: var(--_border-radius---radius-l);
+    height: 200px;
+  }
+  .work-v5-info { margin-top: var(--_perimeter---padding--padding-l); }
+  .work-v5-info-left {
+    gap: var(--_perimeter---gap--gap-s);
+    flex-flow: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    display: flex;
+  }
+  .work-v5-card { display: none; }
+  .paragraph-03.work-number { display: none; }
+  .ds-root .h5.work-v5-title {
+    font-size: var(--_typography---paragraph-01--font-size);
+    line-height: var(--_typography---paragraph-01--line-height);
+    display: block;
+  }
+  .process-v2-head-left {
+    gap: var(--_perimeter---gap--gap-xl);
+    max-width: 300px;
+  }
+  .ds-root .process-v2-heading {
+    font-size: var(--_typography---h4--font-size);
+    line-height: var(--_typography---h4--line-height);
+  }
+  .process-tab-menu { grid-template-columns: minmax(0, 1fr); }
 }

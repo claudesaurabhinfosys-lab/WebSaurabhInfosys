@@ -7,7 +7,7 @@ const DIM = "#7d7d7d";
 const INK = "#141414";
 
 /* GSAP's stagger maths, mapped onto one scroll progress value — the same
-   derivation as home/intro-section.tsx. A staggered tween of N words runs
+   derivation the removed home intro section used. A staggered tween of N words runs
    for DURATION + STAGGER * (N - 1); word i starts at i * STAGGER into that
    and lasts DURATION. Dividing through by the total gives each word its
    slice of 0 → 1, so the last word finishes exactly at the end of the range
