@@ -61,7 +61,12 @@ function TestimonialCard({ item, offset }: { item: Testimonial; offset: string }
  * Below 992px the ring is hidden and the columns collapse, so the rotation
  * is desktop-only — there is nothing to turn otherwise.
  */
-export default function ServicesTestimonials() {
+export default function ServicesTestimonials({
+  heading = "Trusted by the teams we build for",
+}: {
+  /** country landing pages pass their own line here */
+  heading?: string;
+} = {}) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const isDesktop = useIsDesktop();
   const reduce = useReducedMotion();
@@ -83,9 +88,7 @@ export default function ServicesTestimonials() {
               <SectionBadge label="Testimonials" />
             </Reveal>
             <Reveal index={1}>
-              <h2 className="align-center testimonials-v1-heading">
-                Trusted by the teams we build for
-              </h2>
+              <h2 className="align-center testimonials-v1-heading">{heading}</h2>
             </Reveal>
           </div>
 

@@ -50,8 +50,8 @@ const MOBILE_PRODUCTS = [
   { label: "SSMS — School ERP", href: "/products/ssms" },
   { label: "MySociety", href: "/products/mysociety" },
   { label: "MySampark", href: "/products/mysampark" },
-  { label: "USA", href: "/usa" },
-  { label: "Singapore", href: "/singapore" },
+  { label: "USA", href: "/country/usa" },
+  { label: "Singapore", href: "/country/singapore" },
 ];
 
 type NavItem = { label: string; href: string };

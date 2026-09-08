@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { COUNTRY_SLUGS } from "@/lib/data";
 
 export const dynamic = "force-static";
 
@@ -60,9 +61,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE}/products/mysociety`,                  lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/products/mysampark`,                  lastModified: now, changeFrequency: "monthly", priority: 0.8 },
     { url: `${BASE}/blog`,                                lastModified: now, changeFrequency: "weekly",  priority: 0.9 },
-    { url: `${BASE}/usa`,                                 lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE}/singapore`,                           lastModified: now, changeFrequency: "monthly", priority: 0.9 },
   ];
+
+  const countryPages: MetadataRoute.Sitemap = COUNTRY_SLUGS.map((slug) => ({
+    url: `${BASE}/country/${slug}`,
+    lastModified: now,
+    changeFrequency: "monthly" as const,
+    priority: 0.9,
+  }));
 
   const blogPages: MetadataRoute.Sitemap = BLOG_SLUGS.map((slug) => ({
     url: `${BASE}/blog/${slug}`,
@@ -71,5 +77,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticPages, ...blogPages];
+  return [...staticPages, ...countryPages, ...blogPages];
 }
