@@ -34,11 +34,11 @@ export default function ServicesHero() {
           <div className="services-v2-image-wrap">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/work/placeholder-01.webp"
-              alt="A mobile app interface rendered against a blue studio backdrop"
+              src="/images/services/hero.webp"
+              alt="Six sculptural forms in a row — the six services Saurabh Infosys ships"
               className="fit-cover"
-              width={1080}
-              height={760}
+              width={1644}
+              height={957}
             />
           </div>
 

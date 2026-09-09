@@ -3,7 +3,15 @@ import { SectionBadge } from "@/components/ui/section-badge";
 import { Reveal } from "@/components/ui/reveal";
 import { PrimaryButton } from "@/components/ui/ds-button";
 
-export default function DetailOverview({ detail }: { detail: ServiceDetail }) {
+export default function DetailOverview({
+  detail,
+  slug,
+  title,
+}: {
+  detail: ServiceDetail;
+  slug: string;
+  title: string;
+}) {
   return (
     <section className="services-v4 ds-root">
       <div className="container">
@@ -13,8 +21,17 @@ export default function DetailOverview({ detail }: { detail: ServiceDetail }) {
 
         <Reveal index={1} className="services-v4-wrap">
           <div className="services-v4-left">
-            {/* TODO: swap the gradient for real service imagery */}
-            <div className="services-v4-image-wrap" />
+            <div className="services-v4-image-wrap">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`/images/services/${slug}.webp`}
+                alt={`What ${title} covers at Saurabh Infosys`}
+                className="fit-cover"
+                loading="lazy"
+                width={1536}
+                height={1024}
+              />
+            </div>
 
             <div className="services-v4-details-wrap">
               <h2 className="services-v4-heading">What this service is about</h2>

@@ -29,11 +29,11 @@ export default function DetailHero({ service }: { service: Service }) {
         <Reveal index={2} className="services-image-wrap">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src="/images/work/placeholder-02.webp"
+            src={`/images/services/${service.slug}-hero.webp`}
             alt={`${service.title} at Saurabh Infosys`}
             className="fit-cover"
-            width={1440}
-            height={690}
+            width={1774}
+            height={887}
           />
         </Reveal>
       </div>

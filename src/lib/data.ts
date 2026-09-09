@@ -1558,6 +1558,8 @@ export interface AboutMarket {
   name: string;
   tagline: string;
   desc: string;
+  /** picks `public/images/about/market-<slug>.webp` */
+  slug: string;
 }
 
 /** The five regions we sell into. Renders in the team-v1 grid. */
@@ -1567,30 +1569,35 @@ export const ABOUT_MARKETS: AboutMarket[] = [
     name: "India",
     tagline: "Domestic Market",
     desc: "SMBs, startups, schools, and housing societies across Gujarat, Delhi, and Mumbai. Our roots and our largest market.",
+    slug: "india",
   },
   {
     flags: "🇬🇧🇩🇪🇧🇪🇭🇷",
     name: "Europe",
     tagline: "European Markets",
     desc: "UK, Germany, Belgium, and Croatia clients seeking world-class software at startup-friendly prices. SaaS platforms, mobile apps, and AI integrations.",
+    slug: "europe",
   },
   {
     flags: "🇸🇬🇲🇾🇭🇰",
     name: "Asia Pacific",
     tagline: "APAC Markets",
     desc: "Singapore, Malaysia, and Hong Kong clients across healthcare, logistics, and fintech. Time-zone aligned and English-first.",
+    slug: "asia-pacific",
   },
   {
     flags: "🇺🇸",
     name: "Americas",
     tagline: "North America",
     desc: "US clients who want Silicon Valley quality at a fraction of the cost. Startups and scale-ups building AI-enabled products fast.",
+    slug: "americas",
   },
   {
     flags: "🇦🇪🇸🇦",
     name: "Gulf Region",
     tagline: "Middle East",
     desc: "UAE, Saudi Arabia, and broader GCC clients. Fintech, retail tech, and enterprise software.",
+    slug: "gulf",
   },
 ];
 

@@ -5,7 +5,6 @@ import { motion, useReducedMotion } from "framer-motion";
 import { ABOUT } from "@/lib/data";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionBadge } from "@/components/ui/section-badge";
-import { workImage } from "@/components/pages/portfolio/work-images";
 
 const EASE = [0.25, 0.1, 0.25, 1] as const;
 
@@ -53,9 +52,16 @@ export default function AboutWorkflowSection() {
                       animate={{ height: isOpen || reduce ? "auto" : 0 }}
                       transition={{ duration: reduce ? 0 : 0.5, ease: EASE }}
                     >
-                      {/* TODO: real imagery per step */}
+                      {/* decorative — the step title sits directly below it */}
                       {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img src={workImage(undefined, i, 0)} alt="" className="fit-cover" />
+                      <img
+                        src={`/images/about/workflow-0${i + 1}.webp`}
+                        alt=""
+                        className="fit-cover"
+                        loading="lazy"
+                        width={1536}
+                        height={1024}
+                      />
                     </motion.div>
 
                     <div className="workflow-content-wrap">

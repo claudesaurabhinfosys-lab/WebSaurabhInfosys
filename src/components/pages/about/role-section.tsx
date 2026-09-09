@@ -4,7 +4,6 @@ import { Reveal } from "@/components/ui/reveal";
 import { SectionBadge } from "@/components/ui/section-badge";
 import { PrimaryButton } from "@/components/ui/ds-button";
 import { ArrowIcon } from "@/components/ui/icons";
-import { workImage } from "@/components/pages/portfolio/work-images";
 
 /**
  * role-v1. A tinted statement card beside a bordered list of services.
@@ -36,7 +35,7 @@ export default function RoleSection() {
             </div>
 
             <div className="role-v1-list-wrap">
-              {SERVICES.map((service, i) => (
+              {SERVICES.map((service) => (
                 <Link
                   key={service.slug}
                   href={`/services/${service.slug}`}
@@ -45,9 +44,16 @@ export default function RoleSection() {
                   <div className="role-v1-content">
                     <div className="role-v1-details">
                       <div className="role-v1-image-wrap">
-                        {/* TODO: real imagery per service */}
+                        {/* decorative — the service title sits beside it */}
                         {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img src={workImage(undefined, i, 0)} alt="" className="fit-cover" />
+                        <img
+                          src={`/images/services/${service.slug}.webp`}
+                          alt=""
+                          className="fit-cover"
+                          loading="lazy"
+                          width={1536}
+                          height={1024}
+                        />
                       </div>
                       <div className="h6 role-v1-title">{service.title}</div>
                     </div>

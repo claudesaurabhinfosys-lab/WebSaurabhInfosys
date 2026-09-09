@@ -1,7 +1,6 @@
 import { ABOUT, ABOUT_MARKETS } from "@/lib/data";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionBadge } from "@/components/ui/section-badge";
-import { workImage } from "@/components/pages/portfolio/work-images";
 
 /**
  * team-v1, carrying the markets.
@@ -23,16 +22,17 @@ export default function MarketsSection() {
           </Reveal>
 
           <Reveal delay={0.2} className="team-v1-main-wrap">
-            {ABOUT_MARKETS.map((market, i) => (
+            {ABOUT_MARKETS.map((market) => (
               <div key={market.name} className="team-v1-list">
                 <div className="team-v1-image-wrap">
-                  {/* TODO: real imagery per market */}
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
-                    src={workImage(undefined, i, 0)}
+                    src={`/images/about/market-${market.slug}.webp`}
                     alt={`${market.name} — ${market.tagline}`}
                     className="fit-cover team-v1-image"
                     loading="lazy"
+                    width={1254}
+                    height={1254}
                   />
                 </div>
                 <div className="team-v1-info">

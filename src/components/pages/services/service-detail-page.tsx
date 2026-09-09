@@ -28,8 +28,12 @@ export function ServiceDetailPage({ slug }: { slug: string }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
       <DetailHero service={service} />
-      <DetailOverview detail={detail} />
-      <DetailDeliverables features={service.features} />
+      <DetailOverview detail={detail} slug={service.slug} title={service.title} />
+      <DetailDeliverables
+        features={service.features}
+        slug={service.slug}
+        title={service.title}
+      />
       <DetailProcess />
       <DetailFaq faqs={detail.faqs} />
       <InquirySection />

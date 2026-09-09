@@ -3,7 +3,6 @@ import { Reveal } from "@/components/ui/reveal";
 import { SectionBadge } from "@/components/ui/section-badge";
 import { SplitText } from "@/components/ui/split-text";
 import { PrimaryButton } from "@/components/ui/ds-button";
-import { workImage } from "@/components/pages/portfolio/work-images";
 
 /**
  * identity. Two scrubbed statements over a hairline, then the story
@@ -29,12 +28,13 @@ export default function IdentitySection() {
 
           <Reveal delay={0.2} className="identity-bottom-wrap">
             <div className="identity-image-wrap">
-              {/* TODO: replace with a real studio photograph */}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={workImage(undefined, 2, 0)}
-                alt="The Saurabh Infosys studio in Ahmedabad"
+                src="/images/about/identity.webp"
+                alt="Saurabh Infosys — an Ahmedabad-built software and AI studio"
                 className="fit-cover"
+                width={1448}
+                height={1086}
               />
             </div>
 

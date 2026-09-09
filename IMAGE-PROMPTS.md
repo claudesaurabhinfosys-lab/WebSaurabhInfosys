@@ -248,28 +248,35 @@ Inherits the three newest post covers directly from **Part 5 (§5.1)**. No separ
 | Component | [about-hero.tsx:62](src/components/pages/about/about-hero.tsx#L62) |
 | CSS | `.about-v1-video-wrap` — 1380 × 740 css px, dark scrim + text overlay |
 | **Generate** | **1920 × 1030** · 1.86:1 · centre crop |
-| Lane / palette | **Lane E** — Monumental Architecture & Cinematic Scale (or **Lane D**) |
-| Save to | `public/images/about/hero-panel.webp` |
+| Lane / palette | **Lane B** (people) or **Lane A** (render) — *no architecture* |
+| Save to | `public/images/about/studio-panel.webp` |
 
-**Meaning:** The largest visual asset on the About page. Replaces the former office corridor shot with **pure cinematic agency prestige**. Inspired directly by Hypen's iconic `About Image.webp` (about-01) and brutalist spatial light (about-02).
+> **File name:** the component reads `/images/about/studio-panel.webp`. Overwrite that file — do **not** create `hero-panel.webp`.
 
-> **Important:** The bottom third is covered by a dark gradient scrim and typography. Keep all key visual elements in the upper two-thirds.
+**Meaning:** Largest visual on the About page. Carries the positioning line and the social row. Must read as a creative studio with global reach — **not** as a building.
 
-### Option A (Recommended — Hypen Dawn Ascent):
+> **Important:** The bottom third is covered by a dark gradient scrim and typography. Keep all key visual elements in the upper two-thirds, and keep the lower third visually quiet (sky, mist, plain ground, blurred foreground).
+
+### Option A (Recommended — Skyward Editorial Crew, Lane B · P3):
 ```
-Cinematic wide-angle landscape photograph of a majestic hot air balloon with bold black and white vertical stripes soaring silently over a rugged, ancient mountain ridge at the first light of dawn. Deep layers of morning fog and low drifting clouds nestle in the rocky valleys below. Golden raking sunlight glazes the mountain peaks, casting long amber shadows across raw geological textures. Expansive, calm, and breathtaking. Wide 1.85:1 frame, the balloon positioned in the upper right third against a soft gradient sky of pale lavender and warm gold, the lower half filled with mist-covered ridges. 35mm lens at f/5.6, rich dynamic range, natural film grain, zero CGI artifacts.
-```
-
-### Option B (Alternative — Monumental Brutalist Hall):
-```
-Monumental architectural photograph inside a vast, cavernous modernist cultural pavilion constructed of raw board-formed concrete and fluted stone. Dramatic, volumetric shafts of golden afternoon sunlight pierce high clerestory openings, cutting through subtle atmospheric dust motes. A solitary silhouette of an architect in dark minimal clothing walks in the distant background across polished terrazzo floors. Immense sense of scale, discipline, and architectural clarity. Wide 1.85:1 frame, structural concrete columns occupying the upper two-thirds, clean uncluttered floor below. Shot on 28mm at f/8, architectural editorial, muted tones, fine grain.
+Editorial fashion-grade wide photograph of three young creative professionals standing apart on an open windswept salt flat under an infinite cloudless deep blue sky, shot from a low camera angle so the horizon sits in the lower third. Hard brilliant afternoon sun raking from the left, carving crisp shadow lines across their faces and clothing. Wardrobe: one electric rust-orange overshirt, one bone-white linen blazer, one deep charcoal knit. All three look outward toward the horizon in different directions, calm and unposed, none facing the camera. Wide 1.86:1 frame, figures placed across the upper two-thirds, empty pale ground filling the lower third. 35mm lens at f/4, Kodak Portra 400 color science, natural skin texture, fine grain, high-end agency campaign quality.
 ```
 
-**Negative** — `office desks, computer screens, monitors, swivel chairs, cubicles, corporate meeting, whiteboard, laptops, text, logos, neon, bright synthetic colors, oversaturated, HDR, plastic textures`
+### Option B (Alternative — Surreal Monolith Horizon, Lane A · P1):
+```
+Minimalist surreal 3D render of a vast calm plane of pale bone ceramic stretching to a soft horizon, with five smooth matte ceramic monoliths of varying heights standing far apart across the upper two-thirds of the frame, each casting a long soft shadow toward the viewer. One monolith carries a thin band of live emerald moss near its crown, another is made of frosted architectural glass transmitting pale mint light. Pale mint-grey to cool white gradient sky, soft overcast light from the upper left, faint ground mist. Wide 1.86:1 frame, uncluttered lower third. Octane render, physically based materials, subtle ray-traced caustics, fine grain, serene and monumental in scale without any building.
+```
+
+### Option C (Alternative — Tactile Craft Wide, Lane D · P2):
+```
+Wide tactile editorial photograph of two pairs of human hands working across a long raw linen-covered table, arranging a row of polished dark obsidian stones, hand-thrown pale terracotta vessels and a folded length of indigo block-printed cloth into a precise line. Warm low golden morning light raking from the right, long soft shadows across the woven texture. Faces out of frame, only hands, forearms and objects. Wide 1.86:1 frame, all objects and hands in the upper two-thirds, plain empty linen filling the lower third. 50mm lens at f/2.8, shallow depth of field, warm earth tones, fine film grain, unhurried and precise.
+```
+
+**Negative (all options)** — `buildings, architecture, concrete structures, office desks, computer screens, monitors, swivel chairs, cubicles, corporate meeting, whiteboard, laptops, text, logos, neon, bright synthetic colors, oversaturated, HDR, plastic skin, extra fingers, teeth smiling at lens, watermark`
 
 ---
 
-## 2.2 ✅ Identity Section — Ahmedabad Heritage
+## 2.2 ✅ Identity Section — Who We Are
 
 > *"Who we are" — an Ahmedabad-based software and AI studio*
 
@@ -278,16 +285,29 @@ Monumental architectural photograph inside a vast, cavernous modernist cultural 
 | Component | [identity-section.tsx:34](src/components/pages/about/identity-section.tsx#L34) |
 | CSS | `.identity-image-wrap` — 690 × 518 css px |
 | **Generate** | **1380 × 1036** (@2x) · 4:3 · centre crop |
-| Lane / palette | **Lane E / D** — Ahmedabad Monolithic Modernism · **P2** warm terracotta |
+| Lane / palette | **Lane B** (people) or **Lane D** (craft) · **P2** warm terracotta / **P3** sky |
 | Save to | `public/images/about/identity.webp` |
 
-**Meaning:** *"Built from India without compromising on quality"*. Honours Ahmedabad's world-renowned modernist architectural heritage (the legacy of Louis Kahn and B.V. Doshi). Completely avoids generic office parks.
+> **Wired:** the component reads `/images/about/identity.webp`.
 
+**Meaning:** *"Built from India without compromising on quality."* Signals Ahmedabad and Indian craft through **people, materials and sky** — not through buildings.
+
+### Option A (Recommended — Uttarayan Kite, Lane B · P3):
 ```
-Low-angle architectural photograph of a striking brutalist modernist building in Ahmedabad, India. Monumental geometric volumes of exposed terracotta-red brick and raw board-formed concrete, featuring deep sculptural recessed lightwells and cantilevered sun-breakers. Hard, brilliant late-afternoon sunlight from the right casting sharp diagonal shadow lines across the textured brickwork. A deep, cloudless azure blue sky fills the upper third of the frame. One slender tropical neem tree branch gently enters the bottom left corner. 24mm tilt-shift architectural lens at f/8, crisp geometry, rich natural warmth, fine film grain, timeless and monumental.
+Editorial photograph shot from a low angle of a single young person on an open rooftop terrace at Uttarayan, arms raised, flying a small hand-made paper kite high into a vast cloudless azure sky. Hard brilliant January sunlight from the right, sharp sculptural shadows across a plain lime-washed parapet. The figure wears a simple crisp white kurta with a rust-orange scarf, seen in three-quarter profile looking upward at the kite, never at the camera. A single taut kite line traces a clean diagonal through the upper frame. 4:3 frame, sky filling two-thirds, the parapet edge low in the frame. 35mm lens at f/4, Kodak Portra color science, natural skin texture, fine grain, joyful and quietly confident.
 ```
 
-**Negative** — `office park, generic glass office building, desks, people sitting at computers, crowds, street traffic, wires, clutter, billboards, banners, text, letters, poverty tropes, smog, sunset postcard, oversaturated, HDR`
+### Option B (Alternative — Indian Craft Still Life, Lane D · P2):
+```
+Tactile editorial still life photograph of a hand-thrown terracotta bowl, a folded length of indigo block-printed Ahmedabad cotton and a small polished brass measuring weight arranged in a precise triangular composition on a raw linen surface. One human hand enters from the right, fingertips resting lightly on the folded cloth. Warm low golden raking light from the right, long soft shadows, visible weave and clay grain. 4:3 frame, subject occupying the middle 60 percent with generous calm negative space. 85mm lens at f/2.8, shallow depth of field, warm terracotta and indigo against bone, fine film grain, meditative and exact.
+```
+
+### Option C (Alternative — Craft Hands at the Wheel, Lane D · P2):
+```
+Close editorial photograph of two hands shaping a tall symmetrical vessel on a spinning potter's wheel, wet terracotta clay slipping between the fingers, fine slip spray caught in the light. Warm directional morning light from the left, deep soft falloff into shadow behind. Face and body out of frame, only forearms, hands and the turning form. 4:3 frame, the vessel slightly left of centre, quiet dark background to the right. 85mm lens at f/2.5, shallow depth of field, warm earth tones, fine film grain, absolute focus and craftsmanship.
+```
+
+**Negative (all options)** — `buildings, architecture, office park, glass office building, desks, people sitting at computers, crowds, street traffic, wires, clutter, billboards, banners, text, letters, logos, poverty tropes, smog, sunset postcard, oversaturated, HDR, extra fingers, blurry hands, plastic skin`
 
 ---
 

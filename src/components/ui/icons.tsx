@@ -121,3 +121,21 @@ export function WorkArrowIcon() {
     </svg>
   );
 }
+
+/* Carousel transport. 14px glyphs on a 24px hit target — currentColor so
+   the button owns the tone. */
+export function PlayIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+      <path d="M4 2.5L11 7L4 11.5V2.5Z" fill="currentColor" />
+    </svg>
+  );
+}
+
+export function PauseIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+      <path d="M4 2.5H5.75V11.5H4V2.5ZM8.25 2.5H10V11.5H8.25V2.5Z" fill="currentColor" />
+    </svg>
+  );
+}

@@ -154,6 +154,10 @@
   --duration-dropdown-open: 250ms;  /* nav dropdown opening */
   --duration-dropdown-close: 150ms; /* nav dropdown closing — quicker than open */
 
+  /* Dwell, not duration: how long a carousel holds a slide before it
+     advances itself. Long enough to read the belief and its sentence. */
+  --dwell-carousel: 4000ms;
+
   /* ---- Margin ------------------------------------------------ */
   --_perimeter---margin--margin-none: 0px;
   --_perimeter---margin--margin-s: 8px;
@@ -2590,6 +2594,8 @@
   overflow: hidden;
 }
 
+.services-v2-image-wrap img { width: 100%; height: 100%; display: block; }
+
 .services-v2-card-wrap {
   padding: var(--_perimeter---gap--gap-6xl);
   gap: var(--_perimeter---gap--gap-5xl);
@@ -2707,6 +2713,8 @@
   background: linear-gradient(140deg, var(--colors--brand-accent), var(--colors--midnight-black));
   overflow: hidden;
 }
+
+.services-v3-image-wrap img { width: 100%; height: 100%; display: block; }
 
 .services-v3-details-wrap { margin-top: var(--_perimeter---margin--margin-m); }
 
@@ -3243,6 +3251,8 @@
   overflow: hidden;
 }
 
+.services-image-wrap img { width: 100%; height: 100%; display: block; }
+
 /* ============================================================
    Service detail — overview (services-v4). Image and copy on the
    left, a snow-white CTA card filling the rest of the row.
@@ -3277,6 +3287,8 @@
   background: linear-gradient(140deg, var(--colors--brand-accent), var(--colors--midnight-black));
   overflow: hidden;
 }
+
+.services-v4-image-wrap img { width: 100%; height: 100%; display: block; }
 
 .services-v4-details-wrap {
   gap: var(--_perimeter---gap--gap-8xl);
@@ -3380,6 +3392,8 @@
   background: linear-gradient(140deg, var(--colors--brand-accent), var(--colors--midnight-black));
   overflow: hidden;
 }
+
+.services-v5-image-wrap img { width: 100%; height: 100%; display: block; }
 
 /* ============================================================
    Service detail — process. A 250vh runway with a pinned
@@ -4405,6 +4419,16 @@
   gap: var(--_perimeter---padding--padding-13xl);
   align-items: center;
   display: flex;
+  /* the track owns horizontal intent, the page keeps vertical — without
+     this a swipe on a phone fights the scroll */
+  touch-action: pan-y;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .beliefs-track { cursor: grab; }
+  .beliefs-track.is-dragging { cursor: grabbing; }
 }
 
 .beliefs-slide-wrapper {
@@ -4420,7 +4444,14 @@
   overflow: hidden;
 }
 
-.beliefs-image-wrap img { width: 100%; height: 100%; display: block; }
+.beliefs-image-wrap img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  /* the native image-drag ghost would hijack the carousel gesture */
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
 
 .beliefs-details-wrap {
   margin-top: var(--_perimeter---margin--margin-m);
@@ -4432,26 +4463,97 @@
 .paragraph-02.beliefs-details { color: var(--colors--graphite-gray); }
 
 .beliefs-nav {
-  gap: var(--_perimeter---gap--gap-s);
+  gap: var(--_perimeter---gap--gap-m);
   justify-content: center;
+  align-items: center;
   margin-top: var(--_perimeter---margin--margin-xl);
   display: flex;
 }
 
+.beliefs-dots {
+  gap: var(--_perimeter---gap--gap-xxxs);
+  align-items: center;
+  display: flex;
+}
+
+/* The dot is 8px; the button around it is 24px so the target clears the
+   minimum without the dot growing to meet it. */
 .beliefs-dot {
-  width: 8px;
-  height: 8px;
+  width: 24px;
+  height: 24px;
   padding: 0;
   border: 0;
+  background: none;
+  cursor: pointer;
+  place-items: center;
+  display: grid;
+}
+
+.beliefs-dot-rail {
   border-radius: var(--_border-radius---radius-8xl);
   background-color: var(--colors--silver-mist);
+  width: 8px;
+  height: 8px;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--duration-hover) var(--ease-out);
+}
+
+.beliefs-dot.is-active .beliefs-dot-rail { transform: scale(1.25); }
+.beliefs-dot:active .beliefs-dot-rail { transform: scale(0.9); }
+
+/* The timer. `clip-path` wipes the fill left to right without scaling —
+   scaleX on a circle would flatten it into an ellipse — and stays off the
+   layout path, so the one animated property here is still compositor
+   work. Linear, because a clock that eases is lying about the time. */
+.beliefs-dot-fill {
+  border-radius: inherit;
+  background-color: var(--colors--midnight-black);
+  position: absolute;
+  inset: 0;
+  clip-path: inset(0 100% 0 0);
+  /* The animation is always attached and only ever paused, so a parked
+     timer holds exactly where it stopped and resumes from there —
+     detaching it would silently rewind to zero on every hover. */
+  animation: beliefs-timer var(--dwell-carousel) linear forwards;
+  animation-play-state: paused;
+}
+
+.beliefs-dot-fill.is-running { animation-play-state: running; }
+
+@keyframes beliefs-timer {
+  from { clip-path: inset(0 100% 0 0); }
+  to   { clip-path: inset(0 0 0 0); }
+}
+
+.beliefs-transport {
+  border: 0;
+  border-radius: var(--_border-radius---radius-8xl);
+  background: none;
+  color: var(--colors--steel-gray);
   cursor: pointer;
-  transition: background-color var(--duration-hover) var(--ease-hover),
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  display: grid;
+  transition: color var(--duration-hover) var(--ease-hover),
               transform var(--duration-press) var(--ease-out);
 }
 
-.beliefs-dot.is-active { background-color: var(--colors--midnight-black); }
-.beliefs-dot:active { transform: scale(0.9); }
+@media (hover: hover) and (pointer: fine) {
+  .beliefs-transport:hover { color: var(--colors--midnight-black); }
+}
+
+.beliefs-transport:active { transform: scale(0.9); }
+
+/* No autoplay to watch, so the dot reads as a plain filled dot again and
+   the transport button is not rendered at all. */
+@media (prefers-reduced-motion: reduce) {
+  .beliefs-dot-rail { transition: none; }
+  .beliefs-dot-fill { animation: none; }
+  .beliefs-dot.is-active .beliefs-dot-fill { clip-path: inset(0); }
+}
 
 /* ---- brand-v1 — the client grid -------------------------------- */
 

@@ -18,8 +18,10 @@ timings are ported from it verbatim; typeface, colour and content are ours.
 3. **Motion needs a reason.** Feedback, spatial consistency, state change, or
    preventing a jarring jump. "It looks cool" on something seen daily is a
    reason to remove it.
-4. **`transform` and `opacity` only.** One exception, deliberate: accordion
-   `height`, which has no transform equivalent.
+4. **`transform` and `opacity` only.** Two exceptions, deliberate:
+   accordion `height`, which has no transform equivalent, and `clip-path`
+   for a progress wipe, where `scaleX` would distort the shape it fills.
+   Neither triggers layout on the surrounding page.
 5. **Reduced motion and hover gating ship with the animation**, never as a
    follow-up pass.
 6. **Restraint on the dark panels.** Workflow, work and footer are the only
@@ -127,6 +129,7 @@ Tokens in `design-system.css` under `---- Motion ----`.
 | `--duration-panel` | 400ms | Accordion open / close |
 | `--duration-reveal` | 800ms | Section entrance |
 | `--stagger-step` | 80ms | Delay between staggered children |
+| `--dwell-carousel` | 4000ms | How long a carousel holds a slide before advancing itself |
 
 **Never `ease-in`.** It delays the exact moment the user is watching.
 
@@ -167,7 +170,63 @@ progress ranges, all disabled below 992px where the layout goes static:
 3. **Testimonials** — the card row translates horizontally.
 4. **Nothing else.** Parallax on body content is not part of this system.
 
-### 3.4 Rules
+### 3.4 Gestures
+
+Anything the user can grab is a spring, never a tween — a spring animates
+from the value currently on screen and carries velocity through an
+interruption, so a moving element can be caught and thrown the other way
+without a jump.
+
+| Moment | Spring |
+| --- | --- |
+| Settle — the UI moved itself | `bounce: 0`, `duration: 0.5` |
+| Release — the user threw it | `bounce: 0.2`, `duration: 0.4`, handed the gesture's release velocity |
+| Past the last stop | `dragElastic: 0.12` — resist, never hard-stop |
+
+Bounce is earned, not decorative: it appears only where a real flick
+preceded it. Something that merely faded in does not overshoot.
+
+A flick lands where the gesture was *going*, not where the finger left —
+project the endpoint on iOS's deceleration curve,
+`current + (v / 1000) · d / (1 − d)` at `d = 0.998`, then snap to the
+nearest stop. Clamp that projection to one stop beyond where the drag
+actually reached, or a brisk flick sails past three slides and reads as
+the carousel deciding rather than the user.
+
+Snap points are measured from the DOM, never computed from constants —
+slide widths and gaps change at three of the four breakpoints.
+
+Gesture-driven values are the one place `x` is used instead of a full
+transform string: framer-motion only writes a drag into `x`/`y`. It still
+compiles to `translateX()` on the compositor.
+
+### 3.5 Content that advances itself
+
+A carousel that moves on its own holds each slide for `--dwell-carousel`
+and parks whenever it is not being watched or is being used: pointer over
+it, keyboard focus inside it, a drag in progress, scrolled off screen, or
+the tab in the background. Parking pauses the timer where it stands —
+it never rewinds.
+
+Drive the advance off the progress indicator's own `animationend`, not a
+`setInterval`. One clock means the bar the user is watching and the slide
+it triggers cannot drift apart, and pausing the indicator pauses the
+carousel for free.
+
+Two rules that are easy to get wrong:
+
+- **An explicit press of Play outranks hover.** The hand that pressed the
+  button is still resting on the carousel, so a hover rule that keeps
+  overriding it makes the button look broken.
+- **Only `:focus-visible` parks it**, not `:focus` — otherwise the Play
+  button re-pauses the thing it just started.
+
+Content moving for more than five seconds needs a visible way to stop it
+(WCAG 2.2.2), so the transport button is not optional. Under
+`prefers-reduced-motion` there is no autoplay at all, and the button is
+not rendered — the dots still navigate.
+
+### 3.6 Rules
 
 - Transitions, not keyframes, for anything a user can trigger twice in a
   second — accordions, toggles, hovers. Transitions retarget; keyframes restart.

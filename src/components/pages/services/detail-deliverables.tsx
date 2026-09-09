@@ -2,7 +2,15 @@ import { SectionBadge } from "@/components/ui/section-badge";
 import { Reveal } from "@/components/ui/reveal";
 import { PrimaryButton } from "@/components/ui/ds-button";
 
-export default function DetailDeliverables({ features }: { features: readonly string[] }) {
+export default function DetailDeliverables({
+  features,
+  slug,
+  title,
+}: {
+  features: readonly string[];
+  slug: string;
+  title: string;
+}) {
   return (
     <section className="services-v5 ds-root">
       <div className="container">
@@ -30,8 +38,17 @@ export default function DetailDeliverables({ features }: { features: readonly st
             </div>
           </div>
 
-          {/* TODO: swap the gradient for real service imagery */}
-          <div className="services-v5-image-wrap" />
+          <div className="services-v5-image-wrap">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={`/images/services/${slug}-deliverables.webp`}
+              alt={`${title} deliverables from Saurabh Infosys`}
+              className="fit-cover"
+              loading="lazy"
+              width={1536}
+              height={1024}
+            />
+          </div>
         </Reveal>
       </div>
     </section>

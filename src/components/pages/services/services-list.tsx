@@ -45,8 +45,18 @@ export default function ServicesList() {
                 </div>
 
                 <div className="services-v3-right">
-                  {/* TODO: swap the gradient for real service imagery */}
-                  <div className="services-v3-image-wrap" />
+                  <div className="services-v3-image-wrap">
+                    {/* decorative — the service title sits beside it */}
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`/images/services/${service.slug}.webp`}
+                      alt=""
+                      className="fit-cover"
+                      loading="lazy"
+                      width={1536}
+                      height={1024}
+                    />
+                  </div>
 
                   <div className="services-v3-details-wrap">
                     <div className="paragraph-03 uppercase-label">
