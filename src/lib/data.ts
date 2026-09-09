@@ -2149,10 +2149,9 @@ export const COUNTRY_PAGES: Record<string, CountryPageData> = {
       ctaHref: "/contact",
       intro:
         "We build AI chatbots, AI integrations and mobile apps for US businesses — delivered in weeks, not months. 4.9 stars on Clutch, with live US clients across retail, fitness, luxury automotive and on-demand services.",
-      /* empty until we have a shot of real US client work — the frame
-         falls back to the brand gradient rather than stock photography */
-      image: "",
-      imageAlt: "",
+      image: "/images/country/usa-hero.webp",
+      imageAlt:
+        "A low modernist pavilion of glass, stone and concrete behind open grassland under a clear morning sky",
     },
 
     about: {
@@ -2163,8 +2162,9 @@ export const COUNTRY_PAGES: Record<string, CountryPageData> = {
         " Standups in your morning, a staging link you can open every week, and full IP and source handover on delivery. Four live US products came out of that setup — retail, luxury automotive, fitness and on-demand logistics.",
       buttonLabel: "About us",
       buttonHref: "/about",
-      image: "/images/work/placeholder-01.webp",
-      imageAlt: "The Saurabh Infosys engineering team at work in Ahmedabad",
+      image: "/images/country/usa-about.webp",
+      imageAlt:
+        "Hands holding a precision-machined anodised cardholder against a pale concrete balustrade",
     },
 
     services: [
@@ -2347,9 +2347,9 @@ export const COUNTRY_PAGES: Record<string, CountryPageData> = {
       ctaHref: "/contact",
       intro:
         "We build AI chatbots, booking platforms and mobile apps for Singapore businesses — delivered in weeks, not months. 4.9 stars on Clutch, with live Singapore clients across beauty, wellness, home services and licensed placement.",
-      /* empty until we have a shot of real Singapore client work */
-      image: "",
-      imageAlt: "",
+      image: "/images/country/singapore-hero.webp",
+      imageAlt:
+        "Contemporary glass and concrete towers with cascading sky-terraces and tropical planting, seen from below",
     },
 
     about: {
@@ -2361,8 +2361,9 @@ export const COUNTRY_PAGES: Record<string, CountryPageData> = {
         " Encrypted storage, minimal data collection, English and Mandarin interfaces, and a clear processing agreement. Five live Singapore platforms came out of that setup — a Ministry of Manpower licensed agency and four brands in the Meow group.",
       buttonLabel: "About us",
       buttonHref: "/about",
-      image: "/images/work/placeholder-04.webp",
-      imageAlt: "The Saurabh Infosys engineering team at work in Ahmedabad",
+      image: "/images/country/singapore-about.webp",
+      imageAlt:
+        "Hands holding a precision-machined anodised cardholder against a pale concrete balustrade",
     },
 
     services: [

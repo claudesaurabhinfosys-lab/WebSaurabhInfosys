@@ -1991,7 +1991,10 @@
   justify-content: space-between;
   align-items: flex-start;
   width: 100%;
-  max-width: 460px;
+  /* four groups, not three — the cap only exists to stop the row
+     stretching the full grid column */
+  max-width: 620px;
+  flex-wrap: wrap;
   display: flex;
 }
 

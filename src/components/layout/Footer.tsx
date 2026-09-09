@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { COMPANY } from "@/lib/data";
+import { COMPANY, COUNTRY_PAGES, COUNTRY_SLUGS } from "@/lib/data";
 import { SocialIcon } from "@/components/ui/accordion-icons";
 
 const MENUS = [
@@ -30,6 +30,15 @@ const MENUS = [
       { label: "MySociety", href: "/products/mysociety" },
       { label: "MySampark", href: "/products/mysampark" },
     ],
+  },
+  {
+    title: "Regions",
+    /* Derived, so a new country page lands in the footer by existing —
+       there is no second list to remember to update. */
+    links: COUNTRY_SLUGS.map((slug) => ({
+      label: COUNTRY_PAGES[slug].country,
+      href: `/country/${slug}`,
+    })),
   },
 ];
 
