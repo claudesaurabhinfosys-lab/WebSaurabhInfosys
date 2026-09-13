@@ -31,6 +31,14 @@ const SHOWCASE = [
   "/images/about/belief-04.webp",
 ];
 
+/* Three principles, each with its own picture — the reference's foundation is
+   a tab set, so the image is part of the selection, not decoration. */
+const FOUNDATION_TABS = ABOUT_BELIEFS.slice(0, 3).map((belief, index) => ({
+  title: belief.title,
+  body: belief.body,
+  image: ["/images/about/studio.webp", "/images/about/workflow-02.webp", "/images/about/workflow-04.webp"][index],
+}));
+
 const PROCESS_STEPS = HOME_PROCESS.steps.map((step, index) => ({
   title: step.title,
   copy: step.copy,
@@ -185,7 +193,7 @@ export default function AboutPage() {
       </section>
 
       {/* ── Foundation ───────────────────────────────────────────────────── */}
-      <FoundationSection beliefs={ABOUT_BELIEFS.slice(0, 3)} />
+      <FoundationSection tabs={FOUNDATION_TABS} />
 
       {/* ── Markets ──────────────────────────────────────────────────────── */}
       <section className="st-markets-section">

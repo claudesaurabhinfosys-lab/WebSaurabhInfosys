@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import Reveal from "./reveal";
 import Tag from "./tag";
 import { lerp, segment, useScrollProgress } from "./use-scroll-progress";
@@ -31,7 +32,7 @@ type Props = {
  * cards rise **one at a time** as the page scrolls past it — IX2 `a-105`
  * parks every card at `translateY(75vh)` at 0% progress, then brings them
  * home at 20 / 40 / 60 / 80%. Below 992px the pin is dropped and the cards
- * just stack.
+ * just stack, so the offsets are cleared there.
  */
 export default function ProcessSection({
   eyebrow = "Our method",
@@ -39,7 +40,21 @@ export default function ProcessSection({
   intro,
   steps,
 }: Props) {
-  const { ref, progress } = useScrollProgress<HTMLDivElement>();
+  const cards = useRef<(HTMLDivElement | null)[]>([]);
+
+  const ref = useScrollProgress<HTMLDivElement>((progress) => {
+    const pinned = window.matchMedia("(min-width: 992px)").matches;
+    cards.current.forEach((card, index) => {
+      if (!card) return;
+      if (!pinned) {
+        card.style.transform = "";
+        return;
+      }
+      // Card n travels home between n*20% and (n+1)*20%.
+      const t = segment(progress, index * 0.2, (index + 1) * 0.2);
+      card.style.transform = `translateY(${lerp(75, 0, t).toFixed(2)}vh)`;
+    });
+  });
 
   return (
     <section className="st-process-section">
@@ -67,13 +82,13 @@ export default function ProcessSection({
             <div className="st-process-card-wrapper">
               {steps.map((step, index) => {
                 const Glyph = GLYPHS[index % GLYPHS.length];
-                // Card n travels home between n*20% and (n+1)*20%.
-                const t = segment(progress, index * 0.2, (index + 1) * 0.2);
                 return (
                   <div
                     className="st-process-card"
                     key={step.title}
-                    style={{ transform: `translateY(${lerp(75, 0, t)}vh)` }}
+                    ref={(node) => {
+                      cards.current[index] = node;
+                    }}
                   >
                     <div className="st-process-card-head st-text-l">
                       <span>{step.label ?? `Step ${index + 1}`}</span>

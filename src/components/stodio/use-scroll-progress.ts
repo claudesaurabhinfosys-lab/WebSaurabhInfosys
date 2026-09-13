@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 /**
  * Scroll progress across an element, 0 at the moment its top reaches the
@@ -11,18 +11,24 @@ import { useEffect, useRef, useState } from "react";
  * scrubbed sections lag the scroll slightly instead of snapping to it. The
  * lerp below is that smoothing; without it the motion reads mechanical.
  *
- * Returns a ref to attach and the smoothed progress.
+ * `onProgress` is called on every frame and is expected to write styles
+ * straight to the DOM. It deliberately does **not** go through React state:
+ * re-rendering a subtree sixty times a second during a scroll is exactly the
+ * kind of work that drops frames on a mid-range phone.
  */
-export function useScrollProgress<T extends HTMLElement>() {
+export function useScrollProgress<T extends HTMLElement>(
+  onProgress: (progress: number) => void,
+) {
   const ref = useRef<T | null>(null);
-  const [progress, setProgress] = useState(0);
+  const cb = useRef(onProgress);
+  cb.current = onProgress;
 
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setProgress(1);
+      cb.current(1);
       return;
     }
 
@@ -39,10 +45,10 @@ export function useScrollProgress<T extends HTMLElement>() {
 
     const tick = () => {
       const target = raw();
-      // First frame lands exactly, so nothing animates in from a stale value.
+      // The first frame lands exactly, so nothing animates in from a stale value.
       smoothed = smoothed < 0 ? target : smoothed + (target - smoothed) * 0.12;
       if (Math.abs(target - smoothed) < 0.0005) smoothed = target;
-      setProgress((prev) => (Math.abs(prev - smoothed) > 0.0008 ? smoothed : prev));
+      cb.current(smoothed);
       frame = requestAnimationFrame(tick);
     };
 
@@ -50,7 +56,7 @@ export function useScrollProgress<T extends HTMLElement>() {
     return () => cancelAnimationFrame(frame);
   }, []);
 
-  return { ref, progress };
+  return ref;
 }
 
 /** Maps `p` from the [from, to] window onto 0-1, clamped outside it. */
@@ -62,4 +68,9 @@ export function segment(p: number, from: number, to: number) {
 /** Linear interpolation. */
 export function lerp(a: number, b: number, t: number) {
   return a + (b - a) * t;
+}
+
+/** Webflow's `outQuad`, for the scrubs that name it. */
+export function outQuad(t: number) {
+  return 1 - (1 - t) * (1 - t);
 }

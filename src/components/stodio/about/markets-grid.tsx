@@ -1,8 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import type { ReactNode } from "react";
-import { lerp, segment, useScrollProgress } from "../use-scroll-progress";
+import { useRef, type ReactNode } from "react";
+import { lerp, outQuad, segment, useScrollProgress } from "../use-scroll-progress";
 import type { AboutMarket } from "@/lib/data";
 
 type Props = {
@@ -21,10 +21,18 @@ type Props = {
  * plus the closing note, so both rows fill the five-column grid exactly.
  */
 export default function MarketsGrid({ markets, statValue, statLabel, note }: Props) {
-  const { ref, progress } = useScrollProgress<HTMLDivElement>();
-  const t = segment(progress, 0.2, 0.75);
-  // outQuad, so the slide decelerates into place.
-  const eased = 1 - (1 - t) * (1 - t);
+  const rowOneRef = useRef<HTMLDivElement | null>(null);
+  const rowTwoRef = useRef<HTMLDivElement | null>(null);
+
+  const ref = useScrollProgress<HTMLDivElement>((progress) => {
+    const t = outQuad(segment(progress, 0.2, 0.75));
+    if (rowOneRef.current) {
+      rowOneRef.current.style.transform = `translateX(${lerp(-500, 0, t).toFixed(2)}px)`;
+    }
+    if (rowTwoRef.current) {
+      rowTwoRef.current.style.transform = `translateX(${lerp(500, 0, t).toFixed(2)}px)`;
+    }
+  });
 
   const rowOne = markets.slice(0, 3);
   const rowTwo = markets.slice(3);
@@ -50,7 +58,8 @@ export default function MarketsGrid({ markets, statValue, statLabel, note }: Pro
     <div className="st-markets-rows" ref={ref}>
       <div
         className="st-markets-grid"
-        style={{ transform: `translateX(${lerp(-500, 0, eased)}px)` }}
+        ref={rowOneRef}
+        style={{ transform: "translateX(-500px)" }}
       >
         <div className="st-market-stat">
           <h3 className="st-h2 st-weight-medium">{statValue}</h3>
@@ -61,7 +70,8 @@ export default function MarketsGrid({ markets, statValue, statLabel, note }: Pro
 
       <div
         className="st-markets-grid st-is-second"
-        style={{ transform: `translateX(${lerp(500, 0, eased)}px)` }}
+        ref={rowTwoRef}
+        style={{ transform: "translateX(500px)" }}
       >
         {rowTwo.map(card)}
         <div className="st-market-note">{note}</div>

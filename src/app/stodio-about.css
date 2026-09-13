@@ -207,26 +207,61 @@
 .st-clientwall-name { display: flex; align-items: center; gap: 10px; font-size: var(--st-text-xl); font-weight: var(--st-semibold); }
 
 /* ============================================================================
-   Foundation — image leading, disclosure list trailing
+   Foundation — image leading, principles list trailing
+
+   The image panel is absolutely positioned rather than being a flex child:
+   it is taller than the list (680 vs ~290) and as a sibling it would set the
+   block's height. The reference does the same thing with `.intro-tabs-mask`.
    ========================================================================= */
 .st-foundation-section { position: relative; z-index: 1; padding-top: var(--st-pad-big); background-color: var(--st-white); }
-.st-foundation-block { display: flex; align-items: center; justify-content: flex-end; gap: 16px; }
-@media screen and (max-width: 991px) {
-  .st-foundation-block { flex-flow: column-reverse; align-items: flex-start; justify-content: flex-start; gap: 32px; }
+.st-foundation-block {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 16px;
+  min-height: 680px;
 }
-.st-foundation-image-wrapper { width: 600px; max-width: 50%; flex: none; }
-@media screen and (max-width: 991px) { .st-foundation-image-wrapper { width: 100%; max-width: 100%; } }
+@media screen and (max-width: 991px) {
+  /* Image first on small screens — it is the anchor, and the reference
+     pulls it to `order: -1` below 768px for the same reason. */
+  .st-foundation-block {
+    flex-flow: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 32px;
+    min-height: 0;
+  }
+}
+
+.st-foundation-media {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 600px;
+  max-width: 50%;
+}
+@media screen and (max-width: 991px) {
+  .st-foundation-media { position: relative; inset: auto; width: 100%; max-width: 100%; height: 420px; }
+}
+
+/* All three images are stacked; only the selected one is visible, so the
+   swap can cross-fade instead of reflowing. */
 .st-foundation-image {
-  display: block;
+  position: absolute;
+  inset: 0;
   width: 100%;
-  aspect-ratio: 600 / 680;
-  height: auto;
+  height: 100%;
   object-fit: cover;
   border-radius: var(--st-r-16);
+  opacity: 0;
+  transition: opacity 0.4s var(--st-ease);
 }
+.st-foundation-image.st-is-active { opacity: 1; }
 
 .st-foundation-content { width: 100%; max-width: 600px; }
 .st-foundation-tabs { display: grid; grid-template-columns: 1fr; width: 100%; margin-top: var(--st-pad-x); }
+@media screen and (max-width: 991px) { .st-foundation-tabs { margin-top: var(--st-gap-40); } }
+
 .st-foundation-tab {
   width: 100%;
   padding: 20px 0 0;
@@ -239,6 +274,7 @@
   cursor: pointer;
 }
 .st-foundation-tab-head { display: flex; align-items: center; gap: 16px; padding-bottom: 16px; }
+.st-foundation-tab.st-is-open .st-foundation-tab-head { padding-top: 16px; }
 .st-foundation-tab-icon {
   width: 32px;
   height: 32px;
@@ -246,11 +282,27 @@
   color: #686868;
   transition: color 0.4s var(--st-ease);
 }
-.st-foundation-tab[aria-expanded="true"] .st-foundation-tab-icon { color: var(--st-primary); }
+.st-foundation-tab.st-is-open .st-foundation-tab-icon { color: var(--st-primary); }
 .st-foundation-tab-title { font-size: var(--st-h6-size); line-height: 1.3; font-weight: var(--st-medium); }
-/* The panel animates on height so the list never jumps. */
-.st-foundation-tab-body { overflow: hidden; height: 0; transition: height 0.4s var(--st-ease-in-out); }
-.st-foundation-tab-body p { max-width: 456px; margin: 0 0 16px; color: var(--st-text-secondary); }
+@media screen and (max-width: 767px) {
+  .st-foundation-tab-icon { width: 24px; height: 24px; }
+  .st-foundation-tab-head { gap: 12px; }
+}
+
+/* Height-animated so the rows below slide rather than jump. */
+.st-foundation-tab-body {
+  display: block;
+  overflow: hidden;
+  height: 0;
+  transition: height 0.4s var(--st-ease);
+}
+.st-foundation-tab-inner { display: block; }
+.st-foundation-tab-copy {
+  display: block;
+  max-width: 456px;
+  padding-bottom: 16px;
+  color: var(--st-text-secondary);
+}
 
 /* ============================================================================
    Markets grid

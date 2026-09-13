@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useRef } from "react";
 import { lerp, segment, useScrollProgress } from "../use-scroll-progress";
 
 /**
@@ -17,8 +18,17 @@ const POSE = [
 ];
 
 export default function ShowcaseRow({ images }: { images: string[] }) {
-  const { ref, progress } = useScrollProgress<HTMLDivElement>();
-  const t = segment(progress, 0.1, 0.7);
+  const tiles = useRef<(HTMLDivElement | null)[]>([]);
+
+  const ref = useScrollProgress<HTMLDivElement>((progress) => {
+    const t = segment(progress, 0.1, 0.7);
+    tiles.current.forEach((tile, index) => {
+      if (!tile) return;
+      const pose = POSE[index % POSE.length];
+      tile.style.transform =
+        `translateY(${lerp(pose.y0, 0, t).toFixed(2)}px) rotate(${lerp(pose.r0, pose.r1, t).toFixed(2)}deg)`;
+    });
+  });
 
   return (
     <div className="st-showcase-grid" ref={ref}>
@@ -28,9 +38,12 @@ export default function ShowcaseRow({ images }: { images: string[] }) {
           <div
             className="st-showcase-item"
             key={src}
-            style={{
-              transform: `translateY(${lerp(pose.y0, 0, t)}px) rotate(${lerp(pose.r0, pose.r1, t)}deg)`,
+            ref={(node) => {
+              tiles.current[index] = node;
             }}
+            // Server-rendered starting pose, so there is no flash of the
+            // settled layout before the first frame runs.
+            style={{ transform: `translateY(${pose.y0}px) rotate(${pose.r0}deg)` }}
           >
             <Image
               className="st-showcase-image"

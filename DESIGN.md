@@ -215,6 +215,9 @@ are not in the reference, both load-bearing:
 | View-all link | 300ms `easeInOut`, `translateX(-32px)` → `0` | 300ms | `a-111` / `a-112` |
 | Location row | 400ms `inOutQuad`, thumbnail 0 → 120×80; **siblings** dim to `#5d5d5d` over 300ms `ease` | 400ms / 300ms | `a-40` / `a-41` |
 | FAQ | height 400ms `easeInOut`; plus-wrapper rotates 180° on `inOutBack`; the vertical bar collapses to 0 | same | `a-19` / `a-20` |
+| Stat tile | an image fades in behind it and drifts with the pointer; the caption lifts `#5d5d5d` → ink, 500ms | 500ms | `a-21` / `a-22` / `a-23` |
+| Market tile | the label panel fades 0 → 1, the photo scales to 1.2, and each line rises 25px. All 500ms | 500ms | `a-28` / `a-29` |
+| Foundation tab | body height 0 → auto 400ms `ease`, the picture cross-fades 400ms, and the inactive icon sits at `#686868` | same | `a-24` / `a-25` |
 
 Press feedback (`scale(0.96)` at 140ms) is ours — the reference has none — and
 every hover that transforms is gated behind `@media (hover: hover) and (pointer: fine)`.
@@ -233,14 +236,40 @@ every hover that transforms is gated behind `@media (hover: hover) and (pointer:
 
 Everything above is disabled or frozen under `prefers-reduced-motion: reduce`.
 
-### 3.5 Rules
+### 3.5 Scroll-scrubbed sections
+
+Three sections are not triggered, they are **scrubbed**: their transforms are
+a function of how far the page has scrolled through them. Webflow calls these
+`SCROLLING_IN_VIEW`, and every one of them carries `smoothing: 90`, which is
+why the reference's scrubs lag the scroll slightly instead of tracking it
+exactly. [`use-scroll-progress.ts`](src/components/stodio/use-scroll-progress.ts)
+is that mechanism: progress 0 when the element's top reaches the bottom of the
+viewport, 1 once its bottom clears the top, smoothed with a 0.12 lerp.
+
+| Section | Keyframes | From IX2 |
+|---|---|---|
+| **What drives us** ([`showcase-row.tsx`](src/components/stodio/about/showcase-row.tsx)) | @10%: tiles offset ±60px and tilted -8 / 3 / -4 / 4°. @70%: offset 0, tilt -4 / 3 / -2 / 2°. The **wrapper** rotates, not the image. | `a-79` |
+| **Our method** ([`process-section.tsx`](src/components/stodio/process-section.tsx)) | @0%: all four cards at `translateY(75vh)`. Card *n* comes home between *n*×20% and (*n*+1)×20%, so they arrive one at a time while the row is pinned. | `a-105` |
+| **Markets** ([`markets-grid.tsx`](src/components/stodio/about/markets-grid.tsx)) | @20%: row one at `x: -500px`, row two at `x: +500px`. @75%: both at 0, on `outQuad`. The wrapper clips so neither row widens the page. | `a-80` |
+
+The hook writes transforms **straight to the DOM through refs**. It must not
+go through React state: re-rendering a subtree sixty times a second during a
+scroll is exactly the work that drops frames on a mid-range phone. Elements
+are server-rendered in their starting pose so there is no flash of the settled
+layout on first paint, and the whole mechanism short-circuits to its end state
+under `prefers-reduced-motion`.
+
+Below 992px the method slab drops its pin and the cards stack, so the scrub
+clears their transforms rather than leaving them parked off-screen.
+
+### 3.6 Rules
 
 - Never animate `width`/`height`/`top`/`left` for an entrance.
 - Never `transition: all`. Name the properties.
 - Never put `overflow: hidden` on an element that wraps a `<Reveal>`.
 - Never animate a keyboard-initiated action.
 
-### 3.6 Icons
+### 3.7 Icons
 
 The icon set is not redrawn — every path in
 [`icons.tsx`](src/components/stodio/icons.tsx) is lifted verbatim from the
@@ -316,11 +345,26 @@ chip, meta row 164px below) → Our story (243px label column with the author
 credit pinned 148px down / 680px prose column at `.st-h4`) → Numbers →
 What drives us (tilted, overlapping showcase inside a 922px grid) →
 Our method (**dark slab**, card row pinned for 300vh) → Client wall (4×160px
-tiles) → Foundation (600px image + disclosure list) → Markets (5-col grid:
+tiles) → Foundation (600px picture + tab list — see below) → Markets (5-col grid:
 stat spanning 2, five cards, closing note spanning 3) → CTA
 
 Its geometry is in [`stodio-about.css`](src/app/stodio-about.css) and every
 number in it was measured off the live reference at 1600px.
+
+**Foundation is a tab set, not an accordion.** In the reference it is a
+Webflow `w-tabs`, where each pane carries its own picture: selecting a
+principle swaps the image as well as opening the body. The three pictures are
+stacked and cross-faded rather than swapped in the DOM, so nothing reflows.
+The picture panel is absolutely positioned on the leading side because it is
+taller than the list (680 vs ~290) and as a flex sibling it would set the
+block's height — the reference solves it the same way with
+`.intro-tabs-mask`. Below 992px the panel goes back into flow, above the list.
+
+**The process-card art is the reference's own.** Four fill-based marks on a
+240 box — pinwheel, lightbulb, cube, puzzle piece — lifted from its SVG
+assets, with the shipped `#F3F3F3` swapped for `currentColor`. They are capped
+at 220px rather than filling the card, which is the one deliberate departure:
+at the reference's 316px they swamp our longer copy.
 
 ### Projects — `components/stodio/portfolio/index.tsx`
 Hero (**light slab**) → Marquee → category filter → two-column grid → CTA
