@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { PORTFOLIO_PROJECTS } from "@/lib/data";
-import { ProjectDetailPage } from "@/components/pages/portfolio/project-detail-page";
+import ProjectDetailPage from "@/components/stodio/portfolio/project-detail-page";
 
 interface PageProps {
   params: Promise<{ slug: string }>;

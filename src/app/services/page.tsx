@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ServicesPage } from "@/components/pages/services";
+import ServicesPage from "@/components/stodio/services";
 
 export const metadata: Metadata = {
   title: "Our Services | Saurabh Infosys — AI, Flutter, SaaS & More",

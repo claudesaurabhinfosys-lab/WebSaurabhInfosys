@@ -1,0 +1,420 @@
+/* ============================================================================
+   Saurabh Infosys — Stodio design system
+   Ported 1:1 from the Stodio reference build (stodio.webflow.io).
+   Token names mirror the reference so any further CSS lifted from it drops in.
+   Every class is `st-` prefixed so the legacy design-system.css cannot collide.
+   Rule: no hardcoded hex / px / radius / duration in a component. Tokens only.
+   ========================================================================= */
+
+:root {
+  /* Type faces */
+  --st-font-primary: var(--font-geist), Geist, ui-sans-serif, system-ui, sans-serif;
+  --st-font-secondary: var(--font-geist-mono), "Geist Mono", ui-monospace, monospace;
+
+  /* Legacy aliases — the not-yet-ported routes still ask for these names,
+     so they pick up Geist instead of falling through to Arial. */
+  --font-raveo: var(--font-geist);
+  --font-dm-mono: var(--font-geist-mono);
+
+  /* Colour */
+  --st-primary: #0a0a0a;          /* text main / dark surfaces */
+  --st-white: #ffffff;            /* main bg */
+  --st-brand: #00a0e3;            /* Saurabh Infosys blue — the one carry-over */
+  --st-brand-hover: #0086c0;
+  --st-bg-light: #f3f3f3;
+  --st-bg-primary: #f1f2f1;
+  --st-secondary-bg: #232323;
+  --st-border: #e6e6e6;
+  --st-border-black: #232323;
+  --st-mute: #9d9d9d;
+  --st-text-secondary: #5d5d5d;
+
+  /* Heading scale (desktop >= 992px).
+     Sizes are the Saurabh Infosys brand guide's, not the reference build's —
+     the reference runs H1 at 96px, which is too loud for our copy lengths.
+     Leading is tightened on H1/H2: a display size at 1.35 leading falls apart
+     across two lines. H3-H6 keep the guide's leading. */
+  --st-h1-size: 80px;   --st-h1-lh: 1.08;  --st-h1-ls: -0.035em;
+  --st-h2-size: 64px;   --st-h2-lh: 1.1;   --st-h2-ls: -0.03em;
+  --st-h3-size: 40px;   --st-h3-lh: 1.3;   --st-h3-ls: -0.02em;
+  --st-h4-size: 36px;   --st-h4-lh: 1.3;   --st-h4-ls: -0.02em;
+  --st-h5-size: 28px;   --st-h5-lh: 1.4;   --st-h5-ls: -0.015em;
+  --st-h6-size: 24px;   --st-h6-lh: 1.4;   --st-h6-ls: -0.01em;
+  --st-heading-big: 80px;
+  --st-text-80: 64px;
+
+  /* Body scale */
+  --st-text-xxl: 22px;  --st-text-xxl-lh: 1.4;  --st-text-xxl-ls: -0.01em;
+  --st-text-xl: 20px;   --st-text-xl-lh: 1.6;   --st-text-xl-ls: -0.015em;
+  --st-text-l: 18px;    --st-text-l-lh: 1.6;    --st-text-l-ls: -0.015em;
+  --st-text-m: 16px;    --st-text-m-lh: 1.6;    --st-text-m-ls: -0.011em;
+  --st-text-s: 14px;    --st-text-s-lh: 1.6;    --st-text-s-ls: 0em;
+  --st-text-sm: 12px;   --st-text-sm-lh: 1.5;
+
+  /* Weights */
+  --st-regular: 400;
+  --st-medium: 500;
+  --st-semibold: 600;
+  --st-bold: 700;
+
+  /* Gap */
+  --st-gap-4: 4px;   --st-gap-8: 8px;   --st-gap-12: 12px; --st-gap-16: 16px;
+  --st-gap-20: 20px; --st-gap-24: 24px; --st-gap-32: 32px; --st-gap-36: 36px;
+  --st-gap-40: 40px; --st-gap-44: 44px;
+
+  /* Padding */
+  --st-pad-16: 16px;  --st-pad-3x: 12px;  --st-pad-5x: 20px;   --st-pad-1x: 24px;
+  --st-pad-2x: 28px;  --st-pad-36: 36px;  --st-pad-4x: 44px;   --st-pad-48: 48px;
+  --st-pad-x: 64px;   --st-pad-xl: 80px;  --st-pad-xxl: 120px; --st-pad-big: 160px;
+
+  /* Radius */
+  --st-r-4: 4px;   --st-r-8: 8px;   --st-r-12: 12px; --st-r-16: 16px;
+  --st-r-24: 24px; --st-r-32: 32px; --st-r-44: 44px; --st-r-100: 100%;
+
+  /* Motion — every value below is read out of the reference build's own IX2
+     interaction data, not eyeballed. Webflow names its easings; these are the
+     cubic-beziers those names resolve to. */
+  --st-ease: cubic-bezier(0.25, 0.1, 0.25, 1);              /* "ease" */
+  --st-ease-out-quad: cubic-bezier(0.25, 0.46, 0.45, 0.94); /* "outQuad" */
+  --st-ease-out-quart: cubic-bezier(0.165, 0.84, 0.44, 1);  /* "outQuart" */
+  --st-ease-out-quint: cubic-bezier(0.23, 1, 0.32, 1);      /* "outQuint" */
+  --st-ease-in-out: cubic-bezier(0.42, 0, 0.58, 1);         /* "easeInOut" */
+  --st-ease-in-out-quad: cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  --st-ease-in-out-quart: cubic-bezier(0.77, 0, 0.175, 1);
+  --st-ease-in-out-back: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* Kept as the generic alias so existing rules read naturally. */
+  --st-ease-out: var(--st-ease-out-quad);
+  --st-ease-inout: var(--st-ease-in-out);
+
+  --st-dur-press: 0.14s;   /* ours — the reference has no press state */
+  --st-dur-hover-in: 0.3s; /* IX2 "hover in" groups */
+  --st-dur-hover-out: 0.4s;/* IX2 "hover out" groups */
+  --st-dur-fast: 0.3s;
+  --st-dur: 0.35s;         /* .button { transition: all .35s } */
+  --st-dur-slow: 0.4s;
+  --st-reveal-dur: 1.2s;   /* "Fade In" action lists */
+  --st-reveal-blur: 5px;
+  --st-reveal-rise: 50px;
+}
+
+@media screen and (max-width: 991px) {
+  :root {
+    --st-h1-size: 56px;
+    --st-h2-size: 44px;
+    --st-h3-size: 32px;
+    --st-h4-size: 28px;
+    --st-h5-size: 24px;
+    --st-h6-size: 20px;
+    --st-text-xxl: 20px;
+    --st-text-80: 44px;
+    --st-heading-big: 56px;
+    --st-gap-32: 28px;
+    --st-gap-36: 32px;
+    --st-gap-40: 36px;
+    --st-pad-4x: 36px;
+    --st-pad-x: 52px;
+    --st-pad-xl: 60px;
+    --st-pad-48: 38px;
+    --st-pad-xxl: 80px;
+    --st-pad-big: 110px;
+    --st-r-32: 24px;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  :root {
+    --st-h1-size: 42px;
+    --st-h2-size: 34px;
+    --st-h3-size: 28px;
+    --st-h4-size: 24px;
+    --st-h5-size: 22px;
+    --st-h6-size: 19px;
+    --st-text-xl: 18px;
+    --st-text-l: 17px;
+    --st-text-80: 36px;
+    --st-heading-big: 42px;
+    --st-pad-big: 88px;
+    --st-pad-xxl: 64px;
+    --st-r-24: 16px;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  :root {
+    --st-h1-size: 34px;
+    --st-h2-size: 28px;
+    --st-h3-size: 24px;
+    --st-h4-size: 22px;
+    --st-h5-size: 20px;
+    --st-h6-size: 18px;
+    --st-text-80: 30px;
+    --st-heading-big: 34px;
+    --st-pad-big: 72px;
+    --st-pad-xxl: 56px;
+    --st-pad-xl: 44px;
+  }
+}
+
+/* ============================================================================
+   Base
+   ========================================================================= */
+
+/* Lenis drives the scroll; the native smooth-scroll from globals.css would
+   fight it, so it is turned off here (globals.css loads first). */
+html { scroll-behavior: auto; }
+
+.st-root {
+  font-family: var(--st-font-primary);
+  color: var(--st-primary);
+  font-size: var(--st-text-m);
+  line-height: var(--st-text-m-lh);
+  font-weight: var(--st-regular);
+  background-color: var(--st-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.st-root h1, .st-root h2, .st-root h3,
+.st-root h4, .st-root h5, .st-root h6 { margin: 0; }
+/* Only the block-end margin. The `margin` shorthand here would score 0,1,1
+   and quietly beat any component class that sets `margin-top` on a <p>
+   (`.st-hero-subtext`, `.st-work-subtitle`, `.st-quote-number-label`).
+   Tailwind's preflight already zeroes the top margin. */
+.st-root p { margin-block-end: 10px; }
+/* No `color` here on purpose: an element-level colour would outrank the
+   component classes on the links themselves (`.st-nav-link`, `.st-button`).
+   Tailwind's preflight already makes links inherit their colour. */
+.st-root a { text-decoration: none; }
+.st-root img { max-width: 100%; display: inline-block; }
+.st-root strong { font-weight: var(--st-bold); }
+
+/* Heading styles */
+.st-h1 { font-size: var(--st-h1-size); line-height: var(--st-h1-lh); letter-spacing: var(--st-h1-ls); font-weight: var(--st-medium); }
+.st-h2 { font-size: var(--st-h2-size); line-height: var(--st-h2-lh); letter-spacing: var(--st-h2-ls); font-weight: var(--st-regular); }
+.st-h3 { font-size: var(--st-h3-size); line-height: var(--st-h3-lh); letter-spacing: var(--st-h3-ls); font-weight: var(--st-medium); }
+.st-h4 { font-size: var(--st-h4-size); line-height: var(--st-h4-lh); letter-spacing: var(--st-h4-ls); font-weight: var(--st-regular); }
+.st-h5 { font-size: var(--st-h5-size); line-height: var(--st-h5-lh); letter-spacing: var(--st-h5-ls); font-weight: var(--st-regular); margin-bottom: 0; }
+.st-h6 { font-size: var(--st-h6-size); line-height: var(--st-h6-lh); letter-spacing: var(--st-h6-ls); font-weight: var(--st-regular); }
+
+.st-weight-medium { font-weight: var(--st-medium); }
+.st-weight-semibold { font-weight: var(--st-semibold); }
+
+/* Body styles */
+.st-text-xxl { font-size: var(--st-text-xxl); line-height: var(--st-text-xxl-lh); letter-spacing: var(--st-text-xxl-ls); }
+.st-text-xl  { font-size: var(--st-text-xl);  line-height: var(--st-text-xl-lh);  letter-spacing: var(--st-text-xl-ls); }
+.st-text-l   { font-size: var(--st-text-l);   line-height: var(--st-text-l-lh);   letter-spacing: var(--st-text-l-ls); }
+.st-text-m   { font-size: var(--st-text-m);   line-height: var(--st-text-m-lh);   letter-spacing: var(--st-text-m-ls); }
+.st-text-s   { font-size: var(--st-text-s);   line-height: var(--st-text-s-lh); }
+.st-text-sm  { font-size: var(--st-text-sm);  line-height: var(--st-text-sm-lh); }
+
+.st-mute { color: var(--st-mute); }
+.st-secondary { color: var(--st-text-secondary); }
+.st-brand-text { color: var(--st-brand); }
+.st-mono { font-family: var(--st-font-secondary); }
+.st-upper { text-transform: uppercase; }
+.st-white-text { color: var(--st-white); }
+
+/* Layout */
+.st-page { position: relative; }
+.st-container { width: 100%; max-width: none; margin: 0 auto; padding-left: 32px; padding-right: 32px; }
+@media screen and (max-width: 767px) { .st-container { padding-left: 20px; padding-right: 20px; } }
+
+.st-divider { border: 1px dashed var(--st-border); width: 100%; height: 1px; margin-top: 24px; margin-bottom: 24px; }
+.st-divider.st-is-solid { border-style: solid; }
+
+.st-sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus is never removed — only restyled to the brand ring. */
+.st-root :focus-visible {
+  outline: 2px solid var(--st-brand);
+  outline-offset: 3px;
+  border-radius: var(--st-r-4);
+}
+
+/* ============================================================================
+   Tag / eyebrow pill
+   ========================================================================= */
+.st-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--st-gap-8);
+  padding: 8px 12px;
+  border-radius: 44px;
+  background-color: var(--st-bg-light);
+  color: var(--st-primary);
+  font-family: var(--st-font-secondary);
+  font-size: var(--st-text-s);
+  line-height: var(--st-text-s-lh);
+  font-weight: var(--st-medium);
+  text-transform: uppercase;
+}
+.st-tag.st-on-dark { background-color: var(--st-white); }
+.st-tag.st-on-light { background-color: var(--st-bg-primary); }
+.st-tag-icon { width: 16px; height: 16px; display: flex; flex: none; color: var(--st-brand); }
+.st-tag-block { display: flex; justify-content: flex-start; }
+.st-tag-block.st-is-center { justify-content: center; }
+
+/* ============================================================================
+   Button — dual-layer text swap on hover (Stodio "button-inner absolute")
+   ========================================================================= */
+.st-button {
+  position: relative;
+  display: inline-flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+  border-radius: var(--st-r-44);
+  background-color: var(--st-white);
+  color: var(--st-primary);
+  font-size: var(--st-text-m);
+  line-height: var(--st-text-m-lh);
+  letter-spacing: var(--st-text-m-ls);
+  font-weight: var(--st-medium);
+  text-decoration: none;
+  overflow: hidden;
+  border: 0;
+  cursor: pointer;
+  font-family: inherit;
+  transition:
+    border-radius var(--st-dur) var(--st-ease-out),
+    background-color var(--st-dur) var(--st-ease-out),
+    color var(--st-dur) var(--st-ease-out),
+    transform var(--st-dur-press) var(--st-ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .st-button:hover { border-radius: var(--st-r-16); }
+}
+/* Press feedback. Subtle on purpose — 0.96 is the floor before it reads
+   as a bounce rather than a response. */
+.st-button:active { transform: scale(0.96); }
+
+.st-button.st-is-brand { background-color: var(--st-brand); color: var(--st-white); }
+@media (hover: hover) and (pointer: fine) {
+  .st-button.st-is-brand:hover { background-color: var(--st-brand-hover); color: var(--st-white); }
+}
+.st-button.st-is-dark { background-color: var(--st-primary); color: var(--st-white); }
+.st-button.st-is-light { background-color: var(--st-bg-light); color: var(--st-primary); }
+.st-button.st-is-outline { background-color: transparent; border: 1px solid var(--st-border); color: var(--st-primary); }
+.st-button:disabled { opacity: 0.55; cursor: not-allowed; }
+
+.st-button-content { position: relative; overflow: hidden; }
+.st-button-inner { display: flex; align-items: center; justify-content: center; gap: 6px; }
+.st-button-inner.st-is-absolute { position: absolute; inset: 0; }
+.st-button-text-wrap { display: flex; align-items: center; justify-content: center; width: 100%; overflow: hidden; }
+.st-button-text { position: relative; z-index: 1; padding-left: 3px; padding-right: 3px; letter-spacing: var(--st-text-m-ls); white-space: nowrap; }
+.st-button-icon-wrap { position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.st-button-icon { width: 16px; height: 16px; display: flex; align-items: center; justify-content: center; flex: none; }
+
+/* The swap: top layer rises out, bottom layer rises in. The reference runs
+   the hover-in group at 300ms and the hover-out group at 400ms, both outQuad,
+   so the base rule carries the exit timing and :hover overrides it. */
+.st-button .st-button-text,
+.st-button .st-button-icon {
+  transition: transform var(--st-dur-hover-out) var(--st-ease-out-quad);
+}
+.st-button .st-button-inner.st-is-absolute .st-button-text,
+.st-button .st-button-inner.st-is-absolute .st-button-icon {
+  transform: translateY(100%);
+}
+@media (hover: hover) and (pointer: fine) {
+  .st-button:hover .st-button-text,
+  .st-button:hover .st-button-icon { transition-duration: var(--st-dur-hover-in); }
+  .st-button:hover .st-button-inner:not(.st-is-absolute) .st-button-text,
+  .st-button:hover .st-button-inner:not(.st-is-absolute) .st-button-icon {
+    transform: translateY(-100%);
+  }
+  .st-button:hover .st-button-inner.st-is-absolute .st-button-text,
+  .st-button:hover .st-button-inner.st-is-absolute .st-button-icon {
+    transform: translateY(0%);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .st-button .st-button-text,
+  .st-button .st-button-icon { transition: none; }
+}
+
+.st-button-wrapper { display: flex; align-items: center; justify-content: center; margin-top: var(--st-gap-36); }
+.st-button-wrapper.st-is-hero { margin-top: var(--st-gap-32); gap: var(--st-gap-16); justify-content: flex-start; flex-wrap: wrap; }
+.st-button-wrapper.st-is-cta { margin-top: var(--st-gap-32); gap: var(--st-gap-16); justify-content: center; flex-wrap: wrap; }
+
+/* Avatar button (nav "Book A Call") */
+.st-button.st-is-nav {
+  flex-flow: row;
+  gap: 8px;
+  height: auto;
+  padding: 6px 20px 6px 6px;
+  border-radius: var(--st-r-44);
+}
+.st-button.st-is-nav:hover { border-radius: var(--st-r-16); }
+.st-button-avatar { width: 48px; height: 36px; border-radius: 56px; object-fit: cover; flex: none; }
+
+/* The clip the slide-out link hides behind. */
+.st-view-all-clip { display: inline-flex; overflow: hidden; }
+
+/* Text link with dashed brand underline */
+.st-view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--st-primary);
+  font-weight: var(--st-medium);
+}
+.st-view-all-text {
+  font-size: var(--st-h4-size);
+  line-height: var(--st-h4-lh);
+  letter-spacing: var(--st-h4-ls);
+  text-decoration: underline;
+  text-decoration-color: var(--st-brand);
+  text-underline-position: under;
+  text-decoration-style: dashed;
+  text-decoration-thickness: 1px;
+}
+.st-view-all-icon { width: 32px; height: 32px; flex: none; color: var(--st-brand); }
+/* The wrapper clips; the link sits 32px to the leading side so its arrow is
+   hidden, then slides into place on hover — IX2 a-111 / a-112, 300ms
+   easeInOut both ways. */
+.st-view-all {
+  transform: translateX(-32px);
+  transition: transform var(--st-dur-hover-in) var(--st-ease-in-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .st-view-all:hover { transform: translateX(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .st-view-all { transform: none; }
+}
+
+/* ============================================================================
+   Reveal — the one entrance animation: rise 50px + blur 5px + fade
+   ========================================================================= */
+.st-reveal {
+  opacity: 0;
+  filter: blur(var(--st-reveal-blur));
+  transform: translate3d(0, var(--st-reveal-rise), 0);
+  transition:
+    opacity var(--st-reveal-dur) var(--st-ease-out-quart) var(--st-reveal-delay, 0s),
+    filter var(--st-reveal-dur) var(--st-ease-out-quart) var(--st-reveal-delay, 0s),
+    transform var(--st-reveal-dur) var(--st-ease-out-quart) var(--st-reveal-delay, 0s);
+  will-change: opacity, filter, transform;
+}
+.st-reveal.st-is-in {
+  opacity: 1;
+  filter: blur(0px);
+  transform: translate3d(0, 0, 0);
+}
+@media (prefers-reduced-motion: reduce) {
+  .st-reveal { opacity: 1; filter: none; transform: none; transition: none; }
+}

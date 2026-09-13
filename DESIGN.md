@@ -1,430 +1,390 @@
-# Saurabh Infosys — Design System & Home Page Spec
+# Saurabh Infosys — Design System
 
 The single source of truth for how this site looks and moves. Every section, on
 every page, is built from what is defined here. If a value is missing, add it
 here first and then use it — never inline a one-off number in a component.
 
-Reference build: the Hypen agency template. Layout, spacing and interaction
-timings are ported from it verbatim; typeface, colour and content are ours.
+**Reference build:** the Stodio agency template (`stodio.webflow.io`). Layout,
+composition, spacing and interaction patterns are ported from it. Typeface is
+theirs (Geist / Geist Mono). Colour is theirs *except* the brand hue, which
+stays the Saurabh Infosys blue. Motion is the reference's, extracted from its
+own interaction data rather than estimated (§3). The type scale is the one
+place we deliberately differ (§2.2). Content is entirely ours.
+
+There is one design system. Nothing on this site renders the previous one.
 
 ---
 
 ## 1. Principles
 
 1. **Tokens or nothing.** No hardcoded hex, px size, radius, duration or easing
-   in a component. Everything resolves to a `var(--…)` in `design-system.css`.
+   in a component. Everything resolves to a `var(--st-…)` in
+   [`src/app/stodio.css`](src/app/stodio.css).
 2. **One entrance animation.** Sections do not each invent their own reveal.
-   There is exactly one: rise + blur + fade, via `<Reveal>`.
-3. **Motion needs a reason.** Feedback, spatial consistency, state change, or
-   preventing a jarring jump. "It looks cool" on something seen daily is a
-   reason to remove it.
-4. **`transform` and `opacity` only.** Two exceptions, deliberate:
-   accordion `height`, which has no transform equivalent, and `clip-path`
-   for a progress wipe, where `scaleX` would distort the shape it fills.
-   Neither triggers layout on the surrounding page.
-5. **Reduced motion and hover gating ship with the animation**, never as a
-   follow-up pass.
-6. **Restraint on the dark panels.** Workflow, work and footer are the only
-   dark surfaces. They punctuate; they do not compete.
+   There is exactly one: rise 50px, un-blur 5px, fade — via `<Reveal>`.
+3. **Motion matches the reference exactly.** The timings, easings and travel
+   distances in §3 are extracted from the reference build's interaction data,
+   not chosen. Do not "tidy" them.
+4. **`transform` and `opacity` only** for anything that moves. The deliberate
+   exceptions are accordion `height` (no transform equivalent) and the
+   `border-radius` tightening on hover, which is the reference's signature and
+   triggers no layout around it.
+5. **Hover effects are gated** behind `@media (hover: hover) and (pointer: fine)`.
+   Touch devices fire `:hover` on tap and then keep it; a transform that sticks
+   after a tap reads as a bug.
+6. **Every pressable thing answers.** `:active { transform: scale(0.96) }` at
+   140ms. 0.96 is the floor — below that it reads as a bounce, not a response.
+7. **Reduced motion ships with the animation**, never as a follow-up pass.
+8. **Restraint on the dark panels.** Services, testimonials, the method slab and
+   the footer are the only dark surfaces. They punctuate; they do not compete.
+9. **Every class is `st-` prefixed.** A habit worth keeping even now that the
+   legacy sheet is gone — it keeps the origin of a rule obvious.
 
 ---
 
 ## 2. Foundations
 
-All tokens live in [`src/app/design-system.css`](src/app/design-system.css).
-Variable names are kept identical to the reference build so any further CSS
-lifted from it drops in without renaming.
+All tokens live in [`src/app/stodio.css`](src/app/stodio.css). Names mirror the
+reference build so any further CSS lifted from it drops in without renaming.
 
 ### 2.1 Colour
 
 | Token | Value | Used for |
-| --- | --- | --- |
-| `--colors--midnight-black` | `#141414` | All body and heading text; hover fill on buttons |
-| `--colors--charcoal-shadow` | `#212121` | Dark panel surface (workflow, footer) |
-| `--colors--dark-slate` | `#2c2c2c` | Cards sitting on a dark panel |
-| `--colors--graphite-gray` | `#494949` | Secondary text on light |
-| `--colors--gray` | `#6b6b6b` | The second tone in two-tone headings; nav links |
-| `--colors--steel-gray` | `#7d7d7d` | Muted labels |
-| `--colors--silver-mist` | `#b1b1b1` | Text on dark, de-emphasised |
-| `--colors--cloud-gray` | `#e1e1e1` | Hairlines; text on dark panels |
-| `--colors--snow-white` | `#f4f4f4` | The default raised surface — cards, pills, nav |
-| `--colors--white` | `#ffffff` | Page ground; cards on dark panels |
-| `--colors--white-lite` | `#ffffff33` | Glass labels over imagery (backdrop-blur 20px) |
-| `--colors--brand` | `#00a0e3` | Saurabh Infosys blue |
-| `--colors--brand-accent` | `#00a0e3` | Accent fill: buttons, badge dots, arrow pills |
-| `--colors--brand-accent-light` | `#ccf0ff` | Accent tint for large soft fills |
+|---|---|---|
+| `--st-brand` | `#00a0e3` | The Saurabh Infosys blue. Buttons, active states, accents, the tag plus-square, row arrows. **The one value that is ours, not Stodio's.** |
+| `--st-brand-hover` | `#0086c0` | Brand button hover fill |
+| `--st-primary` | `#0a0a0a` | Body text, and every dark slab's background |
+| `--st-white` | `#ffffff` | Page background, text on dark |
+| `--st-bg-light` | `#f3f3f3` | Tag pills, FAQ rows, list rows, cards, blog cards |
+| `--st-bg-primary` | `#f1f2f1` | Secondary tinted surface, row hover |
+| `--st-secondary-bg` | `#232323` | Footer social pills, slider arrows, testimonial cards |
+| `--st-border` | `#e6e6e6` | Dividers and hairlines on light |
+| `--st-border-black` | `#232323` | Dashed rules on dark slabs |
+| `--st-mute` | `#9d9d9d` | Muted text on dark, inactive service names |
+| `--st-text-secondary` | `#5d5d5d` | Body copy that is not the headline |
 
-`--colors--purple-blue` / `--colors--purple-blue-light` remain as aliases of the
-two accent tokens purely so reference CSS resolves. Do not use them in new code.
-
-**Contrast:** white on `#00a0e3` is 2.96:1. It is used only for button labels at
-16px — acceptable there, not acceptable for body copy. Black on the accent is
-6.2:1 and is the safe choice for anything smaller or denser.
+`#00a0e3` on white is 2.9:1, so it is used for **fills, icons and large text
+only** — never for small body copy on a light surface.
 
 ### 2.2 Type
 
-Two faces, no exceptions.
+Two faces, loaded through `next/font/google` in
+[`src/app/layout.tsx`](src/app/layout.tsx):
 
-- **Raveo** (`--font-family--body` / `--font-family--heading`) — one variable
-  file with a weight axis (100–900) and an optical-size axis (14–32).
-  `font-optical-sizing: auto` on `.ds-root` means the 120px H1 automatically
-  gets the display cut and 16px body gets the text cut.
-- **DM Mono** (`--font-family--secondary-font`) — every uppercase label:
-  section badges, the GMT clock, captions, tags, numbers in lists.
+- `--st-font-primary` → **Geist** (400/500/600/700). Everything.
+- `--st-font-secondary` → **Geist Mono** (400/500/600/700). Tag pills, labels,
+  captions, meta rows, the hero's `+ DEFINE` strip.
 
-Raveo's named weights sit darker than Inter's, so the tokens use its axis
-positions: medium **520**, semi-bold **630**, bold **730**.
+**The scale is the Saurabh Infosys brand guide's, not the reference's.** Stodio
+runs H1 at 96px and H2 at 64/1.0; against our copy lengths that was too loud
+and wrapped badly. Leading on H1/H2 is tightened from the guide's 120%/135%,
+which falls apart on a display size across two lines. H3–H6 keep the guide's
+leading.
 
-| Role | Class | Size / line-height | Tracking |
-| --- | --- | --- | --- |
-| H1 | `h1` in `.ds-root` | 120 / 90% | −0.05em |
-| H2 | `h2` | 72 / 100% | −0.04em |
-| H3 | `h3` | 54 / 100% | −0.04em |
-| H4 | `h4` | 44 / 110% | −0.03em |
-| H5 | `h5` / `.h5` | 36 / 120% | −0.03em |
-| H6 | `h6` / `.h6-medium` | 24 / 120% | −0.03em |
-| Body large | `.paragraph-01` / `.paragraph-m-01` | 18 / 130% | — |
-| Body | `.paragraph-02` / `.paragraph-m-02` | 16 / 140% | — |
-| Mono label | `.paragraph-03` | 16 / 140%, DM Mono 520 | — |
-| Caption | `.caption` | 14 / 140% | — |
+Desktop (≥992px); the scale steps down at 991 / 767 / 479.
 
-At ≤991px the hero H1 steps down to the H2 size. Section headings follow the
-same rule: one step down at 991, another at 479 where noted.
+| Class | Size | Line-height | Tracking | Weight |
+|---|---|---|---|---|
+| `.st-h1` | 80px | 1.08 | -0.035em | 500 |
+| `.st-h2` | 64px | 1.1 | -0.03em | 400 |
+| `.st-h3` | 40px | 1.3 | -0.02em | 500 |
+| `.st-h4` | 36px | 1.3 | -0.02em | 400 |
+| `.st-h5` | 28px | 1.4 | -0.015em | 400 |
+| `.st-h6` | 24px | 1.4 | -0.01em | 400 |
+| `.st-text-xxl` | 22px | 1.4 | -0.01em | — |
+| `.st-text-xl` | 20px | 1.6 | -0.015em | — |
+| `.st-text-l` | 18px | 1.6 | -0.015em | — |
+| `.st-text-m` | 16px | 1.6 | -0.011em | — |
+| `.st-text-s` | 14px | 1.6 | 0 | — |
+| `.st-text-sm` | 12px | 1.5 | — | — |
+
+Plus `--st-text-80` (64px) for the home service list names and
+`--st-heading-big` (80px) for oversized display text.
+
+Modifiers: `.st-weight-medium`, `.st-weight-semibold`, `.st-mute`,
+`.st-secondary`, `.st-brand-text`, `.st-mono`, `.st-upper`.
 
 ### 2.3 Space, radius, layout
 
-Padding, gap and margin are a fixed ladder (`--_perimeter---padding--padding-*`,
-`…gap-*`, `…margin-*`) running 0 → 2 → 4 → 6 → 8 → 10 → 12 → 14 → 16 → 20 → 24 →
-28 → 32 → 40 → 48 → 60 → 80 → 100 → 120 → 140 → 160px. Radius runs 2 → 4 → 6 →
-8 → 10 → 12 → 16 → 18 → 20 → 24 → 28 → 32 → 40 → 100px.
-
-- `.container` — max-width **1420px**, 20px side padding (16px ≤479).
-- Section rhythm — **120px** top padding on light sections
-  (`--_perimeter---padding--padding-12xl`), 100px at ≤991.
-- Dark panels are full-container-width blocks with **32px** radius
-  (`--_border-radius---radius-6xl`), never edge-to-edge bleed.
+- **Gap:** `--st-gap-4 … --st-gap-44`
+- **Padding:** `--st-pad-3x` (12) `-5x` (20) `-1x` (24) `-2x` (28) `-36` `-4x`
+  (44) `-48` `-x` (64) `-xl` (80) `-xxl` (120) `-big` (160)
+- **Radius:** `--st-r-4 / 8 / 12 / 16 / 24 / 32 / 44 / 100`
+- **Container:** `.st-container` is full-bleed with a 32px gutter (20px ≤767px).
+  No max-width — the reference is edge-to-edge.
+- **Slabs:** dark and tinted panels are inset `16px` from the viewport and
+  rounded `--st-r-24`. That inset is also why the nav mount is inset 16px.
 
 ### 2.4 Breakpoints
 
-Four, matching the reference exactly: base, **991**, **767**, **479**. Every
-section defines its own behaviour at each. The pattern is consistent — two
-columns collapse to one at 991, the secondary column hides at 767, padding
-tightens at 479.
+`991` · `767` · `479` — matching the reference so its media-query values
+transfer unchanged. Verified with no horizontal overflow at 390 / 768 / 1024 /
+1600.
+
+### 2.5 Logo
+
+Two real assets, not one recoloured file:
+
+| Surface | Asset |
+|---|---|
+| Dark (home hero, about hero, footer) | `public/SaurabhInfosysWhite.png` (800×491) |
+| Light (portfolio, blog detail, contact, services, products) | `public/saurabhInfosys.webp` (150×95) |
+
+[`logo.tsx`](src/components/stodio/logo.tsx) picks by `variant`; the navbar
+passes the one that matches the surface it is sitting on. The lockup is two
+lines tall (~1.63:1), so it is **sized by height** — 40px in the nav, 32px on
+mobile, 46px in the footer. Fixing its width the way a single-line wordmark
+would makes it tower over the nav row.
+
+> **Known limit:** the colour asset is only 150px wide, so it is soft on a 2×
+> display. A vector (SVG) or a ≥600px colour PNG would drop straight in — one
+> file swap, no code change.
+
+The giant footer wordmark is type-set rather than the logo file: no 800px
+raster survives being scaled to ~1900px.
 
 ---
 
 ## 3. Motion system
 
-Tokens in `design-system.css` under `---- Motion ----`.
+**Every number in this section is read out of the reference build's own IX2
+interaction data, not estimated.** Webflow does not ship that data in the page
+HTML on optimized sites — the runtime fetches it — so it was pulled from the
+live store (`Webflow.require("ix2").store.getState().ixData`): 378 events
+across 66 action lists. Where a row below cites an id like `a-76`, that is the
+action list it came from.
 
-| Token | Value | Job |
-| --- | --- | --- |
-| `--ease-out` | `cubic-bezier(0.23, 1, 0.32, 1)` | Everything entering or exiting |
-| `--ease-in-out` | `cubic-bezier(0.77, 0, 0.175, 1)` | Things moving or morphing on screen |
-| `--ease-hover` | `ease` | Colour and small hover states |
-| `--ease-drawer` | `cubic-bezier(0.32, 0.72, 0, 1)` | Panels travelling a long distance |
-| `--duration-press` | 140ms | `:active` feedback |
-| `--duration-hover` | 200ms | Colour, small shifts |
-| `--duration-swap` | 350ms | Button label + arrow mask slide |
-| `--duration-panel` | 400ms | Accordion open / close |
-| `--duration-reveal` | 800ms | Section entrance |
-| `--stagger-step` | 80ms | Delay between staggered children |
-| `--dwell-carousel` | 4000ms | How long a carousel holds a slide before advancing itself |
+### 3.1 Easing
 
-**Never `ease-in`.** It delays the exact moment the user is watching.
+Webflow names its easings; these are the curves those names resolve to.
 
-### 3.1 The entrance — `<Reveal>`
+| Token | Curve | Webflow name |
+|---|---|---|
+| `--st-ease` | `cubic-bezier(0.25, 0.1, 0.25, 1)` | `ease` |
+| `--st-ease-out-quad` | `cubic-bezier(0.25, 0.46, 0.45, 0.94)` | `outQuad` |
+| `--st-ease-out-quart` | `cubic-bezier(0.165, 0.84, 0.44, 1)` | `outQuart` |
+| `--st-ease-out-quint` | `cubic-bezier(0.23, 1, 0.32, 1)` | `outQuint` |
+| `--st-ease-in-out` | `cubic-bezier(0.42, 0, 0.58, 1)` | `easeInOut` |
+| `--st-ease-in-out-quad` | `cubic-bezier(0.455, 0.03, 0.515, 0.955)` | `inOutQuad` |
+| `--st-ease-in-out-quart` | `cubic-bezier(0.77, 0, 0.175, 1)` | `inOutQuart` |
+| `--st-ease-in-out-back` | `cubic-bezier(0.68, -0.55, 0.265, 1.55)` | `inOutBack` |
 
-[`src/components/ui/reveal.tsx`](src/components/ui/reveal.tsx). One animation,
-used everywhere: `translateY(40px)` + `blur(5px)` + `opacity: 0` →
-resting, 800ms on `--ease-out`, fired once at `-15%` viewport margin.
+`ease-in` is never used anywhere in the reference, and is not used here.
 
-Stagger siblings with the `index` prop (80ms apart) rather than hand-written
-delays. Under `prefers-reduced-motion` the travel and blur drop and only the
-fade remains at 300ms.
+### 3.2 The entrance — `<Reveal>` (`a-67` / `a-68` / `a-71` / `a-72` / `a-76` / `a-77`)
 
-800ms is well over the 300ms UI budget — deliberately. This is a scroll reveal
-on a marketing page, seen once per session, where the blur needs room to
-resolve. Interactive motion stays under 300ms.
+Six action lists, identical except for their delay. `a-76` alone accounts for
+43 of the site's scroll triggers.
 
-### 3.2 Hover
+```
+initial   opacity 0 · blur(5px) · translateY(50px)
+in        opacity 1 · blur(0)   · translateY(0)
+duration  1200ms
+easing    outQuart
+delay     0 | 200 | 300 | 400ms   ← the whole stagger vocabulary
+trigger   scrollOffsetValue: 0 — fires as the element reaches the viewport
+```
 
-- **Buttons** — label mask slides `−50%`, arrow mask slides `+100%`, both pills
-  fill to `--colors--midnight-black`. 350ms, `ease`. Above the usual hover
-  budget on purpose: it is a two-part slide and reads as mush when rushed.
-- **Cards** — image `scale(1.03)` and the arrow badge scaling from `0.9` to `1`.
-  200ms `--ease-out`.
-- **Links** — colour only, 200ms.
-- Every hover rule sits inside `@media (hover: hover) and (pointer: fine)`.
-- Every pressable element gets `:active { transform: scale(0.97) }` at 140ms.
-  The reference build omits this; we add it.
+[`reveal.tsx`](src/components/stodio/reveal.tsx) carries two corrections that
+are not in the reference, both load-bearing:
 
-### 3.3 Scroll-driven
+- The element starts 50px low, so the box the observer measures sits 50px
+  below its resting place. The observer's bottom `rootMargin` cancels that,
+  or anything settling near the fold could never trigger its own reveal.
+- `IntersectionObserver` intersects with **every clipping ancestor**, not just
+  the viewport. A `<Reveal>` inside a short `overflow: hidden` box reports zero
+  intersection while it is offset and stays blank forever. A `getBoundingClientRect`
+  fallback breaks that deadlock, and it fires for anything at *or past* the
+  fold so a jumped scroll cannot skip an element permanently. Keep tight
+  `overflow: hidden` off any element that wraps a `<Reveal>`.
 
-Three places only, all `framer-motion` `useScroll` mapped to explicit
-progress ranges, all disabled below 992px where the layout goes static:
+### 3.3 Hover
 
-1. **Work list** — the left column of titles translates against scroll behind
-   top and bottom gradient covers.
-2. **Clients** — three colour panels wipe the viewport, then the grid resolves.
-3. **Testimonials** — the card row translates horizontally.
-4. **Nothing else.** Parallax on body content is not part of this system.
+| Element | In | Out | From IX2 |
+|---|---|---|---|
+| Button label swap | 300ms `outQuad`, `translateY(-100%)` | 400ms `outQuad` | `a-3` / `a-4` |
+| Button pill radius | 350ms (44px → 16px) | 350ms | `.button { transition: all .35s }` |
+| Project thumbnail | 400ms `outQuad`, `scale(1.1)` | 400ms `outQuad` | `a-44` / `a-46` |
+| Blog thumbnail | 400ms `outQuad`, `scale(1.1)` | 400ms | `a-47` / `a-48` |
+| Blog title → brand | 300ms `outQuad` | 300ms | `a-47` / `a-48` |
+| Service row | 300ms `outQuad`: name `#5d5d5d`→white, number white→brand, card opacity 0→1, arrow wrapper width 0→auto | 300ms | `a-38` / `a-39` |
+| View-all link | 300ms `easeInOut`, `translateX(-32px)` → `0` | 300ms | `a-111` / `a-112` |
+| Location row | 400ms `inOutQuad`, thumbnail 0 → 120×80; **siblings** dim to `#5d5d5d` over 300ms `ease` | 400ms / 300ms | `a-40` / `a-41` |
+| FAQ | height 400ms `easeInOut`; plus-wrapper rotates 180° on `inOutBack`; the vertical bar collapses to 0 | same | `a-19` / `a-20` |
 
-### 3.4 Gestures
+Press feedback (`scale(0.96)` at 140ms) is ours — the reference has none — and
+every hover that transforms is gated behind `@media (hover: hover) and (pointer: fine)`.
 
-Anything the user can grab is a spring, never a tween — a spring animates
-from the value currently on screen and carries velocity through an
-interruption, so a moving element can be caught and thrown the other way
-without a jump.
+### 3.4 Loops and scroll-driven
 
-| Moment | Spring |
-| --- | --- |
-| Settle — the UI moved itself | `bounce: 0`, `duration: 0.5` |
-| Release — the user threw it | `bounce: 0.2`, `duration: 0.4`, handed the gesture's release velocity |
-| Past the last stop | `dragElastic: 0.12` — resist, never hard-stop |
+| What | Spec | From IX2 |
+|---|---|---|
+| Client marquee | `.st-logos-row` x 0 → -100%, **12s linear**, loop | `a-5` |
+| Gallery strip | `.st-gallery-image-list` x 0 → -100%, **12s linear**, loop | `a-73` |
+| Marquee starburst | rotate 0 → **180° over 4s linear**, reset, loop. The mark is 16-fold symmetric so the reset is invisible | `a-92` |
+| Hero background | `scale(1.4)` → `1` over **2s `outQuint`** on load | `a-81` |
+| Counter | digit strip `translateY(-90%)` over **3s `inOutQuart`**, 80ms apart. The strip is built to *end* on the target digit, so every digit travels the same distance — including a target of 0 | `a-7` |
+| Work title | `position: sticky; top: 20%` while the project rows pass | — |
+| Smooth scroll | Lenis, `lerp: 0.1` | page script |
 
-Bounce is earned, not decorative: it appears only where a real flick
-preceded it. Something that merely faded in does not overshoot.
+Everything above is disabled or frozen under `prefers-reduced-motion: reduce`.
 
-A flick lands where the gesture was *going*, not where the finger left —
-project the endpoint on iOS's deceleration curve,
-`current + (v / 1000) · d / (1 − d)` at `d = 0.998`, then snap to the
-nearest stop. Clamp that projection to one stop beyond where the drag
-actually reached, or a brisk flick sails past three slides and reads as
-the carousel deciding rather than the user.
+### 3.5 Rules
 
-Snap points are measured from the DOM, never computed from constants —
-slide widths and gaps change at three of the four breakpoints.
+- Never animate `width`/`height`/`top`/`left` for an entrance.
+- Never `transition: all`. Name the properties.
+- Never put `overflow: hidden` on an element that wraps a `<Reveal>`.
+- Never animate a keyboard-initiated action.
 
-Gesture-driven values are the one place `x` is used instead of a full
-transform string: framer-motion only writes a drag into `x`/`y`. It still
-compiles to `translateX()` on the compositor.
+### 3.6 Icons
 
-### 3.5 Content that advances itself
-
-A carousel that moves on its own holds each slide for `--dwell-carousel`
-and parks whenever it is not being watched or is being used: pointer over
-it, keyboard focus inside it, a drag in progress, scrolled off screen, or
-the tab in the background. Parking pauses the timer where it stands —
-it never rewinds.
-
-Drive the advance off the progress indicator's own `animationend`, not a
-`setInterval`. One clock means the bar the user is watching and the slide
-it triggers cannot drift apart, and pausing the indicator pauses the
-carousel for free.
-
-Two rules that are easy to get wrong:
-
-- **An explicit press of Play outranks hover.** The hand that pressed the
-  button is still resting on the carousel, so a hover rule that keeps
-  overriding it makes the button look broken.
-- **Only `:focus-visible` parks it**, not `:focus` — otherwise the Play
-  button re-pauses the thing it just started.
-
-Content moving for more than five seconds needs a visible way to stop it
-(WCAG 2.2.2), so the transport button is not optional. Under
-`prefers-reduced-motion` there is no autoplay at all, and the button is
-not rendered — the dots still navigate.
-
-### 3.6 Rules
-
-- Transitions, not keyframes, for anything a user can trigger twice in a
-  second — accordions, toggles, hovers. Transitions retarget; keyframes restart.
-- Never `scale(0)`. Entrances start at `0.9`–`0.97` with opacity.
-- In framer-motion use the full `transform` string, not `x`/`y`/`scale`
-  shorthands — the shorthands are not hardware-accelerated.
-- Exit the way you entered.
-
----
+The icon set is not redrawn — every path in
+[`icons.tsx`](src/components/stodio/icons.tsx) is lifted verbatim from the
+reference's inline SVG embeds, with hardcoded fills swapped for `currentColor`
+so the brand hue comes from CSS. That includes the 16-point starburst, the
+plus-square tag mark, the long `view-all` arrow, the calendar, and the
+diagonal arrow inside every button.
 
 ## 4. Primitives
 
-| Component | File | Notes |
-| --- | --- | --- |
-| `PrimaryButton` | `src/components/ui/ds-button.tsx` | Accent pill + arrow pill. White label. Hover fills black. |
-| `SecondaryButton` | same | Snow-white pill + accent arrow pill. Dark label, white on hover. |
-| `SectionBadge` | `src/components/ui/section-badge.tsx` | Square-dot mono pill. Variants: `default`, `accent`, `dark`, `light`. |
-| `Reveal` | `src/components/ui/reveal.tsx` | The entrance wrapper. `index` for stagger. |
-| Icons | `src/components/ui/icons.tsx` | Arrow, star badge, globe, menu. Inline SVG, no network. |
+All under [`src/components/stodio/`](src/components/stodio/).
 
-Every section opens with a `SectionBadge`. Every section is wrapped in
-`.ds-root` so it picks up the type and colour base.
+| Component | What it is |
+|---|---|
+| `button.tsx` | `StButton` / `StButtonLink`. Variants: `white`, `brand`, `dark`, `light`, `outline`. Renders the doubled label for the hover swap. |
+| `logo.tsx` | The brand lockup, light or dark variant. |
+| `tag.tsx` | The eyebrow pill. `on="default" \| "dark" \| "light"` picks the fill for the surface it sits on. |
+| `reveal.tsx` | The entrance. `delay`, `as`, `threshold`. |
+| `odometer.tsx` | Rolling stat digits, self-clipping at any size. |
+| `icons.tsx` | Every icon. All inherit `currentColor` and fill their box. |
+| `work-card.tsx` | Project tile — thumbnail, name leading, discipline trailing. |
+| `blog-card.tsx` | Blog tile — category pill, thumbnail, meta row, title, excerpt. |
+| `marquee-section.tsx` | The client rail. |
+| `process-section.tsx` | The dark method slab — four white step cards. Shared by about, services index and every service detail page. |
+| `faq-section.tsx` | Title leading, accordion trailing. |
+| `testimonials-section.tsx` | Dark slab slider. |
+| `cta-section.tsx` | The closing panel every page ends on. |
+| `navbar.tsx` / `footer.tsx` | Layout chrome, mounted once in `layout.tsx`. |
+| `lib/` | `blog-images`, `format-date`, `work-images`. |
 
----
+### Navbar surface variants
 
-## 5. Home page architecture
-
-Order, and what each section is for. Content comes from
-[`src/lib/data.ts`](src/lib/data.ts) — no copy is hardcoded in a component.
-
-| # | Section | Reference | Surface | Purpose | Data |
-| --- | --- | --- | --- | --- | --- |
-| 1 | Hero | `hero` | Light | Positioning + latest launch + CTA | `COMPANY` |
-| 1b | Proof | — | Light | Four real numbers | `COMPANY.stats` |
-| 2 | Work | `work-v6` | Dark panel | Proof: what we shipped | `PORTFOLIO_PROJECTS` |
-| 3 | Intro | `intro-v4` | Light | The one-sentence argument | static |
-| 4 | Clients | `companies` | Light | Logo strip, trust | `CLIENTS` |
-| 5 | Workflow | `workflow-v3` | Dark panel | How an engagement runs | static |
-| 6 | Services | `services-v8` | Light | Numbered accordion of offerings | `SERVICES` |
-| 7 | Testimonials | `testimonial-v1` | Light | Marquee of client quotes | `TESTIMONIALS` |
-| 8 | FAQ | `faq` | Light | Objection handling | `HOME_FAQS` |
-| 9 | Blog | `blog-v6` | Light | Depth signal, three latest posts | `BLOG_POSTS` |
-| 10 | CTA | `cta` | Light | Single conversion moment | `COMPANY` |
-| 11 | Footer | `footer` | Dark panel | Navigation + contact | `COMPANY` |
-
-The reference's pricing section is dropped — Saurabh Infosys does not publish
-fixed pricing, and a pricing block that says "contact us" is a dead section.
-
-### Rhythm
-
-Light, **dark**, light, light, **dark**, light, light, light, light, light,
-**dark**. The two dark panels land at roughly one third and two thirds of the
-scroll, breaking the page into three readable movements.
+The nav floats over whatever slab the page opens with, so it has to know the
+surface. `isLightRoute()` in `navbar.tsx` is the single place that decides:
+`/portfolio*`, `/blog/*`, `/contact`, `/services*` and `/products*` get the dark
+nav and the colour logo; everything else keeps the white nav and white logo.
+**Add a route there when you add a page.**
 
 ---
 
-## 6. Section specs
+## 5. Stylesheets
 
-Each section gives layout, content mapping and motion. Exact CSS lives in
-`design-system.css` under a banner matching the section name.
+Loaded in this order from `layout.tsx`:
 
-### 6.1 Hero — `hero-section.tsx`
+1. `globals.css` — Tailwind base (preflight) and a few legacy variables
+2. `stodio.css` — tokens, base, typography, buttons, tags, reveal
+3. `stodio-layout.css` — navbar + footer
+4. `stodio-sections.css` — sections shared across pages
+5. `stodio-pages.css` — sections belonging to one page (about, projects, blog, contact)
+6. `stodio-detail.css` — services index, service detail, product detail
 
-Two parts, one section.
-
-**Header row.** Left: rating badge, the two-line H1 whose grey second line
-rotates, and the latest-launch card. Right: the "Have a serious project?"
-card — heading, one line of copy, email button. The card is the reason the
-row exists: it is the only thing on the page a visitor can act on without
-scrolling, so it stays visible at first paint.
-
-**Trust strip.** A labelled rule, the client row, then one client quote with
-name and role. Real names and real words — we have no client logo files, so
-the row is set in type rather than faked with placeholder marks.
-
-No hero media. The reference's sticky showreel was a stock video frame
-standing in for footage we do not have, and it cost 300vh of scroll to say
-nothing. That space went to clients and a quote instead: a visitor gives
-about three seconds to answer *what do you do, for whom, does it work, what
-next*, and a video they have to click answers none of them.
-
-A stats band (clients / projects / rating / years) was tried here and cut —
-four bare numbers in a grid read as filler next to a named client saying what
-was actually built.
-
-**Motion.** Staggered `<Reveal>`s and the rotating headline tail. No
-scroll-driven motion; the section is a server component, with the rotating
-word and the reveals as client leaves.
-
-### 6.2 Work — `work-section.tsx`
-
-One black card, `overflow: clip`, 28px radius. Left: a sticky 310px rail with
-the badge and a stack of project titles. Right: a 566px column of 400px image
-cards, offset 220px so it starts below the rail.
-
-**Motion.** The title stack translates `35%` → `-45%` of its own height across
-27%→80% of the section's scroll, behind two 188px gradient scrims that bleed
-5% past the text edges. The reference heavily damps this scrub, so the
-progress value runs through a spring rather than mapping raw. Card hover
-blurs the image to 5px and pops a 60px white arrow — `scale(0.85)` + opacity,
-not `scale(0)`, 400ms. Two more sticky scrims fade the column into the panel.
-
-**Trap.** `overflow: clip` on the wrap is load-bearing. `hidden` makes it a
-scroll container and both sticky behaviours die.
-
-### 6.3 Intro — `intro-section.tsx`
-
-A centred 682px statement over a 477px offer card. The statement is an `h2`
-for outline purposes but sized at H5 — it reads as a paragraph.
-
-**Motion.** Each word scrubs `#7d7d7d` → `#141414` on scroll, on a window
-that slides across the paragraph so the darkening reads as a wave. Card
-enters with the standard `<Reveal>`. Reduced motion renders every word at
-full ink immediately.
-
-### 6.4 Clients — `clients-section.tsx`
-
-A 300vh runway with a sticky viewport. Three full-bleed panels wipe in
-sequence — ink 25→40%, brand 35→50%, white 45→60% — then the client grid
-fades in at 61→67%. Below 992px the runway collapses to a CSS marquee.
-
-**Deviation.** The reference grows `width`/`height` from a static position,
-which forces layout every frame and wipes from an ambiguous origin. Ours
-scales from centre and carries a 32px radius, so a half-grown panel reads as
-an expanding card rather than a colour flash.
-
-### 6.5 Workflow — `workflow-section.tsx`
-
-Dark panel. A white 390px card lists four steps; the active one fills snow
-white and expands to show its tag pills. The copy for the active step sits
-right, with a circular next-step button.
-
-**Motion.** Tag row animates `height: auto` on open (400ms). Copy crossfades
-with a 4px blur at 250ms — blur bridges the two states so it reads as one
-change rather than two overlapping texts.
-
-### 6.6 Services — `services-section.tsx`
-
-Numbered accordion from `SERVICES`. Row: number, title, plus glyph. Open row
-reveals a 334px image, description, feature pills and a See details button.
-
-**Motion.** `height: auto` at 400ms — the one sanctioned use of animated
-height. Plus rotates 45° into a cross on the same curve. One row open at a
-time; clicking the open row closes it.
-
-### 6.7 Testimonials — `testimonials-section.tsx`
-
-400vh runway, sticky viewport, a row of 566px cards translating horizontally
-`4%` → `-68%` across scroll. Below 992px it is a 45s CSS marquee — CSS, not
-JS, so it stays smooth while the page is still loading.
-
-Avatars are initials on a tinted square; we have no client photographs.
-
-### 6.8 FAQ — `faq-section.tsx`
-
-Sticky heading left, accordion right, from `HOME_FAQS`. Open item fills snow
-white. Same accordion mechanics as Services.
-
-### 6.9 Blog — `blog-section.tsx`
-
-Badge and heading left, All articles button right, three cards below from
-`BLOG_POSTS`. Card hover deepens the surface and nudges the arrow 4px.
-Covers are brand gradients until posts carry real images.
-
-### 6.10 CTA — `cta-section.tsx`
-
-Centred badge, two-tone headline, one button. The only conversion moment
-below the hero.
-
-### 6.11 Footer — `Footer.tsx`
-
-Dark panel in the root layout, so every page gets it. Wordmark and tagline,
-three link columns, contact details, three social buttons, copyright bar.
+**Specificity trap, learned the hard way:** an element-level rule inside
+`.st-root` (e.g. `.st-root a { color: … }`, `.st-root p { margin: … }`) scores
+0,1,1 and therefore *outranks* a component class like `.st-nav-link` (0,1,0).
+Keep the base layer to properties no component needs to override, or scope the
+component rule as `.st-root .st-thing`.
 
 ---
 
-## 7. Build order and conventions
+## 6. Page architecture
 
-1. Work · 2. Intro · 3. Clients · 4. Workflow · 5. Services · 6. Testimonials ·
-7. FAQ · 8. Blog · 9. CTA · 10. Footer
+Every page closes with `<CtaSection>` and the shared footer.
 
-### File conventions
+### Home — `components/stodio/home/`
+Hero (full-bleed image + scrim) → Marquee → Gallery ("who we are" + image
+strip) → Counter → Services (**dark slab**, hovered list + floating preview) →
+Work (sticky title, projects staggered 2/1/2) → FAQ → Testimonials (**dark
+slab**) → Journal → CTA
 
-- One section per file in `src/components/pages/home/`, named
-  `<section>-section.tsx`, default-exported.
-- `"use client"` only where a section actually needs state or scroll. Static
-  sections stay server components.
-- Section CSS goes in `design-system.css` under a commented banner matching the
-  section name, base rules first, then 991 / 767 / 479 blocks in that order.
-- Content is read from `data.ts`. If a section needs a field that does not
-  exist, add it to `data.ts` — do not inline the string.
+### About — `components/stodio/about/`
+Hero (**dark slab**, centred, inline image chip) → Our story → Numbers →
+What drives us (tilted showcase) → Our method (**dark slab**) → Client wall →
+Foundation (image + disclosure list) → Markets → CTA
+
+### Projects — `components/stodio/portfolio/index.tsx`
+Hero (**light slab**) → Marquee → category filter → two-column grid → CTA
+
+### Project detail — `components/stodio/portfolio/project-detail-page.tsx`
+Hero (title + meta leading, thumbnail + Preview trailing) → full-bleed banner →
+The brief → What we built → two-image gallery → Results → Other projects → CTA
+
+### Services — `components/stodio/services/index.tsx`
+Hero (**light slab**) → Marquee → scannable row list (name, deliverables,
+timeline, arrow) → Method (**dark slab**) → Testimonials → FAQ → CTA
+
+### Service detail — `components/stodio/services/service-detail-page.tsx`
+Hero (**light slab**, flush) → banner → Overview (label leading, prose +
+timeline card trailing) → What is included (dashed checklist, two up) →
+Where it pays off (three cards, first inked) → Method (**dark slab**) → FAQ →
+Also from the studio → CTA
+
+### Product detail — `components/stodio/products/product-detail-page.tsx`
+Hero (**light slab**, flush; stat odometer trailing) → banner → Overview +
+app chips → Highlights (three cards: ink / brand / tint) → Why it exists
+(image beside prose) → Quote + numbers (**dark slab**) → Rollout (**dark
+slab**) → Modules table → Who it is for → FAQ → CTA
+
+### Blog — `components/stodio/blog/index.tsx`
+Hero (image + scrim, centred) → category filter → three-column grid → CTA
+
+### Blog detail — `components/stodio/blog/post-detail-page.tsx`
+Hero (**light slab**, centred) → banner → prose leading / sticky sidebar
+trailing (dark table of contents + tinted CTA card) → share row → related → CTA
+
+### Contact — `components/stodio/contact/`
+Form leading / tall image trailing, address-email-phone row, map → Where we
+work (**dark slab**, hover reveals a thumbnail) → CTA
+
+---
+
+## 7. Conventions
+
+- Page components live in `components/stodio/<page>/`; the route file in
+  `src/app/**/page.tsx` holds only metadata and renders the component.
+- Section files are `kebab-case.tsx`, default-exported.
+- `"use client"` only where state actually lives: `navbar`, `reveal`,
+  `odometer`, `faq-section`, `testimonials-section`, `services-section`,
+  `foundation-section`, the two filter pages, and the forms.
+- Data comes from [`src/lib/data.ts`](src/lib/data.ts). No copy is written
+  inline in a component unless it is structural (a section eyebrow, a label).
+- Images are `next/image` with explicit `width`/`height` (the export is
+  `unoptimized`, so those numbers are the layout contract).
+- Copy: verb-first buttons, sentence case, no "Click here", no "Learn more"
+  without a destination.
+- **No flag emoji.** Windows ships no flag glyphs, so they render as bare
+  letter pairs.
+- Use logical properties (`padding-inline-end`) for direction-dependent layout.
 
 ### Checklist before a section is done
 
-- [ ] Renders correctly at 1600 / 991 / 767 / 430
-- [ ] Entrance via `<Reveal>`, staggered where there is a list
-- [ ] Hover states gated behind `(hover: hover) and (pointer: fine)`
-- [ ] `:active` scale on anything pressable
-- [ ] `prefers-reduced-motion` path verified
-- [ ] No hardcoded colour, size, duration or easing
-- [ ] Keyboard reachable; accordions use real buttons with `aria-expanded`
+- [ ] Every value is a token
+- [ ] One `<Reveal>` per logical group, staggered on the 0 / 200 / 300 / 400ms set
+- [ ] No `overflow: hidden` on anything wrapping a `<Reveal>`
+- [ ] Every hover that transforms is behind `@media (hover: hover)`
+- [ ] Pressable elements scale to 0.96 on `:active`
+- [ ] Reduced-motion path verified
+- [ ] 1600 / 991 / 767 / 390 all checked, no horizontal overflow
+- [ ] Focus ring visible on every interactive element
+- [ ] Headings share the container's leading edge with the content under them
+
+---
+
+## 8. Removed
+
+- **`/country/[slug]`** — the market landing pages, their components, and
+  `COUNTRY_PAGES` / `COUNTRY_SLUGS` in `data.ts`. Also dropped from the sitemap
+  and the footer. Their content lives on in the about page's Markets grid and
+  the contact page's "Where we work" slab.
+- **`design-system.css`** and everything under `src/components/pages/`,
+  `src/components/layout/`, `src/components/ui/`, `src/components/shared/`,
+  `src/components/contact/` — the previous design system, now unreferenced.

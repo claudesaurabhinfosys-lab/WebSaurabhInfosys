@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ContactPage } from "@/components/pages/contact";
+import ContactPage from "@/components/stodio/contact";
 
 export const metadata: Metadata = {
   title: "Contact Saurabh Infosys | AI & Software Studio, Ahmedabad",

@@ -1,0 +1,228 @@
+/* ============================================================================
+   Saurabh Infosys — Stodio detail-page styles
+   Services index, service detail, product detail. Everything here is built
+   from the primitives in stodio.css; nothing re-declares a token.
+   ========================================================================= */
+
+/* ============================================================================
+   Row list — the services index and any other scannable index
+   Grouping is carried by the row fill and the gap between rows, not by rules.
+   ========================================================================= */
+.st-list-section { position: relative; z-index: 1; padding-top: var(--st-pad-big); background-color: var(--st-white); }
+.st-list { display: flex; flex-flow: column; gap: var(--st-gap-12); margin-top: var(--st-pad-4x); }
+
+.st-list-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--st-gap-24);
+  padding: var(--st-pad-1x) var(--st-pad-2x);
+  border-radius: var(--st-r-44);
+  background-color: var(--st-bg-light);
+  color: var(--st-primary);
+  transition:
+    border-radius var(--st-dur) var(--st-ease-out),
+    background-color var(--st-dur) var(--st-ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .st-list-row:hover { border-radius: var(--st-r-16); background-color: var(--st-bg-primary); }
+}
+@media screen and (max-width: 767px) {
+  .st-list-row {
+    flex-flow: column;
+    align-items: flex-start;
+    gap: var(--st-gap-16);
+    border-radius: var(--st-r-16);
+    padding: var(--st-pad-5x);
+  }
+}
+
+.st-list-row-name { flex: 1; min-width: 0; }
+.st-list-row-blurb { margin-top: var(--st-gap-8); color: var(--st-text-secondary); max-width: 560px; }
+.st-list-row-meta {
+  display: flex;
+  align-items: center;
+  gap: var(--st-pad-4x);
+  color: var(--st-text-secondary);
+}
+@media screen and (max-width: 767px) {
+  .st-list-row-meta { justify-content: flex-start; gap: var(--st-gap-16); flex-wrap: wrap; }
+}
+.st-list-row-meta-item { white-space: nowrap; }
+
+/* On desktop the meta and the arrow are direct children of the row; on small
+   screens they pair up on one line so the arrow stops eating a whole row. */
+.st-list-row-foot { display: contents; }
+@media screen and (max-width: 767px) {
+  .st-list-row-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--st-gap-16);
+    width: 100%;
+  }
+}
+
+.st-row-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border-radius: var(--st-r-100);
+  background-color: var(--st-brand);
+  color: var(--st-white);
+  transition: transform var(--st-dur) var(--st-ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .st-list-row:hover .st-row-arrow { transform: translate(2px, -2px); }
+}
+.st-row-arrow svg { width: 18px; height: 18px; }
+
+/* ============================================================================
+   Detail hero — shared by service and product pages
+   ========================================================================= */
+.st-detail-hero {
+  position: relative;
+  padding-top: 196px;
+  padding-bottom: var(--st-pad-xl);
+  background-color: var(--st-bg-light);
+}
+@media screen and (max-width: 991px) { .st-detail-hero { padding-top: 140px; } }
+@media screen and (max-width: 767px) { .st-detail-hero { padding-top: 116px; } }
+
+.st-detail-hero-inner { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--st-gap-40); }
+@media screen and (max-width: 991px) { .st-detail-hero-inner { flex-flow: column; align-items: flex-start; gap: var(--st-gap-32); } }
+.st-detail-hero-left { flex: 1; max-width: 780px; }
+.st-detail-hero-right { width: 100%; max-width: 420px; }
+
+/* ============================================================================
+   Two-column section: a short label leading, the substance trailing
+   ========================================================================= */
+.st-section { padding-top: var(--st-pad-big); background-color: var(--st-white); }
+.st-section.st-is-tight { padding-top: var(--st-pad-xl); }
+
+.st-split { display: flex; justify-content: space-between; gap: var(--st-gap-40); }
+@media screen and (max-width: 991px) { .st-split { flex-flow: column; gap: var(--st-gap-24); } }
+.st-split-label { width: 100%; max-width: 340px; }
+.st-split-body { width: 100%; max-width: 820px; }
+.st-root .st-split-body > * + * { margin-top: var(--st-gap-24); }
+.st-split-body p { margin: 0; color: var(--st-text-secondary); }
+
+.st-note-card {
+  margin-top: var(--st-gap-32);
+  padding: var(--st-pad-1x);
+  border-radius: var(--st-r-24);
+  background-color: var(--st-bg-light);
+}
+.st-note-card .st-button { margin-top: var(--st-gap-20); }
+
+/* Chips — the apps or channels something spans */
+.st-chip-row { display: flex; flex-wrap: wrap; gap: var(--st-gap-8); margin-top: var(--st-gap-24); }
+.st-chip {
+  padding: 8px 16px;
+  border: 1px solid var(--st-border);
+  border-radius: var(--st-r-44);
+  font-family: var(--st-font-secondary);
+  font-size: var(--st-text-s);
+  text-transform: uppercase;
+  color: var(--st-text-secondary);
+}
+
+/* ============================================================================
+   Deliverables — a dashed checklist, two up
+   ========================================================================= */
+.st-feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 var(--st-pad-x); margin-top: var(--st-pad-4x); }
+@media screen and (max-width: 767px) { .st-feature-grid { grid-template-columns: 1fr; gap: 0; } }
+.st-feature-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--st-gap-12);
+  padding: var(--st-pad-5x) 0;
+  border-bottom: 1px dashed var(--st-border);
+}
+.st-feature-check { flex: none; width: 22px; height: 22px; margin-top: 3px; color: var(--st-brand); }
+
+/* ============================================================================
+   Cards — use cases, highlights
+   ========================================================================= */
+.st-card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--st-gap-16); margin-top: var(--st-pad-4x); }
+@media screen and (max-width: 991px) { .st-card-grid { grid-template-columns: 1fr 1fr; } }
+@media screen and (max-width: 767px) { .st-card-grid { grid-template-columns: 1fr; } }
+
+.st-card {
+  display: flex;
+  flex-flow: column;
+  gap: var(--st-gap-12);
+  padding: var(--st-pad-2x);
+  border-radius: var(--st-r-24);
+  background-color: var(--st-bg-light);
+  transition: border-radius var(--st-dur) var(--st-ease-out);
+}
+@media (hover: hover) and (pointer: fine) { .st-card:hover { border-radius: var(--st-r-12); } }
+.st-card.st-is-ink { background-color: var(--st-primary); color: var(--st-white); }
+.st-card.st-is-ink .st-secondary { color: var(--st-mute); }
+.st-card.st-is-brand { background-color: var(--st-brand); color: var(--st-white); }
+.st-card.st-is-brand .st-secondary { color: rgba(255, 255, 255, 0.85); }
+.st-card-index { font-family: var(--st-font-secondary); font-size: var(--st-text-s); color: var(--st-brand); }
+.st-card.st-is-ink .st-card-index,
+.st-card.st-is-brand .st-card-index { color: inherit; opacity: 0.75; }
+
+/* ============================================================================
+   Module table
+   ========================================================================= */
+.st-table-scroll { width: 100%; overflow-x: auto; }
+.st-table { width: 100%; margin-top: var(--st-pad-4x); border-collapse: collapse; }
+@media screen and (max-width: 767px) { .st-table { min-width: 560px; } }
+.st-table th {
+  padding: 0 var(--st-gap-16) var(--st-gap-12) 0;
+  border-bottom: 1px solid var(--st-border);
+  text-align: start;
+  font-family: var(--st-font-secondary);
+  font-size: var(--st-text-s);
+  font-weight: var(--st-medium);
+  text-transform: uppercase;
+  color: var(--st-mute);
+}
+.st-table td {
+  padding: var(--st-pad-5x) var(--st-gap-16) var(--st-pad-5x) 0;
+  border-bottom: 1px dashed var(--st-border);
+  vertical-align: top;
+  color: var(--st-text-secondary);
+}
+.st-table td:first-child { color: var(--st-primary); font-weight: var(--st-medium); }
+.st-table td:last-child,
+.st-table th:last-child { padding-inline-end: 0; text-align: end; white-space: nowrap; }
+
+/* ============================================================================
+   Media beside prose
+   ========================================================================= */
+.st-media-split { display: flex; align-items: center; gap: var(--st-gap-40); }
+@media screen and (max-width: 991px) { .st-media-split { flex-flow: column; align-items: flex-start; gap: var(--st-gap-32); } }
+.st-media-split-media { width: 100%; max-width: 520px; flex: none; border-radius: var(--st-r-24); overflow: hidden; }
+@media screen and (max-width: 991px) { .st-media-split-media { max-width: 100%; } }
+.st-media-split-media img { display: block; width: 100%; height: auto; }
+.st-media-split-body { flex: 1; }
+
+/* ============================================================================
+   Pull quote on the dark slab, with the numbers under it
+   ========================================================================= */
+.st-quote-slab {
+  margin: var(--st-pad-big) var(--st-pad-16) 0;
+  padding: var(--st-pad-xl) 0;
+  border-radius: var(--st-r-24);
+  background-color: var(--st-primary);
+  color: var(--st-white);
+}
+.st-quote { max-width: 900px; }
+.st-quote-numbers { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--st-gap-40); margin-top: var(--st-pad-xl); }
+@media screen and (max-width: 767px) { .st-quote-numbers { grid-template-columns: 1fr; gap: var(--st-gap-24); } }
+.st-quote-number-value { font-size: var(--st-h2-size); line-height: 1.05; font-weight: var(--st-semibold); letter-spacing: var(--st-h2-ls); }
+.st-quote-number-label { margin-top: var(--st-gap-8); color: var(--st-mute); }
+
+/* ============================================================================
+   Full-bleed banner between sections
+   ========================================================================= */
+.st-banner { margin: var(--st-gap-16); border-radius: var(--st-r-24); overflow: hidden; }
+.st-banner img { display: block; width: 100%; height: auto; }

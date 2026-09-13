@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { PRODUCTS } from "@/lib/data";
-import { ProductDetailPage } from "@/components/pages/products/product-detail-page";
+import ProductDetailPage from "@/components/stodio/products/product-detail-page";
 
 interface PageProps {
   params: Promise<{ slug: string }>;

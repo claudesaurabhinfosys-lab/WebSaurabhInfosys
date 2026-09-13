@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { AboutPage } from "@/components/pages/about";
+import AboutPage from "@/components/stodio/about";
 
 export const metadata: Metadata = {
   title: "About Saurabh Infosys | AI-First Software Studio, Ahmedabad India",

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { BlogPage } from "@/components/pages/blog";
+import BlogPage from "@/components/stodio/blog";
 
 export const metadata: Metadata = {
   title: "Blog — AI Automation, Vibe Coding & App Development Insights",

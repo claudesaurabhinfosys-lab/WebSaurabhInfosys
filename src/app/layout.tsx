@@ -1,28 +1,30 @@
 import type { Metadata } from "next";
-import { DM_Mono } from "next/font/google";
-import localFont from "next/font/local";
+import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import { Toaster } from "sonner";
 import "./globals.css";
-import "./design-system.css";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
+import "./stodio.css";
+import "./stodio-layout.css";
+import "./stodio-sections.css";
+import "./stodio-pages.css";
+import "./stodio-detail.css";
+import Navbar from "@/components/stodio/navbar";
+import Footer from "@/components/stodio/footer";
+import LenisProvider from "@/components/stodio/lenis-provider";
 
-/* Design-system faces. Raveo is the display/body face — one variable file
-   carrying a weight axis (100-900) and an optical-size axis (14-32), so
-   headings pick up the display cut automatically via font-optical-sizing.
-   DM Mono is the secondary face for badges, labels and captions. */
-const raveo = localFont({
-  src: "../../public/font/raveo/RaveoVF.woff2",
-  weight: "100 900",
-  variable: "--font-raveo",
+/* Design-system faces, matching the reference build exactly:
+   Geist for everything, Geist Mono for tags, labels and captions. */
+const geist = Geist({
+  subsets: ["latin"],
+  variable: "--font-geist",
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
-const dmMono = DM_Mono({
+const geistMono = Geist_Mono({
   subsets: ["latin"],
-  variable: "--font-dm-mono",
-  weight: ["300", "400", "500"],
+  variable: "--font-geist-mono",
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -97,7 +99,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${raveo.variable} ${dmMono.variable}`}>
+    <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
       <head>
         <script
           type="application/ld+json"
@@ -128,7 +130,7 @@ export default function RootLayout({
           }) }}
         />
       </head>
-      <body className="ds-root antialiased">
+      <body className="st-root antialiased">
         {/* Google Analytics */}
         <Script
           id="ga-inline"
@@ -138,9 +140,12 @@ export default function RootLayout({
           src="https://www.googletagmanager.com/gtag/js?id=G-CET86HGWMB"
           strategy="afterInteractive"
         />
-        <Navbar />
-        <main>{children}</main>
-        <Footer />
+        <LenisProvider />
+        <div className="st-page">
+          <Navbar />
+          <main>{children}</main>
+          <Footer />
+        </div>
         <Toaster position="bottom-right" richColors />
       </body>
     </html>

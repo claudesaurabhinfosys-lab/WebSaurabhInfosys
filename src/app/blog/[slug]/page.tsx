@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { BLOG_POSTS } from "@/lib/data";
-import { PostDetailPage } from "@/components/pages/blog/post-detail-page";
+import PostDetailPage from "@/components/stodio/blog/post-detail-page";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
