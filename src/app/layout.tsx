@@ -7,6 +7,7 @@ import "./stodio.css";
 import "./stodio-layout.css";
 import "./stodio-sections.css";
 import "./stodio-pages.css";
+import "./stodio-about.css";
 import "./stodio-detail.css";
 import Navbar from "@/components/stodio/navbar";
 import Footer from "@/components/stodio/footer";

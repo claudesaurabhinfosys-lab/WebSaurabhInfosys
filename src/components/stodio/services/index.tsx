@@ -21,6 +21,7 @@ const DELIVERY: Record<string, string> = {
 };
 
 const PROCESS_STEPS = SERVICE_PROCESS.map((step) => ({
+  label: `Step ${step.number}`,
   title: step.badge,
   copy: step.detail,
 }));

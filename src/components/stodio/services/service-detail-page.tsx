@@ -11,6 +11,7 @@ import { ArrowUpRight, CheckMark } from "../icons";
 import { COMPANY, SERVICE_DETAILS, SERVICE_PROCESS, SERVICES } from "@/lib/data";
 
 const PROCESS_STEPS = SERVICE_PROCESS.map((step) => ({
+  label: `Step ${step.number}`,
   title: step.badge,
   copy: step.detail,
 }));

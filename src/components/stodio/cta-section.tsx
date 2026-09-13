@@ -23,10 +23,10 @@ export default function CtaSection({
           <Reveal>
             <Tag>{eyebrow}</Tag>
           </Reveal>
-          <Reveal delay={100}>
-            <h2 className="st-h1 st-cta-title">{heading}</h2>
+          <Reveal delay={200} className="st-cta-title">
+            <h2 className="st-h1">{heading}</h2>
           </Reveal>
-          <Reveal delay={200}>
+          <Reveal delay={300}>
             <div className="st-button-wrapper st-is-cta">
               <StButtonLink href={ctaHref} variant="brand">
                 {ctaLabel}

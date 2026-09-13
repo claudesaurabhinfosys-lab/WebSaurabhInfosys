@@ -7,9 +7,9 @@ here first and then use it — never inline a one-off number in a component.
 **Reference build:** the Stodio agency template (`stodio.webflow.io`). Layout,
 composition, spacing and interaction patterns are ported from it. Typeface is
 theirs (Geist / Geist Mono). Colour is theirs *except* the brand hue, which
-stays the Saurabh Infosys blue. Motion is the reference's, extracted from its
-own interaction data rather than estimated (§3). The type scale is the one
-place we deliberately differ (§2.2). Content is entirely ours.
+stays the Saurabh Infosys blue. Motion and the type scale are both the
+reference's own values, read out of its interaction data and computed styles
+rather than estimated (§2.2, §3). Content is entirely ours.
 
 There is one design system. Nothing on this site renders the previous one.
 
@@ -75,31 +75,35 @@ Two faces, loaded through `next/font/google` in
 - `--st-font-secondary` → **Geist Mono** (400/500/600/700). Tag pills, labels,
   captions, meta rows, the hero's `+ DEFINE` strip.
 
-**The scale is the Saurabh Infosys brand guide's, not the reference's.** Stodio
-runs H1 at 96px and H2 at 64/1.0; against our copy lengths that was too loud
-and wrapped badly. Leading on H1/H2 is tightened from the guide's 120%/135%,
-which falls apart on a display size across two lines. H3–H6 keep the guide's
-leading.
+**The scale is the reference's own computed values**, read off the live page.
+An earlier pass ran a smaller brand-guide ramp; that was reverted when exact
+parity became the goal. If the headlines ever read too loud, the honest fix is
+shorter headline copy, not a quieter scale — the layout's proportions are tuned
+around these sizes.
 
-Desktop (≥992px); the scale steps down at 991 / 767 / 479.
+Desktop (≥992px); the scale steps down at 991 / 767 / 479, using the
+reference's own media-query values.
 
 | Class | Size | Line-height | Tracking | Weight |
 |---|---|---|---|---|
-| `.st-h1` | 80px | 1.08 | -0.035em | 500 |
-| `.st-h2` | 64px | 1.1 | -0.03em | 400 |
-| `.st-h3` | 40px | 1.3 | -0.02em | 500 |
-| `.st-h4` | 36px | 1.3 | -0.02em | 400 |
-| `.st-h5` | 28px | 1.4 | -0.015em | 400 |
-| `.st-h6` | 24px | 1.4 | -0.01em | 400 |
-| `.st-text-xxl` | 22px | 1.4 | -0.01em | — |
-| `.st-text-xl` | 20px | 1.6 | -0.015em | — |
-| `.st-text-l` | 18px | 1.6 | -0.015em | — |
-| `.st-text-m` | 16px | 1.6 | -0.011em | — |
-| `.st-text-s` | 14px | 1.6 | 0 | — |
+| `.st-h1` | 96px | 1.1 | -0.042em | 500 |
+| `.st-h2` | 64px | 1 | -1.5px | 400 |
+| `.st-h3` | 48px | 1.4 | -0.015em | 400 |
+| `.st-h4` | 32px | 1.25 | -0.031em | 400 |
+| `.st-h5` | 24px | 1.3 | -0.05em | 400 |
+| `.st-h6` | 20px | 1.3 | -0.05em | 400 |
+| `.st-text-xxl` | 22px | 1.2 | 0 | — |
+| `.st-text-xl` | 20px | 1.6 | -0.02em | — |
+| `.st-text-l` | 18px | 1.6 | -0.033em | — |
+| `.st-text-m` | 16px | 1.6 | -0.033em | — |
+| `.st-text-s` | 14px | 1.5 | 0 | — |
 | `.st-text-sm` | 12px | 1.5 | — | — |
 
-Plus `--st-text-80` (64px) for the home service list names and
-`--st-heading-big` (80px) for oversized display text.
+Add `.st-weight-medium` to lift a heading to 500 — that is how the reference
+handles its heavier `h2`s.
+
+Plus `--st-text-80` (80px) for the home service list names and
+`--st-heading-big` (100px) for oversized display text.
 
 Modifiers: `.st-weight-medium`, `.st-weight-semibold`, `.st-mute`,
 `.st-secondary`, `.st-brand-text`, `.st-mono`, `.st-upper`.
@@ -307,9 +311,16 @@ Work (sticky title, projects staggered 2/1/2) → FAQ → Testimonials (**dark
 slab**) → Journal → CTA
 
 ### About — `components/stodio/about/`
-Hero (**dark slab**, centred, inline image chip) → Our story → Numbers →
-What drives us (tilted showcase) → Our method (**dark slab**) → Client wall →
-Foundation (image + disclosure list) → Markets → CTA
+Hero (**dark slab**, centred, headline split into runs around an inline image
+chip, meta row 164px below) → Our story (243px label column with the author
+credit pinned 148px down / 680px prose column at `.st-h4`) → Numbers →
+What drives us (tilted, overlapping showcase inside a 922px grid) →
+Our method (**dark slab**, card row pinned for 300vh) → Client wall (4×160px
+tiles) → Foundation (600px image + disclosure list) → Markets (5-col grid:
+stat spanning 2, five cards, closing note spanning 3) → CTA
+
+Its geometry is in [`stodio-about.css`](src/app/stodio-about.css) and every
+number in it was measured off the live reference at 1600px.
 
 ### Projects — `components/stodio/portfolio/index.tsx`
 Hero (**light slab**) → Marquee → category filter → two-column grid → CTA

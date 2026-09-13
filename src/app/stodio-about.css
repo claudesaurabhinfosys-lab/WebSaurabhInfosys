@@ -1,0 +1,348 @@
+/* ============================================================================
+   Saurabh Infosys — About page
+   Geometry here is measured off the live reference at 1600px rather than
+   estimated: section padding, column widths, offsets and type roles all come
+   from its computed styles.
+   ========================================================================= */
+
+/* ============================================================================
+   Hero
+   ========================================================================= */
+.st-about-hero-content { display: flex; flex-flow: column; align-items: center; }
+
+/* The headline is split into runs so an image chip can sit inline between two
+   words and still wrap like text. */
+.st-about-hero-title {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  margin-top: var(--st-gap-24);
+  text-align: center;
+  color: var(--st-white);
+}
+.st-hero-title-image { width: 106px; height: 80px; object-fit: cover; border-radius: var(--st-r-24); }
+@media screen and (max-width: 767px) { .st-hero-title-image { display: none; } }
+
+.st-about-hero-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 164px;
+  color: var(--st-mute);
+  font-family: var(--st-font-secondary);
+  text-transform: uppercase;
+}
+@media screen and (max-width: 991px) {
+  .st-about-hero-bottom { margin-top: 80px; gap: 24px; flex-wrap: wrap; }
+}
+
+/* ============================================================================
+   Our story
+   ========================================================================= */
+.st-story-section {
+  position: relative;
+  z-index: 1;
+  padding-top: var(--st-pad-xl);
+  padding-bottom: var(--st-pad-xxl);
+  background-color: var(--st-white);
+}
+.st-story-block { display: flex; justify-content: space-between; gap: var(--st-gap-40); }
+@media screen and (max-width: 991px) { .st-story-block { flex-flow: column; gap: 32px; } }
+.st-story-left { display: flex; flex-flow: column; align-items: flex-start; justify-content: space-between; }
+.st-story-right { width: 100%; max-width: 680px; }
+.st-story-right p { margin-bottom: 0; }
+@media screen and (max-width: 991px) { .st-story-right { max-width: 100%; } }
+
+.st-author-wrapper { display: flex; align-items: center; gap: 12px; padding-top: 148px; }
+@media screen and (max-width: 991px) { .st-author-wrapper { padding-top: 48px; } }
+.st-author-images { display: flex; align-items: center; }
+/* Rounded squares, not circles — the reference uses a 16px radius here. */
+.st-author-image { width: 36px; height: 36px; border-radius: var(--st-r-16); object-fit: cover; }
+.st-author-image + .st-author-image { margin-left: -10px; }
+
+/* ============================================================================
+   What drives us — tilted showcase
+   ========================================================================= */
+.st-experience-section { position: relative; z-index: 1; padding-top: var(--st-pad-big); background-color: var(--st-white); }
+.st-experience-block { display: flex; flex-flow: column; align-items: center; }
+.st-experience-title {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: var(--st-gap-24);
+  max-width: 900px;
+  text-align: center;
+}
+.st-experience-title-image { width: 120px; height: 90px; object-fit: cover; border-radius: var(--st-r-12); }
+@media screen and (max-width: 767px) { .st-experience-title-image { display: none; } }
+
+.st-showcase-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  width: 100%;
+  max-width: 922px;
+  margin: 0 auto;
+  padding-top: var(--st-pad-xl);
+}
+@media screen and (max-width: 767px) { .st-showcase-grid { grid-template-columns: 1fr 1fr; } }
+
+/* Each tile overhangs its column. Its vertical travel and tilt are driven by
+   the scroll scrub in `showcase-row.tsx`, not by CSS — the wrapper is what
+   rotates, matching the reference. */
+.st-showcase-item { position: relative; will-change: transform; }
+.st-showcase-item:nth-child(1) { margin-right: -30px; }
+.st-showcase-item:nth-child(2) { margin-left: -35px; margin-right: -30px; padding-top: 70px; }
+.st-showcase-item:nth-child(3) { margin-left: -35px; margin-right: -35px; }
+.st-showcase-item:nth-child(4) { margin-left: -35px; margin-right: -35px; padding-top: 40px; }
+@media screen and (max-width: 767px) {
+  .st-showcase-item { margin-left: 0; margin-right: 0; padding-top: 24px; }
+}
+
+.st-showcase-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 291 / 351;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--st-r-24);
+}
+
+/* ============================================================================
+   The method slab — shared with the services pages
+   The reference pins the card row and scrubs it over 300vh; the sticky
+   wrapper is what produces that.
+   ========================================================================= */
+.st-process-section { position: relative; z-index: 1; padding-top: var(--st-pad-big); background-color: var(--st-white); }
+.st-process-bg {
+  margin-left: var(--st-gap-16);
+  margin-right: var(--st-gap-16);
+  padding-top: var(--st-pad-xxl);
+  padding-bottom: var(--st-pad-xxl);
+  border-radius: var(--st-r-24);
+  background-color: var(--st-primary);
+}
+.st-process-title-block { display: flex; align-items: flex-end; justify-content: space-between; }
+@media screen and (max-width: 991px) {
+  .st-process-title-block { flex-flow: column; align-items: flex-start; gap: var(--st-gap-16); }
+}
+.st-process-title-left { width: 100%; max-width: 560px; color: var(--st-white); }
+.st-process-title-right { max-width: 316px; color: var(--st-mute); }
+
+.st-process-sticky { position: relative; height: 300vh; }
+@media screen and (max-width: 991px) { .st-process-sticky { height: auto; } }
+
+.st-process-card-wrapper {
+  position: sticky;
+  top: 50px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  padding-top: var(--st-pad-x);
+}
+@media screen and (max-width: 991px) {
+  .st-process-card-wrapper { position: static; grid-template-columns: 1fr 1fr; }
+}
+@media screen and (max-width: 767px) { .st-process-card-wrapper { grid-template-columns: 1fr; } }
+
+.st-process-card {
+  display: flex;
+  flex-flow: column;
+  min-height: 541px;
+  padding: var(--st-pad-1x);
+  border-radius: var(--st-r-16);
+  background-color: var(--st-white);
+  will-change: transform;
+}
+@media screen and (max-width: 991px) { .st-process-card { min-height: 0; } }
+.st-process-card-head { display: flex; align-items: baseline; gap: 8px; font-weight: var(--st-semibold); }
+.st-process-card-icon-wrapper {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  margin-top: var(--st-gap-24);
+}
+/* Capped rather than filling the card: at full width it swamps the copy. */
+.st-process-card-icon {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  aspect-ratio: 1;
+  color: var(--st-bg-light);
+}
+@media screen and (max-width: 991px) { .st-process-card-icon { max-width: 180px; } }
+@media screen and (max-width: 767px) { .st-process-card-icon { max-width: 120px; } }
+.st-process-card-body { margin-top: var(--st-gap-40); color: var(--st-text-secondary); }
+
+/* ============================================================================
+   Client wall
+   ========================================================================= */
+.st-clientwall-section { position: relative; z-index: 1; padding-top: var(--st-pad-big); background-color: var(--st-white); }
+.st-clientwall-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-top: var(--st-gap-36);
+}
+@media screen and (max-width: 767px) { .st-clientwall-grid { grid-template-columns: 1fr 1fr; } }
+.st-clientwall-item {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  height: 160px;
+  padding: 32px 16px;
+  border-radius: var(--st-r-16);
+  background-color: var(--st-bg-light);
+  text-align: center;
+}
+@media screen and (max-width: 767px) { .st-clientwall-item { height: 132px; padding: 16px; } }
+.st-clientwall-name { display: flex; align-items: center; gap: 10px; font-size: var(--st-text-xl); font-weight: var(--st-semibold); }
+
+/* ============================================================================
+   Foundation — image leading, disclosure list trailing
+   ========================================================================= */
+.st-foundation-section { position: relative; z-index: 1; padding-top: var(--st-pad-big); background-color: var(--st-white); }
+.st-foundation-block { display: flex; align-items: center; justify-content: flex-end; gap: 16px; }
+@media screen and (max-width: 991px) {
+  .st-foundation-block { flex-flow: column-reverse; align-items: flex-start; justify-content: flex-start; gap: 32px; }
+}
+.st-foundation-image-wrapper { width: 600px; max-width: 50%; flex: none; }
+@media screen and (max-width: 991px) { .st-foundation-image-wrapper { width: 100%; max-width: 100%; } }
+.st-foundation-image {
+  display: block;
+  width: 100%;
+  aspect-ratio: 600 / 680;
+  height: auto;
+  object-fit: cover;
+  border-radius: var(--st-r-16);
+}
+
+.st-foundation-content { width: 100%; max-width: 600px; }
+.st-foundation-tabs { display: grid; grid-template-columns: 1fr; width: 100%; margin-top: var(--st-pad-x); }
+.st-foundation-tab {
+  width: 100%;
+  padding: 20px 0 0;
+  border: 0;
+  border-bottom: 1px solid #e0e0e0;
+  background: transparent;
+  text-align: left;
+  font-family: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+.st-foundation-tab-head { display: flex; align-items: center; gap: 16px; padding-bottom: 16px; }
+.st-foundation-tab-icon {
+  width: 32px;
+  height: 32px;
+  flex: none;
+  color: #686868;
+  transition: color 0.4s var(--st-ease);
+}
+.st-foundation-tab[aria-expanded="true"] .st-foundation-tab-icon { color: var(--st-primary); }
+.st-foundation-tab-title { font-size: var(--st-h6-size); line-height: 1.3; font-weight: var(--st-medium); }
+/* The panel animates on height so the list never jumps. */
+.st-foundation-tab-body { overflow: hidden; height: 0; transition: height 0.4s var(--st-ease-in-out); }
+.st-foundation-tab-body p { max-width: 456px; margin: 0 0 16px; color: var(--st-text-secondary); }
+
+/* ============================================================================
+   Markets grid
+   ========================================================================= */
+.st-markets-section { position: relative; z-index: 1; padding-top: var(--st-pad-big); background-color: var(--st-white); }
+.st-markets-title-block { display: flex; align-items: flex-end; justify-content: space-between; }
+@media screen and (max-width: 991px) { .st-markets-title-block { flex-flow: column; align-items: flex-start; gap: 16px; } }
+.st-markets-title-left { max-width: 534px; }
+.st-markets-title-right { max-width: 325px; }
+/* Clipped so the rows can slide in from off-stage without widening the page. */
+.st-markets-rows { overflow: hidden; padding-top: var(--st-pad-4x); }
+.st-markets-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 16px;
+  will-change: transform;
+}
+.st-markets-grid.st-is-second { margin-top: 16px; }
+@media screen and (max-width: 991px) { .st-markets-grid { grid-template-columns: 1fr 1fr; } }
+@media screen and (max-width: 479px) { .st-markets-grid { grid-template-columns: 1fr; } }
+
+/* The first tile is a stat, not a photo, and spans two columns. */
+.st-market-stat {
+  grid-column: span 2;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--st-gap-24);
+  padding: var(--st-pad-1x);
+  border-radius: var(--st-r-16);
+  background-color: var(--st-bg-light);
+}
+@media screen and (max-width: 479px) { .st-market-stat { grid-column: span 1; } }
+
+/* Closing tile: fills the tail of the second row so the grid never ends
+   ragged. Stat (2) + five markets (5) + this (3) = two complete rows. */
+.st-market-note {
+  grid-column: span 3;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-end;
+  gap: var(--st-gap-8);
+  padding: var(--st-pad-1x);
+  border-radius: var(--st-r-16);
+  background-color: var(--st-primary);
+  color: var(--st-white);
+}
+@media screen and (max-width: 991px) { .st-market-note { grid-column: span 2; } }
+@media screen and (max-width: 479px) { .st-market-note { grid-column: span 1; } }
+
+.st-market-card { position: relative; aspect-ratio: 1; border-radius: var(--st-r-16); overflow: hidden; }
+.st-market-image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* The label panel covers the photo and clears on hover, the way the
+   reference's team cards do. */
+/* IX2 a-28 / a-29: the panel is invisible until hover, the photo scales to
+   1.2 behind it, and each line rises 25px into place. All 500ms. */
+.st-market-image { transition: transform 0.5s var(--st-ease-out-quad); }
+.st-market-info {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: var(--st-pad-1x);
+  text-align: center;
+  color: var(--st-white);
+  background-color: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  transition: opacity 0.5s var(--st-ease-out-quad);
+}
+.st-market-name,
+.st-market-role,
+.st-market-divider {
+  transform: translateY(25px);
+  opacity: 0;
+  transition: transform 0.5s var(--st-ease-out-quad), opacity 0.5s var(--st-ease-out-quad);
+}
+.st-market-divider { width: 80%; height: 1px; margin-top: 8px; background-color: rgba(255, 255, 255, 0.5); }
+
+@media (hover: hover) and (pointer: fine) {
+  .st-market-card:hover .st-market-info { opacity: 1; }
+  .st-market-card:hover .st-market-image { transform: scale(1.2); }
+  .st-market-card:hover .st-market-name,
+  .st-market-card:hover .st-market-role,
+  .st-market-card:hover .st-market-divider { transform: translateY(0); opacity: 1; }
+}
+/* Touch has no hover, so the label has to be there from the start. */
+@media (hover: none), (pointer: coarse) {
+  .st-market-info { opacity: 1; }
+  .st-market-name, .st-market-role, .st-market-divider { transform: none; opacity: 1; }
+}

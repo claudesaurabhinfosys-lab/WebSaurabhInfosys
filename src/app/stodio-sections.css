@@ -250,6 +250,26 @@
 }
 @media screen and (max-width: 991px) { .st-counter-grid { grid-template-columns: 1fr 1fr; } }
 .st-counter-item { position: relative; z-index: 10; }
+
+/* IX2 a-21 / a-22 / a-23: hovering a stat reveals an image behind it that
+   drifts with the pointer, and lifts the caption from grey to ink. */
+.st-counter-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: var(--st-r-16);
+  opacity: 0;
+  transition: opacity 0.5s var(--st-ease), transform 0.35s var(--st-ease-out-quad);
+  pointer-events: none;
+}
+.st-counter-copy { color: var(--st-text-secondary); transition: color 0.5s var(--st-ease); }
+@media (hover: hover) and (pointer: fine) {
+  .st-counter-item.st-is-hover .st-counter-bg { opacity: 1; }
+  .st-counter-item.st-is-hover .st-counter-copy { color: var(--st-primary); }
+}
 .st-counter-digit-wrapper {
   display: flex;
   align-items: flex-end;
@@ -698,3 +718,4 @@
   text-align: center;
 }
 .st-cta-title { margin-top: var(--st-gap-20); }
+.st-cta-block p { margin-bottom: 0; }

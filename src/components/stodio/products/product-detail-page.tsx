@@ -28,7 +28,11 @@ export default function ProductDetailPage({ slug }: { slug: string }) {
   const page = PRODUCT_PAGES[slug];
   if (!product || !page) notFound();
 
-  const steps = page.steps.map((step) => ({ title: step.label, copy: step.desc }));
+  const steps = page.steps.map((step, index) => ({
+    label: `Step ${String(index + 1).padStart(2, "0")}`,
+    title: step.label,
+    copy: step.desc,
+  }));
 
   return (
     <>

@@ -30,25 +30,23 @@
   --st-text-secondary: #5d5d5d;
 
   /* Heading scale (desktop >= 992px).
-     Sizes are the Saurabh Infosys brand guide's, not the reference build's —
-     the reference runs H1 at 96px, which is too loud for our copy lengths.
-     Leading is tightened on H1/H2: a display size at 1.35 leading falls apart
-     across two lines. H3-H6 keep the guide's leading. */
-  --st-h1-size: 80px;   --st-h1-lh: 1.08;  --st-h1-ls: -0.035em;
-  --st-h2-size: 64px;   --st-h2-lh: 1.1;   --st-h2-ls: -0.03em;
-  --st-h3-size: 40px;   --st-h3-lh: 1.3;   --st-h3-ls: -0.02em;
-  --st-h4-size: 36px;   --st-h4-lh: 1.3;   --st-h4-ls: -0.02em;
-  --st-h5-size: 28px;   --st-h5-lh: 1.4;   --st-h5-ls: -0.015em;
-  --st-h6-size: 24px;   --st-h6-lh: 1.4;   --st-h6-ls: -0.01em;
-  --st-heading-big: 80px;
-  --st-text-80: 64px;
+     These are the reference build's own computed values, read off the live
+     page, not an interpretation of them. */
+  --st-h1-size: 96px;   --st-h1-lh: 1.1;   --st-h1-ls: -0.042em;
+  --st-h2-size: 64px;   --st-h2-lh: 1;     --st-h2-ls: -1.5px;
+  --st-h3-size: 48px;   --st-h3-lh: 1.4;   --st-h3-ls: -0.015em;
+  --st-h4-size: 32px;   --st-h4-lh: 1.25;  --st-h4-ls: -0.031em;
+  --st-h5-size: 24px;   --st-h5-lh: 1.3;   --st-h5-ls: -0.05em;
+  --st-h6-size: 20px;   --st-h6-lh: 1.3;   --st-h6-ls: -0.05em;
+  --st-heading-big: 100px;
+  --st-text-80: 80px;
 
   /* Body scale */
-  --st-text-xxl: 22px;  --st-text-xxl-lh: 1.4;  --st-text-xxl-ls: -0.01em;
-  --st-text-xl: 20px;   --st-text-xl-lh: 1.6;   --st-text-xl-ls: -0.015em;
-  --st-text-l: 18px;    --st-text-l-lh: 1.6;    --st-text-l-ls: -0.015em;
-  --st-text-m: 16px;    --st-text-m-lh: 1.6;    --st-text-m-ls: -0.011em;
-  --st-text-s: 14px;    --st-text-s-lh: 1.6;    --st-text-s-ls: 0em;
+  --st-text-xxl: 22px;  --st-text-xxl-lh: 1.2;  --st-text-xxl-ls: 0em;
+  --st-text-xl: 20px;   --st-text-xl-lh: 1.6;   --st-text-xl-ls: -0.02em;
+  --st-text-l: 18px;    --st-text-l-lh: 1.6;    --st-text-l-ls: -0.033em;
+  --st-text-m: 16px;    --st-text-m-lh: 1.6;    --st-text-m-ls: -0.033em;
+  --st-text-s: 14px;    --st-text-s-lh: 1.5;    --st-text-s-ls: 0em;
   --st-text-sm: 12px;   --st-text-sm-lh: 1.5;
 
   /* Weights */
@@ -100,59 +98,48 @@
 
 @media screen and (max-width: 991px) {
   :root {
-    --st-h1-size: 56px;
-    --st-h2-size: 44px;
-    --st-h3-size: 32px;
-    --st-h4-size: 28px;
-    --st-h5-size: 24px;
-    --st-h6-size: 20px;
+    --st-h1-size: 60px;
+    --st-h2-size: 56px;
+    --st-h3-size: 36px;
     --st-text-xxl: 20px;
-    --st-text-80: 44px;
-    --st-heading-big: 56px;
+    --st-text-80: 60px;
+    --st-heading-big: 80px;
     --st-gap-32: 28px;
     --st-gap-36: 32px;
-    --st-gap-40: 36px;
+    --st-gap-40: 38px;
     --st-pad-4x: 36px;
     --st-pad-x: 52px;
     --st-pad-xl: 60px;
     --st-pad-48: 38px;
     --st-pad-xxl: 80px;
-    --st-pad-big: 110px;
+    --st-pad-big: 120px;
     --st-r-32: 24px;
   }
 }
 
 @media screen and (max-width: 767px) {
   :root {
-    --st-h1-size: 42px;
-    --st-h2-size: 34px;
-    --st-h3-size: 28px;
-    --st-h4-size: 24px;
-    --st-h5-size: 22px;
-    --st-h6-size: 19px;
-    --st-text-xl: 18px;
-    --st-text-l: 17px;
-    --st-text-80: 36px;
-    --st-heading-big: 42px;
-    --st-pad-big: 88px;
-    --st-pad-xxl: 64px;
+    --st-h1-size: 64px;
+    --st-h2-size: 48px;
+    --st-h3-size: 32px;
     --st-r-24: 16px;
   }
 }
 
 @media screen and (max-width: 479px) {
   :root {
-    --st-h1-size: 34px;
-    --st-h2-size: 28px;
-    --st-h3-size: 24px;
-    --st-h4-size: 22px;
+    --st-h1-size: 42px;
+    --st-h2-size: 36px;
+    --st-h3-size: 28px;
+    --st-h4-size: 24px;
     --st-h5-size: 20px;
-    --st-h6-size: 18px;
-    --st-text-80: 30px;
-    --st-heading-big: 34px;
-    --st-pad-big: 72px;
-    --st-pad-xxl: 56px;
-    --st-pad-xl: 44px;
+    --st-text-xxl: 16px;
+    --st-text-xl: 18px;
+    --st-text-l: 16px;
+    --st-text-80: 28px;
+    --st-heading-big: 40px;
+    --st-pad-big: 80px;
+    --st-pad-xxl: 80px;
   }
 }
 
@@ -192,7 +179,7 @@ html { scroll-behavior: auto; }
 /* Heading styles */
 .st-h1 { font-size: var(--st-h1-size); line-height: var(--st-h1-lh); letter-spacing: var(--st-h1-ls); font-weight: var(--st-medium); }
 .st-h2 { font-size: var(--st-h2-size); line-height: var(--st-h2-lh); letter-spacing: var(--st-h2-ls); font-weight: var(--st-regular); }
-.st-h3 { font-size: var(--st-h3-size); line-height: var(--st-h3-lh); letter-spacing: var(--st-h3-ls); font-weight: var(--st-medium); }
+.st-h3 { font-size: var(--st-h3-size); line-height: var(--st-h3-lh); letter-spacing: var(--st-h3-ls); font-weight: var(--st-regular); }
 .st-h4 { font-size: var(--st-h4-size); line-height: var(--st-h4-lh); letter-spacing: var(--st-h4-ls); font-weight: var(--st-regular); }
 .st-h5 { font-size: var(--st-h5-size); line-height: var(--st-h5-lh); letter-spacing: var(--st-h5-ls); font-weight: var(--st-regular); margin-bottom: 0; }
 .st-h6 { font-size: var(--st-h6-size); line-height: var(--st-h6-lh); letter-spacing: var(--st-h6-ls); font-weight: var(--st-regular); }
