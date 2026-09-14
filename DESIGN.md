@@ -75,35 +75,68 @@ Two faces, loaded through `next/font/google` in
 - `--st-font-secondary` → **Geist Mono** (400/500/600/700). Tag pills, labels,
   captions, meta rows, the hero's `+ DEFINE` strip.
 
-**The scale is the reference's own computed values**, read off the live page.
-An earlier pass ran a smaller brand-guide ramp; that was reverted when exact
-parity became the goal. If the headlines ever read too loud, the honest fix is
-shorter headline copy, not a quieter scale — the layout's proportions are tuned
-around these sizes.
+**The heading scale is fluid, and it is deliberately quieter than the
+reference's.** The reference runs fixed steps topping out at 96px, which is a
+shout on anything wider than about 1440px. Ours ramps with the viewport and
+caps at 72px. This is the one place the build knowingly departs from parity:
+the reference's own headline copy is three or four words, ours is a sentence,
+and a sentence at 96px does not survive a 1920px monitor gracefully.
 
-Desktop (≥992px); the scale steps down at 991 / 767 / 479, using the
-reference's own media-query values.
+Each heading token is `clamp(floor, intercept + slope·vw, ceiling)`, tuned so a
+phone lands on the floor and a 1920px monitor lands on the ceiling. There are no
+per-breakpoint heading overrides any more — the clamps cover every width, which
+also removed a bug where the ≤767px step (64px) was *larger* than the ≤991px
+one (60px).
 
-| Class | Size | Line-height | Tracking | Weight |
-|---|---|---|---|---|
-| `.st-h1` | 96px | 1.1 | -0.042em | 500 |
-| `.st-h2` | 64px | 1 | -1.5px | 400 |
-| `.st-h3` | 48px | 1.4 | -0.015em | 400 |
-| `.st-h4` | 32px | 1.25 | -0.031em | 400 |
-| `.st-h5` | 24px | 1.3 | -0.05em | 400 |
-| `.st-h6` | 20px | 1.3 | -0.05em | 400 |
-| `.st-text-xxl` | 22px | 1.2 | 0 | — |
-| `.st-text-xl` | 20px | 1.6 | -0.02em | — |
-| `.st-text-l` | 18px | 1.6 | -0.033em | — |
-| `.st-text-m` | 16px | 1.6 | -0.033em | — |
-| `.st-text-s` | 14px | 1.5 | 0 | — |
-| `.st-text-sm` | 12px | 1.5 | — | — |
+| Class | 480px | 1280px | 1440px | 1920px | Line-height | Tracking | Weight |
+|---|---|---|---|---|---|---|---|
+| `.st-h1` | 36 | 55 | 59 | 72 | 1.1 | -0.035em | 500 |
+| `.st-h2` | 30 | 43 | 47 | 56 | 1.08 | -0.025em | 400 |
+| `.st-h3` | 24 | 32 | 34 | 40 | 1.25 | -0.02em | 400 |
+| `.st-h4` | 21 | 26 | 27 | 30 | 1.3 | -0.02em | 400 |
+| `.st-h5` | 18 | 21 | 22 | 24 | 1.35 | -0.02em | 400 |
+| `.st-h6` | 17 | 19 | 19 | 20 | 1.4 | -0.015em | 400 |
+| `--st-text-80` | 30 | 44 | 48 | 60 | — | — | — |
+| `--st-heading-big` | 36 | 55 | 59 | 72 | — | — | — |
+
+Body copy stays on fixed steps. Fluid body text costs more than it earns — it
+breaks the reader's size expectation between pages — so only the two smallest
+tokens step down, at 479px.
+
+| Class | Size | Line-height | Tracking |
+|---|---|---|---|
+| `.st-text-xxl` | 22px (17 ≤479) | 1.2 | 0 |
+| `.st-text-xl` | 20px (18 ≤479) | 1.6 | -0.02em |
+| `.st-text-l` | 18px (16 ≤479) | 1.6 | -0.02em |
+| `.st-text-m` | 16px | 1.6 | -0.015em |
+| `.st-text-s` | 14px | 1.5 | 0 |
+| `.st-text-sm` | 12px | 1.5 | — |
 
 Add `.st-weight-medium` to lift a heading to 500 — that is how the reference
 handles its heavier `h2`s.
 
-Plus `--st-text-80` (80px) for the home service list names and
-`--st-heading-big` (100px) for oversized display text.
+### Nothing gets cut
+
+Two rules exist purely so text never crops:
+
+- Every heading line-height is above 1. The reference sets `h2` to exactly 1,
+  which puts descenders on the box edge; anything that clips the box then eats
+  them.
+- `overflow-wrap: break-word` on every `h1`–`h6`. A single unbroken token
+  ("MySchoolManagementSystem", a bare URL) at 72px is wider than a phone, and
+  without this it escapes its box and is cut by the first clipping ancestor
+  instead of wrapping.
+
+The footer wordmark is `nowrap`, so its size is derived from the width the
+container actually leaves it — `clamp(26px, calc(10.2vw - 7px), 150px)`. The
+`- 7px` pays for the container's 32px side padding; a plain `vw` ramp ignored it
+and pushed the last glyph past the edge on narrow screens.
+
+Verified with a Playwright sweep over every page at 1920 / 1600 / 1440 / 1280 /
+991 / 768 / 390: no page-level horizontal overflow, and no element whose text
+overflows a clipping box. The only elements that extend past the viewport are
+the ones meant to — marquee tracks, slider rails and the markets grid's
+off-canvas entrance — each inside its own mask.
 
 Modifiers: `.st-weight-medium`, `.st-weight-semibold`, `.st-mute`,
 `.st-secondary`, `.st-brand-text`, `.st-mono`, `.st-upper`.
@@ -384,10 +417,24 @@ Where it pays off (three cards, first inked) → Method (**dark slab**) → FAQ 
 Also from the studio → CTA
 
 ### Product detail — `components/stodio/products/product-detail-page.tsx`
-Hero (**light slab**, flush; stat odometer trailing) → banner → Overview +
-app chips → Highlights (three cards: ink / brand / tint) → Why it exists
-(image beside prose) → Quote + numbers (**dark slab**) → Rollout (**dark
-slab**) → Modules table → Who it is for → FAQ → CTA
+Hero (**light slab**, flush; title and a label/value meta row leading, the
+product shot with its live-site button trailing) → banner → Overview + app
+chips → What ships (three role cards) → Why it exists (image beside prose) →
+Quote + numbers (**dark slab**) → Rollout (**dark slab**) → Modules table →
+Pricing (plan card beside a dark audience panel) → FAQ → The other two
+products → CTA
+
+Its styles are in [`stodio-product.css`](src/app/stodio-product.css), built
+from two measured reference patterns: the project detail page
+(`/projects/xenitho`) for the split hero, the `.career-meta` label/value row
+and the tag-leading / 650px-prose-trailing body blocks; and the pricing page
+for the plan card, its circular badge and its bordered feature list.
+
+The rewrite fixed three things the page was simply missing: `price` /
+`priceNote` were in the data and never rendered, the live product `url` was
+never linked, and there was no path between the three products. The earlier
+ink / brand / tint card trio was dropped — brand-on-brand text in the middle
+card was the weakest thing on the page.
 
 ### Blog — `components/stodio/blog/index.tsx`
 Hero (image + scrim, centred) → category filter → three-column grid → CTA

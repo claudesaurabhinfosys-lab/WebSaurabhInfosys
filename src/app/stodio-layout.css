@@ -283,7 +283,11 @@
   font-weight: var(--st-bold);
   letter-spacing: -0.04em;
   line-height: 0.95;
-  font-size: clamp(38px, 10.6vw, 190px);
+  /* The wordmark is nowrap, so its size has to be derived from the space the
+     container actually leaves it: 100vw minus its 32px side padding. A plain
+     10.6vw ignored that padding and pushed the last glyph past the edge on
+     narrow screens. The 150px cap keeps it from shouting on a wide monitor. */
+  font-size: clamp(26px, calc(10.2vw - 7px), 150px);
   white-space: nowrap;
 }
 

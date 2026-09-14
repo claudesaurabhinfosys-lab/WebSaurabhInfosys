@@ -29,23 +29,35 @@
   --st-mute: #9d9d9d;
   --st-text-secondary: #5d5d5d;
 
-  /* Heading scale (desktop >= 992px).
-     These are the reference build's own computed values, read off the live
-     page, not an interpretation of them. */
-  --st-h1-size: 96px;   --st-h1-lh: 1.1;   --st-h1-ls: -0.042em;
-  --st-h2-size: 64px;   --st-h2-lh: 1;     --st-h2-ls: -1.5px;
-  --st-h3-size: 48px;   --st-h3-lh: 1.4;   --st-h3-ls: -0.015em;
-  --st-h4-size: 32px;   --st-h4-lh: 1.25;  --st-h4-ls: -0.031em;
-  --st-h5-size: 24px;   --st-h5-lh: 1.3;   --st-h5-ls: -0.05em;
-  --st-h6-size: 20px;   --st-h6-lh: 1.3;   --st-h6-ls: -0.05em;
-  --st-heading-big: 100px;
-  --st-text-80: 80px;
+  /* Heading scale — fluid.
+     The reference build runs fixed steps topping out at 96px, which is far too
+     loud once the viewport passes ~1440px. These ramp with the viewport and cap
+     well under it. Each is clamp(floor, intercept + slope, ceiling), tuned so a
+     phone lands on the floor and a 1920px monitor lands on the ceiling:
+
+       width    h1   h2   h3   h4   h5   h6   text-80
+        480     36   30   24   21   18   17     30
+       1280     55   43   32   26   21   19     44
+       1440     59   47   34   27   22   19     48
+       1920     72   56   40   30   24   20     59
+
+     Line heights are all > 1 and letter-spacing is looser than the reference's
+     at the small end: a 1.0 line box crops descenders, and -0.05em crowds
+     glyphs together once the size drops. */
+  --st-h1-size: clamp(36px, 20px + 2.7vw, 72px);    --st-h1-lh: 1.1;   --st-h1-ls: -0.035em;
+  --st-h2-size: clamp(30px, 17px + 2.05vw, 56px);   --st-h2-lh: 1.08;  --st-h2-ls: -0.025em;
+  --st-h3-size: clamp(24px, 16px + 1.25vw, 40px);   --st-h3-lh: 1.25;  --st-h3-ls: -0.02em;
+  --st-h4-size: clamp(21px, 16.5px + 0.7vw, 30px);  --st-h4-lh: 1.3;   --st-h4-ls: -0.02em;
+  --st-h5-size: clamp(18px, 15.9px + 0.42vw, 24px); --st-h5-lh: 1.35;  --st-h5-ls: -0.02em;
+  --st-h6-size: clamp(17px, 16px + 0.21vw, 20px);   --st-h6-lh: 1.4;   --st-h6-ls: -0.015em;
+  --st-heading-big: clamp(36px, 20px + 2.7vw, 72px);
+  --st-text-80: clamp(30px, 15px + 2.3vw, 60px);
 
   /* Body scale */
   --st-text-xxl: 22px;  --st-text-xxl-lh: 1.2;  --st-text-xxl-ls: 0em;
   --st-text-xl: 20px;   --st-text-xl-lh: 1.6;   --st-text-xl-ls: -0.02em;
-  --st-text-l: 18px;    --st-text-l-lh: 1.6;    --st-text-l-ls: -0.033em;
-  --st-text-m: 16px;    --st-text-m-lh: 1.6;    --st-text-m-ls: -0.033em;
+  --st-text-l: 18px;    --st-text-l-lh: 1.6;    --st-text-l-ls: -0.02em;
+  --st-text-m: 16px;    --st-text-m-lh: 1.6;    --st-text-m-ls: -0.015em;
   --st-text-s: 14px;    --st-text-s-lh: 1.5;    --st-text-s-ls: 0em;
   --st-text-sm: 12px;   --st-text-sm-lh: 1.5;
 
@@ -98,12 +110,7 @@
 
 @media screen and (max-width: 991px) {
   :root {
-    --st-h1-size: 60px;
-    --st-h2-size: 56px;
-    --st-h3-size: 36px;
     --st-text-xxl: 20px;
-    --st-text-80: 60px;
-    --st-heading-big: 80px;
     --st-gap-32: 28px;
     --st-gap-36: 32px;
     --st-gap-40: 38px;
@@ -119,25 +126,15 @@
 
 @media screen and (max-width: 767px) {
   :root {
-    --st-h1-size: 64px;
-    --st-h2-size: 48px;
-    --st-h3-size: 32px;
     --st-r-24: 16px;
   }
 }
 
 @media screen and (max-width: 479px) {
   :root {
-    --st-h1-size: 42px;
-    --st-h2-size: 36px;
-    --st-h3-size: 28px;
-    --st-h4-size: 24px;
-    --st-h5-size: 20px;
-    --st-text-xxl: 16px;
+    --st-text-xxl: 17px;
     --st-text-xl: 18px;
     --st-text-l: 16px;
-    --st-text-80: 28px;
-    --st-heading-big: 40px;
     --st-pad-big: 80px;
     --st-pad-xxl: 80px;
   }
@@ -162,8 +159,12 @@ html { scroll-behavior: auto; }
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* `overflow-wrap` is the safety net for the display sizes: a long unbroken
+   token (a URL, a product name, "MySchoolManagementSystem") at 72px is wider
+   than a phone, and without this it escapes its box and gets cut by the first
+   clipping ancestor instead of wrapping. */
 .st-root h1, .st-root h2, .st-root h3,
-.st-root h4, .st-root h5, .st-root h6 { margin: 0; }
+.st-root h4, .st-root h5, .st-root h6 { margin: 0; overflow-wrap: break-word; }
 /* Only the block-end margin. The `margin` shorthand here would score 0,1,1
    and quietly beat any component class that sets `margin-top` on a <p>
    (`.st-hero-subtext`, `.st-work-subtitle`, `.st-quote-number-label`).

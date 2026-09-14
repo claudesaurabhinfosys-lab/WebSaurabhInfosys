@@ -1,0 +1,185 @@
+/* ============================================================================
+   Saurabh Infosys — Product pages (SSMS, MySociety, MySampark)
+
+   Built from two reference patterns measured off the live site: the project
+   detail page (`/projects/xenitho`) for the split hero, the label/value meta
+   row and the tag-left / prose-right body blocks, and the pricing page for
+   the plan card, its badge and its feature list.
+   ========================================================================= */
+
+/* ============================================================================
+   Hero — a tinted slab, title leading, product shot trailing
+   ========================================================================= */
+.st-product-hero {
+  position: relative;
+  padding-top: 196px;
+  padding-bottom: var(--st-pad-4x);
+  border-radius: var(--st-r-24);
+  background-color: var(--st-bg-light);
+}
+@media screen and (max-width: 991px) { .st-product-hero { padding-top: 140px; } }
+@media screen and (max-width: 767px) { .st-product-hero { padding-top: 116px; } }
+
+.st-product-hero-inner { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--st-gap-40); }
+@media screen and (max-width: 991px) {
+  .st-product-hero-inner { flex-flow: column; align-items: stretch; gap: var(--st-gap-32); }
+}
+.st-product-hero-left { flex: 1; min-width: 0; max-width: 880px; }
+
+/* Label/value pairs on one line — the reference's `.career-meta`. */
+/* Row gap matters as much as the column gap here: the pairs wrap onto a
+   second line on narrow columns and would otherwise collide. */
+.st-product-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--st-gap-12) var(--st-pad-4x);
+  padding-top: var(--st-pad-1x);
+}
+@media screen and (max-width: 767px) { .st-product-meta { gap: var(--st-gap-8) var(--st-gap-24); } }
+.st-product-meta-item { display: flex; align-items: center; gap: 8px; }
+.st-product-meta-label { color: var(--st-text-secondary); white-space: nowrap; }
+.st-product-meta-value { color: var(--st-primary); white-space: nowrap; }
+
+/* The product shot, with its live-site button sitting on top of it. */
+.st-product-shot {
+  position: relative;
+  width: 100%;
+  max-width: 527px;
+  flex: none;
+  border-radius: var(--st-r-32);
+  overflow: hidden;
+}
+@media screen and (max-width: 991px) { .st-product-shot { max-width: 100%; } }
+.st-product-shot img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 527 / 296;
+  height: auto;
+  object-fit: cover;
+}
+.st-product-shot-button { position: absolute; inset: auto auto var(--st-pad-5x) var(--st-pad-5x); }
+
+/* ============================================================================
+   Body blocks — tag leading, prose trailing
+   ========================================================================= */
+.st-product-section { padding-top: var(--st-pad-big); background-color: var(--st-white); }
+.st-product-section.st-is-tight { padding-top: var(--st-pad-xl); }
+
+.st-product-split { display: flex; align-items: flex-start; justify-content: space-between; gap: var(--st-gap-40); }
+@media screen and (max-width: 991px) { .st-product-split { flex-flow: column; gap: var(--st-gap-24); } }
+.st-product-split-body { width: 100%; max-width: 650px; }
+/* 18px at weight 500 is what the reference uses for this prose, not body copy. */
+.st-root .st-product-prose p {
+  margin: 0 0 var(--st-gap-24);
+  font-size: var(--st-text-l);
+  line-height: 1.6;
+  font-weight: var(--st-medium);
+}
+.st-root .st-product-prose p:last-child { margin-bottom: 0; }
+
+/* ============================================================================
+   Role cards — one per app that ships with the platform
+   ========================================================================= */
+.st-role-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: var(--st-pad-4x); }
+@media screen and (max-width: 991px) { .st-role-grid { grid-template-columns: 1fr 1fr; } }
+@media screen and (max-width: 767px) { .st-role-grid { grid-template-columns: 1fr; } }
+
+.st-role-card {
+  display: flex;
+  flex-flow: column;
+  padding: var(--st-pad-2x);
+  border-radius: var(--st-r-24);
+  background-color: var(--st-bg-light);
+  transition: border-radius var(--st-dur) var(--st-ease-out-quad);
+}
+@media (hover: hover) and (pointer: fine) { .st-role-card:hover { border-radius: var(--st-r-12); } }
+.st-role-badge { display: flex; align-items: center; gap: 8px; font-weight: var(--st-medium); }
+.st-role-badge-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  flex: none;
+  border-radius: var(--st-r-100);
+  background-color: var(--st-white);
+  color: var(--st-brand);
+}
+.st-role-badge-icon svg { width: 16px; height: 16px; }
+.st-role-title { margin-top: var(--st-gap-24); }
+.st-role-copy { margin-top: var(--st-gap-12); color: var(--st-text-secondary); }
+
+/* ============================================================================
+   Plan card — lifted from the reference's pricing card
+   ========================================================================= */
+.st-plan-block { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: var(--st-pad-4x); }
+@media screen and (max-width: 991px) { .st-plan-block { grid-template-columns: 1fr; } }
+
+.st-plan-card {
+  padding: var(--st-pad-2x);
+  border: 2px solid var(--st-brand);
+  border-radius: var(--st-r-24);
+  background-color: var(--st-white);
+}
+.st-plan-price { margin-top: var(--st-gap-24); font-weight: var(--st-semibold); }
+.st-plan-note { margin-top: var(--st-gap-8); color: var(--st-text-secondary); }
+.st-plan-list { margin-top: var(--st-gap-36); }
+.st-plan-list-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 0;
+  border-top: 1px solid var(--st-border);
+}
+.st-plan-list-row:last-child { border-bottom: 1px solid var(--st-border); }
+.st-plan-check { width: 24px; height: 24px; flex: none; color: var(--st-brand); }
+.st-plan-card .st-button-wrapper { margin-top: var(--st-gap-32); justify-content: flex-start; }
+
+/* The audience panel that sits beside the plan. */
+.st-plan-aside {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  padding: var(--st-pad-2x);
+  border-radius: var(--st-r-24);
+  background-color: var(--st-primary);
+  color: var(--st-white);
+}
+.st-plan-aside-list { display: flex; flex-flow: column; gap: var(--st-gap-12); margin-top: var(--st-pad-4x); }
+.st-plan-aside-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: var(--st-gap-12);
+  border-bottom: 1px dashed var(--st-border-black);
+}
+.st-plan-aside-row:last-child { border-bottom: 0; padding-bottom: 0; }
+.st-plan-aside-dot { width: 8px; height: 8px; flex: none; border-radius: var(--st-r-100); background-color: var(--st-brand); }
+
+/* ============================================================================
+   Other products
+   ========================================================================= */
+.st-product-more { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: var(--st-pad-4x); }
+@media screen and (max-width: 767px) { .st-product-more { grid-template-columns: 1fr; } }
+.st-product-more-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--st-gap-24);
+  padding: var(--st-pad-1x) var(--st-pad-2x);
+  border-radius: var(--st-r-44);
+  background-color: var(--st-bg-light);
+  color: var(--st-primary);
+  transition:
+    border-radius var(--st-dur) var(--st-ease-out-quad),
+    background-color var(--st-dur) var(--st-ease-out-quad);
+}
+@media (hover: hover) and (pointer: fine) {
+  .st-product-more-card:hover { border-radius: var(--st-r-16); background-color: var(--st-bg-primary); }
+  .st-product-more-card:hover .st-row-arrow { transform: translate(2px, -2px); }
+}
+@media screen and (max-width: 767px) {
+  .st-product-more-card { border-radius: var(--st-r-16); padding: var(--st-pad-5x); }
+}
+.st-product-more-sub { margin-top: 4px; color: var(--st-text-secondary); }
