@@ -454,6 +454,16 @@ strip) → Counter → Services (**dark slab**, hovered list + floating preview)
 Work (sticky title, projects staggered 2/1/2) → FAQ → Testimonials (**dark
 slab**) → Journal → CTA
 
+**The services preview cards have their own copy.** They used to borrow
+`SERVICES[].description`, which is SEO text: the first ran 242 characters
+against 89 for the third, so the card jumped from 366px to 481px between rows
+and the tallest one pushed the last card out of the slab, which clips. The
+`BLURB` map in `home/services-section.tsx` holds one line each, all within a few
+characters of one another. Two things keep the geometry honest alongside it:
+the preview image is `aspect-ratio: 3 / 2` so every card is the same height
+whatever the copy does, and the slab carries 220px of bottom padding (200px at
+≤991) because the last row's card hangs below its own item.
+
 ### About — `components/stodio/about/`
 Hero (**dark slab**, centred, hand-split two-line headline with an image chip
 that wipes open between two words, meta row 164px below) → Our story (243px label column with the author
