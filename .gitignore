@@ -26,3 +26,4 @@ next-env.d.ts
 # Local deploy script (contains credentials)
 deploy.sh
 .vercel
+.env*
