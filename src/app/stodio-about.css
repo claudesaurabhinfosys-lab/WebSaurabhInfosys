@@ -10,32 +10,93 @@
    ========================================================================= */
 .st-about-hero-content { display: flex; flex-flow: column; align-items: center; }
 
-/* The headline is split into runs so an image chip can sit inline between two
-   words and still wrap like text. */
-.st-about-hero-title {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+/* ----------------------------------------------------------------------------
+   The hero headline exists twice, and only one of them is ever rendered.
+
+   The reference does the same thing: above 992px it shows a hand-split,
+   two-line block with an image chip wedged between two words on line two;
+   below 992px it hides that block entirely and shows one plain heading that
+   wraps on its own. Splitting lines by hand only works when you know how wide
+   the line will be, so the split version is desktop-only by design and the
+   fallback carries every narrow width.
+   ------------------------------------------------------------------------- */
+
+/* Fallback heading — the only one below 992px. */
+.st-about-hero-plain { margin-top: var(--st-gap-24); text-align: center; color: var(--st-white); }
+@media screen and (min-width: 992px) { .st-about-hero-plain { display: none; } }
+@media screen and (max-width: 479px) { .st-about-hero-plain { margin-top: var(--st-gap-16); } }
+
+/* Split heading — desktop only. `overflow: hidden` is the mask the two lines
+   rise out of; `width: fit-content` makes the block exactly as wide as its
+   longest line, which is what centres the whole thing. */
+.st-about-hero-split {
+  position: relative;
+  display: none;
+  flex-flow: column;
   align-items: center;
-  gap: 8px;
+  justify-content: flex-start;
+  width: fit-content;
   margin-top: var(--st-gap-24);
+  overflow: hidden;
   text-align: center;
   color: var(--st-white);
 }
-.st-hero-title-image { width: 106px; height: 80px; object-fit: cover; border-radius: var(--st-r-24); }
-@media screen and (max-width: 767px) { .st-hero-title-image { display: none; } }
+@media screen and (min-width: 992px) { .st-about-hero-split { display: flex; } }
+
+/* Line two: word, chip, word. The words carry `.st-h1` themselves — without it
+   they inherit the body line-height and line two ends up taller than line one.
+   The font-size is restated on the row anyway so the chip can be sized in `em`
+   and track the fluid heading scale instead of freezing at the reference's
+   96px-derived pixel values. */
+.st-about-hero-line {
+  display: flex;
+  align-items: center;
+  gap: 0.083em;
+  font-size: var(--st-h1-size);
+  line-height: var(--st-h1-lh);
+}
+
+/* The chip animation: the wrapper's width runs 0 to 1.417em, and the image
+   inside is `max-width: 100%`, so it is squeezed along with it rather than
+   spilling out of a zero-width box. 1000ms after the line starts revealing,
+   over 500ms — the reference's "Hero Text Image Hide" list exactly. */
+.st-about-hero-chip {
+  display: block;
+  width: 0;
+  height: 0.833em;
+  flex: none;
+  text-align: center;
+  transition: width 500ms ease 1000ms;
+}
+.st-about-hero-line.st-is-in .st-about-hero-chip { width: 1.417em; }
+@media (prefers-reduced-motion: reduce) {
+  .st-about-hero-chip { transition: none; width: 1.417em; }
+}
+
+.st-hero-title-image {
+  display: inline-block;
+  width: 1.104em;
+  max-width: 100%;
+  height: 0.833em;
+  object-fit: cover;
+  border-radius: 0.25em;
+  vertical-align: middle;
+}
 
 .st-about-hero-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  /* The content block centres its children, so without this the row shrinks to
+     fit its text and the two labels collide instead of sitting at the edges. */
+  width: 100%;
   margin-top: 164px;
   color: var(--st-mute);
   font-family: var(--st-font-secondary);
   text-transform: uppercase;
 }
-@media screen and (max-width: 991px) {
-  .st-about-hero-bottom { margin-top: 80px; gap: 24px; flex-wrap: wrap; }
+@media screen and (max-width: 479px) {
+  .st-about-hero-bottom { flex-flow: column; gap: 8px; margin-top: 80px; }
 }
 
 /* ============================================================================

@@ -53,31 +53,43 @@ export default function AboutPage() {
         <section className="st-hero st-is-dark">
           <div className="st-container">
             <div className="st-about-hero-content">
-              <Reveal className="st-tag-block st-is-center">
+              <Reveal delay={200} className="st-tag-block st-is-center">
                 <Tag on="dark">{ABOUT.identityBadge}</Tag>
               </Reveal>
 
-              {/* Split into runs so the image chip sits between two words and
-                  still wraps like text. */}
-              <Reveal delay={200} className="st-about-hero-title">
-                <h1 className="st-h1">We exist to build</h1>
-                <Image
-                  className="st-hero-title-image"
-                  src="/images/about/studio.webp"
-                  alt=""
-                  width={106}
-                  height={80}
-                  priority
-                />
-                <h1 className="st-h1">lasting digital systems.</h1>
+              {/* The headline is written twice on purpose — see the comment in
+                  stodio-about.css. This one carries every width below 992px. */}
+              <Reveal delay={200} className="st-about-hero-plain">
+                <h2 className="st-h1">We exist to build lasting digital systems.</h2>
               </Reveal>
 
-              <Reveal delay={300} style={{ width: "100%" }}>
-                <div className="st-about-hero-bottom st-text-l">
-                  <div>AI-first software studio</div>
-                  <div>Since 2021</div>
-                </div>
-              </Reveal>
+              {/* ...and this one, desktop only, is split by hand into two lines
+                  so the image chip can sit between "digital" and "systems." */}
+              <div className="st-about-hero-split">
+                <Reveal delay={200} as="h1" className="st-h1">
+                  We exist to build lasting
+                </Reveal>
+                <Reveal delay={400} className="st-about-hero-line">
+                  <span className="st-h1">digital</span>
+                  <span className="st-about-hero-chip">
+                    <Image
+                      className="st-hero-title-image"
+                      src="/images/about/studio.webp"
+                      alt=""
+                      width={106}
+                      height={80}
+                      priority
+                    />
+                  </span>
+                  <span className="st-h1">systems.</span>
+                </Reveal>
+              </div>
+
+              {/* No reveal: the reference leaves this row static. */}
+              <div className="st-about-hero-bottom st-text-l">
+                <div>AI-first software studio</div>
+                <div>Since 2021</div>
+              </div>
             </div>
           </div>
         </section>

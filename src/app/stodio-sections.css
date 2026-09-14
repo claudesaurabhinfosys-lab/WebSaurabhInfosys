@@ -16,6 +16,8 @@
 }
 @media screen and (max-width: 991px) { .st-hero { padding-top: 120px; } }
 @media screen and (max-width: 767px) { .st-hero { padding-top: 80px; padding-bottom: 24px; } }
+/* The reference lifts this back up below 480px — the nav bar is taller there. */
+@media screen and (max-width: 479px) { .st-hero { padding-top: 140px; } }
 
 .st-hero.st-is-dark { background-color: var(--st-primary); }
 .st-hero.st-is-light { background-color: var(--st-bg-light); }

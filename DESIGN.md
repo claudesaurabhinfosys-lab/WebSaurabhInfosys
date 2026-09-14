@@ -373,8 +373,8 @@ Work (sticky title, projects staggered 2/1/2) → FAQ → Testimonials (**dark
 slab**) → Journal → CTA
 
 ### About — `components/stodio/about/`
-Hero (**dark slab**, centred, headline split into runs around an inline image
-chip, meta row 164px below) → Our story (243px label column with the author
+Hero (**dark slab**, centred, hand-split two-line headline with an image chip
+that wipes open between two words, meta row 164px below) → Our story (243px label column with the author
 credit pinned 148px down / 680px prose column at `.st-h4`) → Numbers →
 What drives us (tilted, overlapping showcase inside a 922px grid) →
 Our method (**dark slab**, card row pinned for 300vh) → Client wall (4×160px
@@ -383,6 +383,25 @@ stat spanning 2, five cards, closing note spanning 3) → CTA
 
 Its geometry is in [`stodio-about.css`](src/app/stodio-about.css) and every
 number in it was measured off the live reference at 1600px.
+
+**The about hero headline is written twice.** Above 992px the page renders a
+hand-split block — line one is `We exist to build lasting`, line two is a flex
+row of `digital`, the image chip, and `systems.` Below 992px that block is
+`display: none` and a single plain heading wraps on its own. This mirrors the
+reference exactly (its desktop block is three `h1`s, its fallback an `h2`), and
+the reason is structural: a line split by hand is only correct at widths where
+you know how wide the line will be.
+
+The chip is `.st-about-hero-chip`, a wrapper whose width runs 0 → 1.417em with
+`transition: width 500ms ease 1000ms`, fired by the same `.st-is-in` class the
+reveal uses — the reference's IX2 list "Hero Text Image Hide" is `delay: 1000,
+easing: ease, duration: 500`, triggered by the same SCROLL_INTO_VIEW that runs
+the line's own 400ms-delayed fade. The image inside is `max-width: 100%`, which
+is what makes the wipe read as a squeeze instead of an overflowing block.
+
+Every chip dimension is in `em` against the row's own `--st-h1-size`, not the
+reference's pixels (136 / 106 / 80 / 24 at a 96px `h1`), so the chip tracks the
+fluid heading scale.
 
 **Foundation is a tab set, not an accordion.** In the reference it is a
 Webflow `w-tabs`, where each pane carries its own picture: selecting a
