@@ -24,10 +24,14 @@ const COLUMN_TWO = [
   { label: "Contact", href: "/contact" },
 ];
 
+/* Products point at their own pages, not at the live apps. The product page is
+   where the pricing, modules and demo link live; sending someone straight to
+   the running product skips all of it, and the page already carries a "Visit"
+   button for people who do want the app itself. */
 const COLUMN_THREE = [
-  { label: "School ERP", href: "https://myschoolmanagementsystem.com" },
+  { label: "School ERP", href: "/products/ssms" },
   { label: "MySociety", href: "/products/mysociety" },
-  { label: "MySampark", href: "https://mysampark.com" },
+  { label: "MySampark", href: "/products/mysampark" },
   { label: "GPS & Fleet", href: "/services/gps" },
   { label: "Digital Marketing", href: "/services/digital-marketing" },
 ];

@@ -341,6 +341,88 @@ surface. `isLightRoute()` in `navbar.tsx` is the single place that decides:
 nav and the colour logo; everything else keeps the white nav and white logo.
 **Add a route there when you add a page.**
 
+### Navbar items
+
+`Home · Studio · Work · Services · Products · Contact`. Blog is deliberately not
+in the primary nav — the section still ships and is still linked from the
+footer.
+
+Products is the one item with a sub-menu, built from `PRODUCTS` in `data.ts`
+rather than a second hard-coded list, so adding a product adds a nav entry.
+Its trigger is a real `<Link>` to `/products`, not a button: the panel is a
+shortcut, never the only way in. It opens on `:hover` and on `:focus-within`,
+so a keyboard user reaches all three products by tabbing, and the panel's
+`padding-top` is the hover bridge — without it the pointer crosses a dead gap
+on the way down and the menu closes.
+
+**The panel is three names and nothing else.** The first version carried a
+tagline per row and ran 352px wide against an 89px nav item — five times the
+trigger's width, so it spilled across Services and Contact and read as though
+the menu had drifted left. At 176px the overhang is 44px a side and the panel
+sits visibly under its own item.
+
+### The mobile menu (<= 991px)
+
+A compact panel anchored to the top-right corner, not a full-width sheet.
+Geometry follows the shadcnspace hero-17 menu it was modelled on: 320px wide,
+24px radius, 32/24 padding, a 24px-gapped column of header, list and footer, a
+hairline rule under the header, and a full-width pill at the bottom. Ours is
+dark rather than light, which also sidesteps the light/dark route variants —
+one panel reads correctly over either hero.
+
+It reads: `Menu` + a 38px circular close, rule, the links, rule, the phone
+number and Book A Call. The current row is marked with a 22px brand dash, the
+way the reference marks its own.
+
+It replaced an `overflow: hidden` + `max-height` accordion that had four real
+faults, each fixed here:
+
+| Fault | Fix |
+| --- | --- |
+| `position: absolute` in a mount at the top of the document, so scrolling slid the open menu off screen | `position: fixed`, plus Lenis `stop()` and `body { overflow: hidden }` while open |
+| `max-height: 0` still gave its links layout, so a keyboard user tabbed into an invisible menu | `visibility: hidden` in CSS and `inert` in `navbar.tsx` |
+| 20px rows, under the 24px WCAG 2.5.8 floor | 44px rows, 36px sub-rows, 44px call to action |
+| Animating `max-height` to a number far larger than the content, so most of the easing curve ran over empty space | opacity + an 8px `translateY` and a 0.98 scale from the corner it is anchored to |
+
+`inert` is scoped to the breakpoint (`compact && !open`). Applied
+unconditionally it also lands on the desktop nav — which is never "open" — and
+makes every desktop link unclickable.
+
+Three further things worth knowing:
+
+- **Only the list scrolls.** `.st-nav-links` is the scroll container; the panel
+  is `overflow: hidden`, so the header and the call to action stay put on a
+  short screen. On desktop that wrapper is `display: contents`, or the nav row
+  collapses into a stack.
+- **No scrim.** Dimming the page also dimmed the 16px gutter outside the site's
+  rounded frame, which read as a broken overlay. The catcher is transparent —
+  it exists only so a tap off the panel closes the menu — and the panel's own
+  ring and shadow do the separating.
+- **The panel outranks the nav controls.** It covers the corner the hamburger
+  sits in, so `.st-nav-menu` takes `z-index: 2` over `.st-nav-right`'s `1`.
+  Without that the hamburger's own cross draws on top of the panel's close
+  button and you see two of them.
+
+One specificity trap. The desktop dropdown is centred with
+`.st-has-menu:hover .st-nav-dropdown { transform: translate(-50%, 0) }`, which
+scores (0,2,0). A plain `.st-nav-dropdown { transform: none }` in the mobile
+block scores (0,1,0) and loses, so the desktop centring survived into the panel
+and threw it half its own width off the left edge the moment a finger landed on
+a product and `:focus-within` matched. The mobile override repeats all three
+selectors at matching specificity.
+
+### The products index
+
+`/products` exists because the nav item points at it. Without it the new nav
+entry and the footer's three product links all landed on a 404 — the route only
+had `[slug]` under it.
+
+### Footer product links
+
+The three products link to `/products/<slug>`, not to the live apps. The product
+page is where the pricing, modules, rollout and FAQ live, and it already carries
+a "Visit" button for anyone who wants the running app instead.
+
 ---
 
 ## 5. Stylesheets

@@ -13,6 +13,24 @@ export function ArrowUpRight({ className }: P) {
   );
 }
 
+/** Small chevron — marks the nav item that opens a sub-menu. */
+export function ChevronDown({ className }: P) {
+  return (
+    <svg className={className} viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+/** Close cross — the mobile menu panel's own dismiss control. */
+export function CloseMark({ className }: P) {
+  return (
+    <svg className={className} viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path d="M4 4L12 12M12 4L4 12" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    </svg>
+  );
+}
+
 /** Long right arrow — the "view all" and service-row marker. */
 export function ArrowRight({ className }: P) {
   return (
