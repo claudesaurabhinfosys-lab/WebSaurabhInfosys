@@ -282,7 +282,7 @@ viewport, 1 once its bottom clears the top, smoothed with a 0.12 lerp.
 | Section | Keyframes | From IX2 |
 |---|---|---|
 | **What drives us** ([`showcase-row.tsx`](src/components/stodio/about/showcase-row.tsx)) | @10%: tiles offset ±60px and tilted -8 / 3 / -4 / 4°. @70%: offset 0, tilt -4 / 3 / -2 / 2°. The **wrapper** rotates, not the image. | `a-79` |
-| **Our method** ([`process-section.tsx`](src/components/stodio/process-section.tsx)) | @0%: all four cards at `translateY(75vh)`. Card *n* comes home between *n*×20% and (*n*+1)×20%, so they arrive one at a time while the row is pinned. | `a-105` |
+| **Our method** ([`process-section.tsx`](src/components/stodio/process-section.tsx)) | @0%: all four cards at `translateY(75vh)`. Card *n* comes home inside its own slice of the pinned window (see below), so they arrive one at a time. | `a-105` |
 | **Markets** ([`markets-grid.tsx`](src/components/stodio/about/markets-grid.tsx)) | @20%: row one at `x: -500px`, row two at `x: +500px`. @75%: both at 0, on `outQuad`. The wrapper clips so neither row widens the page. | `a-80` |
 
 The hook writes transforms **straight to the DOM through refs**. It must not
@@ -326,7 +326,7 @@ All under [`src/components/stodio/`](src/components/stodio/).
 | `work-card.tsx` | Project tile — thumbnail, name leading, discipline trailing. |
 | `blog-card.tsx` | Blog tile — category pill, thumbnail, meta row, title, excerpt. |
 | `marquee-section.tsx` | The client rail. |
-| `process-section.tsx` | The dark method slab — four white step cards. Shared by about, services index and every service detail page. |
+| `process-section.tsx` | The dark method slab — four white step cards. Shared by about, services index, every service detail page and every product detail page. |
 | `faq-section.tsx` | Title leading, accordion trailing. |
 | `testimonials-section.tsx` | Dark slab slider. |
 | `cta-section.tsx` | The closing panel every page ends on. |
@@ -507,8 +507,28 @@ block's height — the reference solves it the same way with
 **The process-card art is the reference's own.** Four fill-based marks on a
 240 box — pinwheel, lightbulb, cube, puzzle piece — lifted from its SVG
 assets, with the shipped `#F3F3F3` swapped for `currentColor`. They are capped
-at 220px rather than filling the card, which is the one deliberate departure:
-at the reference's 316px they swamp our longer copy.
+at 132px rather than filling the card, which is the one deliberate departure:
+at the reference's 316px they swamp our longer copy, and even 220px read louder
+than the sentence underneath. They are a background mark, not the subject.
+
+**The card header is two lines: label, then title under it.** Side by side,
+"Weeks 3-8" broke after the hyphen and dragged the title's first line with it,
+so the header ran to four ragged lines of differing height per card. Stacked,
+every card's header is exactly 55px at every width.
+
+**The card schedule has to live inside the pin.** `useScrollProgress` reads 0
+from the moment the 300vh wrapper's top reaches the bottom of the viewport, so
+it spans 400vh. The row only pins once that top reaches the top of the screen —
+100vh later, at p=0.25 — and unpins 200vh after that, at p=0.75. The original
+20/40/60/80 schedule ignored this: the first card finished before the row was
+pinned at all, and the last was still travelling as the row unpinned, which is
+why it was cut in half at the bottom of the slab. `PIN_START`/`PIN_END` (0.27
+to 0.64) bound the travel, each card takes an equal slice, and the remainder is
+a hold where all four sit still.
+
+The row is also pinned full-height and centred (`top: 0; height: 100vh;
+align-content: center`) rather than offset 50px from the top, so the cards land
+in the middle of the screen with equal space above and below at every viewport.
 
 ### Projects — `components/stodio/portfolio/index.tsx`
 Hero (**light slab**) → Marquee → category filter → two-column grid → CTA

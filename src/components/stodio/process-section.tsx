@@ -27,12 +27,28 @@ type Props = {
   steps: Step[];
 };
 
+/* The window in which the card row is actually pinned.
+ *
+ * `useScrollProgress` measures 0 from the moment the 300vh wrapper's top
+ * reaches the bottom of the viewport, so the span it covers is 400vh. The row
+ * only pins once the wrapper's top reaches the top of the screen — 100vh
+ * later, at 0.25 — and unpins 200vh after that, at 0.75. Anything scheduled
+ * outside that window animates while the row is off-screen or sliding away.
+ *
+ * That is what the original 20/40/60/80 schedule did: the first card finished
+ * before the row was pinned at all, and the last was still travelling as the
+ * row unpinned, which is why it was cut off at the bottom of the slab. These
+ * bounds keep every card's travel inside the pin and leave a hold at the end
+ * where all of them sit still, centred and whole. */
+const PIN_START = 0.27;
+const PIN_END = 0.64;
+
 /**
  * The dark method slab. The card row is pinned inside a 300vh wrapper and the
  * cards rise **one at a time** as the page scrolls past it — IX2 `a-105`
- * parks every card at `translateY(75vh)` at 0% progress, then brings them
- * home at 20 / 40 / 60 / 80%. Below 992px the pin is dropped and the cards
- * just stack, so the offsets are cleared there.
+ * parks every card at `translateY(75vh)` at 0% progress and brings them home
+ * one after another. Below 992px the pin is dropped and the cards just stack,
+ * so the offsets are cleared there.
  */
 export default function ProcessSection({
   eyebrow = "Our method",
@@ -42,6 +58,8 @@ export default function ProcessSection({
 }: Props) {
   const cards = useRef<(HTMLDivElement | null)[]>([]);
 
+  const slot = (PIN_END - PIN_START) / Math.max(1, steps.length);
+
   const ref = useScrollProgress<HTMLDivElement>((progress) => {
     const pinned = window.matchMedia("(min-width: 992px)").matches;
     cards.current.forEach((card, index) => {
@@ -50,8 +68,9 @@ export default function ProcessSection({
         card.style.transform = "";
         return;
       }
-      // Card n travels home between n*20% and (n+1)*20%.
-      const t = segment(progress, index * 0.2, (index + 1) * 0.2);
+      // Each card gets an equal slice of the pinned window, in order.
+      const from = PIN_START + index * slot;
+      const t = segment(progress, from, from + slot);
       card.style.transform = `translateY(${lerp(75, 0, t).toFixed(2)}vh)`;
     });
   });
@@ -90,8 +109,10 @@ export default function ProcessSection({
                       cards.current[index] = node;
                     }}
                   >
-                    <div className="st-process-card-head st-text-l">
-                      <span>{step.label ?? `Step ${index + 1}`}</span>
+                    <div className="st-process-card-head st-text-m">
+                      <span className="st-process-card-label">
+                        {step.label ?? `Step ${index + 1}`}
+                      </span>
                       <span className="st-mute">{step.title}</span>
                     </div>
                     <div className="st-process-card-icon-wrapper">

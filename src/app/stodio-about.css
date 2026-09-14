@@ -197,30 +197,52 @@
 .st-process-sticky { position: relative; height: 300vh; }
 @media screen and (max-width: 991px) { .st-process-sticky { height: auto; } }
 
+/* A full-height pin with the row centred inside it, rather than a 50px offset.
+   Pinned 50px from the top, a 541px card on a laptop ended below the fold and
+   the last one to arrive was still half cut off when the row unpinned. */
 .st-process-card-wrapper {
   position: sticky;
-  top: 50px;
+  top: 0;
+  height: 100vh;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  align-content: center;
   gap: 16px;
-  padding-top: var(--st-pad-x);
 }
 @media screen and (max-width: 991px) {
-  .st-process-card-wrapper { position: static; grid-template-columns: 1fr 1fr; }
+  .st-process-card-wrapper {
+    position: static;
+    height: auto;
+    grid-template-columns: 1fr 1fr;
+    padding-top: var(--st-pad-x);
+  }
 }
 @media screen and (max-width: 767px) { .st-process-card-wrapper { grid-template-columns: 1fr; } }
 
 .st-process-card {
   display: flex;
   flex-flow: column;
-  min-height: 541px;
+  min-height: 460px;
+  /* Never taller than the pin can show, so the card is always whole. */
+  max-height: calc(100vh - 48px);
   padding: var(--st-pad-1x);
   border-radius: var(--st-r-16);
   background-color: var(--st-white);
   will-change: transform;
 }
-@media screen and (max-width: 991px) { .st-process-card { min-height: 0; } }
-.st-process-card-head { display: flex; align-items: baseline; gap: 8px; font-weight: var(--st-semibold); }
+@media screen and (max-width: 991px) { .st-process-card { min-height: 0; max-height: none; } }
+
+/* Two lines: the label, then the title under it. Side by side, "Weeks 3-8"
+   broke after the hyphen and dragged the title's first line with it, and even
+   once the label was held on one line the pair read as a run-on. */
+.st-process-card-head {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+  gap: 4px;
+  font-weight: var(--st-semibold);
+}
+.st-process-card-label { white-space: nowrap; }
 .st-process-card-icon-wrapper {
   display: flex;
   flex: 1;
@@ -228,17 +250,18 @@
   justify-content: center;
   margin-top: var(--st-gap-24);
 }
-/* Capped rather than filling the card: at full width it swamps the copy. */
+/* Capped well under the card width: it is a background mark, not the subject,
+   and at 220px it was reading louder than the copy it sits above. */
 .st-process-card-icon {
   width: 100%;
-  max-width: 220px;
+  max-width: 132px;
   height: auto;
   aspect-ratio: 1;
   color: var(--st-bg-light);
 }
-@media screen and (max-width: 991px) { .st-process-card-icon { max-width: 180px; } }
-@media screen and (max-width: 767px) { .st-process-card-icon { max-width: 120px; } }
-.st-process-card-body { margin-top: var(--st-gap-40); color: var(--st-text-secondary); }
+@media screen and (max-width: 991px) { .st-process-card-icon { max-width: 112px; } }
+@media screen and (max-width: 767px) { .st-process-card-icon { max-width: 96px; } }
+.st-process-card-body { margin-top: var(--st-gap-24); color: var(--st-text-secondary); }
 
 /* ============================================================================
    Client wall
