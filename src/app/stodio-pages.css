@@ -86,6 +86,34 @@
 .st-other-projects { padding-top: var(--st-pad-big); background-color: var(--st-white); }
 
 /* ============================================================================
+   Full-image case study (e.g. Behance-style full presentation)
+   ========================================================================= */
+.st-project-full-study {
+  position: relative;
+  width: 100%;
+  background-color: var(--st-white);
+  padding-top: 170px;
+  padding-bottom: var(--st-pad-big);
+}
+@media screen and (max-width: 991px) {
+  .st-project-full-study {
+    padding-top: 130px;
+  }
+}
+
+.st-project-full-image-frame {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.st-project-full-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ============================================================================
    Blog detail
    ========================================================================= */
 .st-blog-detail-hero {

@@ -23,6 +23,65 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
     .concat(PORTFOLIO_PROJECTS.slice(0, 2))
     .slice(0, 2);
 
+  if (project.fullCaseStudyImage) {
+    return (
+      <div className="st-project-full-study">
+        <div className="st-container">
+          <div className="st-project-full-image-frame">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={project.fullCaseStudyImage}
+              alt={project.title}
+              className="st-project-full-image"
+              loading="eager"
+            />
+          </div>
+        </div>
+
+        <section className="st-other-projects">
+          <div className="st-container">
+            <div className="st-markets-title-block">
+              <div className="st-markets-title-left">
+                <Reveal className="st-tag-block">
+                  <Tag>Projects</Tag>
+                </Reveal>
+                <Reveal delay={100}>
+                  <h2 className="st-h2" style={{ marginTop: "var(--st-gap-24)" }}>
+                    Other projects
+                  </h2>
+                </Reveal>
+              </div>
+              <Reveal delay={200} className="st-markets-title-right">
+                <p className="st-text-m st-secondary">
+                  A small, senior team embedded directly into your product.
+                </p>
+              </Reveal>
+            </div>
+
+            <div className="st-projects-grid" style={{ paddingTop: "var(--st-pad-4x)" }}>
+              {others.map((other, position) => (
+                <Reveal key={other.slug} delay={position * 90}>
+                  <WorkCard
+                    href={`/portfolio/${other.slug}`}
+                    title={other.title}
+                    service={other.category}
+                    image={workImage(
+                      other.images,
+                      PORTFOLIO_PROJECTS.findIndex((p) => p.slug === other.slug),
+                      0,
+                    )}
+                  />
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <CtaSection eyebrow="Get started" heading="Ready to build yours?" ctaLabel="Book a Consultation" />
+      </div>
+    );
+  }
+
   const meta = [
     { label: "Year", value: project.year ?? "2025" },
     { label: "Client", value: project.client ?? "Confidential" },

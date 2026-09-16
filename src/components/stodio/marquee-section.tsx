@@ -1,15 +1,6 @@
-import { ClientMark, StarBurst } from "./icons";
-
-const LOGOS = [
-  "Modern Dental Lab",
-  "ATCC Australia",
-  "CapriCurves",
-  "Digital Retail Display",
-  "Washry",
-  "Exotics Now",
-  "Meowcademy",
-  "Edify Easy",
-];
+import Image from "next/image";
+import { StarBurst } from "./icons";
+import { CLIENT_LOGOS } from "@/lib/data";
 
 type Props = {
   /** Mono line on the left of the rail. */
@@ -37,10 +28,17 @@ export default function MarqueeSection({
           <div className="st-logos-gradient" />
           {[0, 1].map((copy) => (
             <div className="st-logos-row" key={copy} aria-hidden={copy === 1}>
-              {LOGOS.map((name) => (
-                <div className="st-logo-item" key={`${copy}-${name}`}>
-                  <ClientMark className="st-logo-mark" />
-                  {name}
+              {CLIENT_LOGOS.map((client) => (
+                <div className="st-logo-item" key={`${copy}-${client.name}`}>
+                  <Image
+                    src={client.logo}
+                    alt={client.name}
+                    width={32}
+                    height={32}
+                    className="st-logo-mark"
+                    unoptimized
+                  />
+                  {client.name}
                 </div>
               ))}
             </div>

@@ -7,11 +7,15 @@ import { PORTFOLIO_PROJECTS } from "@/lib/data";
 import { workImage } from "@/components/stodio/lib/work-images";
 
 /** Five featured projects, laid out 2 / 1 / 2 the way the reference stacks them. */
-const FEATURED = PORTFOLIO_PROJECTS.slice(0, 5).map((project, index) => ({
+const FEATURED = (
+  PORTFOLIO_PROJECTS.filter((p) => p.images && p.images.length > 0).slice(0, 5).length >= 5
+    ? PORTFOLIO_PROJECTS.filter((p) => p.images && p.images.length > 0).slice(0, 5)
+    : PORTFOLIO_PROJECTS.slice(0, 5)
+).map((project, index) => ({
   href: `/portfolio/${project.slug}`,
   title: project.title,
   service: project.category,
-  image: workImage(undefined, index, 0),
+  image: workImage(project.images, index, 0),
 }));
 
 export default function WorkSection() {

@@ -166,7 +166,7 @@
   flex: none;
   align-items: center;
   gap: var(--st-pad-x);
-  animation: st-marquee 12s linear infinite;
+  animation: st-marquee 26s linear infinite;
 }
 @media (hover: hover) and (pointer: fine) {
   .st-logo-container:hover .st-logos-row { animation-play-state: paused; }
@@ -199,7 +199,13 @@
   letter-spacing: -0.02em;
   white-space: nowrap;
 }
-.st-logo-mark { width: 26px; height: 26px; flex: none; }
+.st-logo-mark {
+  width: 32px;
+  height: 32px;
+  flex: none;
+  object-fit: contain;
+  border-radius: 6px;
+}
 
 /* ============================================================================
    Gallery — who we are + horizontal image strip
