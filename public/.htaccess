@@ -1,6 +1,10 @@
 Options -MultiViews
 RewriteEngine On
 
+# Portfolio API clean URL rewrites
+RewriteRule ^api/portfolio/?$ api/portfolio.json [L]
+RewriteRule ^api/portfolio/([^/]+)/?$ api/portfolio/$1.json [L]
+
 # Serve pre-built index.html for all clean URLs
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d

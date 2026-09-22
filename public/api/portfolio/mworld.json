@@ -1,0 +1,49 @@
+{
+  "success": true,
+  "data": {
+    "id": 55,
+    "slug": "mworld",
+    "title": "mworld",
+    "category": "Custom Dev",
+    "description": "Professional networking and talent showcase platform connecting vetted creators, entrepreneurs, and specialists with industry opportunities and curated stories.",
+    "overview": null,
+    "tech": [
+      "Flutter",
+      "Firebase",
+      "Node.js"
+    ],
+    "highlights": [
+      "Verified professional directory with category and country filters",
+      "Curated success stories, editorial highlights, and landscape features",
+      "Direct in-app networking and connection requests",
+      "Rich profile customization with portfolio reels and bio links"
+    ],
+    "hasImages": true,
+    "imagesCount": 1,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/mworld/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/mworld/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/mworld"
+  },
+  "navigation": {
+    "prev": {
+      "id": 54,
+      "slug": "tap-to-share",
+      "title": "Tap To Share"
+    },
+    "next": {
+      "id": 56,
+      "slug": "q-easy",
+      "title": "Q easy"
+    }
+  }
+}

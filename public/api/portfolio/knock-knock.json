@@ -1,0 +1,79 @@
+{
+  "success": true,
+  "data": {
+    "id": 30,
+    "slug": "knock-knock",
+    "title": "Knoc Knoc",
+    "category": "Gig",
+    "description": "On-demand local services marketplace connecting customers with verified providers for home care, post-natal, car servicing, and lifestyle appointments.",
+    "overview": null,
+    "tech": [
+      "Flutter",
+      "Firebase",
+      "Node.js"
+    ],
+    "highlights": [
+      "Multi-category service discovery with transparent pricing",
+      "Real-time provider booking and calendar scheduling",
+      "Order progress tracking and customer reviews",
+      "Secure in-app booking and checkout flow"
+    ],
+    "hasImages": true,
+    "imagesCount": 4,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/knock-knock/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/knock-knock/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      },
+      {
+        "index": 2,
+        "role": "banner",
+        "label": "Panoramic Hero Banner",
+        "url": "/images/work/knock-knock/02.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/knock-knock/02.webp",
+        "aspectRatio": "1920:900",
+        "width": 1920,
+        "height": 900
+      },
+      {
+        "index": 3,
+        "role": "gallery",
+        "label": "Gallery Detail 1",
+        "url": "/images/work/knock-knock/03.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/knock-knock/03.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      },
+      {
+        "index": 4,
+        "role": "gallery",
+        "label": "Gallery Detail 2",
+        "url": "/images/work/knock-knock/04.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/knock-knock/04.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/knock-knock"
+  },
+  "navigation": {
+    "prev": {
+      "id": 29,
+      "slug": "doodler",
+      "title": "Doodler"
+    },
+    "next": {
+      "id": 31,
+      "slug": "panapa",
+      "title": "Panapa"
+    }
+  }
+}

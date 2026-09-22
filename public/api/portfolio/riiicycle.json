@@ -1,0 +1,38 @@
+{
+  "success": true,
+  "data": {
+    "id": 32,
+    "slug": "riiicycle",
+    "title": "Riiicycle",
+    "category": "Custom Dev",
+    "description": "Sustainable recycling marketplace and rewards app — users earn points for recycling pickups and eco actions.",
+    "overview": null,
+    "tech": [
+      "Flutter",
+      "Firebase",
+      "Node.js"
+    ],
+    "highlights": [
+      "Doorstep recycling pickup scheduling and tracking",
+      "Points and rewards system for eco-friendly actions",
+      "Personal recycling impact tracker with CO₂ savings",
+      "Community leaderboard to drive neighbourhood engagement"
+    ],
+    "hasImages": false,
+    "imagesCount": 0,
+    "images": [],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/riiicycle"
+  },
+  "navigation": {
+    "prev": {
+      "id": 31,
+      "slug": "panapa",
+      "title": "Panapa"
+    },
+    "next": {
+      "id": 33,
+      "slug": "changa-po",
+      "title": "Changa Po"
+    }
+  }
+}

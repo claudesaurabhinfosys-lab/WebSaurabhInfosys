@@ -1,0 +1,38 @@
+{
+  "success": true,
+  "data": {
+    "id": 39,
+    "slug": "ewd",
+    "title": "EWD",
+    "category": "Transport",
+    "description": "An Electronic Work Diary platform that digitises work and rest recording for drivers, transport operators, record keepers, and authorised officers — built to meet NHVR EWD Standards.",
+    "overview": null,
+    "tech": [
+      "Flutter",
+      "Laravel"
+    ],
+    "highlights": [
+      "Simple driver interface for declaring work and rest periods",
+      "Real-time compliance checks aligned with NHVR fatigue rules",
+      "Intercept mode for authorised officers to quickly review records",
+      "Operator and record keeper dashboards for log management",
+      "Meets NHVR EWD Standards for performance and auditability"
+    ],
+    "hasImages": false,
+    "imagesCount": 0,
+    "images": [],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/ewd"
+  },
+  "navigation": {
+    "prev": {
+      "id": 38,
+      "slug": "flpl",
+      "title": "FLPL"
+    },
+    "next": {
+      "id": 40,
+      "slug": "washry",
+      "title": "Washry"
+    }
+  }
+}

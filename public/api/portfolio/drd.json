@@ -1,0 +1,40 @@
+{
+  "success": true,
+  "data": {
+    "id": 47,
+    "slug": "drd",
+    "title": "DRD",
+    "category": "SaaS",
+    "description": "DRD (Digital Retail Display) bridges online convenience with local in-store shopping — letting shoppers discover nearby stores, check real-time stock, and buy instantly, while helping local retailers go digital without any technical expertise.",
+    "overview": null,
+    "tech": [
+      "React",
+      "Laravel",
+      "Flutter"
+    ],
+    "highlights": [
+      "Location-based store and product discovery",
+      "Real-time inventory visibility across nearby stores",
+      "Fast digital checkout with pickup or delivery options",
+      "Exclusive in-store deals and discounts",
+      "Simple retailer dashboard for product and order management",
+      "Fair revenue-sharing model for local businesses"
+    ],
+    "hasImages": false,
+    "imagesCount": 0,
+    "images": [],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/drd"
+  },
+  "navigation": {
+    "prev": {
+      "id": 46,
+      "slug": "edify-easy",
+      "title": "Edify Easy"
+    },
+    "next": {
+      "id": 48,
+      "slug": "meow-tampines",
+      "title": "Meow Tampines"
+    }
+  }
+}

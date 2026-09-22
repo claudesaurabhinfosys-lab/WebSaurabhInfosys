@@ -1,0 +1,49 @@
+{
+  "success": true,
+  "data": {
+    "id": 34,
+    "slug": "moyabet",
+    "title": "MoyaBet",
+    "category": "Custom Dev",
+    "description": "Sports analytics and multi-tier affiliate platform with real-time performance tracking, player network trees, KYC verification, and wallet payouts.",
+    "overview": null,
+    "tech": [
+      "Flutter",
+      "Node.js",
+      "PostgreSQL"
+    ],
+    "highlights": [
+      "Multi-tier affiliate network tree visualization",
+      "Player KYC verification and automated onboarding workflow",
+      "Real-time performance metrics, volume tracking, and ranks",
+      "Multi-currency wallet with instant refill and withdrawal logs"
+    ],
+    "hasImages": true,
+    "imagesCount": 1,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/moyabet/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/moyabet/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/moyabet"
+  },
+  "navigation": {
+    "prev": {
+      "id": 33,
+      "slug": "changa-po",
+      "title": "Changa Po"
+    },
+    "next": {
+      "id": 35,
+      "slug": "ch90",
+      "title": "CH90"
+    }
+  }
+}

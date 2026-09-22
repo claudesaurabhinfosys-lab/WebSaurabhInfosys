@@ -1,0 +1,49 @@
+{
+  "success": true,
+  "data": {
+    "id": 10,
+    "slug": "ev-connect",
+    "title": "EV Connect",
+    "category": "Transport",
+    "description": "EV charging station finder with real-time availability updates, navigation, and charging session management.",
+    "overview": null,
+    "tech": [
+      "Flutter",
+      "Node.js",
+      "Google Maps"
+    ],
+    "highlights": [
+      "Real-time charging station availability across providers",
+      "Turn-by-turn navigation to nearest available charger",
+      "Charging session tracking with cost and duration logs",
+      "Favourite stations and push alerts for availability"
+    ],
+    "hasImages": true,
+    "imagesCount": 1,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/ev-connect/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/ev-connect/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/ev-connect"
+  },
+  "navigation": {
+    "prev": {
+      "id": 9,
+      "slug": "cookpedia",
+      "title": "Cookpedia"
+    },
+    "next": {
+      "id": 11,
+      "slug": "commute",
+      "title": "Commute"
+    }
+  }
+}

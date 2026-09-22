@@ -1,0 +1,79 @@
+{
+  "success": true,
+  "data": {
+    "id": 27,
+    "slug": "barcode-scanner",
+    "title": "Barcode Scanner",
+    "category": "Custom Dev",
+    "description": "Mobile barcode scanning solution for retail and warehouse inventory management with real-time stock updates.",
+    "overview": null,
+    "tech": [
+      "Flutter",
+      "REST API",
+      "Firebase"
+    ],
+    "highlights": [
+      "High-speed barcode scanning via native device camera",
+      "Instant stock level updates on every scan",
+      "Offline mode with automatic sync on reconnection",
+      "Multi-location inventory support with transfer tracking"
+    ],
+    "hasImages": true,
+    "imagesCount": 4,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/barcode-scanner/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/barcode-scanner/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      },
+      {
+        "index": 2,
+        "role": "banner",
+        "label": "Panoramic Hero Banner",
+        "url": "/images/work/barcode-scanner/02.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/barcode-scanner/02.webp",
+        "aspectRatio": "1920:900",
+        "width": 1920,
+        "height": 900
+      },
+      {
+        "index": 3,
+        "role": "gallery",
+        "label": "Gallery Detail 1",
+        "url": "/images/work/barcode-scanner/03.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/barcode-scanner/03.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      },
+      {
+        "index": 4,
+        "role": "gallery",
+        "label": "Gallery Detail 2",
+        "url": "/images/work/barcode-scanner/04.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/barcode-scanner/04.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/barcode-scanner"
+  },
+  "navigation": {
+    "prev": {
+      "id": 26,
+      "slug": "wms",
+      "title": "WMS"
+    },
+    "next": {
+      "id": 28,
+      "slug": "formwork",
+      "title": "Formwork"
+    }
+  }
+}

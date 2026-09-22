@@ -1,0 +1,49 @@
+{
+  "success": true,
+  "data": {
+    "id": 18,
+    "slug": "instajob",
+    "title": "InstaJob",
+    "category": "Gig",
+    "description": "Instant job matching platform connecting blue-collar workers with short-term and daily wage opportunities.",
+    "overview": null,
+    "tech": [
+      "React Native",
+      "Node.js",
+      "PostgreSQL"
+    ],
+    "highlights": [
+      "Skill-based matching algorithm for instant job placement",
+      "Worker profiles with verified skills and past ratings",
+      "Daily wage tracking and in-app payment disbursement",
+      "Dual rating system for workers and employers"
+    ],
+    "hasImages": true,
+    "imagesCount": 1,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/instajob/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/instajob/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/instajob"
+  },
+  "navigation": {
+    "prev": {
+      "id": 17,
+      "slug": "walk-dogs",
+      "title": "Walk Dogs"
+    },
+    "next": {
+      "id": 19,
+      "slug": "helping-hands",
+      "title": "Helping Hands"
+    }
+  }
+}

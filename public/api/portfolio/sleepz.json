@@ -1,0 +1,49 @@
+{
+  "success": true,
+  "data": {
+    "id": 8,
+    "slug": "sleepz",
+    "title": "Sleepz",
+    "category": "Health",
+    "description": "Sleep quality tracking and improvement app with AI-powered coaching, sleep score analysis, and habit nudges.",
+    "overview": null,
+    "tech": [
+      "Flutter",
+      "Firebase",
+      "ML Kit"
+    ],
+    "highlights": [
+      "AI sleep coaching personalised to detected sleep patterns",
+      "Sleep score with nightly trend analysis",
+      "Habit tracking with smart nudges for sleep hygiene",
+      "Integration with wearables for automatic sleep detection"
+    ],
+    "hasImages": true,
+    "imagesCount": 1,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/sleepz/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/sleepz/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/sleepz"
+  },
+  "navigation": {
+    "prev": {
+      "id": 7,
+      "slug": "fit-gate",
+      "title": "Fit Gate"
+    },
+    "next": {
+      "id": 9,
+      "slug": "cookpedia",
+      "title": "Cookpedia"
+    }
+  }
+}

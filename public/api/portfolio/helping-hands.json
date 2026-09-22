@@ -1,0 +1,79 @@
+{
+  "success": true,
+  "data": {
+    "id": 19,
+    "slug": "helping-hands",
+    "title": "Helping Hands",
+    "category": "NGO",
+    "description": "Volunteer coordination and community support platform for NGOs — task assignments, tracking, and impact reporting.",
+    "overview": null,
+    "tech": [
+      "React",
+      "Firebase",
+      "Tailwind"
+    ],
+    "highlights": [
+      "Volunteer task assignment with skill matching",
+      "Real-time task progress tracking and check-ins",
+      "Impact reporting dashboard for donors and leadership",
+      "Community support request management and triage"
+    ],
+    "hasImages": true,
+    "imagesCount": 4,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/helping-hands/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/helping-hands/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      },
+      {
+        "index": 2,
+        "role": "banner",
+        "label": "Panoramic Hero Banner",
+        "url": "/images/work/helping-hands/02.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/helping-hands/02.webp",
+        "aspectRatio": "1920:900",
+        "width": 1920,
+        "height": 900
+      },
+      {
+        "index": 3,
+        "role": "gallery",
+        "label": "Gallery Detail 1",
+        "url": "/images/work/helping-hands/03.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/helping-hands/03.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      },
+      {
+        "index": 4,
+        "role": "gallery",
+        "label": "Gallery Detail 2",
+        "url": "/images/work/helping-hands/04.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/helping-hands/04.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/helping-hands"
+  },
+  "navigation": {
+    "prev": {
+      "id": 18,
+      "slug": "instajob",
+      "title": "InstaJob"
+    },
+    "next": {
+      "id": 20,
+      "slug": "pots",
+      "title": "Pots"
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "success": true,
+  "data": {
+    "id": 3,
+    "slug": "bit-learn",
+    "title": "BitLearn",
+    "category": "Education",
+    "description": "Personalised Web3 and crypto e-learning platform with interactive quizzes, achievement levels, and reward tokens.",
+    "overview": null,
+    "tech": [
+      "Flutter",
+      "Firebase",
+      "Node.js"
+    ],
+    "highlights": [
+      "Interactive quiz modules with instant feedback",
+      "Gamified progress tracking with streaks and badges",
+      "Crypto fundamentals and smart contract curriculum",
+      "Achievement levels and reward token withdrawals"
+    ],
+    "hasImages": true,
+    "imagesCount": 1,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/bit-learn/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/bit-learn/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/bit-learn"
+  },
+  "navigation": {
+    "prev": {
+      "id": 2,
+      "slug": "banigi-ai",
+      "title": "Banigi AI"
+    },
+    "next": {
+      "id": 4,
+      "slug": "smart-theory-test",
+      "title": "Smart Theory Test"
+    }
+  }
+}

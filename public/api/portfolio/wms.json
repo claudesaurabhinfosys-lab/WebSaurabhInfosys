@@ -1,0 +1,49 @@
+{
+  "success": true,
+  "data": {
+    "id": 26,
+    "slug": "wms",
+    "title": "WMS",
+    "category": "Custom Dev",
+    "description": "Warehouse management system with barcode scanning, inventory tracking, pick-and-pack workflows, and dispatch management.",
+    "overview": null,
+    "tech": [
+      "React",
+      "Node.js",
+      "PostgreSQL"
+    ],
+    "highlights": [
+      "Barcode-driven stock receiving and dispatch workflows",
+      "Pick-and-pack task management with operator assignment",
+      "Real-time inventory levels with low-stock alerts",
+      "Integration with e-commerce platforms for order sync"
+    ],
+    "hasImages": true,
+    "imagesCount": 1,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/wms/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/wms/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/wms"
+  },
+  "navigation": {
+    "prev": {
+      "id": 25,
+      "slug": "review",
+      "title": "Review"
+    },
+    "next": {
+      "id": 27,
+      "slug": "barcode-scanner",
+      "title": "Barcode Scanner"
+    }
+  }
+}

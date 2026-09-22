@@ -1,0 +1,49 @@
+{
+  "success": true,
+  "data": {
+    "id": 12,
+    "slug": "quick-delivery",
+    "title": "Quick Delivery",
+    "category": "Transport",
+    "description": "On-demand last-mile delivery platform with real-time tracking, driver app, and customer notifications.",
+    "overview": null,
+    "tech": [
+      "Flutter",
+      "Node.js",
+      "Google Maps"
+    ],
+    "highlights": [
+      "Live order tracking on an interactive map",
+      "Dedicated driver app with optimised route suggestions",
+      "Push notifications at every delivery milestone",
+      "Merchant dashboard for order and driver management"
+    ],
+    "hasImages": true,
+    "imagesCount": 1,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/quick-delivery/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/quick-delivery/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/quick-delivery"
+  },
+  "navigation": {
+    "prev": {
+      "id": 11,
+      "slug": "commute",
+      "title": "Commute"
+    },
+    "next": {
+      "id": 13,
+      "slug": "loadbase",
+      "title": "Loadbase"
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "success": true,
+  "data": {
+    "id": 17,
+    "slug": "walk-dogs",
+    "title": "Walk Dogs",
+    "category": "Gig",
+    "description": "Dog walking and pet care booking platform connecting pet owners with trusted local walkers.",
+    "overview": null,
+    "tech": [
+      "Flutter",
+      "Firebase",
+      "Google Maps"
+    ],
+    "highlights": [
+      "Walker profiles with background verification badges",
+      "Live GPS tracking shared with pet owners during walks",
+      "Real-time photo and update sharing during the walk",
+      "Automated payment and optional tipping system"
+    ],
+    "hasImages": true,
+    "imagesCount": 1,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/walk-dogs/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/walk-dogs/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/walk-dogs"
+  },
+  "navigation": {
+    "prev": {
+      "id": 16,
+      "slug": "barber-plus",
+      "title": "Barber Plus"
+    },
+    "next": {
+      "id": 18,
+      "slug": "instajob",
+      "title": "InstaJob"
+    }
+  }
+}

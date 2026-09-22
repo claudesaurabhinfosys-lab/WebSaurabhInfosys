@@ -1,0 +1,38 @@
+{
+  "success": true,
+  "data": {
+    "id": 40,
+    "slug": "washry",
+    "title": "Washry",
+    "category": "Custom Dev",
+    "description": "An on-demand laundry and dry-cleaning app that works like Uber Eats for your clothes — connecting users with trusted local cleaners for seamless pickup, cleaning, and doorstep delivery.",
+    "overview": null,
+    "tech": [
+      "Flutter",
+      "Laravel"
+    ],
+    "highlights": [
+      "Custom hamper creation and item selection before checkout",
+      "On-demand and scheduled pickup booking",
+      "Real-time order tracking from pickup to delivery",
+      "Secure in-app payment and flexible payment options",
+      "Order history and saved preferences for faster reorders"
+    ],
+    "hasImages": false,
+    "imagesCount": 0,
+    "images": [],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/washry"
+  },
+  "navigation": {
+    "prev": {
+      "id": 39,
+      "slug": "ewd",
+      "title": "EWD"
+    },
+    "next": {
+      "id": 41,
+      "slug": "washry-vendor",
+      "title": "Washry Vendor"
+    }
+  }
+}

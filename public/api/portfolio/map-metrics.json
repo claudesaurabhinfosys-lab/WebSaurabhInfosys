@@ -1,0 +1,49 @@
+{
+  "success": true,
+  "data": {
+    "id": 53,
+    "slug": "map-metrics",
+    "title": "MapMetrics",
+    "category": "Transport",
+    "description": "Drive-to-earn crypto navigation app with real-time turn-by-turn routing, SPT hardware pairing, and token reward wallet.",
+    "overview": null,
+    "tech": [
+      "Flutter",
+      "Web3",
+      "Google Maps"
+    ],
+    "highlights": [
+      "Turn-by-turn map navigation with live traffic updates",
+      "Drive-to-earn cryptocurrency rewards ($MMAPS)",
+      "Bluetooth pairing with SPT hardware devices",
+      "Built-in token wallet and transaction history"
+    ],
+    "hasImages": true,
+    "imagesCount": 1,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/map-metrics/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/map-metrics/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/map-metrics"
+  },
+  "navigation": {
+    "prev": {
+      "id": 52,
+      "slug": "le-meow-worker",
+      "title": "Le Meow Worker"
+    },
+    "next": {
+      "id": 54,
+      "slug": "tap-to-share",
+      "title": "Tap To Share"
+    }
+  }
+}

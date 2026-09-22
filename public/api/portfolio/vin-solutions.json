@@ -1,0 +1,38 @@
+{
+  "success": true,
+  "data": {
+    "id": 15,
+    "slug": "vin-solutions",
+    "title": "VIN Solutions",
+    "category": "Transport",
+    "description": "Vehicle identification and dealership management platform with VIN lookup, inventory, and sales tracking.",
+    "overview": null,
+    "tech": [
+      "Next.js",
+      "PostgreSQL",
+      "REST API"
+    ],
+    "highlights": [
+      "VIN lookup with full vehicle specification and history",
+      "Dealership inventory management with status tracking",
+      "Sales pipeline with lead and deal management",
+      "Custom reporting on inventory turnover and sales performance"
+    ],
+    "hasImages": false,
+    "imagesCount": 0,
+    "images": [],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/vin-solutions"
+  },
+  "navigation": {
+    "prev": {
+      "id": 14,
+      "slug": "ttac",
+      "title": "TTAC"
+    },
+    "next": {
+      "id": 16,
+      "slug": "barber-plus",
+      "title": "Barber Plus"
+    }
+  }
+}

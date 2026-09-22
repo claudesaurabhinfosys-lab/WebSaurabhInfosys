@@ -1,0 +1,81 @@
+{
+  "success": true,
+  "data": {
+    "id": 57,
+    "slug": "edcalibre",
+    "title": "EdCalibre",
+    "category": "Education",
+    "description": "Interactive online learning and classroom gamification platform that transforms children's education through animated video lessons, chapter quizzes, and league leaderboards.",
+    "overview": "Where education meets adventure! Our platform offers a dynamic blend of interactive lessons and quizzes, fostering a love for learning in children. With Edcalibre, kids can explore a world of knowledge while unlocking their full potential, all in a safe and engaging online environment.",
+    "tech": [
+      "Next.js",
+      "React",
+      "Node.js",
+      "MongoDB",
+      "WebSockets"
+    ],
+    "highlights": [
+      "Dynamic audio-visual learning paths with interactive lesson modules and video classrooms",
+      "Granular chapter and section score analytics with real-time performance milestones",
+      "Gamified student league leaderboards with achievement levels, badges, and points",
+      "Personalized student profile management with custom learning pace and subscription plans"
+    ],
+    "hasImages": true,
+    "imagesCount": 4,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/edcalibre/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/edcalibre/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      },
+      {
+        "index": 2,
+        "role": "banner",
+        "label": "Panoramic Hero Banner",
+        "url": "/images/work/edcalibre/02.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/edcalibre/02.webp",
+        "aspectRatio": "1920:900",
+        "width": 1920,
+        "height": 900
+      },
+      {
+        "index": 3,
+        "role": "gallery",
+        "label": "Gallery Detail 1",
+        "url": "/images/work/edcalibre/03.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/edcalibre/03.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      },
+      {
+        "index": 4,
+        "role": "gallery",
+        "label": "Gallery Detail 2",
+        "url": "/images/work/edcalibre/04.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/edcalibre/04.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/edcalibre"
+  },
+  "navigation": {
+    "prev": {
+      "id": 56,
+      "slug": "q-easy",
+      "title": "Q easy"
+    },
+    "next": {
+      "id": 58,
+      "slug": "contractor-easy",
+      "title": "Contractor Easy"
+    }
+  }
+}

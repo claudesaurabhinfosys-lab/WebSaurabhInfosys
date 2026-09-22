@@ -1,0 +1,49 @@
+{
+  "success": true,
+  "data": {
+    "id": 13,
+    "slug": "loadbase",
+    "title": "Loadbase",
+    "category": "Transport",
+    "description": "Load management and freight booking platform connecting shippers with truck owners across India.",
+    "overview": null,
+    "tech": [
+      "React",
+      "Node.js",
+      "PostgreSQL"
+    ],
+    "highlights": [
+      "Load posting and competitive bidding marketplace",
+      "Verified truck owner profiles with ratings and reviews",
+      "Document management for lorry receipts and consignments",
+      "Route planner with distance and estimated freight cost"
+    ],
+    "hasImages": true,
+    "imagesCount": 1,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/loadbase/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/loadbase/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/loadbase"
+  },
+  "navigation": {
+    "prev": {
+      "id": 12,
+      "slug": "quick-delivery",
+      "title": "Quick Delivery"
+    },
+    "next": {
+      "id": 14,
+      "slug": "ttac",
+      "title": "TTAC"
+    }
+  }
+}

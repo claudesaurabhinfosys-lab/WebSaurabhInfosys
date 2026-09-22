@@ -1,0 +1,75 @@
+{
+  "success": true,
+  "data": {
+    "id": 1,
+    "slug": "ai-assist",
+    "title": "AI Assist",
+    "category": "AI",
+    "description": "AI-powered educational platform with live tests, instant results, and personalised study material for students.",
+    "overview": null,
+    "tech": [
+      "Flutter",
+      "OpenAI",
+      "Firebase"
+    ],
+    "highlights": [
+      "OpenAI-powered personalised study paths",
+      "Live test engine with instant results and explanations",
+      "Progress tracking across subjects and topics",
+      "Adaptive difficulty that adjusts to each student's level"
+    ],
+    "hasImages": true,
+    "imagesCount": 4,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/ai-assist/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/ai-assist/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      },
+      {
+        "index": 2,
+        "role": "banner",
+        "label": "Panoramic Hero Banner",
+        "url": "/images/work/ai-assist/02.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/ai-assist/02.webp",
+        "aspectRatio": "1920:900",
+        "width": 1920,
+        "height": 900
+      },
+      {
+        "index": 3,
+        "role": "gallery",
+        "label": "Gallery Detail 1",
+        "url": "/images/work/ai-assist/03.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/ai-assist/03.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      },
+      {
+        "index": 4,
+        "role": "gallery",
+        "label": "Gallery Detail 2",
+        "url": "/images/work/ai-assist/04.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/ai-assist/04.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/ai-assist"
+  },
+  "navigation": {
+    "prev": null,
+    "next": {
+      "id": 2,
+      "slug": "banigi-ai",
+      "title": "Banigi AI"
+    }
+  }
+}

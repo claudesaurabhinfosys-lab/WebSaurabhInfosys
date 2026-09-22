@@ -1,0 +1,81 @@
+{
+  "success": true,
+  "data": {
+    "id": 7,
+    "slug": "fit-gate",
+    "title": "Fit Gate",
+    "category": "Health",
+    "description": "Unified multi-gym subscription and fitness club access platform with interactive geo-mapping, multi-tier membership passes, and digital check-in logs.",
+    "overview": "Fit Gate is an all-in-one fitness pass and multi-gym access management platform connecting fitness enthusiasts with premium gyms and health clubs across Bahrain. With flexible multi-tier subscription plans (Sapphire, Emerald, and Ruby), members enjoy unified access to partner facilities, interactive map-based gym discovery, facility amenity breakdowns, and seamless QR check-in activity logging with zero long-term single-club lock-in.",
+    "tech": [
+      "Flutter",
+      "Node.js",
+      "PostgreSQL",
+      "Google Maps",
+      "Stripe"
+    ],
+    "highlights": [
+      "Interactive gym exploration map with real-time location pins and distance metrics across Bahrain",
+      "Unified multi-tier membership passes (Sapphire, Emerald, Ruby) with automated monthly renewal",
+      "Detailed gym profiles showcasing workout photos, operating hours, verified reviews, and amenity checklists",
+      "Digital QR check-in engine and comprehensive member activity logs tracking partner gym attendances"
+    ],
+    "hasImages": true,
+    "imagesCount": 4,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/fit-gate/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/fit-gate/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      },
+      {
+        "index": 2,
+        "role": "banner",
+        "label": "Panoramic Hero Banner",
+        "url": "/images/work/fit-gate/02.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/fit-gate/02.webp",
+        "aspectRatio": "1920:900",
+        "width": 1920,
+        "height": 900
+      },
+      {
+        "index": 3,
+        "role": "gallery",
+        "label": "Gallery Detail 1",
+        "url": "/images/work/fit-gate/03.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/fit-gate/03.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      },
+      {
+        "index": 4,
+        "role": "gallery",
+        "label": "Gallery Detail 2",
+        "url": "/images/work/fit-gate/04.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/fit-gate/04.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/fit-gate"
+  },
+  "navigation": {
+    "prev": {
+      "id": 6,
+      "slug": "macromate",
+      "title": "MacroMate"
+    },
+    "next": {
+      "id": 8,
+      "slug": "sleepz",
+      "title": "Sleepz"
+    }
+  }
+}

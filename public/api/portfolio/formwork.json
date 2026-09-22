@@ -1,0 +1,79 @@
+{
+  "success": true,
+  "data": {
+    "id": 28,
+    "slug": "formwork",
+    "title": "Formwork",
+    "category": "Custom Dev",
+    "description": "Construction management and field reporting software with RFI workflows, technical submissions, drawings, RAMS, and site daily logs.",
+    "overview": null,
+    "tech": [
+      "Flutter",
+      "Node.js",
+      "PostgreSQL"
+    ],
+    "highlights": [
+      "RFI (Request for Information) creation, assignment, and status tracking",
+      "Technical submissions, drawing registers, and induction management",
+      "RAMS (Risk Assessment & Method Statement) and non-conformance logs",
+      "Site daily logs, snagging lists, and photo attachment workflows"
+    ],
+    "hasImages": true,
+    "imagesCount": 4,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/formwork/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/formwork/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      },
+      {
+        "index": 2,
+        "role": "banner",
+        "label": "Panoramic Hero Banner",
+        "url": "/images/work/formwork/02.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/formwork/02.webp",
+        "aspectRatio": "1920:900",
+        "width": 1920,
+        "height": 900
+      },
+      {
+        "index": 3,
+        "role": "gallery",
+        "label": "Gallery Detail 1",
+        "url": "/images/work/formwork/03.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/formwork/03.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      },
+      {
+        "index": 4,
+        "role": "gallery",
+        "label": "Gallery Detail 2",
+        "url": "/images/work/formwork/04.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/formwork/04.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/formwork"
+  },
+  "navigation": {
+    "prev": {
+      "id": 27,
+      "slug": "barcode-scanner",
+      "title": "Barcode Scanner"
+    },
+    "next": {
+      "id": 29,
+      "slug": "doodler",
+      "title": "Doodler"
+    }
+  }
+}

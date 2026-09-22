@@ -1,0 +1,79 @@
+{
+  "success": true,
+  "data": {
+    "id": 56,
+    "slug": "q-easy",
+    "title": "Q easy",
+    "category": "Custom Dev",
+    "description": "Intuitive site operations and queuing management platform that streamlines vehicle access, site user management, and automated queuing workflows.",
+    "overview": null,
+    "tech": [
+      "Next.js",
+      "Flutter",
+      "Node.js"
+    ],
+    "highlights": [
+      "Centrally oversee and control all aspects of site operations",
+      "Real-time vehicle access and geofence screen management",
+      "Automated site load schedules and completed load summaries",
+      "Custom form screens, alert messages, and active on-site tracking"
+    ],
+    "hasImages": true,
+    "imagesCount": 4,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/q-easy/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/q-easy/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      },
+      {
+        "index": 2,
+        "role": "banner",
+        "label": "Panoramic Hero Banner",
+        "url": "/images/work/q-easy/02.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/q-easy/02.webp",
+        "aspectRatio": "1920:900",
+        "width": 1920,
+        "height": 900
+      },
+      {
+        "index": 3,
+        "role": "gallery",
+        "label": "Gallery Detail 1",
+        "url": "/images/work/q-easy/03.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/q-easy/03.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      },
+      {
+        "index": 4,
+        "role": "gallery",
+        "label": "Gallery Detail 2",
+        "url": "/images/work/q-easy/04.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/q-easy/04.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/q-easy"
+  },
+  "navigation": {
+    "prev": {
+      "id": 55,
+      "slug": "mworld",
+      "title": "mworld"
+    },
+    "next": {
+      "id": 57,
+      "slug": "edcalibre",
+      "title": "EdCalibre"
+    }
+  }
+}

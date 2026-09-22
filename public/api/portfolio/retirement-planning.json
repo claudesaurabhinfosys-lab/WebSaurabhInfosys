@@ -1,0 +1,79 @@
+{
+  "success": true,
+  "data": {
+    "id": 22,
+    "slug": "retirement-planning",
+    "title": "Retirement Planning",
+    "category": "Fintech",
+    "description": "Retirement savings calculator and financial planning tool with scenario modelling and SIP recommendations.",
+    "overview": null,
+    "tech": [
+      "React",
+      "Node.js",
+      "PostgreSQL"
+    ],
+    "highlights": [
+      "Inflation-adjusted retirement corpus calculator",
+      "SIP and lump sum scenario comparison modelling",
+      "Visual retirement timeline with milestone markers",
+      "Recommended SIP amounts based on current savings gap"
+    ],
+    "hasImages": true,
+    "imagesCount": 4,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/retirement-planning/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/retirement-planning/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      },
+      {
+        "index": 2,
+        "role": "banner",
+        "label": "Panoramic Hero Banner",
+        "url": "/images/work/retirement-planning/02.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/retirement-planning/02.webp",
+        "aspectRatio": "1920:900",
+        "width": 1920,
+        "height": 900
+      },
+      {
+        "index": 3,
+        "role": "gallery",
+        "label": "Gallery Detail 1",
+        "url": "/images/work/retirement-planning/03.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/retirement-planning/03.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      },
+      {
+        "index": 4,
+        "role": "gallery",
+        "label": "Gallery Detail 2",
+        "url": "/images/work/retirement-planning/04.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/retirement-planning/04.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/retirement-planning"
+  },
+  "navigation": {
+    "prev": {
+      "id": 21,
+      "slug": "volest",
+      "title": "Volest"
+    },
+    "next": {
+      "id": 23,
+      "slug": "aces",
+      "title": "ACES"
+    }
+  }
+}

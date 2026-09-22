@@ -1,0 +1,38 @@
+{
+  "success": true,
+  "data": {
+    "id": 50,
+    "slug": "meow-aesthetics",
+    "title": "Meow Aesthetics",
+    "category": "Custom Dev",
+    "description": "A beauty and lifestyle website for Meow Aesthetics — a multi-location Singapore salon offering gel nails, lash extensions, facials, slimming, IPL treatments, and more, alongside sister brand Meow Luxury's jewellery and apparel.",
+    "overview": null,
+    "tech": [
+      "Next.js",
+      "Laravel"
+    ],
+    "highlights": [
+      "Full service showcase — nails, lashes, facials, slimming & IPL",
+      "Integrated pricelist for transparent, upfront pricing",
+      "Sister brand Meow Luxury — jewellery and luxury apparel",
+      "FAQ and T&C section for client confidence",
+      "Multiple location listings with operating hours"
+    ],
+    "hasImages": false,
+    "imagesCount": 0,
+    "images": [],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/meow-aesthetics"
+  },
+  "navigation": {
+    "prev": {
+      "id": 49,
+      "slug": "meowcademy",
+      "title": "Meowcademy"
+    },
+    "next": {
+      "id": 51,
+      "slug": "le-meow",
+      "title": "Le Meow"
+    }
+  }
+}

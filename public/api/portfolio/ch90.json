@@ -1,0 +1,38 @@
+{
+  "success": true,
+  "data": {
+    "id": 35,
+    "slug": "ch90",
+    "title": "CH90",
+    "category": "Custom Dev",
+    "description": "Custom hospitality management system for hotels — reservations, housekeeping, billing, and guest communication.",
+    "overview": null,
+    "tech": [
+      "React",
+      "Node.js",
+      "PostgreSQL"
+    ],
+    "highlights": [
+      "Room reservation system with availability calendar",
+      "Housekeeping task assignment and completion tracking",
+      "Guest billing with itemised invoice generation",
+      "WhatsApp notifications for booking confirmations and check-ins"
+    ],
+    "hasImages": false,
+    "imagesCount": 0,
+    "images": [],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/ch90"
+  },
+  "navigation": {
+    "prev": {
+      "id": 34,
+      "slug": "moyabet",
+      "title": "MoyaBet"
+    },
+    "next": {
+      "id": 36,
+      "slug": "epav",
+      "title": "EPAV"
+    }
+  }
+}

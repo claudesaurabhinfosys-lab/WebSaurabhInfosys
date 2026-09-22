@@ -1,0 +1,79 @@
+{
+  "success": true,
+  "data": {
+    "id": 6,
+    "slug": "macromate",
+    "title": "MacroMate",
+    "category": "Health",
+    "description": "Nutrition balance companion app with personalised dietary guides, macro tracking, and healthy eating insights.",
+    "overview": null,
+    "tech": [
+      "Flutter",
+      "Firebase",
+      "REST API"
+    ],
+    "highlights": [
+      "Personalised macro targets based on goals and body data",
+      "Food database with barcode scanner for quick logging",
+      "Weekly nutrition trends and insights dashboard",
+      "AI-generated meal suggestions based on remaining macros"
+    ],
+    "hasImages": true,
+    "imagesCount": 4,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/macromate/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/macromate/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      },
+      {
+        "index": 2,
+        "role": "banner",
+        "label": "Panoramic Hero Banner",
+        "url": "/images/work/macromate/02.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/macromate/02.webp",
+        "aspectRatio": "1920:900",
+        "width": 1920,
+        "height": 900
+      },
+      {
+        "index": 3,
+        "role": "gallery",
+        "label": "Gallery Detail 1",
+        "url": "/images/work/macromate/03.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/macromate/03.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      },
+      {
+        "index": 4,
+        "role": "gallery",
+        "label": "Gallery Detail 2",
+        "url": "/images/work/macromate/04.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/macromate/04.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/macromate"
+  },
+  "navigation": {
+    "prev": {
+      "id": 5,
+      "slug": "curvd",
+      "title": "Curvd"
+    },
+    "next": {
+      "id": 7,
+      "slug": "fit-gate",
+      "title": "Fit Gate"
+    }
+  }
+}

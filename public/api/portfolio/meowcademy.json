@@ -1,0 +1,39 @@
+{
+  "success": true,
+  "data": {
+    "id": 49,
+    "slug": "meowcademy",
+    "title": "Meowcademy",
+    "category": "Custom Dev",
+    "description": "A modern tuition centre website for Meowcademy — a Singapore-based small group learning platform offering affordable, high-quality education for children aged 6 to 16 across all levels and subjects.",
+    "overview": null,
+    "tech": [
+      "Next.js",
+      "Laravel"
+    ],
+    "highlights": [
+      "Course listings across Pre-K, Primary, and Secondary levels",
+      "Trial offer showcase — 4 lessons with no registration fee",
+      "Flexible payment plans via Atome, GrabPay, and bank instalments",
+      "Robotics and LEGO Spike Prime programme highlight",
+      "Student and parent testimonials",
+      "Multiple location listings and easy contact/enquiry flow"
+    ],
+    "hasImages": false,
+    "imagesCount": 0,
+    "images": [],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/meowcademy"
+  },
+  "navigation": {
+    "prev": {
+      "id": 48,
+      "slug": "meow-tampines",
+      "title": "Meow Tampines"
+    },
+    "next": {
+      "id": 50,
+      "slug": "meow-aesthetics",
+      "title": "Meow Aesthetics"
+    }
+  }
+}

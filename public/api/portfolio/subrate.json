@@ -1,0 +1,79 @@
+{
+  "success": true,
+  "data": {
+    "id": 24,
+    "slug": "subrate",
+    "title": "Subrate",
+    "category": "Education",
+    "description": "Online learning and micro-task platform where learners earn rewards as they complete daily lessons, social tasks, and educational modules.",
+    "overview": null,
+    "tech": [
+      "Flutter",
+      "Node.js",
+      "Firebase"
+    ],
+    "highlights": [
+      "Daily lesson feed with interactive video learning",
+      "Task-based earning engine with automated wallet payouts",
+      "Multi-tier task verification and completion tracking",
+      "Gamified progress with earnings analytics and milestones"
+    ],
+    "hasImages": true,
+    "imagesCount": 4,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/subrate/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/subrate/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      },
+      {
+        "index": 2,
+        "role": "banner",
+        "label": "Panoramic Hero Banner",
+        "url": "/images/work/subrate/02.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/subrate/02.webp",
+        "aspectRatio": "1920:900",
+        "width": 1920,
+        "height": 900
+      },
+      {
+        "index": 3,
+        "role": "gallery",
+        "label": "Gallery Detail 1",
+        "url": "/images/work/subrate/03.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/subrate/03.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      },
+      {
+        "index": 4,
+        "role": "gallery",
+        "label": "Gallery Detail 2",
+        "url": "/images/work/subrate/04.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/subrate/04.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/subrate"
+  },
+  "navigation": {
+    "prev": {
+      "id": 23,
+      "slug": "aces",
+      "title": "ACES"
+    },
+    "next": {
+      "id": 25,
+      "slug": "review",
+      "title": "Review"
+    }
+  }
+}

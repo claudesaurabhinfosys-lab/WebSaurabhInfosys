@@ -1,0 +1,80 @@
+{
+  "success": true,
+  "data": {
+    "id": 5,
+    "slug": "curvd",
+    "title": "Curvd",
+    "category": "Health",
+    "description": "Ultimate workouts and custom nutrition planning app designed for CapriCurves community — featuring structured fitness routines, video workouts, and macro nutrition tracking.",
+    "overview": null,
+    "tech": [
+      "Flutter",
+      "Node.js",
+      "Firebase",
+      "Stripe"
+    ],
+    "highlights": [
+      "Daily guided video workout player with interval timer and exercise demonstrations",
+      "Personalized nutrition plans (Vegan, High Protein) with step-by-step recipes",
+      "Community transformation challenges, workout logs, and progress metrics",
+      "Available live on iOS App Store and Google Play Store"
+    ],
+    "hasImages": true,
+    "imagesCount": 4,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/curvd/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/curvd/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      },
+      {
+        "index": 2,
+        "role": "banner",
+        "label": "Panoramic Hero Banner",
+        "url": "/images/work/curvd/02.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/curvd/02.webp",
+        "aspectRatio": "1920:900",
+        "width": 1920,
+        "height": 900
+      },
+      {
+        "index": 3,
+        "role": "gallery",
+        "label": "Gallery Detail 1",
+        "url": "/images/work/curvd/03.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/curvd/03.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      },
+      {
+        "index": 4,
+        "role": "gallery",
+        "label": "Gallery Detail 2",
+        "url": "/images/work/curvd/04.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/curvd/04.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/curvd"
+  },
+  "navigation": {
+    "prev": {
+      "id": 4,
+      "slug": "smart-theory-test",
+      "title": "Smart Theory Test"
+    },
+    "next": {
+      "id": 6,
+      "slug": "macromate",
+      "title": "MacroMate"
+    }
+  }
+}

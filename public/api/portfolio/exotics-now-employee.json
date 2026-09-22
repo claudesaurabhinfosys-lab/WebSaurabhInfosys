@@ -1,0 +1,38 @@
+{
+  "success": true,
+  "data": {
+    "id": 45,
+    "slug": "exotics-now-employee",
+    "title": "Exotics Now Employee",
+    "category": "Custom Dev",
+    "description": "A staff-facing app built for Exotics Now chauffeurs and employees — providing all the tools needed to deliver a seamless, professional luxury rental experience from pickup to drop-off.",
+    "overview": null,
+    "tech": [
+      "Flutter",
+      "Laravel"
+    ],
+    "highlights": [
+      "View and accept assigned chauffeur trips",
+      "Instant access to pickup, drop-off, and renter details",
+      "Inspection photo upload at handover and return",
+      "Real-time communication with admins and owners",
+      "Clear trip timelines and status updates"
+    ],
+    "hasImages": false,
+    "imagesCount": 0,
+    "images": [],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/exotics-now-employee"
+  },
+  "navigation": {
+    "prev": {
+      "id": 44,
+      "slug": "exotic-now-partner",
+      "title": "Exotic Now Partner"
+    },
+    "next": {
+      "id": 46,
+      "slug": "edify-easy",
+      "title": "Edify Easy"
+    }
+  }
+}

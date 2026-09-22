@@ -1,0 +1,44 @@
+{
+  "cleanUrls": false,
+  "rewrites": [
+    {
+      "source": "/api/portfolio",
+      "destination": "/api/portfolio.json"
+    },
+    {
+      "source": "/api/portfolio/",
+      "destination": "/api/portfolio.json"
+    },
+    {
+      "source": "/api/portfolio/:slug",
+      "destination": "/api/portfolio/:slug.json"
+    },
+    {
+      "source": "/api/portfolio/:slug/",
+      "destination": "/api/portfolio/:slug.json"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "Content-Type, Accept"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        }
+      ]
+    }
+  ]
+}

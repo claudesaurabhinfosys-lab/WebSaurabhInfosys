@@ -1,0 +1,79 @@
+{
+  "success": true,
+  "data": {
+    "id": 38,
+    "slug": "flpl",
+    "title": "FLPL",
+    "category": "Custom Dev",
+    "description": "Custom logistics and fleet planning platform with route optimisation, load matching, and billing integration.",
+    "overview": null,
+    "tech": [
+      "React",
+      "Node.js",
+      "Maps API"
+    ],
+    "highlights": [
+      "Intelligent load matching with route optimisation",
+      "Fleet scheduling and vehicle utilisation dashboard",
+      "Automated billing and invoice generation per trip",
+      "Real-time driver communication and status updates"
+    ],
+    "hasImages": true,
+    "imagesCount": 4,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/flpl/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/flpl/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      },
+      {
+        "index": 2,
+        "role": "banner",
+        "label": "Panoramic Hero Banner",
+        "url": "/images/work/flpl/02.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/flpl/02.webp",
+        "aspectRatio": "1920:900",
+        "width": 1920,
+        "height": 900
+      },
+      {
+        "index": 3,
+        "role": "gallery",
+        "label": "Gallery Detail 1",
+        "url": "/images/work/flpl/03.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/flpl/03.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      },
+      {
+        "index": 4,
+        "role": "gallery",
+        "label": "Gallery Detail 2",
+        "url": "/images/work/flpl/04.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/flpl/04.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/flpl"
+  },
+  "navigation": {
+    "prev": {
+      "id": 37,
+      "slug": "vtm",
+      "title": "VTM Music"
+    },
+    "next": {
+      "id": 39,
+      "slug": "ewd",
+      "title": "EWD"
+    }
+  }
+}

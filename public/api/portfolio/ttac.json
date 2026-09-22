@@ -1,0 +1,80 @@
+{
+  "success": true,
+  "data": {
+    "id": 14,
+    "slug": "ttac",
+    "title": "TTAC",
+    "category": "Gig",
+    "description": "A cutting-edge job recruitment and vocational talent matching platform connecting skilled professionals with global opportunities through interactive map exploration and seamless application tracking.",
+    "overview": null,
+    "tech": [
+      "Flutter",
+      "Node.js",
+      "Firebase",
+      "Google Maps"
+    ],
+    "highlights": [
+      "Interactive South America map search with geographic job location pins",
+      "Role-tailored vocational matching for specialized careers (pilots, mechanics, designers)",
+      "Comprehensive candidate onboarding and verified credential submission",
+      "Real-time application status tracking, interview scheduling, and direct recruiter chat"
+    ],
+    "hasImages": true,
+    "imagesCount": 4,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/ttac/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/ttac/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      },
+      {
+        "index": 2,
+        "role": "banner",
+        "label": "Panoramic Hero Banner",
+        "url": "/images/work/ttac/02.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/ttac/02.webp",
+        "aspectRatio": "1920:900",
+        "width": 1920,
+        "height": 900
+      },
+      {
+        "index": 3,
+        "role": "gallery",
+        "label": "Gallery Detail 1",
+        "url": "/images/work/ttac/03.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/ttac/03.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      },
+      {
+        "index": 4,
+        "role": "gallery",
+        "label": "Gallery Detail 2",
+        "url": "/images/work/ttac/04.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/ttac/04.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/ttac"
+  },
+  "navigation": {
+    "prev": {
+      "id": 13,
+      "slug": "loadbase",
+      "title": "Loadbase"
+    },
+    "next": {
+      "id": 15,
+      "slug": "vin-solutions",
+      "title": "VIN Solutions"
+    }
+  }
+}

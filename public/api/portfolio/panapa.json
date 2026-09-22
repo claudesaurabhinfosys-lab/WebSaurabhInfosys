@@ -1,0 +1,49 @@
+{
+  "success": true,
+  "data": {
+    "id": 31,
+    "slug": "panapa",
+    "title": "Panapa",
+    "category": "Custom Dev",
+    "description": "Social connection and local networking platform built for community groups and neighbourhood engagement.",
+    "overview": null,
+    "tech": [
+      "React Native",
+      "Node.js",
+      "PostgreSQL"
+    ],
+    "highlights": [
+      "Hyper-local community groups by neighbourhood and interest",
+      "Local event creation and RSVP management",
+      "Local business directory with reviews",
+      "Anonymous community issue reporting to administrators"
+    ],
+    "hasImages": true,
+    "imagesCount": 1,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/panapa/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/panapa/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/panapa"
+  },
+  "navigation": {
+    "prev": {
+      "id": 30,
+      "slug": "knock-knock",
+      "title": "Knoc Knoc"
+    },
+    "next": {
+      "id": 32,
+      "slug": "riiicycle",
+      "title": "Riiicycle"
+    }
+  }
+}

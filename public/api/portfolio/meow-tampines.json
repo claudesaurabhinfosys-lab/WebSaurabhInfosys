@@ -1,0 +1,37 @@
+{
+  "success": true,
+  "data": {
+    "id": 48,
+    "slug": "meow-tampines",
+    "title": "Meow Tampines",
+    "category": "Custom Dev",
+    "description": "A refined website for Meow Tampines — a premium hair salon in Singapore designed as a calm, luxurious retreat where modern hair artistry meets personalised, thoughtful care.",
+    "overview": null,
+    "tech": [
+      "Next.js"
+    ],
+    "highlights": [
+      "Elegant, brand-aligned design reflecting luxury and calm",
+      "Signature Hair Spa service showcase",
+      "Online appointment booking integration",
+      "Services, testimonials, and blog sections",
+      "Mobile-friendly and easy to navigate"
+    ],
+    "hasImages": false,
+    "imagesCount": 0,
+    "images": [],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/meow-tampines"
+  },
+  "navigation": {
+    "prev": {
+      "id": 47,
+      "slug": "drd",
+      "title": "DRD"
+    },
+    "next": {
+      "id": 49,
+      "slug": "meowcademy",
+      "title": "Meowcademy"
+    }
+  }
+}

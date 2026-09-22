@@ -1,0 +1,38 @@
+{
+  "success": true,
+  "data": {
+    "id": 46,
+    "slug": "edify-easy",
+    "title": "Edify Easy",
+    "category": "Education",
+    "description": "A structured e-learning platform that allows organisations to onboard trainees, deliver learning materials, and track progress — all within a clean, role-based digital environment.",
+    "overview": null,
+    "tech": [
+      "React",
+      "Laravel"
+    ],
+    "highlights": [
+      "Multi-company setup with role-based access control",
+      "Admin content management — upload and organise training materials",
+      "Trainee dashboard with course access and progress tracking",
+      "Company owner reports and completion overviews",
+      "Clean, intuitive interface for all user roles"
+    ],
+    "hasImages": false,
+    "imagesCount": 0,
+    "images": [],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/edify-easy"
+  },
+  "navigation": {
+    "prev": {
+      "id": 45,
+      "slug": "exotics-now-employee",
+      "title": "Exotics Now Employee"
+    },
+    "next": {
+      "id": 47,
+      "slug": "drd",
+      "title": "DRD"
+    }
+  }
+}

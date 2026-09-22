@@ -1,0 +1,49 @@
+{
+  "success": true,
+  "data": {
+    "id": 36,
+    "slug": "epav",
+    "title": "EPAV",
+    "category": "Custom Dev",
+    "description": "Corporate web portal for EPAV (Grupo Emin) showcasing highway preservation solutions, diamond grinding, slab stabilization, and pavement engineering.",
+    "overview": null,
+    "tech": [
+      "Next.js",
+      "Tailwind",
+      "REST API"
+    ],
+    "highlights": [
+      "Interactive showcase of pavement rehabilitation and diamond grinding",
+      "Technical specifications and international standards compliance",
+      "Multi-country service portfolio (Chile, Brazil) with project gallery",
+      "Commercial inquiry and quote request submission workflow"
+    ],
+    "hasImages": true,
+    "imagesCount": 1,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/epav/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/epav/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/epav"
+  },
+  "navigation": {
+    "prev": {
+      "id": 35,
+      "slug": "ch90",
+      "title": "CH90"
+    },
+    "next": {
+      "id": 37,
+      "slug": "vtm",
+      "title": "VTM Music"
+    }
+  }
+}

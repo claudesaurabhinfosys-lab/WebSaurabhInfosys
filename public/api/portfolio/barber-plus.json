@@ -1,0 +1,49 @@
+{
+  "success": true,
+  "data": {
+    "id": 16,
+    "slug": "barber-plus",
+    "title": "Barber Plus",
+    "category": "Gig",
+    "description": "Record keeping and financial management app for barber shops — tracking barber transactions, service packages, commissions, and member deposits.",
+    "overview": null,
+    "tech": [
+      "Flutter",
+      "Firebase",
+      "REST API"
+    ],
+    "highlights": [
+      "Barber transaction logs with deposit and withdrawal tracking",
+      "Package management for haircuts, beard trims, and spa combos",
+      "E-wallet balance and commission breakdown for barbers and shop admin",
+      "Monthly revenue trends, expense overviews, and member history"
+    ],
+    "hasImages": true,
+    "imagesCount": 1,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/barber-plus/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/barber-plus/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/barber-plus"
+  },
+  "navigation": {
+    "prev": {
+      "id": 15,
+      "slug": "vin-solutions",
+      "title": "VIN Solutions"
+    },
+    "next": {
+      "id": 17,
+      "slug": "walk-dogs",
+      "title": "Walk Dogs"
+    }
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "success": true,
+  "data": {
+    "id": 33,
+    "slug": "changa-po",
+    "title": "Changa Po",
+    "category": "Custom Dev",
+    "description": "Digital mobile adaptation of the traditional Indian strategy board game with 2 to 4 player support, online multiplayer, and smart AI opponent.",
+    "overview": null,
+    "tech": [
+      "Flutter",
+      "Firebase",
+      "WebSockets"
+    ],
+    "highlights": [
+      "Online multiplayer matchmaking and play with friends mode",
+      "Challenging single-player vs AI mode with adjustable difficulty",
+      "Local pass-and-play supporting 2, 3, or 4 players",
+      "Authentic cowrie-shell dice physics and winner animations"
+    ],
+    "hasImages": true,
+    "imagesCount": 1,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/changa-po/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/changa-po/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/changa-po"
+  },
+  "navigation": {
+    "prev": {
+      "id": 32,
+      "slug": "riiicycle",
+      "title": "Riiicycle"
+    },
+    "next": {
+      "id": 34,
+      "slug": "moyabet",
+      "title": "MoyaBet"
+    }
+  }
+}

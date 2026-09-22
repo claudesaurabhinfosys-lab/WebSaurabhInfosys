@@ -1,0 +1,81 @@
+{
+  "success": true,
+  "data": {
+    "id": 54,
+    "slug": "tap-to-share",
+    "title": "Tap To Share",
+    "category": "Custom Dev",
+    "description": "Digital business card and bio-link profile platform with customizable links, viewer analytics, and instant NFC/QR sharing.",
+    "overview": "Tap To Share is an all-in-one digital identity, smart business card, and bio-link platform that empowers professionals and creators to effortlessly share their digital presence with a single tap or scan. Featuring customizable dynamic themes, rich multimedia link modules, and real-time visitor engagement analytics, Tap To Share redefines modern contactless networking and portfolio presentation.",
+    "tech": [
+      "React Native",
+      "Node.js",
+      "Firebase",
+      "NFC / QR",
+      "Tailwind CSS"
+    ],
+    "highlights": [
+      "Custom digital bio page with modular links, photos, video embeds, and socials",
+      "Real-time link click tracking, visitor analytics, and conversion insights",
+      "Instant contactless NFC tap and dynamic QR code profile sharing",
+      "Personalized cover themes, avatar styling, and drag-and-drop link sorting"
+    ],
+    "hasImages": true,
+    "imagesCount": 4,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/tap-to-share/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/tap-to-share/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      },
+      {
+        "index": 2,
+        "role": "banner",
+        "label": "Panoramic Hero Banner",
+        "url": "/images/work/tap-to-share/02.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/tap-to-share/02.webp",
+        "aspectRatio": "1920:900",
+        "width": 1920,
+        "height": 900
+      },
+      {
+        "index": 3,
+        "role": "gallery",
+        "label": "Gallery Detail 1",
+        "url": "/images/work/tap-to-share/03.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/tap-to-share/03.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      },
+      {
+        "index": 4,
+        "role": "gallery",
+        "label": "Gallery Detail 2",
+        "url": "/images/work/tap-to-share/04.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/tap-to-share/04.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/tap-to-share"
+  },
+  "navigation": {
+    "prev": {
+      "id": 53,
+      "slug": "map-metrics",
+      "title": "MapMetrics"
+    },
+    "next": {
+      "id": 55,
+      "slug": "mworld",
+      "title": "mworld"
+    }
+  }
+}

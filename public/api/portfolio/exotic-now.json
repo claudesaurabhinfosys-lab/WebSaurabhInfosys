@@ -1,0 +1,39 @@
+{
+  "success": true,
+  "data": {
+    "id": 43,
+    "slug": "exotic-now",
+    "title": "Exotic Now",
+    "category": "Custom Dev",
+    "description": "A premium car rental app that makes booking exotic and ultra-luxury vehicles effortless — with transparent pricing, secure payments, and flexible delivery or pickup options.",
+    "overview": null,
+    "tech": [
+      "Flutter",
+      "Laravel"
+    ],
+    "highlights": [
+      "Browse exotic and ultra-exotic vehicles with photos and details",
+      "Book by day or month with fully transparent upfront pricing",
+      "100 miles/day included — extra miles at $1 each",
+      "Secure deposit handling and easy refunds",
+      "Home delivery or rental location pickup",
+      "Premium chauffeur service option"
+    ],
+    "hasImages": false,
+    "imagesCount": 0,
+    "images": [],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/exotic-now"
+  },
+  "navigation": {
+    "prev": {
+      "id": 42,
+      "slug": "washry-go",
+      "title": "Washry Go"
+    },
+    "next": {
+      "id": 44,
+      "slug": "exotic-now-partner",
+      "title": "Exotic Now Partner"
+    }
+  }
+}

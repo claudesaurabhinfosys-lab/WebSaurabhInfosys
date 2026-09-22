@@ -1,0 +1,79 @@
+{
+  "success": true,
+  "data": {
+    "id": 9,
+    "slug": "cookpedia",
+    "title": "Cookpedia",
+    "category": "Health",
+    "description": "Recipe discovery and meal planning app with ingredient-based search, nutrition info, and weekly meal plans.",
+    "overview": null,
+    "tech": [
+      "React Native",
+      "Node.js",
+      "MongoDB"
+    ],
+    "highlights": [
+      "Ingredient-based recipe search — find recipes from what you have",
+      "Weekly meal planner with automated shopping lists",
+      "Full nutritional breakdown per recipe and serving",
+      "User collections and offline-saved favourites"
+    ],
+    "hasImages": true,
+    "imagesCount": 4,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/cookpedia/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/cookpedia/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      },
+      {
+        "index": 2,
+        "role": "banner",
+        "label": "Panoramic Hero Banner",
+        "url": "/images/work/cookpedia/02.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/cookpedia/02.webp",
+        "aspectRatio": "1920:900",
+        "width": 1920,
+        "height": 900
+      },
+      {
+        "index": 3,
+        "role": "gallery",
+        "label": "Gallery Detail 1",
+        "url": "/images/work/cookpedia/03.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/cookpedia/03.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      },
+      {
+        "index": 4,
+        "role": "gallery",
+        "label": "Gallery Detail 2",
+        "url": "/images/work/cookpedia/04.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/cookpedia/04.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/cookpedia"
+  },
+  "navigation": {
+    "prev": {
+      "id": 8,
+      "slug": "sleepz",
+      "title": "Sleepz"
+    },
+    "next": {
+      "id": 10,
+      "slug": "ev-connect",
+      "title": "EV Connect"
+    }
+  }
+}

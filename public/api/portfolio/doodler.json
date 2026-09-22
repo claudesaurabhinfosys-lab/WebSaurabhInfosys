@@ -1,0 +1,38 @@
+{
+  "success": true,
+  "data": {
+    "id": 29,
+    "slug": "doodler",
+    "title": "Doodler",
+    "category": "Custom Dev",
+    "description": "Creative digital drawing and sketching application with layers, brushes, and cloud sync for artists.",
+    "overview": null,
+    "tech": [
+      "Flutter",
+      "Firebase",
+      "Canvas API"
+    ],
+    "highlights": [
+      "Multi-layer canvas with blend modes and opacity control",
+      "Custom brush library with pressure sensitivity support",
+      "Cloud sync to access artwork across all devices",
+      "Export in PNG, SVG, and PDF with resolution options"
+    ],
+    "hasImages": false,
+    "imagesCount": 0,
+    "images": [],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/doodler"
+  },
+  "navigation": {
+    "prev": {
+      "id": 28,
+      "slug": "formwork",
+      "title": "Formwork"
+    },
+    "next": {
+      "id": 30,
+      "slug": "knock-knock",
+      "title": "Knoc Knoc"
+    }
+  }
+}
