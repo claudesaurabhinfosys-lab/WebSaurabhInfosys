@@ -1,0 +1,2537 @@
+{
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "slug": "ai-assist",
+      "title": "AI Assist",
+      "category": "AI",
+      "description": "AI-powered educational platform with live tests, instant results, and personalised study material for students.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "OpenAI",
+        "Firebase"
+      ],
+      "highlights": [
+        "OpenAI-powered personalised study paths",
+        "Live test engine with instant results and explanations",
+        "Progress tracking across subjects and topics",
+        "Adaptive difficulty that adjusts to each student's level"
+      ],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/ai-assist/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/ai-assist/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/ai-assist/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/ai-assist/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/ai-assist/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/ai-assist/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/ai-assist/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/ai-assist/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/ai-assist"
+    },
+    {
+      "id": 2,
+      "slug": "banigi-ai",
+      "title": "Banigi AI",
+      "category": "AI",
+      "description": "AI-powered 3D home and interior design platform that transforms living spaces effortlessly with custom style models, architectural rendering, and smart redesign tools.",
+      "overview": null,
+      "tech": [
+        "Next.js",
+        "Python",
+        "3D AI",
+        "Flutter"
+      ],
+      "highlights": [
+        "Turn room interiors into photorealistic 3D designs with one-click AI precision",
+        "Custom interior mode, style, and intervention level controls",
+        "Exterior, landscape, and residential architectural rendering",
+        "Seamless multi-platform experience across web and mobile apps"
+      ],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/banigi-ai/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/banigi-ai/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/banigi-ai/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/banigi-ai/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/banigi-ai/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/banigi-ai/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/banigi-ai/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/banigi-ai/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/banigi-ai"
+    },
+    {
+      "id": 3,
+      "slug": "bit-learn",
+      "title": "BitLearn",
+      "category": "Education",
+      "description": "Personalised Web3 and crypto e-learning platform with interactive quizzes, achievement levels, and reward tokens.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "Firebase",
+        "Node.js"
+      ],
+      "highlights": [
+        "Interactive quiz modules with instant feedback",
+        "Gamified progress tracking with streaks and badges",
+        "Crypto fundamentals and smart contract curriculum",
+        "Achievement levels and reward token withdrawals"
+      ],
+      "hasImages": true,
+      "imagesCount": 1,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/bit-learn/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/bit-learn/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/bit-learn"
+    },
+    {
+      "id": 4,
+      "slug": "smart-theory-test",
+      "title": "Smart Theory Test",
+      "category": "Education",
+      "description": "UK driving theory test preparation app with the largest categorised real-question bank, updated to current regulations.",
+      "overview": null,
+      "tech": [
+        "Next.js",
+        "PostgreSQL",
+        "Tailwind"
+      ],
+      "highlights": [
+        "Largest categorised UK driving theory question bank",
+        "Mock test mode with real exam timing and scoring",
+        "Updated to current DVSA regulations and hazard clips",
+        "Weak spot analysis with targeted practice recommendations"
+      ],
+      "hasImages": false,
+      "imagesCount": 0,
+      "images": [],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/smart-theory-test"
+    },
+    {
+      "id": 5,
+      "slug": "curvd",
+      "title": "Curvd",
+      "category": "Health",
+      "description": "Ultimate workouts and custom nutrition planning app designed for CapriCurves community \u2014 featuring structured fitness routines, video workouts, and macro nutrition tracking.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "Node.js",
+        "Firebase",
+        "Stripe"
+      ],
+      "highlights": [
+        "Daily guided video workout player with interval timer and exercise demonstrations",
+        "Personalized nutrition plans (Vegan, High Protein) with step-by-step recipes",
+        "Community transformation challenges, workout logs, and progress metrics",
+        "Available live on iOS App Store and Google Play Store"
+      ],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/curvd/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/curvd/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/curvd/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/curvd/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/curvd/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/curvd/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/curvd/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/curvd/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/curvd"
+    },
+    {
+      "id": 6,
+      "slug": "macromate",
+      "title": "MacroMate",
+      "category": "Health",
+      "description": "Nutrition balance companion app with personalised dietary guides, macro tracking, and healthy eating insights.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "Firebase",
+        "REST API"
+      ],
+      "highlights": [
+        "Personalised macro targets based on goals and body data",
+        "Food database with barcode scanner for quick logging",
+        "Weekly nutrition trends and insights dashboard",
+        "AI-generated meal suggestions based on remaining macros"
+      ],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/macromate/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/macromate/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/macromate/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/macromate/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/macromate/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/macromate/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/macromate/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/macromate/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/macromate"
+    },
+    {
+      "id": 7,
+      "slug": "fit-gate",
+      "title": "Fit Gate",
+      "category": "Health",
+      "description": "Unified multi-gym subscription and fitness club access platform with interactive geo-mapping, multi-tier membership passes, and digital check-in logs.",
+      "overview": "Fit Gate is an all-in-one fitness pass and multi-gym access management platform connecting fitness enthusiasts with premium gyms and health clubs across Bahrain. With flexible multi-tier subscription plans (Sapphire, Emerald, and Ruby), members enjoy unified access to partner facilities, interactive map-based gym discovery, facility amenity breakdowns, and seamless QR check-in activity logging with zero long-term single-club lock-in.",
+      "tech": [
+        "Flutter",
+        "Node.js",
+        "PostgreSQL",
+        "Google Maps",
+        "Stripe"
+      ],
+      "highlights": [
+        "Interactive gym exploration map with real-time location pins and distance metrics across Bahrain",
+        "Unified multi-tier membership passes (Sapphire, Emerald, Ruby) with automated monthly renewal",
+        "Detailed gym profiles showcasing workout photos, operating hours, verified reviews, and amenity checklists",
+        "Digital QR check-in engine and comprehensive member activity logs tracking partner gym attendances"
+      ],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/fit-gate/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/fit-gate/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/fit-gate/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/fit-gate/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/fit-gate/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/fit-gate/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/fit-gate/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/fit-gate/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/fit-gate"
+    },
+    {
+      "id": 8,
+      "slug": "sleepz",
+      "title": "Sleepz",
+      "category": "Health",
+      "description": "Sleep quality tracking and improvement app with AI-powered coaching, sleep score analysis, and habit nudges.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "Firebase",
+        "ML Kit"
+      ],
+      "highlights": [
+        "AI sleep coaching personalised to detected sleep patterns",
+        "Sleep score with nightly trend analysis",
+        "Habit tracking with smart nudges for sleep hygiene",
+        "Integration with wearables for automatic sleep detection"
+      ],
+      "hasImages": true,
+      "imagesCount": 1,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/sleepz/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/sleepz/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/sleepz"
+    },
+    {
+      "id": 9,
+      "slug": "cookpedia",
+      "title": "Cookpedia",
+      "category": "Health",
+      "description": "Recipe discovery and meal planning app with ingredient-based search, nutrition info, and weekly meal plans.",
+      "overview": null,
+      "tech": [
+        "React Native",
+        "Node.js",
+        "MongoDB"
+      ],
+      "highlights": [
+        "Ingredient-based recipe search \u2014 find recipes from what you have",
+        "Weekly meal planner with automated shopping lists",
+        "Full nutritional breakdown per recipe and serving",
+        "User collections and offline-saved favourites"
+      ],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/cookpedia/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/cookpedia/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/cookpedia/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/cookpedia/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/cookpedia/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/cookpedia/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/cookpedia/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/cookpedia/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/cookpedia"
+    },
+    {
+      "id": 10,
+      "slug": "ev-connect",
+      "title": "EV Connect",
+      "category": "Transport",
+      "description": "EV charging station finder with real-time availability updates, navigation, and charging session management.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "Node.js",
+        "Google Maps"
+      ],
+      "highlights": [
+        "Real-time charging station availability across providers",
+        "Turn-by-turn navigation to nearest available charger",
+        "Charging session tracking with cost and duration logs",
+        "Favourite stations and push alerts for availability"
+      ],
+      "hasImages": true,
+      "imagesCount": 1,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/ev-connect/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/ev-connect/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/ev-connect"
+    },
+    {
+      "id": 11,
+      "slug": "commute",
+      "title": "Commute",
+      "category": "Transport",
+      "description": "Fuel and journey expense splitter app allowing commuters to create journeys, calculate mileage dues, and split fuel costs with co-travelers via QR scan.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "Firebase",
+        "Google Maps"
+      ],
+      "highlights": [
+        "Create and join shared journeys via QR code scan",
+        "Automatic fuel price calculation and dues tracking",
+        "Recent journey history with MPG and route offsets",
+        "Trip expense summaries and co-traveler settlements"
+      ],
+      "hasImages": true,
+      "imagesCount": 1,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/commute/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/commute/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/commute"
+    },
+    {
+      "id": 12,
+      "slug": "quick-delivery",
+      "title": "Quick Delivery",
+      "category": "Transport",
+      "description": "On-demand last-mile delivery platform with real-time tracking, driver app, and customer notifications.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "Node.js",
+        "Google Maps"
+      ],
+      "highlights": [
+        "Live order tracking on an interactive map",
+        "Dedicated driver app with optimised route suggestions",
+        "Push notifications at every delivery milestone",
+        "Merchant dashboard for order and driver management"
+      ],
+      "hasImages": true,
+      "imagesCount": 1,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/quick-delivery/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/quick-delivery/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/quick-delivery"
+    },
+    {
+      "id": 13,
+      "slug": "loadbase",
+      "title": "Loadbase",
+      "category": "Transport",
+      "description": "Load management and freight booking platform connecting shippers with truck owners across India.",
+      "overview": null,
+      "tech": [
+        "React",
+        "Node.js",
+        "PostgreSQL"
+      ],
+      "highlights": [
+        "Load posting and competitive bidding marketplace",
+        "Verified truck owner profiles with ratings and reviews",
+        "Document management for lorry receipts and consignments",
+        "Route planner with distance and estimated freight cost"
+      ],
+      "hasImages": true,
+      "imagesCount": 1,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/loadbase/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/loadbase/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/loadbase"
+    },
+    {
+      "id": 14,
+      "slug": "ttac",
+      "title": "TTAC",
+      "category": "Gig",
+      "description": "A cutting-edge job recruitment and vocational talent matching platform connecting skilled professionals with global opportunities through interactive map exploration and seamless application tracking.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "Node.js",
+        "Firebase",
+        "Google Maps"
+      ],
+      "highlights": [
+        "Interactive South America map search with geographic job location pins",
+        "Role-tailored vocational matching for specialized careers (pilots, mechanics, designers)",
+        "Comprehensive candidate onboarding and verified credential submission",
+        "Real-time application status tracking, interview scheduling, and direct recruiter chat"
+      ],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/ttac/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/ttac/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/ttac/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/ttac/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/ttac/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/ttac/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/ttac/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/ttac/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/ttac"
+    },
+    {
+      "id": 15,
+      "slug": "vin-solutions",
+      "title": "VIN Solutions",
+      "category": "Transport",
+      "description": "Vehicle identification and dealership management platform with VIN lookup, inventory, and sales tracking.",
+      "overview": null,
+      "tech": [
+        "Next.js",
+        "PostgreSQL",
+        "REST API"
+      ],
+      "highlights": [
+        "VIN lookup with full vehicle specification and history",
+        "Dealership inventory management with status tracking",
+        "Sales pipeline with lead and deal management",
+        "Custom reporting on inventory turnover and sales performance"
+      ],
+      "hasImages": false,
+      "imagesCount": 0,
+      "images": [],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/vin-solutions"
+    },
+    {
+      "id": 16,
+      "slug": "barber-plus",
+      "title": "Barber Plus",
+      "category": "Gig",
+      "description": "Record keeping and financial management app for barber shops \u2014 tracking barber transactions, service packages, commissions, and member deposits.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "Firebase",
+        "REST API"
+      ],
+      "highlights": [
+        "Barber transaction logs with deposit and withdrawal tracking",
+        "Package management for haircuts, beard trims, and spa combos",
+        "E-wallet balance and commission breakdown for barbers and shop admin",
+        "Monthly revenue trends, expense overviews, and member history"
+      ],
+      "hasImages": true,
+      "imagesCount": 1,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/barber-plus/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/barber-plus/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/barber-plus"
+    },
+    {
+      "id": 17,
+      "slug": "walk-dogs",
+      "title": "Walk Dogs",
+      "category": "Gig",
+      "description": "Dog walking and pet care booking platform connecting pet owners with trusted local walkers.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "Firebase",
+        "Google Maps"
+      ],
+      "highlights": [
+        "Walker profiles with background verification badges",
+        "Live GPS tracking shared with pet owners during walks",
+        "Real-time photo and update sharing during the walk",
+        "Automated payment and optional tipping system"
+      ],
+      "hasImages": true,
+      "imagesCount": 1,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/walk-dogs/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/walk-dogs/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/walk-dogs"
+    },
+    {
+      "id": 18,
+      "slug": "instajob",
+      "title": "InstaJob",
+      "category": "Gig",
+      "description": "Instant job matching platform connecting blue-collar workers with short-term and daily wage opportunities.",
+      "overview": null,
+      "tech": [
+        "React Native",
+        "Node.js",
+        "PostgreSQL"
+      ],
+      "highlights": [
+        "Skill-based matching algorithm for instant job placement",
+        "Worker profiles with verified skills and past ratings",
+        "Daily wage tracking and in-app payment disbursement",
+        "Dual rating system for workers and employers"
+      ],
+      "hasImages": true,
+      "imagesCount": 1,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/instajob/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/instajob/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/instajob"
+    },
+    {
+      "id": 19,
+      "slug": "helping-hands",
+      "title": "Helping Hands",
+      "category": "NGO",
+      "description": "Volunteer coordination and community support platform for NGOs \u2014 task assignments, tracking, and impact reporting.",
+      "overview": null,
+      "tech": [
+        "React",
+        "Firebase",
+        "Tailwind"
+      ],
+      "highlights": [
+        "Volunteer task assignment with skill matching",
+        "Real-time task progress tracking and check-ins",
+        "Impact reporting dashboard for donors and leadership",
+        "Community support request management and triage"
+      ],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/helping-hands/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/helping-hands/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/helping-hands/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/helping-hands/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/helping-hands/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/helping-hands/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/helping-hands/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/helping-hands/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/helping-hands"
+    },
+    {
+      "id": 20,
+      "slug": "pots",
+      "title": "Pots",
+      "category": "Fintech",
+      "description": "Savings pot and micro-investment platform allowing users to set savings goals and automate contributions.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "Node.js",
+        "Razorpay"
+      ],
+      "highlights": [
+        "Goal-based savings pots with custom targets and deadlines",
+        "Automated recurring contributions via Razorpay",
+        "Visual progress tracking with milestone celebrations",
+        "Interest simulation and savings projection calculator"
+      ],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/pots/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/pots/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/pots/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/pots/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/pots/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/pots/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/pots/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/pots/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/pots"
+    },
+    {
+      "id": 21,
+      "slug": "volest",
+      "title": "Volest",
+      "category": "Fintech",
+      "description": "Investment portfolio tracker with real-time market data, asset allocation analytics, and performance reports.",
+      "overview": null,
+      "tech": [
+        "React",
+        "Node.js",
+        "Chart.js"
+      ],
+      "highlights": [
+        "Multi-asset portfolio tracking across stocks, MFs, and crypto",
+        "Real-time market data with live P&L calculation",
+        "Asset allocation charts with rebalancing suggestions",
+        "Performance vs benchmark comparison"
+      ],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/volest/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/volest/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/volest/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/volest/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/volest/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/volest/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/volest/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/volest/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/volest"
+    },
+    {
+      "id": 22,
+      "slug": "retirement-planning",
+      "title": "Retirement Planning",
+      "category": "Fintech",
+      "description": "Retirement savings calculator and financial planning tool with scenario modelling and SIP recommendations.",
+      "overview": null,
+      "tech": [
+        "React",
+        "Node.js",
+        "PostgreSQL"
+      ],
+      "highlights": [
+        "Inflation-adjusted retirement corpus calculator",
+        "SIP and lump sum scenario comparison modelling",
+        "Visual retirement timeline with milestone markers",
+        "Recommended SIP amounts based on current savings gap"
+      ],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/retirement-planning/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/retirement-planning/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/retirement-planning/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/retirement-planning/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/retirement-planning/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/retirement-planning/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/retirement-planning/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/retirement-planning/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/retirement-planning"
+    },
+    {
+      "id": 23,
+      "slug": "aces",
+      "title": "ACES",
+      "category": "Custom Dev",
+      "description": "Industrial machine maintenance and equipment management platform with checklist history, operator manuals, and risk assessment workflows.",
+      "overview": "ACES is a modern industrial record-keeping and equipment management platform designed for heavy machinery operators and maintenance teams. It streamlines daily pre-operation checklists, digital operator manuals, risk assessments, and real-time maintenance verification directly on the shop floor.",
+      "tech": [
+        "Flutter",
+        "PostgreSQL",
+        "REST API",
+        "Next.js"
+      ],
+      "highlights": [
+        "Machine tagging and equipment profile tracking",
+        "Pre-operation checklists and inspection history",
+        "Maintenance records and scheduled servicing logs",
+        "Digital operator manuals and risk assessment workflows"
+      ],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/aces/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/aces/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/aces/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/aces/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/aces/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/aces/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/aces/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/aces/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/aces"
+    },
+    {
+      "id": 24,
+      "slug": "subrate",
+      "title": "Subrate",
+      "category": "Education",
+      "description": "Online learning and micro-task platform where learners earn rewards as they complete daily lessons, social tasks, and educational modules.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "Node.js",
+        "Firebase"
+      ],
+      "highlights": [
+        "Daily lesson feed with interactive video learning",
+        "Task-based earning engine with automated wallet payouts",
+        "Multi-tier task verification and completion tracking",
+        "Gamified progress with earnings analytics and milestones"
+      ],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/subrate/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/subrate/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/subrate/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/subrate/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/subrate/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/subrate/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/subrate/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/subrate/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/subrate"
+    },
+    {
+      "id": 25,
+      "slug": "review",
+      "title": "Review",
+      "category": "Custom Dev",
+      "description": "Peer and contact review app allowing users to leave verified reviews, rate interactions, earn coupon rewards, and manage their reputation score.",
+      "overview": null,
+      "tech": [
+        "React Native",
+        "Node.js",
+        "Firebase"
+      ],
+      "highlights": [
+        "Contact-based review system with star ratings",
+        "Reward coupons and redemption points for helpful reviews",
+        "User reputation score and verified feedback history",
+        "Special message requests and notification delivery"
+      ],
+      "hasImages": true,
+      "imagesCount": 1,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/review/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/review/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/review"
+    },
+    {
+      "id": 26,
+      "slug": "wms",
+      "title": "WMS",
+      "category": "Custom Dev",
+      "description": "Warehouse management system with barcode scanning, inventory tracking, pick-and-pack workflows, and dispatch management.",
+      "overview": null,
+      "tech": [
+        "React",
+        "Node.js",
+        "PostgreSQL"
+      ],
+      "highlights": [
+        "Barcode-driven stock receiving and dispatch workflows",
+        "Pick-and-pack task management with operator assignment",
+        "Real-time inventory levels with low-stock alerts",
+        "Integration with e-commerce platforms for order sync"
+      ],
+      "hasImages": true,
+      "imagesCount": 1,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/wms/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/wms/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/wms"
+    },
+    {
+      "id": 27,
+      "slug": "barcode-scanner",
+      "title": "Barcode Scanner",
+      "category": "Custom Dev",
+      "description": "Mobile barcode scanning solution for retail and warehouse inventory management with real-time stock updates.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "REST API",
+        "Firebase"
+      ],
+      "highlights": [
+        "High-speed barcode scanning via native device camera",
+        "Instant stock level updates on every scan",
+        "Offline mode with automatic sync on reconnection",
+        "Multi-location inventory support with transfer tracking"
+      ],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/barcode-scanner/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/barcode-scanner/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/barcode-scanner/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/barcode-scanner/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/barcode-scanner/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/barcode-scanner/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/barcode-scanner/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/barcode-scanner/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/barcode-scanner"
+    },
+    {
+      "id": 28,
+      "slug": "formwork",
+      "title": "Formwork",
+      "category": "Custom Dev",
+      "description": "Construction management and field reporting software with RFI workflows, technical submissions, drawings, RAMS, and site daily logs.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "Node.js",
+        "PostgreSQL"
+      ],
+      "highlights": [
+        "RFI (Request for Information) creation, assignment, and status tracking",
+        "Technical submissions, drawing registers, and induction management",
+        "RAMS (Risk Assessment & Method Statement) and non-conformance logs",
+        "Site daily logs, snagging lists, and photo attachment workflows"
+      ],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/formwork/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/formwork/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/formwork/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/formwork/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/formwork/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/formwork/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/formwork/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/formwork/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/formwork"
+    },
+    {
+      "id": 29,
+      "slug": "doodler",
+      "title": "Doodler",
+      "category": "Custom Dev",
+      "description": "Creative digital drawing and sketching application with layers, brushes, and cloud sync for artists.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "Firebase",
+        "Canvas API"
+      ],
+      "highlights": [
+        "Multi-layer canvas with blend modes and opacity control",
+        "Custom brush library with pressure sensitivity support",
+        "Cloud sync to access artwork across all devices",
+        "Export in PNG, SVG, and PDF with resolution options"
+      ],
+      "hasImages": false,
+      "imagesCount": 0,
+      "images": [],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/doodler"
+    },
+    {
+      "id": 30,
+      "slug": "knock-knock",
+      "title": "Knoc Knoc",
+      "category": "Gig",
+      "description": "On-demand local services marketplace connecting customers with verified providers for home care, post-natal, car servicing, and lifestyle appointments.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "Firebase",
+        "Node.js"
+      ],
+      "highlights": [
+        "Multi-category service discovery with transparent pricing",
+        "Real-time provider booking and calendar scheduling",
+        "Order progress tracking and customer reviews",
+        "Secure in-app booking and checkout flow"
+      ],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/knock-knock/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/knock-knock/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/knock-knock/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/knock-knock/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/knock-knock/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/knock-knock/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/knock-knock/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/knock-knock/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/knock-knock"
+    },
+    {
+      "id": 31,
+      "slug": "panapa",
+      "title": "Panapa",
+      "category": "Custom Dev",
+      "description": "Social connection and local networking platform built for community groups and neighbourhood engagement.",
+      "overview": null,
+      "tech": [
+        "React Native",
+        "Node.js",
+        "PostgreSQL"
+      ],
+      "highlights": [
+        "Hyper-local community groups by neighbourhood and interest",
+        "Local event creation and RSVP management",
+        "Local business directory with reviews",
+        "Anonymous community issue reporting to administrators"
+      ],
+      "hasImages": true,
+      "imagesCount": 1,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/panapa/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/panapa/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/panapa"
+    },
+    {
+      "id": 32,
+      "slug": "riiicycle",
+      "title": "Riiicycle",
+      "category": "Custom Dev",
+      "description": "Sustainable recycling marketplace and rewards app \u2014 users earn points for recycling pickups and eco actions.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "Firebase",
+        "Node.js"
+      ],
+      "highlights": [
+        "Doorstep recycling pickup scheduling and tracking",
+        "Points and rewards system for eco-friendly actions",
+        "Personal recycling impact tracker with CO\u2082 savings",
+        "Community leaderboard to drive neighbourhood engagement"
+      ],
+      "hasImages": false,
+      "imagesCount": 0,
+      "images": [],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/riiicycle"
+    },
+    {
+      "id": 33,
+      "slug": "changa-po",
+      "title": "Changa Po",
+      "category": "Custom Dev",
+      "description": "Digital mobile adaptation of the traditional Indian strategy board game with 2 to 4 player support, online multiplayer, and smart AI opponent.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "Firebase",
+        "WebSockets"
+      ],
+      "highlights": [
+        "Online multiplayer matchmaking and play with friends mode",
+        "Challenging single-player vs AI mode with adjustable difficulty",
+        "Local pass-and-play supporting 2, 3, or 4 players",
+        "Authentic cowrie-shell dice physics and winner animations"
+      ],
+      "hasImages": true,
+      "imagesCount": 1,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/changa-po/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/changa-po/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/changa-po"
+    },
+    {
+      "id": 34,
+      "slug": "moyabet",
+      "title": "MoyaBet",
+      "category": "Custom Dev",
+      "description": "Sports analytics and multi-tier affiliate platform with real-time performance tracking, player network trees, KYC verification, and wallet payouts.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "Node.js",
+        "PostgreSQL"
+      ],
+      "highlights": [
+        "Multi-tier affiliate network tree visualization",
+        "Player KYC verification and automated onboarding workflow",
+        "Real-time performance metrics, volume tracking, and ranks",
+        "Multi-currency wallet with instant refill and withdrawal logs"
+      ],
+      "hasImages": true,
+      "imagesCount": 1,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/moyabet/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/moyabet/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/moyabet"
+    },
+    {
+      "id": 35,
+      "slug": "ch90",
+      "title": "CH90",
+      "category": "Custom Dev",
+      "description": "Custom hospitality management system for hotels \u2014 reservations, housekeeping, billing, and guest communication.",
+      "overview": null,
+      "tech": [
+        "React",
+        "Node.js",
+        "PostgreSQL"
+      ],
+      "highlights": [
+        "Room reservation system with availability calendar",
+        "Housekeeping task assignment and completion tracking",
+        "Guest billing with itemised invoice generation",
+        "WhatsApp notifications for booking confirmations and check-ins"
+      ],
+      "hasImages": false,
+      "imagesCount": 0,
+      "images": [],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/ch90"
+    },
+    {
+      "id": 36,
+      "slug": "epav",
+      "title": "EPAV",
+      "category": "Custom Dev",
+      "description": "Corporate web portal for EPAV (Grupo Emin) showcasing highway preservation solutions, diamond grinding, slab stabilization, and pavement engineering.",
+      "overview": null,
+      "tech": [
+        "Next.js",
+        "Tailwind",
+        "REST API"
+      ],
+      "highlights": [
+        "Interactive showcase of pavement rehabilitation and diamond grinding",
+        "Technical specifications and international standards compliance",
+        "Multi-country service portfolio (Chile, Brazil) with project gallery",
+        "Commercial inquiry and quote request submission workflow"
+      ],
+      "hasImages": true,
+      "imagesCount": 1,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/epav/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/epav/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/epav"
+    },
+    {
+      "id": 37,
+      "slug": "vtm",
+      "title": "VTM Music",
+      "category": "Health",
+      "description": "Relaxation music streaming and sound therapy app providing curated audio programs, binaural beats, and video sessions for wellness and stress relief.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "Node.js",
+        "Audio Streaming"
+      ],
+      "highlights": [
+        "Curated relaxation music programs and binaural beats for stress relief",
+        "Custom audio player with waveform seeking, repeat, and favorites",
+        "Video program streaming with categorized health topics",
+        "Personalized session history, ratings, and doctor guidance"
+      ],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/vtm/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/vtm/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/vtm/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/vtm/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/vtm/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/vtm/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/vtm/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/vtm/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/vtm"
+    },
+    {
+      "id": 38,
+      "slug": "flpl",
+      "title": "FLPL",
+      "category": "Custom Dev",
+      "description": "Custom logistics and fleet planning platform with route optimisation, load matching, and billing integration.",
+      "overview": null,
+      "tech": [
+        "React",
+        "Node.js",
+        "Maps API"
+      ],
+      "highlights": [
+        "Intelligent load matching with route optimisation",
+        "Fleet scheduling and vehicle utilisation dashboard",
+        "Automated billing and invoice generation per trip",
+        "Real-time driver communication and status updates"
+      ],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/flpl/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/flpl/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/flpl/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/flpl/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/flpl/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/flpl/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/flpl/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/flpl/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/flpl"
+    },
+    {
+      "id": 39,
+      "slug": "ewd",
+      "title": "EWD",
+      "category": "Transport",
+      "description": "An Electronic Work Diary platform that digitises work and rest recording for drivers, transport operators, record keepers, and authorised officers \u2014 built to meet NHVR EWD Standards.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "Laravel"
+      ],
+      "highlights": [
+        "Simple driver interface for declaring work and rest periods",
+        "Real-time compliance checks aligned with NHVR fatigue rules",
+        "Intercept mode for authorised officers to quickly review records",
+        "Operator and record keeper dashboards for log management",
+        "Meets NHVR EWD Standards for performance and auditability"
+      ],
+      "hasImages": false,
+      "imagesCount": 0,
+      "images": [],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/ewd"
+    },
+    {
+      "id": 40,
+      "slug": "washry",
+      "title": "Washry",
+      "category": "Custom Dev",
+      "description": "An on-demand laundry and dry-cleaning app that works like Uber Eats for your clothes \u2014 connecting users with trusted local cleaners for seamless pickup, cleaning, and doorstep delivery.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "Laravel"
+      ],
+      "highlights": [
+        "Custom hamper creation and item selection before checkout",
+        "On-demand and scheduled pickup booking",
+        "Real-time order tracking from pickup to delivery",
+        "Secure in-app payment and flexible payment options",
+        "Order history and saved preferences for faster reorders"
+      ],
+      "hasImages": false,
+      "imagesCount": 0,
+      "images": [],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/washry"
+    },
+    {
+      "id": 41,
+      "slug": "washry-vendor",
+      "title": "Washry Vendor",
+      "category": "Custom Dev",
+      "description": "A partner app that connects existing dry-cleaning and laundry businesses to the Washry network \u2014 bringing in more customers and handling all logistics without changing daily operations.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "Laravel"
+      ],
+      "highlights": [
+        "Easy order management dashboard for tracking incoming and completed jobs",
+        "Washry Go Drivers handle all pickups and deliveries",
+        "No changes to existing business operations",
+        "Real-time delivery updates and driver logistics integration",
+        "Simple onboarding for low-tech users"
+      ],
+      "hasImages": false,
+      "imagesCount": 0,
+      "images": [],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/washry-vendor"
+    },
+    {
+      "id": 42,
+      "slug": "washry-go",
+      "title": "Washry Go",
+      "category": "Custom Dev",
+      "description": "A gig-driving app built specifically for laundry and dry-cleaning logistics \u2014 letting drivers earn flexibly by picking up and delivering orders between customers and Washry's partner cleaners.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "Laravel"
+      ],
+      "highlights": [
+        "Flexible scheduling \u2014 no fixed shifts",
+        "Real-time navigation with optimised map routing",
+        "Seamless order acceptance and completion flow",
+        "Transparent per-trip earnings and payout history",
+        "Customer ratings and bonus rewards system"
+      ],
+      "hasImages": false,
+      "imagesCount": 0,
+      "images": [],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/washry-go"
+    },
+    {
+      "id": 43,
+      "slug": "exotic-now",
+      "title": "Exotic Now",
+      "category": "Custom Dev",
+      "description": "A premium car rental app that makes booking exotic and ultra-luxury vehicles effortless \u2014 with transparent pricing, secure payments, and flexible delivery or pickup options.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "Laravel"
+      ],
+      "highlights": [
+        "Browse exotic and ultra-exotic vehicles with photos and details",
+        "Book by day or month with fully transparent upfront pricing",
+        "100 miles/day included \u2014 extra miles at $1 each",
+        "Secure deposit handling and easy refunds",
+        "Home delivery or rental location pickup",
+        "Premium chauffeur service option"
+      ],
+      "hasImages": false,
+      "imagesCount": 0,
+      "images": [],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/exotic-now"
+    },
+    {
+      "id": 44,
+      "slug": "exotic-now-partner",
+      "title": "Exotic Now Partner",
+      "category": "Custom Dev",
+      "description": "An owner-side app that lets exotic and ultra-luxury car owners safely list their vehicles for rent \u2014 with verified renters, secure payouts, and full platform protection.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "Laravel"
+      ],
+      "highlights": [
+        "Quick car listing with photos, videos, and documents",
+        "Flexible rental terms \u2014 daily, monthly, or both",
+        "65% owner payout with transparent platform fee",
+        "Renter verification \u2014 license, insurance, and admin approval",
+        "Mileage, deposit, and safety policies to protect your vehicle"
+      ],
+      "hasImages": false,
+      "imagesCount": 0,
+      "images": [],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/exotic-now-partner"
+    },
+    {
+      "id": 45,
+      "slug": "exotics-now-employee",
+      "title": "Exotics Now Employee",
+      "category": "Custom Dev",
+      "description": "A staff-facing app built for Exotics Now chauffeurs and employees \u2014 providing all the tools needed to deliver a seamless, professional luxury rental experience from pickup to drop-off.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "Laravel"
+      ],
+      "highlights": [
+        "View and accept assigned chauffeur trips",
+        "Instant access to pickup, drop-off, and renter details",
+        "Inspection photo upload at handover and return",
+        "Real-time communication with admins and owners",
+        "Clear trip timelines and status updates"
+      ],
+      "hasImages": false,
+      "imagesCount": 0,
+      "images": [],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/exotics-now-employee"
+    },
+    {
+      "id": 46,
+      "slug": "edify-easy",
+      "title": "Edify Easy",
+      "category": "Education",
+      "description": "A structured e-learning platform that allows organisations to onboard trainees, deliver learning materials, and track progress \u2014 all within a clean, role-based digital environment.",
+      "overview": null,
+      "tech": [
+        "React",
+        "Laravel"
+      ],
+      "highlights": [
+        "Multi-company setup with role-based access control",
+        "Admin content management \u2014 upload and organise training materials",
+        "Trainee dashboard with course access and progress tracking",
+        "Company owner reports and completion overviews",
+        "Clean, intuitive interface for all user roles"
+      ],
+      "hasImages": false,
+      "imagesCount": 0,
+      "images": [],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/edify-easy"
+    },
+    {
+      "id": 47,
+      "slug": "drd",
+      "title": "DRD",
+      "category": "SaaS",
+      "description": "DRD (Digital Retail Display) bridges online convenience with local in-store shopping \u2014 letting shoppers discover nearby stores, check real-time stock, and buy instantly, while helping local retailers go digital without any technical expertise.",
+      "overview": null,
+      "tech": [
+        "React",
+        "Laravel",
+        "Flutter"
+      ],
+      "highlights": [
+        "Location-based store and product discovery",
+        "Real-time inventory visibility across nearby stores",
+        "Fast digital checkout with pickup or delivery options",
+        "Exclusive in-store deals and discounts",
+        "Simple retailer dashboard for product and order management",
+        "Fair revenue-sharing model for local businesses"
+      ],
+      "hasImages": false,
+      "imagesCount": 0,
+      "images": [],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/drd"
+    },
+    {
+      "id": 48,
+      "slug": "meow-tampines",
+      "title": "Meow Tampines",
+      "category": "Custom Dev",
+      "description": "A refined website for Meow Tampines \u2014 a premium hair salon in Singapore designed as a calm, luxurious retreat where modern hair artistry meets personalised, thoughtful care.",
+      "overview": null,
+      "tech": [
+        "Next.js"
+      ],
+      "highlights": [
+        "Elegant, brand-aligned design reflecting luxury and calm",
+        "Signature Hair Spa service showcase",
+        "Online appointment booking integration",
+        "Services, testimonials, and blog sections",
+        "Mobile-friendly and easy to navigate"
+      ],
+      "hasImages": false,
+      "imagesCount": 0,
+      "images": [],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/meow-tampines"
+    },
+    {
+      "id": 49,
+      "slug": "meowcademy",
+      "title": "Meowcademy",
+      "category": "Custom Dev",
+      "description": "A modern tuition centre website for Meowcademy \u2014 a Singapore-based small group learning platform offering affordable, high-quality education for children aged 6 to 16 across all levels and subjects.",
+      "overview": null,
+      "tech": [
+        "Next.js",
+        "Laravel"
+      ],
+      "highlights": [
+        "Course listings across Pre-K, Primary, and Secondary levels",
+        "Trial offer showcase \u2014 4 lessons with no registration fee",
+        "Flexible payment plans via Atome, GrabPay, and bank instalments",
+        "Robotics and LEGO Spike Prime programme highlight",
+        "Student and parent testimonials",
+        "Multiple location listings and easy contact/enquiry flow"
+      ],
+      "hasImages": false,
+      "imagesCount": 0,
+      "images": [],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/meowcademy"
+    },
+    {
+      "id": 50,
+      "slug": "meow-aesthetics",
+      "title": "Meow Aesthetics",
+      "category": "Custom Dev",
+      "description": "A beauty and lifestyle website for Meow Aesthetics \u2014 a multi-location Singapore salon offering gel nails, lash extensions, facials, slimming, IPL treatments, and more, alongside sister brand Meow Luxury's jewellery and apparel.",
+      "overview": null,
+      "tech": [
+        "Next.js",
+        "Laravel"
+      ],
+      "highlights": [
+        "Full service showcase \u2014 nails, lashes, facials, slimming & IPL",
+        "Integrated pricelist for transparent, upfront pricing",
+        "Sister brand Meow Luxury \u2014 jewellery and luxury apparel",
+        "FAQ and T&C section for client confidence",
+        "Multiple location listings with operating hours"
+      ],
+      "hasImages": false,
+      "imagesCount": 0,
+      "images": [],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/meow-aesthetics"
+    },
+    {
+      "id": 51,
+      "slug": "le-meow",
+      "title": "Le Meow",
+      "category": "Custom Dev",
+      "description": "An all-in-one on-demand app that connects users with trusted professionals for home, beauty, and lifestyle services \u2014 making booking seamless, secure, and rewarding.",
+      "overview": "Le Meow is Singapore's premier lifestyle ecosystem application, seamlessly uniting multiple premium service brands \u2014 including Meow Aesthetics (beauty, nails, lash & skin), Meow Renovations (home services & interior revamps), Meow Future Labs (education & enrichment), SureHands Agency (maids, helper & home care), and MadBakes by Meow (artisanal baking workshops). With instant in-app appointment scheduling, real-time booking tracking, tiered membership reward perks, and secure digital payments, Le Meow delivers an effortless everyday lifestyle experience for modern consumers across Singapore.",
+      "tech": [
+        "Flutter",
+        "Laravel"
+      ],
+      "highlights": [
+        "One-stop booking for home, beauty, and lifestyle services",
+        "Real-time provider tracking and direct in-app chat",
+        "Secure payments with preferred payment methods",
+        "Le Meow rewards points redeemable for exclusive savings",
+        "Booking history and easy rebooking of favourites",
+        "Verified, trusted professionals with transparent pricing"
+      ],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Cover Image",
+          "url": "/images/work/le-meow/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/le-meow/01.webp",
+          "aspectRatio": "1.415:1",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Banner Image",
+          "url": "/images/work/le-meow/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/le-meow/02.webp",
+          "aspectRatio": "2.133:1",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Image 1",
+          "url": "/images/work/le-meow/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/le-meow/03.webp",
+          "aspectRatio": "1.406:1",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Image 2",
+          "url": "/images/work/le-meow/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/le-meow/04.webp",
+          "aspectRatio": "1.406:1",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/le-meow"
+    },
+    {
+      "id": 52,
+      "slug": "le-meow-worker",
+      "title": "Le Meow Worker",
+      "category": "Custom Dev",
+      "description": "A dedicated app for Le Meow service professionals \u2014 giving workers everything they need to manage bookings, track jobs, and stay organised on the platform.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "Laravel"
+      ],
+      "highlights": [
+        "Instant job request notifications with full booking details",
+        "Clean dashboard for managing upcoming and active jobs",
+        "View customer notes, service requirements, and timing at a glance",
+        "Job status updates to stay on top of daily workflow",
+        "Simple, intuitive interface for all service types"
+      ],
+      "hasImages": false,
+      "imagesCount": 0,
+      "images": [],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/le-meow-worker"
+    },
+    {
+      "id": 53,
+      "slug": "map-metrics",
+      "title": "MapMetrics",
+      "category": "Transport",
+      "description": "Drive-to-earn crypto navigation app with real-time turn-by-turn routing, SPT hardware pairing, and token reward wallet.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "Web3",
+        "Google Maps"
+      ],
+      "highlights": [
+        "Turn-by-turn map navigation with live traffic updates",
+        "Drive-to-earn cryptocurrency rewards ($MMAPS)",
+        "Bluetooth pairing with SPT hardware devices",
+        "Built-in token wallet and transaction history"
+      ],
+      "hasImages": true,
+      "imagesCount": 1,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/map-metrics/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/map-metrics/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/map-metrics"
+    },
+    {
+      "id": 54,
+      "slug": "tap-to-share",
+      "title": "Tap To Share",
+      "category": "Custom Dev",
+      "description": "Digital business card and bio-link profile platform with customizable links, viewer analytics, and instant NFC/QR sharing.",
+      "overview": "Tap To Share is an all-in-one digital identity, smart business card, and bio-link platform that empowers professionals and creators to effortlessly share their digital presence with a single tap or scan. Featuring customizable dynamic themes, rich multimedia link modules, and real-time visitor engagement analytics, Tap To Share redefines modern contactless networking and portfolio presentation.",
+      "tech": [
+        "React Native",
+        "Node.js",
+        "Firebase",
+        "NFC / QR",
+        "Tailwind CSS"
+      ],
+      "highlights": [
+        "Custom digital bio page with modular links, photos, video embeds, and socials",
+        "Real-time link click tracking, visitor analytics, and conversion insights",
+        "Instant contactless NFC tap and dynamic QR code profile sharing",
+        "Personalized cover themes, avatar styling, and drag-and-drop link sorting"
+      ],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/tap-to-share/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/tap-to-share/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/tap-to-share/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/tap-to-share/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/tap-to-share/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/tap-to-share/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/tap-to-share/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/tap-to-share/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/tap-to-share"
+    },
+    {
+      "id": 55,
+      "slug": "mworld",
+      "title": "mworld",
+      "category": "Custom Dev",
+      "description": "Professional networking and talent showcase platform connecting vetted creators, entrepreneurs, and specialists with industry opportunities and curated stories.",
+      "overview": null,
+      "tech": [
+        "Flutter",
+        "Firebase",
+        "Node.js"
+      ],
+      "highlights": [
+        "Verified professional directory with category and country filters",
+        "Curated success stories, editorial highlights, and landscape features",
+        "Direct in-app networking and connection requests",
+        "Rich profile customization with portfolio reels and bio links"
+      ],
+      "hasImages": true,
+      "imagesCount": 1,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/mworld/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/mworld/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/mworld"
+    },
+    {
+      "id": 56,
+      "slug": "q-easy",
+      "title": "Q easy",
+      "category": "Custom Dev",
+      "description": "Intuitive site operations and queuing management platform that streamlines vehicle access, site user management, and automated queuing workflows.",
+      "overview": null,
+      "tech": [
+        "Next.js",
+        "Flutter",
+        "Node.js"
+      ],
+      "highlights": [
+        "Centrally oversee and control all aspects of site operations",
+        "Real-time vehicle access and geofence screen management",
+        "Automated site load schedules and completed load summaries",
+        "Custom form screens, alert messages, and active on-site tracking"
+      ],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/q-easy/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/q-easy/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/q-easy/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/q-easy/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/q-easy/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/q-easy/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/q-easy/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/q-easy/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/q-easy"
+    },
+    {
+      "id": 57,
+      "slug": "edcalibre",
+      "title": "EdCalibre",
+      "category": "Education",
+      "description": "Interactive online learning and classroom gamification platform that transforms children's education through animated video lessons, chapter quizzes, and league leaderboards.",
+      "overview": "Where education meets adventure! Our platform offers a dynamic blend of interactive lessons and quizzes, fostering a love for learning in children. With Edcalibre, kids can explore a world of knowledge while unlocking their full potential, all in a safe and engaging online environment.",
+      "tech": [
+        "Next.js",
+        "React",
+        "Node.js",
+        "MongoDB",
+        "WebSockets"
+      ],
+      "highlights": [
+        "Dynamic audio-visual learning paths with interactive lesson modules and video classrooms",
+        "Granular chapter and section score analytics with real-time performance milestones",
+        "Gamified student league leaderboards with achievement levels, badges, and points",
+        "Personalized student profile management with custom learning pace and subscription plans"
+      ],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/edcalibre/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/edcalibre/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/edcalibre/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/edcalibre/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/edcalibre/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/edcalibre/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/edcalibre/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/edcalibre/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/edcalibre"
+    },
+    {
+      "id": 58,
+      "slug": "contractor-easy",
+      "title": "Contractor Easy",
+      "category": "Custom Dev",
+      "description": "Subcontractor management and compliance tracking app that simplifies document verification, driver licencing, fleet tracking, and approval workflows.",
+      "overview": "Contractor Easy makes managing subcontractors simple and hassle-free. A dedicated mobile application that takes away the stress of keeping up to date with all required subcontractor documents, compliance checks, driver certifications, and fleet management.",
+      "tech": [
+        "Flutter",
+        "Firebase",
+        "Node.js"
+      ],
+      "highlights": [
+        "Centralized subcontractor directory with document and verification status tracking",
+        "Fleet and driver compliance logs with real-time expiry alerts",
+        "TRAI certificate, insurance, and legal document approval workflows",
+        "Digital document upload, expiration monitoring, and instant push notifications"
+      ],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/contractor-easy/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/contractor-easy/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/contractor-easy/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/contractor-easy/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/contractor-easy/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/contractor-easy/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/contractor-easy/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/contractor-easy/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/contractor-easy"
+    }
+  ],
+  "pagination": {
+    "total": 58,
+    "page": 1,
+    "limit": 58,
+    "totalPages": 1,
+    "hasNextPage": false,
+    "hasPrevPage": false,
+    "nextPage": null,
+    "prevPage": null
+  },
+  "filters": {
+    "category": null,
+    "tech": null,
+    "search": null,
+    "hasImages": null,
+    "sort": "id_asc"
+  },
+  "meta": {
+    "availableCategories": [
+      "All",
+      "AI",
+      "Education",
+      "Health",
+      "Transport",
+      "Gig",
+      "Fintech",
+      "SaaS",
+      "NGO",
+      "Custom Dev"
+    ],
+    "totalProjectsInDatabase": 57,
+    "totalProjectsWithImages": 38,
+    "baseUrl": "https://saurabhinfosys.com",
+    "documentation": {
+      "endpoints": {
+        "all": "/api/portfolio",
+        "single": "/api/portfolio/[slug]",
+        "staticJson": "/api/portfolio.json",
+        "dynamicQueryPhp": "/api/portfolio.php?page=1&limit=10&category=AI&search=keyword"
+      },
+      "supportedParams": [
+        "page (integer, default: 1)",
+        "limit (integer 1-100 or 0 for all, default: 12)",
+        "category (string, e.g. AI, Custom Dev, Health, Transport)",
+        "tech (string, e.g. Flutter, React, Next.js, Node.js)",
+        "search (string, search across title, description, tech, highlights)",
+        "has_images (boolean: true | false)",
+        "slug (string, fetch single project by slug)",
+        "id (integer, fetch single project by id)",
+        "sort (id_asc | id_desc | title_asc | title_desc | images_desc)"
+      ]
+    },
+    "totalCatalogueProjects": 58
+  }
+}

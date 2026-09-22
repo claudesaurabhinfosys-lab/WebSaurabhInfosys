@@ -1,0 +1,243 @@
+<?php
+/**
+ * Saurabh Infosys — Public Portfolio & Work-Wise Images API
+ *
+ * Publicly accessible API endpoint for external web apps, mobile applications,
+ * and portfolio showcases.
+ * 
+ * Supports:
+ * - Real-time filtering by category, technology, keyword search, has_images
+ * - Full pagination with page, limit, totalPages, hasNextPage, hasPrevPage
+ * - Single project lookup by slug or id
+ * - Sorting by id, title, images count
+ * - Unrestricted CORS for cross-origin client consumption
+ */
+
+// Enable CORS for all external origins
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, OPTIONS');
+header('Access-Control-Allow-Headers: Content-Type, Accept, X-Requested-With');
+header('Content-Type: application/json; charset=utf-8');
+
+// Handle preflight OPTIONS request
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+    http_response_code(204);
+    exit;
+}
+
+// Locate portfolio dataset (check local directory or public/api)
+$dataFile = __DIR__ . '/portfolio.json';
+if (!file_exists($dataFile)) {
+    $dataFile = __DIR__ . '/../public/api/portfolio.json';
+}
+if (!file_exists($dataFile)) {
+    $dataFile = __DIR__ . '/../../public/api/portfolio.json';
+}
+
+if (!file_exists($dataFile)) {
+    http_response_code(500);
+    echo json_encode([
+        'success' => false,
+        'error' => 'Portfolio data file could not be located.'
+    ]);
+    exit;
+}
+
+$rawJson = file_get_contents($dataFile);
+$database = json_decode($rawJson, true);
+
+if (!$database || !isset($database['data'])) {
+    http_response_code(500);
+    echo json_encode([
+        'success' => false,
+        'error' => 'Failed to parse portfolio database.'
+    ]);
+    exit;
+}
+
+$allProjects = $database['data'];
+
+// 1. Single project lookup by SLUG
+if (!empty($_GET['slug'])) {
+    $targetSlug = strtolower(trim($_GET['slug']));
+    $found = null;
+    $currentIndex = -1;
+
+    foreach ($allProjects as $idx => $proj) {
+        if (strtolower($proj['slug']) === $targetSlug) {
+            $found = $proj;
+            $currentIndex = $idx;
+            break;
+        }
+    }
+
+    if (!$found) {
+        http_response_code(404);
+        echo json_encode([
+            'success' => false,
+            'error' => "Project with slug '{$_GET['slug']}' was not found."
+        ]);
+        exit;
+    }
+
+    $prev = $currentIndex > 0 ? [
+        'id' => $allProjects[$currentIndex - 1]['id'],
+        'slug' => $allProjects[$currentIndex - 1]['slug'],
+        'title' => $allProjects[$currentIndex - 1]['title']
+    ] : null;
+
+    $next = ($currentIndex >= 0 && $currentIndex < count($allProjects) - 1) ? [
+        'id' => $allProjects[$currentIndex + 1]['id'],
+        'slug' => $allProjects[$currentIndex + 1]['slug'],
+        'title' => $allProjects[$currentIndex + 1]['title']
+    ] : null;
+
+    echo json_encode([
+        'success' => true,
+        'data' => $found,
+        'navigation' => [
+            'prev' => $prev,
+            'next' => $next
+        ]
+    ], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+    exit;
+}
+
+// 2. Single project lookup by ID
+if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+    $targetId = intval($_GET['id']);
+    $found = null;
+    foreach ($allProjects as $proj) {
+        if ($proj['id'] === $targetId) {
+            $found = $proj;
+            break;
+        }
+    }
+
+    if (!$found) {
+        http_response_code(404);
+        echo json_encode([
+            'success' => false,
+            'error' => "Project with ID '{$targetId}' was not found."
+        ]);
+        exit;
+    }
+
+    echo json_encode([
+        'success' => true,
+        'data' => $found
+    ], JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);
+    exit;
+}
+
+// 3. Filtering
+$filtered = $allProjects;
+
+// Category filter
+if (!empty($_GET['category']) && strtolower(trim($_GET['category'])) !== 'all') {
+    $cat = strtolower(trim($_GET['category']));
+    $filtered = array_values(array_filter($filtered, function ($p) use ($cat) {
+        return strtolower($p['category']) === $cat;
+    }));
+}
+
+// Tech stack filter
+if (!empty($_GET['tech'])) {
+    $techQuery = strtolower(trim($_GET['tech']));
+    $filtered = array_values(array_filter($filtered, function ($p) use ($techQuery) {
+        if (!isset($p['tech']) || !is_array($p['tech'])) return false;
+        foreach ($p['tech'] as $t) {
+            if (stripos($t, $techQuery) !== false) return true;
+        }
+        return false;
+    }));
+}
+
+// Has images filter
+if (isset($_GET['has_images'])) {
+    $val = strtolower(trim($_GET['has_images']));
+    $requireImages = ($val === '1' || $val === 'true' || $val === 'yes');
+    $filtered = array_values(array_filter($filtered, function ($p) use ($requireImages) {
+        return $requireImages ? !empty($p['hasImages']) : empty($p['hasImages']);
+    }));
+}
+
+// Search filter across title, description, overview, tech, highlights
+if (!empty($_GET['search'])) {
+    $searchQuery = strtolower(trim($_GET['search']));
+    $filtered = array_values(array_filter($filtered, function ($p) use ($searchQuery) {
+        if (stripos($p['title'] ?? '', $searchQuery) !== false) return true;
+        if (stripos($p['description'] ?? '', $searchQuery) !== false) return true;
+        if (stripos($p['overview'] ?? '', $searchQuery) !== false) return true;
+        if (!empty($p['tech']) && is_array($p['tech'])) {
+            foreach ($p['tech'] as $t) {
+                if (stripos($t, $searchQuery) !== false) return true;
+            }
+        }
+        if (!empty($p['highlights']) && is_array($p['highlights'])) {
+            foreach ($p['highlights'] as $h) {
+                if (stripos($h, $searchQuery) !== false) return true;
+            }
+        }
+        return false;
+    }));
+}
+
+// 4. Sorting
+$sortMode = !empty($_GET['sort']) ? trim($_GET['sort']) : 'id_asc';
+usort($filtered, function ($a, $b) use ($sortMode) {
+    switch ($sortMode) {
+        case 'id_desc':
+            return $b['id'] - $a['id'];
+        case 'title_asc':
+            return strcasecmp($a['title'], $b['title']);
+        case 'title_desc':
+            return strcasecmp($b['title'], $a['title']);
+        case 'images_desc':
+            $diff = ($b['imagesCount'] ?? 0) - ($a['imagesCount'] ?? 0);
+            return $diff !== 0 ? $diff : ($a['id'] - $b['id']);
+        case 'id_asc':
+        default:
+            return $a['id'] - $b['id'];
+    }
+});
+
+// 5. Pagination
+$total = count($filtered);
+$isAll = (isset($_GET['limit']) && (intval($_GET['limit']) <= 0 || strtolower($_GET['limit']) === 'all'));
+$rawLimit = isset($_GET['limit']) ? intval($_GET['limit']) : 12;
+$limit = $isAll ? $total : max(1, min(100, $rawLimit > 0 ? $rawLimit : 12));
+
+$page = isset($_GET['page']) ? max(1, intval($_GET['page'])) : 1;
+$totalPages = ($isAll || $limit === 0) ? ($total > 0 ? 1 : 0) : intval(ceil($total / $limit));
+
+$startIndex = ($page - 1) * $limit;
+$paginatedData = $isAll ? $filtered : array_slice($filtered, $startIndex, $limit);
+
+$hasNextPage = $page < $totalPages;
+$hasPrevPage = $page > 1 && $totalPages > 0;
+
+$response = [
+    'success' => true,
+    'data' => array_values($paginatedData),
+    'pagination' => [
+        'total' => $total,
+        'page' => $page,
+        'limit' => $isAll ? $total : $limit,
+        'totalPages' => $totalPages,
+        'hasNextPage' => $hasNextPage,
+        'hasPrevPage' => $hasPrevPage,
+        'nextPage' => $hasNextPage ? $page + 1 : null,
+        'prevPage' => $hasPrevPage ? $page - 1 : null,
+    ],
+    'filters' => [
+        'category' => $_GET['category'] ?? null,
+        'tech' => $_GET['tech'] ?? null,
+        'search' => $_GET['search'] ?? null,
+        'has_images' => isset($_GET['has_images']) ? $_GET['has_images'] : null,
+        'sort' => $sortMode,
+    ],
+    'meta' => $database['meta'] ?? []
+];
+
+echo json_encode($response, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT);

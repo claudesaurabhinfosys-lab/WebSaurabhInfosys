@@ -36,6 +36,19 @@ jobs:
               f.write(content)
           "
 
+      - name: Generate portfolio API for Apache
+        run: |
+          python3 -c "
+          import os, shutil
+          os.makedirs('out/api/portfolio', exist_ok=True)
+          shutil.copyfile('scripts/portfolio.php.template', 'out/api/portfolio.php')
+          shutil.copyfile('scripts/portfolio.php.template', 'out/api/portfolio/index.php')
+          if os.path.exists('public/api/portfolio.json'):
+              shutil.copyfile('public/api/portfolio.json', 'out/api/portfolio.json')
+              shutil.copyfile('public/api/portfolio.json', 'out/api/portfolio/portfolio.json')
+          print('Portfolio API files generated in out/api')
+          "
+
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         with:
