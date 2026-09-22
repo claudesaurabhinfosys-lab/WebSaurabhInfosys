@@ -3,6 +3,12 @@
 > **Complete integration guide for external and internal developers.**  
 > Everything you need to consume, filter, and render Saurabh Infosys portfolio projects and curated case-study media.
 
+> ⚡ **Quick Reference for Developers:**
+> - **Live Portfolio Catalogue:** [`https://saurabhinfosys.vercel.app/api/portfolio.json`](https://saurabhinfosys.vercel.app/api/portfolio.json)
+> - **Single Project Example:** [`https://saurabhinfosys.vercel.app/api/portfolio/ai-assist.json`](https://saurabhinfosys.vercel.app/api/portfolio/ai-assist.json)
+> - **Image Assets CDN:** `https://saurabhinfosys.vercel.app/images/work/{slug}/{index}.webp`
+> - **Format:** Pure JSON, CORS enabled (`*`), zero authentication needed.
+
 ---
 
 ## 📌 Table of Contents
@@ -350,10 +356,15 @@ Each item in `project.images` is already structured with optimal aspect ratios a
 | `role` | `string` | `"cover"` \| `"banner"` \| `"gallery"` | Defines where to place this image in the UI! |
 | `label` | `string` | Friendly human-readable label. | Tooltip or accessible `alt` text |
 | `url` | `string` | Relative path starting with `/`. | Use if your app is hosted on the same domain |
-| `absoluteUrl` | `string` | Fully-qualified URL with `https://...`. | **Recommended for external apps/mobile/SPAs** |
+| `absoluteUrl` | `string` | Fully-qualified URL with `https://...`. | Use for direct linking |
 | `aspectRatio` | `string` | Aspect ratio string (e.g. `1080:763`). | Prevents layout shift (CLS) in CSS/React |
 | `width` | `number` | Intrinsic pixel width. | Pass to `next/image` or `<img width={...}>` |
 | `height` | `number` | Intrinsic pixel height. | Pass to `next/image` or `<img height={...}>` |
+
+> 💡 **Image Resolution Tip:**  
+> To guarantee images always load on external apps, websites, or Flutter/mobile apps, resolve the image URL using:  
+> `const fullImageUrl = image.url.startsWith('http') ? image.url : 'https://saurabhinfosys.vercel.app' + image.url;`  
+> All WebP assets are served directly from Vercel's fast global CDN.
 
 ---
 
@@ -573,7 +584,8 @@ export function usePortfolio(category?: string) {
     async function load() {
       try {
         setLoading(true);
-        const res = await fetch("https://saurabhinfosys.com/api/portfolio");
+        // Uses the active Vercel static JSON endpoint
+        const res = await fetch("https://saurabhinfosys.vercel.app/api/portfolio.json");
         if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
         
         const json: PortfolioApiResponse = await res.json();
@@ -605,6 +617,11 @@ import type { ApiProjectItem } from "@/types/portfolio";
 
 export function ProjectCard({ project }: { project: ApiProjectItem }) {
   const cover = project.images.find((img) => img.role === "cover") || project.images[0];
+  
+  // Resolve image URL (compatible with active Vercel preview and production)
+  const imageUrl = cover 
+    ? (cover.url.startsWith("http") ? cover.url : `https://saurabhinfosys.vercel.app${cover.url}`)
+    : "";
 
   return (
     <a
@@ -613,10 +630,10 @@ export function ProjectCard({ project }: { project: ApiProjectItem }) {
     >
       {/* Responsive Cover Container */}
       <div className="relative aspect-[1080/763] w-full bg-slate-100 overflow-hidden">
-        {cover ? (
+        {imageUrl ? (
           <img
-            src={cover.absoluteUrl}
-            alt={cover.label || project.title}
+            src={imageUrl}
+            alt={cover?.label || project.title}
             className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
             loading="lazy"
           />
@@ -655,14 +672,14 @@ export function ProjectCard({ project }: { project: ApiProjectItem }) {
 ---
 
 ### Vanilla JavaScript / Fetch
-
 ```javascript
 // Fetch and render portfolio
 async function renderPortfolio() {
   const container = document.getElementById("portfolio-grid");
 
   try {
-    const res = await fetch("https://saurabhinfosys.com/api/portfolio");
+    // 1. Fetch from active Vercel endpoint
+    const res = await fetch("https://saurabhinfosys.vercel.app/api/portfolio.json");
     const json = await res.json();
 
     if (!json.success) {
@@ -670,14 +687,17 @@ async function renderPortfolio() {
       return;
     }
 
+    // 2. Render cards
     container.innerHTML = json.data
       .map((project) => {
         const cover = project.images.find((img) => img.role === "cover") || project.images[0];
-        const imageUrl = cover ? cover.absoluteUrl : "";
+        const imageUrl = cover 
+          ? (cover.url.startsWith("http") ? cover.url : `https://saurabhinfosys.vercel.app${cover.url}`)
+          : "";
 
         return `
           <div class="card">
-            <img src="${imageUrl}" alt="${project.title}" loading="lazy" />
+            ${imageUrl ? `<img src="${imageUrl}" alt="${project.title}" loading="lazy" />` : ""}
             <div class="card-body">
               <span class="badge">${project.category}</span>
               <h3>${project.title}</h3>
@@ -731,7 +751,10 @@ class Project {
         (img) => img['role'] == 'cover',
         orElse: () => images.first,
       );
-      coverUrl = cover['absoluteUrl'] ?? cover['url'];
+      final raw = cover['url'] as String? ?? '';
+      coverUrl = raw.startsWith('http') 
+          ? raw 
+          : 'https://saurabhinfosys.vercel.app$raw';
     }
 
     return Project(
@@ -748,7 +771,7 @@ class Project {
 
 Future<List<Project>> fetchPortfolio() async {
   final response = await http.get(
-    Uri.parse('https://saurabhinfosys.com/api/portfolio'),
+    Uri.parse('https://saurabhinfosys.vercel.app/api/portfolio.json'),
   );
 
   if (response.statusCode == 200) {
