@@ -1036,17 +1036,19 @@
       "title": "Retirement Planning",
       "category": "Fintech",
       "description": "Retirement savings calculator and financial planning tool with scenario modelling and SIP recommendations.",
-      "overview": null,
+      "overview": "Retirement Planning Tool App is an intelligent mobile wealth modeling and financial advisory application designed to help individuals calculate their comprehensive retirement expenses, project lifetime corpus growth across customizable life milestones (such as home purchases and children's higher education/marriage), and receive automated monthly SIP recommendations tailored to inflation.",
       "tech": [
-        "React",
+        "Flutter",
+        "Firebase",
         "Node.js",
-        "PostgreSQL"
+        "Chart Engine",
+        "PDF Engine"
       ],
       "highlights": [
-        "Inflation-adjusted retirement corpus calculator",
-        "SIP and lump sum scenario comparison modelling",
-        "Visual retirement timeline with milestone markers",
-        "Recommended SIP amounts based on current savings gap"
+        "Inflation-adjusted retirement corpus calculator with dynamic currency selection",
+        "Milestone scenario and life event modeling (Home purchase, Marriage, Healthcare)",
+        "Visual milestone growth bar chart with age-by-age corpus projection (Ages 35–75)",
+        "Automated monthly SIP recommendation engine and instant PDF export"
       ],
       "hasImages": true,
       "imagesCount": 4,
