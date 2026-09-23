@@ -8,16 +8,15 @@ import TestimonialsSection from "../testimonials-section";
 import CtaSection from "../cta-section";
 import { StButtonLink } from "../button";
 import { ArrowUpRight } from "../icons";
-import { HOME_FAQS, SERVICE_PROCESS, SERVICES } from "@/lib/data";
+import { SERVICE_PROCESS, SERVICES, SERVICES_HUB } from "@/lib/data";
 
 /** The one line of "what you get, how fast" that belongs beside each service. */
 const DELIVERY: Record<string, string> = {
-  "ai-agents": "Live in 2–3 weeks",
-  "vibe-coding": "MVP in 14 days",
-  flutter: "iOS + Android, one codebase",
-  gps: "Fleet-ready in 4 weeks",
-  saas: "Multi-tenant from day one",
-  "digital-marketing": "Ongoing retainer",
+  "ai-automation-services": "Live in 2–3 weeks",
+  "app-development": "MVP in 2–4 weeks",
+  "integration-services": "API sync in days",
+  "hire-developers": "2-week trial",
+  "white-label-software": "Deploy in 7 days",
 };
 
 const PROCESS_STEPS = SERVICE_PROCESS.map((step) => ({
@@ -35,24 +34,23 @@ export default function ServicesPage() {
           <div className="st-container">
             <div className="st-hero-content">
               <Reveal className="st-tag-block">
-                <Tag on="light">What we do</Tag>
+                <Tag on="light">Services</Tag>
               </Reveal>
 
               <div className="st-hero-title-block st-is-row">
                 <Reveal delay={60}>
-                  <h1 className="st-h1">Six ways we ship your product</h1>
+                  <h1 className="st-h1">
+                    AI automation and software{" "}
+                    <span className="st-mute">for growing businesses</span>
+                  </h1>
                 </Reveal>
 
                 <Reveal delay={120}>
                   <div className="st-hero-intro">
-                    <p className="st-text-m st-secondary">
-                      AI automation, AI-accelerated builds, mobile, fleet, SaaS
-                      and growth. Each one is a team that has shipped it before,
-                      not a line on a capability deck.
-                    </p>
+                    <p className="st-text-m st-secondary">{SERVICES_HUB.hero.intro}</p>
                     <div className="st-button-wrapper st-is-hero">
                       <StButtonLink href="/contact" variant="dark">
-                        Start a project
+                        {SERVICES_HUB.hero.cta}
                       </StButtonLink>
                     </div>
                   </div>
@@ -69,11 +67,11 @@ export default function ServicesPage() {
       <section className="st-list-section">
         <div className="st-container">
           <Reveal className="st-tag-block">
-            <Tag>Services</Tag>
+            <Tag>What we do</Tag>
           </Reveal>
           <Reveal delay={60}>
             <h2 className="st-h2" style={{ marginTop: "var(--st-gap-24)", maxWidth: "760px" }}>
-              Pick the one that matches the problem
+              Five ways we ship
             </h2>
           </Reveal>
 
@@ -83,9 +81,7 @@ export default function ServicesPage() {
                 <Link className="st-list-row" href={`/services/${service.slug}`}>
                   <div className="st-list-row-name">
                     <h3 className="st-h5 st-weight-medium">{service.title}</h3>
-                    <p className="st-text-s st-list-row-blurb">
-                      {service.features.slice(0, 3).join(" · ")}
-                    </p>
+                    <p className="st-text-s st-list-row-blurb">{service.blurb}</p>
                   </div>
 
                   <div className="st-list-row-foot">
@@ -105,20 +101,53 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      {/* ── Why international clients work with us ───────────────────────── */}
+      <section className="st-section">
+        <div className="st-container">
+          <Reveal className="st-tag-block">
+            <Tag>Why us</Tag>
+          </Reveal>
+          <Reveal delay={60}>
+            <h2 className="st-h2" style={{ marginTop: "var(--st-gap-24)", maxWidth: "760px" }}>
+              Why international clients stay
+            </h2>
+          </Reveal>
+
+          <div className="st-card-grid">
+            {SERVICES_HUB.whyWorkWithUs.map((item, index) => (
+              <Reveal
+                className={`st-card${index === 0 ? " st-is-ink" : ""}`}
+                key={item.title}
+                delay={index * 60}
+              >
+                <div className="st-card-index">[{String(index + 1).padStart(2, "0")}]</div>
+                <h3 className="st-h6 st-weight-medium">{item.title}</h3>
+                <p className="st-text-s st-secondary">{item.desc}</p>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <ProcessSection
-        heading="A delivery model designed for momentum"
+        heading="A delivery model built for momentum"
         intro="The same four steps on every engagement, whichever service you start with."
         steps={PROCESS_STEPS}
       />
 
       <TestimonialsSection />
 
-      <FaqSection faqs={HOME_FAQS} />
+      <FaqSection
+        eyebrow="Services FAQ"
+        heading="Frequently asked questions"
+        intro="Time zones, code ownership, pricing and kickoff."
+        faqs={SERVICES_HUB.faqs}
+      />
 
       <CtaSection
-        eyebrow="Get started"
-        heading="Tell us what you are building"
-        ctaLabel="Book a consultation"
+        eyebrow="Free automation audit"
+        heading="Book your free automation audit"
+        ctaLabel="Book an audit"
       />
     </>
   );

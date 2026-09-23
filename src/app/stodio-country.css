@@ -1,0 +1,270 @@
+/* ============================================================================
+   Saurabh Infosys — Country pages (/usa, /uk, /australia, /singapore)
+
+   Rebuilt on the reference career page's architecture, which is the closest
+   fit in the kit for what these pages have to say: a statement block, a band
+   of keywords, a stack of pill rows, and a dark slab of list rows. The
+   previous version leaned on card grids, and six tinted boxes in a row is the
+   one shape on this site that reads as filler rather than as an argument.
+   ========================================================================= */
+
+/* ============================================================================
+   Statement — a short tag leading, the claim set large beside it
+   (the reference's `.career-cta-block`)
+   ========================================================================= */
+.st-statement-section {
+  position: relative;
+  z-index: 1;
+  padding-top: var(--st-pad-xl);
+  background-color: var(--st-white);
+}
+.st-statement-block {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--st-gap-40);
+}
+@media screen and (max-width: 991px) {
+  .st-statement-block { flex-flow: column; gap: var(--st-gap-24); }
+}
+.st-statement-right { width: 100%; max-width: 650px; }
+
+/* ============================================================================
+   Keyword band — the reference's `.marquee-logo-block.career`
+
+   A dark strip of uppercase claims scrolling past. It reuses the `st-marquee`
+   keyframes the client rail already runs on, so there is one marquee timing on
+   the site rather than two that drift apart.
+   ========================================================================= */
+.st-keyword-band {
+  margin-top: var(--st-pad-xl);
+  padding: var(--st-pad-36) 0;
+  background-color: var(--st-primary);
+  overflow: hidden;
+}
+.st-keyword-track {
+  position: relative;
+  display: flex;
+  gap: var(--st-pad-x);
+  overflow: hidden;
+}
+.st-keyword-row {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: var(--st-pad-x);
+  animation: st-marquee 12s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) { .st-keyword-row { animation: none; } }
+@media (hover: hover) and (pointer: fine) {
+  .st-keyword-track:hover .st-keyword-row { animation-play-state: paused; }
+}
+.st-keyword-item {
+  display: flex;
+  flex: none;
+  align-items: center;
+  gap: var(--st-gap-12);
+  color: var(--st-white);
+  font-family: var(--st-font-secondary);
+  font-size: var(--st-text-l);
+  font-weight: var(--st-medium);
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.st-keyword-icon { width: 28px; height: 28px; flex: none; color: var(--st-brand); }
+@media screen and (max-width: 767px) {
+  .st-keyword-band { padding: var(--st-pad-1x) 0; }
+  .st-keyword-item { font-size: var(--st-text-m); }
+  .st-keyword-icon { width: 20px; height: 20px; }
+}
+
+/* ============================================================================
+   About photo — `.st-media-split-media` rounds and clips it already
+   ========================================================================= */
+.st-country-figure {
+  border: 1px solid var(--st-border);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.06);
+}
+.st-country-figure img { display: block; width: 100%; height: auto; object-fit: cover; }
+
+/* Heading left, a button held to the same baseline right. */
+.st-country-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--st-gap-24);
+}
+.st-country-head-copy { max-width: 720px; }
+
+/* ============================================================================
+   Capabilities — pill rows (the reference's `.career-list-item`)
+
+   One row per capability, the name set at heading size and the supporting
+   detail held to the right. The pill tightens from 16px to 44px on hover, the
+   same gesture the buttons make.
+   ========================================================================= */
+.st-pill-list {
+  display: flex;
+  flex-flow: column;
+  gap: var(--st-gap-16);
+  margin-top: var(--st-pad-4x);
+}
+.st-pill-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--st-gap-32);
+  padding: var(--st-pad-1x) var(--st-pad-2x);
+  border-radius: var(--st-r-16);
+  background-color: var(--st-bg-light);
+  color: var(--st-primary);
+  transition:
+    border-radius var(--st-dur) var(--st-ease-out),
+    background-color var(--st-dur) var(--st-ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .st-pill-row:hover { border-radius: var(--st-r-44); }
+}
+@media screen and (max-width: 767px) {
+  .st-pill-row {
+    flex-flow: column;
+    align-items: flex-start;
+    gap: var(--st-gap-16);
+    padding: var(--st-pad-1x);
+  }
+}
+.st-pill-row-left { flex: 1; min-width: 0; max-width: 460px; }
+.st-pill-row-right { display: flex; align-items: center; gap: var(--st-gap-20); }
+@media screen and (max-width: 767px) {
+  .st-pill-row-right { width: 100%; justify-content: space-between; }
+}
+.st-pill-row-copy { max-width: 520px; color: var(--st-text-secondary); }
+.st-pill-row-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  flex: none;
+  border-radius: var(--st-r-100);
+  background-color: var(--st-brand);
+  color: var(--st-white);
+  font-family: var(--st-font-secondary);
+  font-size: var(--st-text-s);
+}
+
+/* ============================================================================
+   Case studies — dark slab, one dashed row per client
+   (the reference's `.our-location-section` / `.location-list-item`)
+   ========================================================================= */
+.st-slab-section {
+  position: relative;
+  z-index: 1;
+  padding-top: var(--st-pad-big);
+  background-color: var(--st-white);
+}
+.st-slab {
+  margin: 0 var(--st-gap-24);
+  padding: var(--st-pad-xl) 0;
+  border-radius: var(--st-r-24);
+  background-color: var(--st-primary);
+  color: var(--st-white);
+}
+@media screen and (max-width: 767px) { .st-slab { margin: 0 var(--st-pad-16); } }
+
+.st-case-list { display: flex; flex-flow: column; margin-top: var(--st-gap-24); }
+.st-case-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--st-gap-32);
+  padding: 32px 0;
+  border-bottom: 1px dashed var(--st-border-black);
+}
+@media screen and (max-width: 991px) {
+  .st-case-row { flex-flow: column; align-items: flex-start; gap: var(--st-gap-16); }
+}
+.st-case-left { display: flex; align-items: center; gap: var(--st-gap-32); min-width: 0; }
+@media screen and (max-width: 991px) {
+  .st-case-left { flex-flow: column; align-items: flex-start; gap: var(--st-gap-16); }
+}
+
+/* The row interaction, taken from the reference's IX2 action lists `a-40`
+   "Location List Item Hover In" and `a-41` "Hover Out":
+
+     .location-list-image-wrapper  0x0 -> 120x80px, 400ms, inOutQuad
+     SIBLINGS .location-list-item  -> #5d5d5d, 300ms, ease   (hover in)
+     SIBLINGS .location-list-item  -> #ffffff, 300ms, ease   (hover out)
+
+   So the thumbnail is collapsed to nothing until you point at its row, and
+   every other row recedes to secondary grey while you do. Both halves are
+   expressible in CSS, so no JS runs on hover here. */
+.st-case-thumb {
+  display: block;
+  width: 0;
+  height: 0;
+  flex: none;
+  border-radius: var(--st-r-12);
+  overflow: hidden;
+  transition:
+    width 400ms var(--st-ease-in-out-quad),
+    height 400ms var(--st-ease-in-out-quad);
+}
+.st-case-thumb img { display: block; width: 120px; height: 80px; object-fit: cover; }
+@media (hover: hover) and (pointer: fine) {
+  .st-case-row:hover .st-case-thumb { width: 120px; height: 80px; }
+  /* Siblings only: the hovered row wins because its own rule comes after. */
+  .st-case-list:hover .st-case-row { color: var(--st-text-secondary); }
+  .st-case-list .st-case-row:hover { color: var(--st-white); }
+}
+/* Touch has no hover, so the thumbnails would never open. Show them outright
+   rather than shipping a row with a permanently collapsed image in it. */
+@media not all and (hover: hover) {
+  .st-case-thumb { width: 120px; height: 80px; }
+}
+
+.st-case-row { color: var(--st-white); transition: color 300ms ease; }
+.st-case-name { color: inherit; }
+.st-case-name a {
+  color: inherit;
+  text-decoration: none;
+  background-image: linear-gradient(var(--st-brand), var(--st-brand));
+  background-size: 0 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size var(--st-dur) var(--st-ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .st-case-name a:hover { background-size: 100% 1px; }
+}
+.st-case-industry { margin-bottom: var(--st-gap-8); color: inherit; opacity: 0.55; }
+
+.st-case-right { width: 100%; max-width: 380px; flex: none; }
+.st-case-result { margin: 0; color: inherit; opacity: 0.72; }
+
+/* ============================================================================
+   Delivery model — a hairline register on white
+   ========================================================================= */
+.st-stage-rail {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: var(--st-pad-2x) var(--st-pad-1x);
+  margin-top: var(--st-pad-4x);
+}
+/* The rule belongs to each stage, not to the rail: countries run four stages
+   or five, and a single rule across the top leaves a wrapped fifth stage
+   without one. */
+.st-stage {
+  padding-top: var(--st-pad-2x);
+  padding-inline-end: var(--st-pad-1x);
+  border-top: 1px solid var(--st-border);
+}
+.st-stage-number {
+  font-size: var(--st-h4-size);
+  line-height: 1;
+  font-weight: var(--st-medium);
+  color: var(--st-brand);
+}
+.st-stage-title { margin-top: var(--st-gap-20); }
+.st-stage-copy { margin-top: var(--st-gap-8); color: var(--st-text-secondary); }

@@ -4,24 +4,67 @@
     "id": 50,
     "slug": "meow-aesthetics",
     "title": "Meow Aesthetics",
-    "category": "Custom Dev",
-    "description": "A beauty and lifestyle website for Meow Aesthetics — a multi-location Singapore salon offering gel nails, lash extensions, facials, slimming, IPL treatments, and more, alongside sister brand Meow Luxury's jewellery and apparel.",
-    "overview": null,
+    "category": "Le Meow",
+    "description": "A beauty and lifestyle website for Meow Aesthetics — a multi-location Singapore salon offering gel nails, lash extensions, facials, slimming, IPL treatments, and sister brand Meow Luxury.",
+    "overview": "Meow Aesthetics is Singapore's modern beauty collective operating across multiple prime locations. Offering customized gel nail artistry, lash extensions, advanced facial aesthetics, cryo slimming, and pain-free IPL treatments, the web portal serves as a unified digital boutique seamlessly integrating online booking with sister brand Meow Luxury's curated collections.",
     "tech": [
       "Next.js",
-      "Laravel"
+      "Laravel",
+      "Tailwind CSS"
     ],
     "highlights": [
-      "Full service showcase — nails, lashes, facials, slimming & IPL",
-      "Integrated pricelist for transparent, upfront pricing",
-      "Sister brand Meow Luxury — jewellery and luxury apparel",
-      "FAQ and T&C section for client confidence",
-      "Multiple location listings with operating hours"
+      "Comprehensive beauty menu covering nails, lash lifts, facials, targeted slimming, and IPL",
+      "Transparent digital pricelist and customizable beauty package bundles",
+      "Multi-branch studio locator with direct instant WhatsApp consultation channels",
+      "Integrated showcase and cross-promotion with sister brand Meow Luxury"
     ],
-    "hasImages": false,
-    "imagesCount": 0,
-    "images": [],
-    "liveUrl": "https://saurabhinfosys.com/portfolio/meow-aesthetics"
+    "hasImages": true,
+    "imagesCount": 4,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/placeholder-05.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-05.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      },
+      {
+        "index": 2,
+        "role": "banner",
+        "label": "Panoramic Hero Banner",
+        "url": "/images/work/placeholder-01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-01.webp",
+        "aspectRatio": "1920:900",
+        "width": 1920,
+        "height": 900
+      },
+      {
+        "index": 3,
+        "role": "gallery",
+        "label": "Gallery Detail 1",
+        "url": "/images/work/placeholder-02.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-02.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      },
+      {
+        "index": 4,
+        "role": "gallery",
+        "label": "Gallery Detail 2",
+        "url": "/images/work/placeholder-03.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-03.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/meow-aesthetics",
+    "client": "Meow Aesthetics",
+    "year": "2025"
   },
   "navigation": {
     "prev": {

@@ -27,29 +27,22 @@ type Props = {
   steps: Step[];
 };
 
-/* The window in which the card row is actually pinned.
- *
- * `useScrollProgress` measures 0 from the moment the 300vh wrapper's top
- * reaches the bottom of the viewport, so the span it covers is 400vh. The row
- * only pins once the wrapper's top reaches the top of the screen — 100vh
- * later, at 0.25 — and unpins 200vh after that, at 0.75. Anything scheduled
- * outside that window animates while the row is off-screen or sliding away.
- *
- * That is what the original 20/40/60/80 schedule did: the first card finished
- * before the row was pinned at all, and the last was still travelling as the
- * row unpinned, which is why it was cut off at the bottom of the slab. These
- * bounds keep every card's travel inside the pin and leave a hold at the end
- * where all of them sit still, centred and whole. */
-const PIN_START = 0.27;
-const PIN_END = 0.64;
+/* The pin's own geometry, matching `.st-process-card-wrapper` in CSS. */
+const STICKY_TOP = 50;
+/* Where a card waits before its turn. The reference parks every one of them at
+   `translate3d(0, 75vh, 0)` and brings them home one after another — in a live
+   DOM snapshot card 1 sits mid-flight at 11.56vh while cards 2, 3 and 4 all
+   still read exactly 75vh. */
+const PARK_VH = 75;
+/* A tail of the pin where every card sits still, so the last one is settled and
+   readable before the row releases rather than arriving as it slides away. */
+const HOLD = 0.12;
+/* How much of the sequence runs before the pin engages, in card slots. At two,
+   the first card starts rising at the moment the row's top edge appears, so the
+   clipped row is never on screen empty. Higher pre-reveals card one on tall
+   viewports; lower leaves a visible gap on short ones. */
+const RUNWAY = 2;
 
-/**
- * The dark method slab. The card row is pinned inside a 300vh wrapper and the
- * cards rise **one at a time** as the page scrolls past it — IX2 `a-105`
- * parks every card at `translateY(75vh)` at 0% progress and brings them home
- * one after another. Below 992px the pin is dropped and the cards just stack,
- * so the offsets are cleared there.
- */
 export default function ProcessSection({
   eyebrow = "Our method",
   heading,
@@ -57,21 +50,45 @@ export default function ProcessSection({
   steps,
 }: Props) {
   const cards = useRef<(HTMLDivElement | null)[]>([]);
-
-  const slot = (PIN_END - PIN_START) / Math.max(1, steps.length);
+  const row = useRef<HTMLDivElement | null>(null);
 
   const ref = useScrollProgress<HTMLDivElement>((progress) => {
     const pinned = window.matchMedia("(min-width: 992px)").matches;
+    if (!pinned || !row.current) {
+      for (const card of cards.current) if (card) card.style.transform = "";
+      return;
+    }
+
+    /* Read the pin window off the live boxes rather than hard-coding it.
+       Progress spans `track + viewport`, so the row pins once the track's top
+       reaches `STICKY_TOP` and releases when the track's bottom gets there.
+       Fixed guesses drifted with viewport height and left a dead stretch of
+       scroll where nothing moved at all. */
+    const vh = window.innerHeight || document.documentElement.clientHeight;
+    const track = row.current.parentElement?.offsetHeight ?? 0;
+    const rowHeight = row.current.offsetHeight;
+    const span = track + vh;
+    if (span <= 0) return;
+
+    const start = (vh - STICKY_TOP) / span;
+    const end = (vh + track - STICKY_TOP - rowHeight) / span;
+    const pin = Math.max(0.0001, end - start);
+
+    /* The sequence opens `RUNWAY` slots *before* the pin engages, not on it.
+       Starting it on the pin meant the row spent its whole approach — about a
+       viewport of scrolling — as a clipped, empty box: the heading sat on
+       screen with nothing but black beneath it, and you had to scroll past it
+       before the first card appeared at all. */
+    const seqStart = start - (pin * RUNWAY) / Math.max(1, steps.length);
+    const seqEnd = end - pin * HOLD;
+    const slot = (seqEnd - seqStart) / Math.max(1, steps.length);
+
     cards.current.forEach((card, index) => {
       if (!card) return;
-      if (!pinned) {
-        card.style.transform = "";
-        return;
-      }
-      // Each card gets an equal slice of the pinned window, in order.
-      const from = PIN_START + index * slot;
+      // Each card gets an equal slice, in order.
+      const from = seqStart + index * slot;
       const t = segment(progress, from, from + slot);
-      card.style.transform = `translateY(${lerp(75, 0, t).toFixed(2)}vh)`;
+      card.style.transform = `translate3d(0, ${lerp(PARK_VH, 0, t).toFixed(2)}vh, 0)`;
     });
   });
 
@@ -98,7 +115,7 @@ export default function ProcessSection({
           </div>
 
           <div className="st-process-sticky" ref={ref}>
-            <div className="st-process-card-wrapper">
+            <div className="st-process-card-wrapper" ref={row}>
               {steps.map((step, index) => {
                 const Glyph = GLYPHS[index % GLYPHS.length];
                 return (
@@ -109,7 +126,7 @@ export default function ProcessSection({
                       cards.current[index] = node;
                     }}
                   >
-                    <div className="st-process-card-head st-text-m">
+                    <div className="st-process-card-head st-text-l">
                       <span className="st-process-card-label">
                         {step.label ?? `Step ${index + 1}`}
                       </span>

@@ -4,25 +4,67 @@
     "id": 49,
     "slug": "meowcademy",
     "title": "Meowcademy",
-    "category": "Custom Dev",
+    "category": "Le Meow",
     "description": "A modern tuition centre website for Meowcademy — a Singapore-based small group learning platform offering affordable, high-quality education for children aged 6 to 16 across all levels and subjects.",
-    "overview": null,
+    "overview": "Meowcademy is a vibrant learning academy based in Singapore delivering small-group academic tuition and STEM enrichment for primary and secondary students. Built around interactive pedagogy and personalized attention, the platform showcases MOE-aligned curriculum modules, robotics programmes, and seamless class enrolment.",
     "tech": [
       "Next.js",
-      "Laravel"
+      "Laravel",
+      "Tailwind CSS"
     ],
     "highlights": [
-      "Course listings across Pre-K, Primary, and Secondary levels",
-      "Trial offer showcase — 4 lessons with no registration fee",
-      "Flexible payment plans via Atome, GrabPay, and bank instalments",
-      "Robotics and LEGO Spike Prime programme highlight",
-      "Student and parent testimonials",
-      "Multiple location listings and easy contact/enquiry flow"
+      "MOE syllabus curriculum directory across Primary and Secondary mathematics, science, and languages",
+      "Trial class booking system offering 4 introductory lessons with zero registration charges",
+      "Flexible digital instalment plans via Atome, GrabPay, and direct bank financing",
+      "Hands-on LEGO Spike Prime robotics and coding enrichment course highlights"
     ],
-    "hasImages": false,
-    "imagesCount": 0,
-    "images": [],
-    "liveUrl": "https://saurabhinfosys.com/portfolio/meowcademy"
+    "hasImages": true,
+    "imagesCount": 4,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/placeholder-01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      },
+      {
+        "index": 2,
+        "role": "banner",
+        "label": "Panoramic Hero Banner",
+        "url": "/images/work/placeholder-03.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-03.webp",
+        "aspectRatio": "1920:900",
+        "width": 1920,
+        "height": 900
+      },
+      {
+        "index": 3,
+        "role": "gallery",
+        "label": "Gallery Detail 1",
+        "url": "/images/work/placeholder-04.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-04.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      },
+      {
+        "index": 4,
+        "role": "gallery",
+        "label": "Gallery Detail 2",
+        "url": "/images/work/placeholder-02.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-02.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/meowcademy",
+    "client": "Meowcademy",
+    "year": "2025"
   },
   "navigation": {
     "prev": {

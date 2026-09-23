@@ -13,6 +13,11 @@ import { SERVICES } from "@/lib/data";
    third, so the preview card jumped from 366px to 481px between rows and the
    longest one pushed the last card out of the slab. */
 const BLURB: Record<string, string> = {
+  "ai-automation-services": "WhatsApp bots, AI voice agents and custom workflows that run 24/7.",
+  "app-development": "Flutter mobile apps and launch-ready MVPs shipped in 2 to 4 weeks.",
+  "integration-services": "Two-way CRM, accounting and API integrations eliminating manual data entry.",
+  "hire-developers": "Dedicated AI and Flutter engineers working on your schedule and timezone.",
+  "white-label-software": "Turnkey school, property, fleet and marketing SaaS platforms under your brand.",
   "ai-agents": "WhatsApp bots, RAG systems and voice agents that run your workflows 24/7.",
   "vibe-coding": "AI-accelerated builds. A production-ready MVP in your hands in two weeks.",
   flutter: "One codebase, iOS and Android. Live on both stores, built to stay maintainable.",

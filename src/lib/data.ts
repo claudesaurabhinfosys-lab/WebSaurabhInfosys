@@ -18,144 +18,196 @@ export const COMPANY = {
 
 export const SERVICES = [
   {
-    slug: "ai-agents",
-    title: "AI Automation Services",
+    slug: "ai-automation-services",
+    blurb: "Agents, chatbots and voice bots wired into the tools you already run.",
+    title: "AI Automation & Agents",
     shortTitle: "AI Automation",
     icon: "🤖",
     description:
-      "Agentic AI & GenAI services — LLM development, ChatGPT integration, WhatsApp bots, RAG systems, voice agents, AI process automation, and enterprise AI integration into your existing business software. Real business impact, delivered in weeks.",
+      "Custom AI agents, chatbots, voice agents and workflow automation integrated with HubSpot, Salesforce, Slack, WhatsApp and more. Book a free automation audit.",
     features: [
-      "Agentic AI & GenAI Development",
-      "WhatsApp Business Automation",
-      "AI Integration into Existing Systems",
-      "RAG Knowledge Bases",
-      "Voice Agents (Hindi/English)",
-      "CRM & API AI Integration",
+      "Custom AI Agents & Chatbots",
+      "AI Voice Agents for Inbound & Outbound Calls",
+      "Document & Invoice Processing Automation",
+      "Workflow Automation (Zapier, Make, n8n)",
+      "Private AI Knowledge Assistants",
+      "AI Sales Outreach & Lead Qualification",
     ],
     heroDesc:
-      "We deliver AI automation, AI process automation, multi-agent AI systems, Agentic AI, and GenAI services for Indian businesses — from ChatGPT integration and enterprise AI integration to conversational AI and AI voice agents, we automate workflows and build intelligent automation solutions that run 24/7.",
+      "We design and build custom AI agents that qualify leads, answer customer questions, process documents, and run your business workflows around the clock, connected to the tools you already run on.",
     useCases: [
-      { title: "Agentic AI & Automation", desc: "Automate customer support, lead qualification, and repetitive workflows via AI agents." },
-      { title: "AI Integration", desc: "Integrate GPT-4o, RAG, and GenAI into your existing CRM, ERP, or business software." },
-      { title: "Voice Agents", desc: "AI phone agents that handle inbound calls in Hindi and English." },
+      { title: "AI Chatbots (Web & WhatsApp)", desc: "Answer questions, qualify leads, book meetings, and sync conversations to CRM 24/7." },
+      { title: "AI Voice Agents", desc: "Natural-sounding voice agents handling inbound calls, qualifying leads, and booking appointments." },
+      { title: "Document Processing", desc: "Extract data from invoices, POs, and receipts straight into QuickBooks, Xero, or databases." },
+      { title: "End-to-End Workflow Automation", desc: "Automate lead routing, onboarding, fulfillment, and approvals across Zapier, Make, and n8n." },
     ],
   },
   {
-    slug: "vibe-coding",
-    title: "Vibe Coding / AI-Enabled Apps",
-    shortTitle: "Vibe Coding",
-    icon: "⚡",
-    description:
-      "India's leading vibe coding studio. Ship AI-native, AI-enabled apps and production-ready MVPs in 2 weeks, not 2 months.",
-    features: [
-      "2-Week AI-Enabled App Delivery",
-      "Built-in AI Features (Chat, Recommendations)",
-      "Next.js / React / Flutter",
-      "Supabase / Firebase Backend",
-      "Payment Integration",
-      "Admin Dashboard Included",
-    ],
-    heroDesc:
-      "Using vibe coding and AI-accelerated development, we build AI-enabled apps and MVPs in 2 weeks at a fraction of traditional cost. Validate your idea fast.",
-    useCases: [
-      { title: "AI-Enabled Apps", desc: "Apps with built-in AI — smart search, chatbots, recommendations, and automation." },
-      { title: "Startup MVPs", desc: "Validate your idea with a production-ready app in 2 weeks." },
-      { title: "Internal Tools", desc: "Replace spreadsheets with AI-powered dashboards and automation." },
-    ],
-  },
-  {
-    slug: "flutter",
-    title: "Flutter Mobile Apps",
-    shortTitle: "Flutter Apps",
+    slug: "app-development",
+    blurb: "Flutter apps and launch-ready MVPs, fixed price, fixed date.",
+    title: "App & MVP Development",
+    shortTitle: "App Development",
     icon: "📱",
     description:
-      "Cross-platform iOS & Android apps with a single codebase. Live on Play Store & App Store.",
+      "Hire an experienced Flutter and SaaS development team. Launch-ready MVPs in 2 to 4 weeks, plus fixes and scaling for apps built with AI coding tools.",
     features: [
-      "iOS + Android from One Codebase",
-      "Play Store & App Store Deployment",
-      "Firebase / REST API Backend",
-      "Push Notifications",
-      "Offline-First Architecture",
-      "App Store Optimization",
+      "Cross-Platform Flutter Mobile Apps (iOS & Android)",
+      "Launch-Ready MVPs in 2 to 4 Weeks",
+      "AI-Built App Rescue (Lovable, Bolt, Replit, Cursor)",
+      "Multi-Tenant SaaS Platform Development",
+      "Stripe Subscriptions & Payment Integrations",
+      "Clean Architecture with 100% Code & IP Ownership",
     ],
     heroDesc:
-      "We've shipped Flutter apps used by 30,000+ customers across 20 countries. From fitness apps to dental lab management — we build it right.",
+      "We build high-performance iOS and Android apps from a single Flutter codebase, ship launch-ready MVPs in 2 to 4 weeks at fixed pricing, and rescue apps built with AI coding tools so they scale cleanly with real users.",
     useCases: [
-      { title: "Consumer Apps", desc: "B2C apps with beautiful UI and seamless UX for iOS and Android." },
-      { title: "Business Apps", desc: "Field staff, delivery, or client-facing apps with real-time data." },
-      { title: "App Revamps", desc: "Migrate your legacy native app to a modern Flutter codebase." },
+      { title: "Flutter Mobile Apps", desc: "High-performance iOS and Android apps from a single codebase with Firebase, Stripe, and native feel." },
+      { title: "MVP Sprints in 2–4 Weeks", desc: "From idea to a working, launch-ready MVP in weeks at a fixed price to validate with real users." },
+      { title: "AI-Built App Rescue", desc: "Audit, bug fixes, security hardening, and restructuring for apps built with Lovable, Bolt, Replit, or Cursor." },
+      { title: "Multi-Tenant SaaS Platforms", desc: "SaaS platforms with Stripe billing, role-based access, admin dashboards, and AI capabilities." },
     ],
   },
   {
-    slug: "gps",
-    title: "GPS & Fleet Management",
-    shortTitle: "GPS & Fleet",
-    icon: "🗺️",
+    slug: "integration-services",
+    blurb: "Your CRM, accounting and storefront kept in sync without anyone re-typing.",
+    title: "System Integration",
+    shortTitle: "System Integration",
+    icon: "⚡",
     description:
-      "Real-time vehicle tracking, route optimization, and fleet analytics for logistics businesses.",
+      "Connect HubSpot, Salesforce, QuickBooks, Xero, Shopify, Slack, Twilio and more. Custom API integrations that eliminate manual data entry between systems.",
     features: [
-      "Real-Time GPS Tracking",
-      "Live Map Dashboard",
-      "Driver Behaviour Analytics",
-      "Route Optimization",
-      "Fuel & Maintenance Logs",
-      "Alerts & Notifications",
+      "Two-Way CRM Integration (HubSpot, Salesforce, Pipedrive)",
+      "Accounting Integration (QuickBooks, Xero, Sage, MYOB)",
+      "E-Commerce Automation (Shopify, WooCommerce, Stripe)",
+      "Communication APIs (Slack, Teams, Twilio, WhatsApp)",
+      "Custom REST & GraphQL API Development",
+      "Automated Data Sync & Error Logging",
     ],
     heroDesc:
-      "Custom GPS and fleet management systems built for logistics companies, transport operators, and delivery fleets.",
+      "Most growing businesses run on a dozen tools that do not talk to each other. We build integrations that keep your data in sync automatically, so nobody has to copy and paste between apps again.",
     useCases: [
-      { title: "Transport Companies", desc: "Track your entire fleet live and reduce fuel costs with route optimization." },
-      { title: "Delivery Fleets", desc: "Monitor last-mile deliveries and share live tracking links with customers." },
-      { title: "School Transport", desc: "Parent-facing apps with live bus tracking and arrival notifications." },
+      { title: "CRM Sync", desc: "Two-way sync between your CRM, website forms, billing tools, and customer support desks." },
+      { title: "Accounting Automation", desc: "Automate invoice creation, payment reconciliation, and ledger syncing with QuickBooks or Xero." },
+      { title: "E-Commerce Pipeline", desc: "Connect storefronts with inventory, fulfillment, logistics, and messaging alerts." },
+      { title: "Custom Backends & APIs", desc: "Secure, well-documented APIs built in Laravel, Node.js, or Python connecting legacy systems." },
     ],
   },
   {
-    slug: "saas",
-    title: "SaaS Platform Development",
-    shortTitle: "SaaS Dev",
+    slug: "hire-developers",
+    blurb: "Senior engineers who join your standups and ship on your roadmap.",
+    title: "Dedicated AI & Dev Teams",
+    shortTitle: "Hire Developers",
+    icon: "👥",
+    description:
+      "Hire dedicated AI engineers, Flutter developers and full-stack engineers who work as an extension of your team on your schedule with flexible monthly terms.",
+    features: [
+      "Dedicated AI & Automation Engineers (LLMs, RAG, Agents)",
+      "Senior Flutter Mobile App Developers",
+      "Full-Stack Web Developers (React, Next.js, Node, Laravel)",
+      "Working Hours Overlapping US, UK & Australian Timezones",
+      "Direct Communication via Slack, Teams & Daily Standups",
+      "2-Week Trial Period & No Long-Term Lock-In",
+    ],
+    heroDesc:
+      "Scale your development capacity without the delay, overhead, and cost of local hiring. Our engineers integrate into your team, use your tools, attend your standups, and ship on your roadmap.",
+    useCases: [
+      { title: "AI & Automation Engineers", desc: "Engineers specialized in LLM integration, agentic workflows, RAG systems, and custom bot logic." },
+      { title: "Flutter Developers", desc: "Mobile specialists who build, optimize, and maintain iOS and Android applications." },
+      { title: "Full-Stack Developers", desc: "Engineers experienced in React, Next.js, Laravel, Node.js, Python, and PostgreSQL." },
+    ],
+  },
+  {
+    slug: "white-label-software",
+    blurb: "Proven platforms rebranded as yours, hosting and updates included.",
+    title: "White-Label Software",
+    shortTitle: "White-Label Software",
     icon: "☁️",
     description:
-      "End-to-end SaaS platforms with multi-tenancy, billing, and admin dashboards — we built 3 of our own.",
+      "License and rebrand ready-made school management, community management, fleet tracking and marketing automation software under your own brand.",
     features: [
-      "Multi-Tenant Architecture",
-      "Subscription Billing (Razorpay/Stripe)",
-      "Role-Based Access Control",
-      "Admin Super Dashboard",
-      "API-First Design",
-      "Scalable Cloud Infrastructure",
+      "School Management Platform (SSMS - 20+ Modules)",
+      "Community & Property Management Platform (MySociety)",
+      "Marketing Automation Platform (MySampark - Auto DM & Multi-Channel)",
+      "GPS Fleet Tracking & Telematics (Traqo)",
+      "Custom Domain & Branding Deployment",
+      "We Handle Hosting, Cloud Infra, Security & Updates",
     ],
     heroDesc:
-      "We don't just build SaaS — we run our own. SSMS, MySociety, and MySampark are live products we built and operate, giving us real-world SaaS expertise.",
+      "Launch a proven software product without the risk and expense of building from scratch. License our battle-tested platforms, apply your brand, and sell them directly to your clients while we manage the technology.",
     useCases: [
-      { title: "Vertical SaaS", desc: "Industry-specific SaaS for education, real estate, healthcare, and more." },
-      { title: "Marketplace Platforms", desc: "Multi-vendor platforms with seller dashboards and buyer apps." },
-      { title: "Internal SaaS", desc: "White-label platforms for enterprises with custom branding." },
-    ],
-  },
-  {
-    slug: "digital-marketing",
-    title: "Digital Marketing Tools",
-    shortTitle: "Marketing Tech",
-    icon: "📣",
-    description:
-      "Bulk WhatsApp, SMS, and email marketing tools. We built MySampark — our own marketing SaaS.",
-    features: [
-      "Bulk WhatsApp Campaigns",
-      "SMS Marketing Automation",
-      "Email Campaign Builder",
-      "Contact List Management",
-      "Campaign Analytics",
-      "API Access for Developers",
-    ],
-    heroDesc:
-      "Built on our own MySampark platform, we create digital marketing tools that help SMBs reach thousands of customers at minimal cost.",
-    useCases: [
-      { title: "SMB Campaigns", desc: "Reach your customer base via WhatsApp, SMS, and email in bulk." },
-      { title: "Reseller Platforms", desc: "White-label marketing platforms for digital marketing agencies." },
-      { title: "Integrations", desc: "Connect your CRM or e-commerce store to automated campaigns." },
+      { title: "School Management ERP", desc: "Full-featured ERP with admissions, attendance, fees, exams, and parent portals." },
+      { title: "Property & Community SaaS", desc: "Resident billing, online payments, visitor check-in, and amenity booking." },
+      { title: "Marketing Automation SaaS", desc: "Automated social DMs, scheduled campaigns, AI content generation, and unified inboxes." },
+      { title: "GPS Fleet Tracking", desc: "Real-time vehicle tracking, geofencing, route history, fuel logs, and telemetry alerts." },
     ],
   },
 ];
+
+export const SERVICES_HUB = {
+  meta: {
+    title: "AI Automation Agency & Software Studio | Saurabh Infosys",
+    description:
+      "AI agents, workflow automation, Flutter apps and MVPs for businesses in the USA, UK, Australia and Singapore. 50+ projects delivered, 4.9★ on Clutch.",
+    keywords: [
+      "AI automation agency",
+      "offshore software development",
+      "Flutter app development company",
+      "custom AI agents",
+      "workflow automation agency",
+      "SaaS MVP development",
+      "hire offshore developers",
+    ],
+  },
+  hero: {
+    title: "AI Automation and Software Development for Growing Businesses Worldwide",
+    intro:
+      "An AI-first studio for teams in the USA, UK, Australia and Singapore. 50+ projects delivered, 4.9★ on Clutch.",
+    cta: "Book a free audit",
+  },
+  whyWorkWithUs: [
+    {
+      title: "Agency quality at offshore cost",
+      desc: "Senior engineering and design, without local agency rates.",
+    },
+    {
+      title: "Overlap with your working day",
+      desc: "Hours that overlap US, UK and Australian business time.",
+    },
+    {
+      title: "You own everything",
+      desc: "Full source and IP on delivery. NDA before we start.",
+    },
+    {
+      title: "Clear communication",
+      desc: "Weekly demos, a shared board, direct Slack or Teams access.",
+    },
+    {
+      title: "Proven track record",
+      desc: "4.9★ on Clutch across 50+ delivered projects.",
+    },
+  ],
+  faqs: [
+    {
+      question: "How do you work with clients in different time zones?",
+      answer:
+        "We schedule overlapping hours with your team for calls and reviews, and share updates daily through Slack, Teams or your project tool.",
+    },
+    {
+      question: "Who owns the code and IP?",
+      answer:
+        "You do. All source code, designs and intellectual property transfer to you, and we sign an NDA before any project discussion.",
+    },
+    {
+      question: "How is pricing structured?",
+      answer:
+        "Projects are priced at a fixed cost per milestone in your currency (USD, GBP, AUD, SGD). Ongoing automation support and dedicated developers are billed monthly.",
+    },
+    {
+      question: "How quickly can we start?",
+      answer: "Most projects start within 1 to 2 weeks of scope sign-off.",
+    },
+  ],
+};
 
 /** The four stages every engagement runs through, whatever the service. */
 export const SERVICE_PROCESS = [
@@ -191,250 +243,197 @@ export type ServiceDetail = {
 };
 
 export const SERVICE_DETAILS: Record<string, ServiceDetail> = {
-  "ai-agents": {
+  "ai-automation-services": {
     overview: [
-      "AI automation is about putting the repetitive parts of your operation — answering the same questions, qualifying the same leads, moving the same data between systems — onto agents that run without anyone watching them.",
-      "We build the agent, connect it to the tools you already run, and hand over something your team can operate: WhatsApp bots, RAG knowledge bases, voice agents in Hindi and English, and GPT integrations into your existing CRM or ERP.",
+      "Your team loses hours every week to work a machine could handle: answering repeat questions, updating the CRM, chasing invoices, and copying data between systems.",
+      "We design and build custom AI agents that take this work off their plate reliably and securely, connected to the tools you already run on: HubSpot, Salesforce, Slack, WhatsApp, Xero and custom APIs.",
     ],
-    note: "Most agents go live in 2–3 weeks. Simple WhatsApp bots ship in under a week.",
+    note: "Live in 2–3 weeks. Start with a free automation audit.",
     faqs: [
       {
         q: "What AI automation services does Saurabh Infosys offer?",
-        a: "We build WhatsApp automation bots, RAG knowledge base systems, voice agents, lead qualification bots, and custom AI workflows that automate your business operations 24/7.",
+        a: "We build custom AI chatbots for websites and WhatsApp, voice agents for phone calls, document and invoice extraction pipelines, and end-to-end workflow automations across Zapier, Make, n8n and custom APIs.",
       },
       {
-        q: "Can you integrate AI into my existing software or CRM?",
-        a: "Yes. We specialise in AI integration — connecting GPT-4o, LangChain, and custom AI models to your existing CRM, ERP, WhatsApp, or any business tool via APIs.",
+        q: "Can you connect AI agents to our existing CRM and software?",
+        a: "Yes. We integrate AI agents directly into HubSpot, Salesforce, Pipedrive, Slack, WhatsApp Business API, QuickBooks, Xero, and custom databases via secure REST APIs and webhooks.",
       },
       {
-        q: "How long does it take to build and deploy an AI agent?",
-        a: "Most AI agents go live within 2–3 weeks. Simple WhatsApp bots can be ready in under a week. Complex RAG systems or voice agents typically take 3–4 weeks.",
+        q: "How long does an AI automation project take to deploy?",
+        a: "Most AI agents and workflow automations go live in 2 to 3 weeks, including rigorous prompt testing, data security verification, documentation, and staff training.",
       },
       {
-        q: "What is the cost of AI automation services in India?",
-        a: "AI automation projects start from ₹50,000 depending on complexity. WhatsApp bots, CRM integrations, and RAG systems are priced based on scope. Contact us on WhatsApp for a free quote.",
+        q: "How is pricing structured?",
+        a: "Projects are priced at a fixed cost per milestone in your currency (USD, GBP, AUD, EUR, or SGD). Ongoing support and maintenance are available on flexible monthly retainers.",
       },
     ],
     seo: {
-      title: "AI Automation & AI Integration Services India | Saurabh Infosys",
+      title: "AI Automation Services & Custom AI Agents | Saurabh Infosys",
       description:
-        "Top AI automation & AI integration company in India. Build WhatsApp bots, RAG systems, voice agents & integrate AI into your existing software. 80+ clients, 4.9★ Clutch. Ahmedabad.",
+        "Custom AI agents, chatbots, voice agents and workflow automation integrated with HubSpot, Salesforce, Slack and more. Book a free automation audit.",
       keywords: [
-        "AI automation services India",
-        "AI integration services India",
-        "AI automation company Ahmedabad",
-        "WhatsApp bot development India",
-        "RAG knowledge base India",
-        "voice agent development India",
-        "ChatGPT integration India",
-        "AI chatbot development India",
+        "AI automation services",
+        "AI agent development company",
+        "custom AI chatbot development",
+        "AI voice agents",
+        "workflow automation agency",
+        "Zapier integration developer",
+        "n8n automation",
       ],
     },
   },
 
-  "vibe-coding": {
+  "app-development": {
     overview: [
-      "Vibe coding is AI-accelerated development: the AI does the heavy lifting on scaffolding, UI and boilerplate, and our engineers spend their time on the decisions that actually determine whether the product works.",
-      "The result is a production-ready MVP in two weeks rather than two months — auth, payments, an admin dashboard and the full source code, all yours at handover.",
+      "Whether you are building a consumer mobile app, launching a SaaS startup, or trying to fix an app generated with AI tools, we provide senior engineering without the local agency price tag.",
+      "We have shipped Flutter apps and SaaS platforms for clients across the USA, UK, Australia, and Singapore, with 100% source code and intellectual property ownership transferred to you.",
     ],
-    note: "MVPs from ₹75,000, delivered in 14 days with full source code.",
+    note: "Launch-ready MVPs in 2–4 weeks at fixed pricing. Full source code handover.",
     faqs: [
       {
-        q: "What is vibe coding?",
-        a: "Vibe coding is an AI-accelerated software development approach where AI tools do heavy lifting — writing code, generating UI, and scaffolding backends — allowing developers to ship 5–10x faster. Saurabh Infosys uses vibe coding to deliver production-ready MVPs in just 2 weeks.",
+        q: "Why choose Flutter for mobile app development?",
+        a: "Flutter allows us to ship high-performance iOS and Android apps from a single codebase, cutting development time and ongoing maintenance costs in half without compromising native performance.",
       },
       {
-        q: "How much does MVP development cost in India?",
-        a: "Our MVP development starts from ₹75,000 and includes a fully production-ready app, admin dashboard, payment integration, and full source code — delivered in 14 days.",
+        q: "What is AI-Built App Rescue?",
+        a: "If you built an MVP with AI tools like Lovable, Bolt, Replit, or Cursor and hit walls with bugs, slowness, or security gaps, our senior engineers audit the code, fix core issues, and refactor it into clean, scalable software.",
       },
       {
-        q: "What are AI-enabled apps?",
-        a: "AI-enabled apps are mobile or web applications with built-in AI features — smart search, AI chatbots, personalised recommendations, automation, or document processing. We build AI-enabled apps for startups and enterprises across India, UK, USA and the Gulf.",
+        q: "Who owns the source code and IP?",
+        a: "You own everything. All intellectual property, design assets, and source code transfer to you in full upon delivery, protected by an NDA before kickoff.",
       },
       {
-        q: "How fast can you build an AI-enabled app?",
-        a: "Using vibe coding and AI-accelerated development, we can ship a basic AI-enabled app in 2 weeks. Apps with advanced AI features like RAG, voice, or custom models typically take 3–5 weeks.",
+        q: "How fast can you build and launch an MVP?",
+        a: "Our AI-accelerated MVP sprints take you from idea to a working, launch-ready application in 2 to 4 weeks at fixed pricing, complete with auth, payments, and admin dashboards.",
       },
     ],
     seo: {
-      title: "Vibe Coding & AI-Enabled App Development India | ₹75,000 | Saurabh Infosys",
+      title: "Offshore Flutter App Development & MVP Development Company",
       description:
-        "India's #1 vibe coding studio — ship AI-enabled apps & MVPs in 2 weeks from ₹75,000. AI-accelerated development using latest AI tools. Trusted by startups across India, UK & USA.",
+        "Hire an experienced Flutter and SaaS development team. Launch-ready MVPs in 2 to 4 weeks, plus fixes for apps built with AI coding tools. Fixed pricing.",
       keywords: [
-        "vibe coding India",
-        "AI enabled app development India",
-        "MVP development India",
-        "rapid MVP development India",
-        "AI-accelerated development",
-        "build MVP 2 weeks",
-        "startup MVP India",
-        "AI app development Ahmedabad",
-      ],
-    },
-  },
-
-  flutter: {
-    overview: [
-      "One Flutter codebase gives you iOS and Android without running two teams, two backlogs and two release cycles — which is why the apps we have shipped this way reach 30,000+ users across 20 countries.",
-      "We take it the whole way: architecture, offline-first data, push notifications, the backend it talks to, and the store listings on both App Store and Play Store.",
-    ],
-    note: "From a first build to a store listing, or a rewrite of the native app you already have.",
-    faqs: [
-      {
-        q: "Why build with Flutter instead of native iOS and Android?",
-        a: "One Flutter codebase ships to both platforms, so you fund one team and one release cycle instead of two. For most business and consumer apps the performance is indistinguishable from native, and the saved budget goes into the product instead of into duplicated work.",
-      },
-      {
-        q: "Do you handle App Store and Play Store deployment?",
-        a: "Yes. We handle the full release: developer accounts, signing, store listings, screenshots, review submissions, and the updates after launch.",
-      },
-      {
-        q: "Can you take over an existing app?",
-        a: "Yes. We migrate legacy native apps to a single Flutter codebase, and we also pick up half-finished Flutter projects — we start by reading the code and telling you honestly what is salvageable.",
-      },
-      {
-        q: "Does the app work without a connection?",
-        a: "Where it should. We build offline-first where the use case needs it — data is cached locally and synced when the connection returns, so field staff and low-signal users are not blocked.",
-      },
-    ],
-    seo: {
-      title: "Flutter App Development Company India | iOS & Android | Saurabh Infosys",
-      description:
-        "Cross-platform iOS & Android Flutter apps by India's top Flutter developers. Trusted by 30K+ users globally. Deployed to App Store & Play Store. Ahmedabad, India.",
-      keywords: [
-        "Flutter app development India",
-        "Flutter developer Ahmedabad",
-        "iOS Android app development",
-        "cross-platform mobile app India",
-        "Flutter app company Gujarat",
-        "mobile app development India",
-        "hire Flutter developer India",
-      ],
-    },
-  },
-
-  gps: {
-    overview: [
-      "Fleet software earns its keep in the details: where every vehicle is right now, which driver is braking hard, which route burns fuel it does not need to, and when the next service is due.",
-      "We build that as one dashboard on live GPS data — geo-fence alerts to WhatsApp or SMS, driver scoring, route optimisation and maintenance logs — for transport operators, delivery fleets and school buses.",
-    ],
-    note: "Currently tracking 200+ vehicles in production, with real-time data and no downtime.",
-    faqs: [
-      {
-        q: "Which GPS hardware does the system work with?",
-        a: "We integrate with standard GPS trackers that report over GPRS or 4G, so you are not locked to one vendor. If you already have devices fitted, we work with those rather than asking you to replace the fleet.",
-      },
-      {
-        q: "How live is the tracking?",
-        a: "Positions stream continuously to a live map — no page refresh. Update frequency depends on the device and your data plan, and is typically a few seconds.",
-      },
-      {
-        q: "Can parents or customers see the tracking?",
-        a: "Yes. School transport gets a parent-facing view with arrival alerts, and delivery fleets can share a live tracking link with the end customer automatically.",
-      },
-      {
-        q: "How long does a fleet system take to build?",
-        a: "A working tracking dashboard is usually live in about 2 weeks. Analytics, driver scoring and maintenance modules are layered on after that, in the order they matter to you.",
-      },
-    ],
-    seo: {
-      title: "GPS Fleet Tracking & Management Software India | Saurabh Infosys",
-      description:
-        "Custom real-time GPS fleet tracking systems for logistics, transport & delivery companies. Live maps, driver behaviour analytics, route optimisation. Built in India.",
-      keywords: [
-        "GPS fleet management India",
-        "fleet tracking software India",
-        "vehicle tracking system",
-        "GPS tracking Ahmedabad",
-        "fleet management software Gujarat",
-        "real-time GPS tracking",
-        "logistics software India",
-        "transport management system India",
-      ],
-    },
-  },
-
-  saas: {
-    overview: [
-      "We run three SaaS products of our own, so the parts teams usually discover late — tenant isolation, billing edge cases, the admin tooling support actually needs — are things we have already been on the wrong side of.",
-      "That experience goes into what we build for you: multi-tenant architecture, subscription billing, role-based access, an admin dashboard, and an API-first core that does not need a rewrite when the second big customer arrives.",
-    ],
-    note: "We build what we operate — SSMS, MySociety and MySampark are all ours.",
-    faqs: [
-      {
-        q: "What does multi-tenant actually mean for my product?",
-        a: "Every customer's data is isolated from every other customer's while sharing one deployment. It is what lets you onboard the tenth client without standing up a tenth server — and it is far cheaper to build in at the start than to retrofit later.",
-      },
-      {
-        q: "Which payment and billing systems do you integrate?",
-        a: "Razorpay and Stripe are the usual choices depending on whether you are billing in India or internationally. We wire subscriptions, plan changes, failed-payment handling and invoicing, not just the checkout.",
-      },
-      {
-        q: "Do I own the code?",
-        a: "Yes. You get the full source, the infrastructure configuration, and a handover your own team can pick up. Nothing is locked to us.",
-      },
-      {
-        q: "Can you take a SaaS product that already exists and scale it?",
-        a: "Yes. We audit the current architecture first and tell you what is holding it back, then work through it in priority order rather than proposing a rewrite by default.",
-      },
-    ],
-    seo: {
-      title: "SaaS Platform Development Company India | Multi-Tenant | Saurabh Infosys",
-      description:
-        "We build multi-tenant SaaS platforms with subscription billing, RBAC & scalable cloud infra. We operate 3 live SaaS products ourselves — so we build what works.",
-      keywords: [
-        "SaaS development India",
-        "multi-tenant SaaS India",
+        "Flutter app development company",
+        "MVP development for startups",
+        "offshore app development",
+        "AI app rescue",
         "SaaS platform development",
-        "subscription billing software India",
-        "SaaS developer Ahmedabad",
-        "cloud software development India",
-        "B2B SaaS development",
+        "cross-platform app developers",
       ],
     },
   },
 
-  "digital-marketing": {
+  "integration-services": {
     overview: [
-      "Reaching your customer list should not cost more than the margin on the sale. We build the tooling that sends bulk WhatsApp, SMS and email at per-message rates, with the contact management and analytics around it.",
-      "It runs on MySampark, our own marketing platform — so the campaign builder, the delivery reporting and the developer API are software we operate daily rather than a stack we resell.",
+      "Most growing businesses run on a dozen tools that do not talk to each other. We build integrations that keep your data in sync automatically, so nobody has to copy and paste between apps again.",
+      "We connect your CRM, accounting, e-commerce and communication tools so data moves between them reliably, backed by automated error handling, webhooks, and custom APIs.",
     ],
-    note: "WhatsApp from ₹0.35, SMS from ₹0.12, email from ₹0.02 per message. No monthly fee.",
+    note: "Custom integrations deployed with automated error handling and live monitoring.",
     faqs: [
       {
-        q: "How much does bulk WhatsApp marketing cost?",
-        a: "Pricing is per message — WhatsApp from ₹0.35, SMS from ₹0.12 and email from ₹0.02 — with no monthly platform fee, so a campaign costs what you actually send.",
+        q: "Which tools and platforms can you integrate?",
+        a: "We integrate CRM tools (HubSpot, Salesforce, Pipedrive), accounting systems (QuickBooks, Xero, Sage, MYOB), e-commerce platforms (Shopify, WooCommerce), messaging apps (Slack, Teams, WhatsApp, Twilio), and custom internal databases.",
       },
       {
-        q: "Is this compliant with WhatsApp Business policy?",
-        a: "Campaigns run through the official WhatsApp Business API with approved message templates and opt-in handling. That is the difference between a channel that keeps working and a number that gets blocked.",
+        q: "How do you handle API rate limits and sync failures?",
+        a: "We build retry queues, rate-limit handlers, and automated alerting so that temporary downtime or rate limits in third-party services never cause data loss.",
       },
       {
-        q: "Can it connect to my CRM or online store?",
-        a: "Yes. There is a developer API for pushing contacts and triggering campaigns, so orders, signups or CRM stage changes can fire messages without anyone exporting a spreadsheet.",
-      },
-      {
-        q: "Can I run this under my own brand?",
-        a: "Yes. Agencies and resellers run white-labelled versions of the platform for their own client base.",
+        q: "Can you build custom APIs for legacy software?",
+        a: "Yes. We build secure, documented REST and GraphQL backends in Laravel, Node.js, and Python that wrap legacy databases and expose clean endpoints.",
       },
     ],
     seo: {
-      title: "Bulk WhatsApp & SMS Marketing Platform India | Saurabh Infosys",
+      title: "CRM, Accounting & API Integration Services | Saurabh Infosys",
       description:
-        "Send bulk WhatsApp, SMS & email campaigns at India's lowest rates. Pay-per-use from ₹0.02/message. No monthly fee. Powered by MySampark — trusted by SMBs across India.",
+        "Connect HubSpot, Salesforce, QuickBooks, Xero, Shopify, Slack and more. Custom API integrations that eliminate manual data entry between systems.",
       keywords: [
-        "bulk WhatsApp marketing India",
-        "SMS marketing India",
-        "bulk SMS India",
-        "WhatsApp Business API India",
-        "email marketing India",
-        "digital marketing automation India",
-        "bulk messaging platform India",
-        "MySampark",
+        "API integration services",
+        "CRM integration services",
+        "QuickBooks integration developer",
+        "Xero API integration",
+        "Shopify integration",
+        "custom API developers",
+      ],
+    },
+  },
+
+  "hire-developers": {
+    overview: [
+      "Scale your development capacity without the delay, overhead, and cost of local hiring. Our developers join your team, use your tools, attend your standups and follow your processes.",
+      "Whether you need an AI engineer for LLM agents, a senior Flutter developer, or a full-stack engineer, we provide vetted talent with working hours that overlap with your timezone.",
+    ],
+    note: "2-week trial period available. Flexible monthly terms with no long-term lock-in.",
+    faqs: [
+      {
+        q: "How does the hiring and onboarding process work?",
+        a: "Share your requirements, interview shortlisted developers within 48 hours, begin with a 2-week trial period, and scale your dedicated team up or down on flexible monthly terms.",
+      },
+      {
+        q: "How do you manage communication across time zones?",
+        a: "Our developers schedule daily working hours that overlap with US, UK, or Australian business hours, join your Slack or Teams channels, and attend your daily standups.",
+      },
+      {
+        q: "What if a developer is not the right fit?",
+        a: "If a developer does not match your team or technical expectations during the trial, we replace them immediately at no additional cost.",
+      },
+    ],
+    seo: {
+      title: "Hire Dedicated AI & Flutter Developers | Saurabh Infosys",
+      description:
+        "Hire dedicated AI engineers, Flutter developers and full-stack developers who work as part of your team. Flexible monthly engagement, no long-term lock-in.",
+      keywords: [
+        "hire Flutter developers",
+        "hire AI developers",
+        "offshore development team",
+        "dedicated developers India",
+        "hire Next.js developers",
+        "outsource software engineers",
+      ],
+    },
+  },
+
+  "white-label-software": {
+    overview: [
+      "Launch a software product without building one. License our proven platforms, rebrand them as your own and sell them to your clients, while we handle development, hosting and updates.",
+      "From school ERPs and community management systems to GPS fleet tracking and marketing automation platforms, our white-label SaaS allows agencies to generate recurring software revenue immediately.",
+    ],
+    note: "Deploy under your own domain and branding in days. We manage hosting and updates.",
+    faqs: [
+      {
+        q: "What platforms are available for white-label licensing?",
+        a: "We offer white-label licenses for School Management ERP (SSMS), Community & Property Management (MySociety), Marketing Automation (MySampark), and GPS Fleet Tracking (Traqo).",
+      },
+      {
+        q: "Can we use our own custom domain and branding?",
+        a: "Yes. Every white-label deployment runs under your custom domain, with your logo, brand colors, and email sender identities.",
+      },
+      {
+        q: "Who handles technical maintenance and cloud hosting?",
+        a: "We manage all server infrastructure, database backups, uptime monitoring, and ongoing security updates so you can focus entirely on sales and customer relationships.",
+      },
+    ],
+    seo: {
+      title: "White-Label SaaS Platforms for Agencies | Saurabh Infosys",
+      description:
+        "License and rebrand ready-made school management, community management, fleet tracking and marketing automation software under your own brand.",
+      keywords: [
+        "white label SaaS",
+        "white label school management software",
+        "white label fleet tracking software",
+        "white label marketing software",
+        "resell SaaS software",
       ],
     },
   },
 };
+
+// Aliases for legacy URLs to ensure complete backward compatibility
+SERVICE_DETAILS["ai-agents"] = SERVICE_DETAILS["ai-automation-services"];
+SERVICE_DETAILS["vibe-coding"] = SERVICE_DETAILS["app-development"];
+SERVICE_DETAILS["flutter"] = SERVICE_DETAILS["app-development"];
+SERVICE_DETAILS["gps"] = SERVICE_DETAILS["white-label-software"];
+SERVICE_DETAILS["saas"] = SERVICE_DETAILS["white-label-software"];
+SERVICE_DETAILS["digital-marketing"] = SERVICE_DETAILS["white-label-software"];
 
 export const PRODUCTS = [
   {
@@ -623,7 +622,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
   { id: 17, slug: "walk-dogs",           title: "Walk Dogs",            category: "Gig",        description: "Dog walking and pet care booking platform connecting pet owners with trusted local walkers.", tech: ["Flutter", "Firebase", "Google Maps"],  highlights: ["Walker profiles with background verification badges", "Live GPS tracking shared with pet owners during walks", "Real-time photo and update sharing during the walk", "Automated payment and optional tipping system"], images: ["/images/work/walk-dogs/01.webp"] },
   { id: 18, slug: "instajob",            title: "InstaJob",             category: "Gig",        description: "Instant job matching platform connecting blue-collar workers with short-term and daily wage opportunities.", tech: ["React Native", "Node.js", "PostgreSQL"], highlights: ["Skill-based matching algorithm for instant job placement", "Worker profiles with verified skills and past ratings", "Daily wage tracking and in-app payment disbursement", "Dual rating system for workers and employers"], images: ["/images/work/instajob/01.webp"] },
   { id: 19, slug: "helping-hands",       title: "Helping Hands",        category: "NGO",        description: "Volunteer coordination and community support platform for NGOs — task assignments, tracking, and impact reporting.", tech: ["React", "Firebase", "Tailwind"],      highlights: ["Volunteer task assignment with skill matching", "Real-time task progress tracking and check-ins", "Impact reporting dashboard for donors and leadership", "Community support request management and triage"], images: ["/images/work/helping-hands/01.webp", "/images/work/helping-hands/02.webp", "/images/work/helping-hands/03.webp", "/images/work/helping-hands/04.webp"] },
-  { id: 20, slug: "pots",                title: "Pots",                 category: "Fintech",    description: "Savings pot and micro-investment platform allowing users to set savings goals and automate contributions.", tech: ["Flutter", "Node.js", "Razorpay"],     highlights: ["Goal-based savings pots with custom targets and deadlines", "Automated recurring contributions via Razorpay", "Visual progress tracking with milestone celebrations", "Interest simulation and savings projection calculator"] , images: ["/images/work/pots/01.webp", "/images/work/pots/02.webp", "/images/work/pots/03.webp", "/images/work/pots/04.webp"] },
+  { id: 20, slug: "pots",                title: "Points of Tango (POT)", category: "Custom Dev",  description: "Global tango community and event discovery platform connecting dancers, organizers, orchestras, DJs, and instructors with centralized milonga schedules and festival registration.", overview: "Points of Tango (POT) is a worldwide mobile community and event directory designed for the global tango dance scene. It bridges dancers and organizers by providing a centralized hub for discovering international festivals, marathons, and local milongas, managing travel timetables, exploring orchestras and artists, and browsing specialized dancewear and shoe stores.", tech: ["Flutter", "Node.js", "Firebase", "REST API"],     highlights: ["Global tango event discovery for festivals, marathons, milongas, and practicas", "Advanced event filtering by continent, country, date ranges, and open registration", "Interactive community directory for orchestras, musicians, DJs, and taxi dancers", "Dancer profiles with attendee badges, organizing credentials, and event history"] , images: ["/images/work/pots/01.webp", "/images/work/pots/02.webp", "/images/work/pots/03.webp", "/images/work/pots/04.webp"] },
   { id: 21, slug: "volest",              title: "Volest",               category: "Custom Dev",  description: "Forestry calculation and timber estimation application for foresters, researchers, and field analysts — featuring mathematical volume models (Smalian, Huber, Newton), tree parameter logging, and CSV data export.", overview: "Volest is a user-friendly, technological forestry application that solves calculations for students, researchers, foresters, and environmental analysts determining tree and timber volumes using standard volume estimation formulas (Smalian, Huber, and Newton models).", tech: ["Flutter", "Node.js", "Firebase", "CSV Engine"], highlights: ["Tree volume calculation models using Smalian, Huber, and Newton mathematical formulas", "Flexible parameter input (DST, DBH, Dm, Dt, and tree height measurements)", "Bulk CSV data import and export for large-scale forest survey datasets", "Historical calculation log archive with cloud synchronization and report generation"], images: ["/images/work/volest/01.webp", "/images/work/volest/02.webp", "/images/work/volest/03.webp", "/images/work/volest/04.webp"] },
   { id: 22, slug: "retirement-planning", title: "Retirement Planning",  category: "Fintech",    description: "Retirement savings calculator and financial planning tool with scenario modelling and SIP recommendations.", tech: ["React", "Node.js", "PostgreSQL"],     highlights: ["Inflation-adjusted retirement corpus calculator", "SIP and lump sum scenario comparison modelling", "Visual retirement timeline with milestone markers", "Recommended SIP amounts based on current savings gap"], images: ["/images/work/retirement-planning/01.webp", "/images/work/retirement-planning/02.webp", "/images/work/retirement-planning/03.webp", "/images/work/retirement-planning/04.webp"] },
   { id: 23, slug: "aces",                title: "ACES",                 category: "Custom Dev", description: "Industrial machine maintenance and equipment management platform with checklist history, operator manuals, and risk assessment workflows.", overview: "ACES is a modern industrial record-keeping and equipment management platform designed for heavy machinery operators and maintenance teams. It streamlines daily pre-operation checklists, digital operator manuals, risk assessments, and real-time maintenance verification directly on the shop floor.", tech: ["Flutter", "PostgreSQL", "REST API", "Next.js"],  highlights: ["Machine tagging and equipment profile tracking", "Pre-operation checklists and inspection history", "Maintenance records and scheduled servicing logs", "Digital operator manuals and risk assessment workflows"], images: ["/images/work/aces/01.webp", "/images/work/aces/02.webp", "/images/work/aces/03.webp", "/images/work/aces/04.webp"] },
@@ -641,7 +640,7 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
   { id: 35, slug: "ch90",                title: "CH90",                 category: "Custom Dev",  description: "Custom hospitality management system for hotels — reservations, housekeeping, billing, and guest communication.", tech: ["React", "Node.js", "PostgreSQL"],   highlights: ["Room reservation system with availability calendar", "Housekeeping task assignment and completion tracking", "Guest billing with itemised invoice generation", "WhatsApp notifications for booking confirmations and check-ins"] },
   { id: 36, slug: "epav",                title: "EPAV",                 category: "Custom Dev",  description: "Corporate web portal for EPAV (Grupo Emin) showcasing highway preservation solutions, diamond grinding, slab stabilization, and pavement engineering.", tech: ["Next.js", "Tailwind", "REST API"], highlights: ["Interactive showcase of pavement rehabilitation and diamond grinding", "Technical specifications and international standards compliance", "Multi-country service portfolio (Chile, Brazil) with project gallery", "Commercial inquiry and quote request submission workflow"], images: ["/images/work/epav/01.webp"] },
   { id: 37, slug: "vtm",                 title: "VTM Music",            category: "Health",      description: "Relaxation music streaming and sound therapy app providing curated audio programs, binaural beats, and video sessions for wellness and stress relief.", tech: ["Flutter", "Node.js", "Audio Streaming"], highlights: ["Curated relaxation music programs and binaural beats for stress relief", "Custom audio player with waveform seeking, repeat, and favorites", "Video program streaming with categorized health topics", "Personalized session history, ratings, and doctor guidance"], images: ["/images/work/vtm/01.webp", "/images/work/vtm/02.webp", "/images/work/vtm/03.webp", "/images/work/vtm/04.webp"] },
-  { id: 38, slug: "flpl",                title: "FLPL",                 category: "Custom Dev",  description: "Custom logistics and fleet planning platform with route optimisation, load matching, and billing integration.", tech: ["React", "Node.js", "Maps API"],       highlights: ["Intelligent load matching with route optimisation", "Fleet scheduling and vehicle utilisation dashboard", "Automated billing and invoice generation per trip", "Real-time driver communication and status updates"], images: ["/images/work/flpl/01.webp", "/images/work/flpl/02.webp", "/images/work/flpl/03.webp", "/images/work/flpl/04.webp"] },
+  { id: 38, slug: "flpl",                title: "FLPL",                 category: "Custom Dev",  description: "Custom logistics and fleet planning platform with route optimisation, load matching, and billing integration.", overview: "FLPL (Frigate Logistics) is a comprehensive logistics and fleet management platform built for modern e-commerce delivery networks. It streamlines driver onboarding, digital document compliance, daily geolocation attendance, load dispatching, automated invoicing, and trip transaction settlement.", tech: ["React", "Node.js", "Maps API"],       highlights: ["Intelligent load matching with route optimisation", "Fleet scheduling and vehicle utilisation dashboard", "Automated billing and invoice generation per trip", "Real-time driver communication and status updates"], images: ["/images/work/flpl/01.webp", "/images/work/flpl/02.webp", "/images/work/flpl/03.webp", "/images/work/flpl/04.webp"] },
   { id: 39, slug: "ewd",                 title: "EWD",                  category: "Transport",   description: "An Electronic Work Diary platform that digitises work and rest recording for drivers, transport operators, record keepers, and authorised officers — built to meet NHVR EWD Standards.", tech: ["Flutter", "Laravel"],              highlights: ["Simple driver interface for declaring work and rest periods", "Real-time compliance checks aligned with NHVR fatigue rules", "Intercept mode for authorised officers to quickly review records", "Operator and record keeper dashboards for log management", "Meets NHVR EWD Standards for performance and auditability"] },
   { id: 40, slug: "washry",              title: "Washry",               category: "Custom Dev",  description: "An on-demand laundry and dry-cleaning app that works like Uber Eats for your clothes — connecting users with trusted local cleaners for seamless pickup, cleaning, and doorstep delivery.", tech: ["Flutter", "Laravel"],              highlights: ["Custom hamper creation and item selection before checkout", "On-demand and scheduled pickup booking", "Real-time order tracking from pickup to delivery", "Secure in-app payment and flexible payment options", "Order history and saved preferences for faster reorders"] },
   { id: 41, slug: "washry-vendor",       title: "Washry Vendor",        category: "Custom Dev",  description: "A partner app that connects existing dry-cleaning and laundry businesses to the Washry network — bringing in more customers and handling all logistics without changing daily operations.", tech: ["Flutter", "Laravel"],              highlights: ["Easy order management dashboard for tracking incoming and completed jobs", "Washry Go Drivers handle all pickups and deliveries", "No changes to existing business operations", "Real-time delivery updates and driver logistics integration", "Simple onboarding for low-tech users"] },
@@ -651,21 +650,26 @@ export const PORTFOLIO_PROJECTS: PortfolioProject[] = [
   { id: 45, slug: "exotics-now-employee",title: "Exotics Now Employee",  category: "Custom Dev",  description: "A staff-facing app built for Exotics Now chauffeurs and employees — providing all the tools needed to deliver a seamless, professional luxury rental experience from pickup to drop-off.", tech: ["Flutter", "Laravel"],              highlights: ["View and accept assigned chauffeur trips", "Instant access to pickup, drop-off, and renter details", "Inspection photo upload at handover and return", "Real-time communication with admins and owners", "Clear trip timelines and status updates"] },
   { id: 46, slug: "edify-easy",          title: "Edify Easy",           category: "Education",   description: "A structured e-learning platform that allows organisations to onboard trainees, deliver learning materials, and track progress — all within a clean, role-based digital environment.", tech: ["React", "Laravel"],                highlights: ["Multi-company setup with role-based access control", "Admin content management — upload and organise training materials", "Trainee dashboard with course access and progress tracking", "Company owner reports and completion overviews", "Clean, intuitive interface for all user roles"] },
   { id: 47, slug: "drd",                 title: "DRD",                  category: "SaaS",        description: "DRD (Digital Retail Display) bridges online convenience with local in-store shopping — letting shoppers discover nearby stores, check real-time stock, and buy instantly, while helping local retailers go digital without any technical expertise.", tech: ["React", "Laravel", "Flutter"],     highlights: ["Location-based store and product discovery", "Real-time inventory visibility across nearby stores", "Fast digital checkout with pickup or delivery options", "Exclusive in-store deals and discounts", "Simple retailer dashboard for product and order management", "Fair revenue-sharing model for local businesses"] },
-  { id: 48, slug: "meow-tampines",       title: "Meow Tampines",        category: "Custom Dev",  description: "A refined website for Meow Tampines — a premium hair salon in Singapore designed as a calm, luxurious retreat where modern hair artistry meets personalised, thoughtful care.", tech: ["Next.js"],                         highlights: ["Elegant, brand-aligned design reflecting luxury and calm", "Signature Hair Spa service showcase", "Online appointment booking integration", "Services, testimonials, and blog sections", "Mobile-friendly and easy to navigate"] },
-  { id: 49, slug: "meowcademy",          title: "Meowcademy",           category: "Custom Dev",  description: "A modern tuition centre website for Meowcademy — a Singapore-based small group learning platform offering affordable, high-quality education for children aged 6 to 16 across all levels and subjects.", tech: ["Next.js", "Laravel"],              highlights: ["Course listings across Pre-K, Primary, and Secondary levels", "Trial offer showcase — 4 lessons with no registration fee", "Flexible payment plans via Atome, GrabPay, and bank instalments", "Robotics and LEGO Spike Prime programme highlight", "Student and parent testimonials", "Multiple location listings and easy contact/enquiry flow"] },
-  { id: 50, slug: "meow-aesthetics",     title: "Meow Aesthetics",      category: "Custom Dev",  description: "A beauty and lifestyle website for Meow Aesthetics — a multi-location Singapore salon offering gel nails, lash extensions, facials, slimming, IPL treatments, and more, alongside sister brand Meow Luxury's jewellery and apparel.", tech: ["Next.js", "Laravel"],              highlights: ["Full service showcase — nails, lashes, facials, slimming & IPL", "Integrated pricelist for transparent, upfront pricing", "Sister brand Meow Luxury — jewellery and luxury apparel", "FAQ and T&C section for client confidence", "Multiple location listings with operating hours"] },
-  { id: 51, slug: "le-meow",             title: "Le Meow",              category: "Custom Dev",  description: "An all-in-one on-demand app that connects users with trusted professionals for home, beauty, and lifestyle services — making booking seamless, secure, and rewarding.", overview: "Le Meow is Singapore's premier lifestyle ecosystem application, seamlessly uniting multiple premium service brands — including Meow Aesthetics (beauty, nails, lash & skin), Meow Renovations (home services & interior revamps), Meow Future Labs (education & enrichment), SureHands Agency (maids, helper & home care), and MadBakes by Meow (artisanal baking workshops). With instant in-app appointment scheduling, real-time booking tracking, tiered membership reward perks, and secure digital payments, Le Meow delivers an effortless everyday lifestyle experience for modern consumers across Singapore.", tech: ["Flutter", "Laravel"],              highlights: ["One-stop booking for home, beauty, and lifestyle services", "Real-time provider tracking and direct in-app chat", "Secure payments with preferred payment methods", "Le Meow rewards points redeemable for exclusive savings", "Booking history and easy rebooking of favourites", "Verified, trusted professionals with transparent pricing"], images: ["/images/work/le-meow/01.webp", "/images/work/le-meow/02.webp", "/images/work/le-meow/03.webp", "/images/work/le-meow/04.webp"] },
-  { id: 52, slug: "le-meow-worker",      title: "Le Meow Worker",       category: "Custom Dev",  description: "A dedicated app for Le Meow service professionals — giving workers everything they need to manage bookings, track jobs, and stay organised on the platform.", tech: ["Flutter", "Laravel"],              highlights: ["Instant job request notifications with full booking details", "Clean dashboard for managing upcoming and active jobs", "View customer notes, service requirements, and timing at a glance", "Job status updates to stay on top of daily workflow", "Simple, intuitive interface for all service types"] },
+  { id: 48, slug: "meow-tampines",       title: "Meow Tampines",        category: "Le Meow",  description: "A refined website for Meow Tampines — a luxury hair salon and calm wellness retreat in Singapore where modern hair artistry meets personalised, thoughtful care.", overview: "Meow Tampines is an elevated hair studio and tranquil scalp wellness retreat located in Singapore. Designed to provide a serene sanctuary away from urban rush, the digital portal reflects its aesthetic refinement while allowing guests to explore signature hair spa rituals, creative balayage color transformations, and book personalized stylist sessions.", client: "Meow Tampines", year: "2025", url: "https://www.meowtampines.com/", tech: ["Next.js", "Tailwind CSS", "REST API"], highlights: ["Elegant, brand-aligned editorial design reflecting luxury, calmness, and minimalist beauty", "Signature Hair Spa and organic scalp detoxification service showcase", "Real-time stylist calendar and online appointment reservation system", "Interactive treatment catalog with upfront pricing and hair care styling guides"], images: ["/images/work/placeholder-04.webp", "/images/work/placeholder-05.webp", "/images/work/placeholder-01.webp", "/images/work/placeholder-02.webp"] },
+  { id: 49, slug: "meowcademy",          title: "Meowcademy",           category: "Le Meow",  description: "A modern tuition centre website for Meowcademy — a Singapore-based small group learning platform offering affordable, high-quality education for children aged 6 to 16 across all levels and subjects.", overview: "Meowcademy is a vibrant learning academy based in Singapore delivering small-group academic tuition and STEM enrichment for primary and secondary students. Built around interactive pedagogy and personalized attention, the platform showcases MOE-aligned curriculum modules, robotics programmes, and seamless class enrolment.", client: "Meowcademy", year: "2025", url: "https://www.meowcademy.com/", tech: ["Next.js", "Laravel", "Tailwind CSS"], highlights: ["MOE syllabus curriculum directory across Primary and Secondary mathematics, science, and languages", "Trial class booking system offering 4 introductory lessons with zero registration charges", "Flexible digital instalment plans via Atome, GrabPay, and direct bank financing", "Hands-on LEGO Spike Prime robotics and coding enrichment course highlights"], images: ["/images/work/placeholder-01.webp", "/images/work/placeholder-03.webp", "/images/work/placeholder-04.webp", "/images/work/placeholder-02.webp"] },
+  { id: 50, slug: "meow-aesthetics",     title: "Meow Aesthetics",      category: "Le Meow",  description: "A beauty and lifestyle website for Meow Aesthetics — a multi-location Singapore salon offering gel nails, lash extensions, facials, slimming, IPL treatments, and sister brand Meow Luxury.", overview: "Meow Aesthetics is Singapore's modern beauty collective operating across multiple prime locations. Offering customized gel nail artistry, lash extensions, advanced facial aesthetics, cryo slimming, and pain-free IPL treatments, the web portal serves as a unified digital boutique seamlessly integrating online booking with sister brand Meow Luxury's curated collections.", client: "Meow Aesthetics", year: "2025", url: "https://www.meowaesthetics.com/", tech: ["Next.js", "Laravel", "Tailwind CSS"], highlights: ["Comprehensive beauty menu covering nails, lash lifts, facials, targeted slimming, and IPL", "Transparent digital pricelist and customizable beauty package bundles", "Multi-branch studio locator with direct instant WhatsApp consultation channels", "Integrated showcase and cross-promotion with sister brand Meow Luxury"], images: ["/images/work/placeholder-05.webp", "/images/work/placeholder-01.webp", "/images/work/placeholder-02.webp", "/images/work/placeholder-03.webp"] },
+  { id: 51, slug: "le-meow",             title: "Le Meow",              category: "Le Meow",  description: "An all-in-one on-demand app that connects users with trusted professionals for home, beauty, and lifestyle services — making booking seamless, secure, and rewarding.", overview: "Le Meow is Singapore's premier lifestyle ecosystem application, seamlessly uniting multiple premium service brands — including Meow Aesthetics (beauty, nails, lash & skin), Meow Renovations (home services & interior revamps), Meowcademy (education & enrichment), SureHand Agency (maids, helper & home care), and Meow Luxury (artisanal jewellery & fashion). With instant in-app appointment scheduling, real-time booking tracking, tiered membership reward perks, and secure digital payments, Le Meow delivers an effortless everyday lifestyle experience for modern consumers across Singapore.", client: "Le Meow", year: "2025", url: "https://lemeow.meowadvancedintelligence.com/", tech: ["Flutter", "Laravel", "Next.js", "Stripe"], highlights: ["One-stop booking for home, beauty, and lifestyle services", "Real-time provider tracking and direct in-app chat", "Secure payments with preferred payment methods", "Le Meow rewards points redeemable for exclusive savings", "Booking history and easy rebooking of favourites", "Verified, trusted professionals with transparent pricing"], images: ["/images/work/le-meow/01.webp", "/images/work/le-meow/02.webp", "/images/work/le-meow/03.webp", "/images/work/le-meow/04.webp"] },
   { id: 53, slug: "map-metrics",         title: "MapMetrics",           category: "Transport",   description: "Drive-to-earn crypto navigation app with real-time turn-by-turn routing, SPT hardware pairing, and token reward wallet.", tech: ["Flutter", "Web3", "Google Maps"], highlights: ["Turn-by-turn map navigation with live traffic updates", "Drive-to-earn cryptocurrency rewards ($MMAPS)", "Bluetooth pairing with SPT hardware devices", "Built-in token wallet and transaction history"], images: ["/images/work/map-metrics/01.webp"] },
   { id: 54, slug: "tap-to-share",        title: "Tap To Share",         category: "Custom Dev",  description: "Digital business card and bio-link profile platform with customizable links, viewer analytics, and instant NFC/QR sharing.", overview: "Tap To Share is an all-in-one digital identity, smart business card, and bio-link platform that empowers professionals and creators to effortlessly share their digital presence with a single tap or scan. Featuring customizable dynamic themes, rich multimedia link modules, and real-time visitor engagement analytics, Tap To Share redefines modern contactless networking and portfolio presentation.", tech: ["React Native", "Node.js", "Firebase", "NFC / QR", "Tailwind CSS"], highlights: ["Custom digital bio page with modular links, photos, video embeds, and socials", "Real-time link click tracking, visitor analytics, and conversion insights", "Instant contactless NFC tap and dynamic QR code profile sharing", "Personalized cover themes, avatar styling, and drag-and-drop link sorting"], images: ["/images/work/tap-to-share/01.webp", "/images/work/tap-to-share/02.webp", "/images/work/tap-to-share/03.webp", "/images/work/tap-to-share/04.webp"] },
   { id: 55, slug: "mworld",              title: "mworld",               category: "Custom Dev",  description: "Professional networking and talent showcase platform connecting vetted creators, entrepreneurs, and specialists with industry opportunities and curated stories.", tech: ["Flutter", "Firebase", "Node.js"], highlights: ["Verified professional directory with category and country filters", "Curated success stories, editorial highlights, and landscape features", "Direct in-app networking and connection requests", "Rich profile customization with portfolio reels and bio links"], images: ["/images/work/mworld/01.webp"] },
   { id: 56, slug: "q-easy",              title: "Q easy",               category: "Custom Dev",  description: "Intuitive site operations and queuing management platform that streamlines vehicle access, site user management, and automated queuing workflows.", tech: ["Next.js", "Flutter", "Node.js"], highlights: ["Centrally oversee and control all aspects of site operations", "Real-time vehicle access and geofence screen management", "Automated site load schedules and completed load summaries", "Custom form screens, alert messages, and active on-site tracking"], images: ["/images/work/q-easy/01.webp", "/images/work/q-easy/02.webp", "/images/work/q-easy/03.webp", "/images/work/q-easy/04.webp"] },
   { id: 57, slug: "edcalibre",           title: "EdCalibre",            category: "Education",   description: "Interactive online learning and classroom gamification platform that transforms children's education through animated video lessons, chapter quizzes, and league leaderboards.", overview: "Where education meets adventure! Our platform offers a dynamic blend of interactive lessons and quizzes, fostering a love for learning in children. With Edcalibre, kids can explore a world of knowledge while unlocking their full potential, all in a safe and engaging online environment.", tech: ["Next.js", "React", "Node.js", "MongoDB", "WebSockets"], highlights: ["Dynamic audio-visual learning paths with interactive lesson modules and video classrooms", "Granular chapter and section score analytics with real-time performance milestones", "Gamified student league leaderboards with achievement levels, badges, and points", "Personalized student profile management with custom learning pace and subscription plans"], images: ["/images/work/edcalibre/01.webp", "/images/work/edcalibre/02.webp", "/images/work/edcalibre/03.webp", "/images/work/edcalibre/04.webp"] },
   { id: 58, slug: "contractor-easy",     title: "Contractor Easy",      category: "Custom Dev",  description: "Subcontractor management and compliance tracking app that simplifies document verification, driver licencing, fleet tracking, and approval workflows.", overview: "Contractor Easy makes managing subcontractors simple and hassle-free. A dedicated mobile application that takes away the stress of keeping up to date with all required subcontractor documents, compliance checks, driver certifications, and fleet management.", tech: ["Flutter", "Firebase", "Node.js"], highlights: ["Centralized subcontractor directory with document and verification status tracking", "Fleet and driver compliance logs with real-time expiry alerts", "TRAI certificate, insurance, and legal document approval workflows", "Digital document upload, expiration monitoring, and instant push notifications"], images: ["/images/work/contractor-easy/01.webp", "/images/work/contractor-easy/02.webp", "/images/work/contractor-easy/03.webp", "/images/work/contractor-easy/04.webp"] },
+  { id: 59, slug: "meow-advanced-intelligence", title: "Meow Advanced Intelligence", category: "Le Meow", description: "The Operating System for Everyday Life — uniting anti-scam protection, a verified services marketplace, and an intelligent personal AI assistant.", overview: "Meow Advanced Intelligence (MEOWAI) is an intelligent ecosystem platform designed as the operating system for modern living in Singapore. Uniting proactive anti-scam shield protocols, verified on-demand home and lifestyle services, and conversational personal AI assistants, MEOWAI creates a safe, interconnected digital umbrella for consumers and businesses alike.", client: "Meow Advanced Intelligence", year: "2025", url: "https://meowadvancedintelligence.com/", tech: ["Next.js", "AI / LLM", "Python", "Tailwind CSS", "REST API"], highlights: ["Anti-scam verification engine and fraud protection shield for household transactions", "Unified API hub connecting all Le Meow ecosystem brands under one digital umbrella", "Conversational AI assistant for on-demand booking, task delegation, and concierge support", "Enterprise dashboard for verified partner vetting, real-time dispatch, and analytics"], images: ["/images/work/placeholder-01.webp", "/images/work/placeholder-02.webp", "/images/work/placeholder-03.webp", "/images/work/placeholder-04.webp"] },
+  { id: 60, slug: "meow-renovations",    title: "Meow Renovations",     category: "Le Meow",  description: "Premium HDB painting, artisanal limewash finishes, and architectural curved interior specialists in Singapore with 5-year warranty using Raffles Anti-Mould paint.", overview: "Meow Renovations is Singapore's dedicated interior revamp and painting studio specializing in hotel-quality limewash finishes, curved architectural feature walls, and moisture-resistant home restoration. Offering clear upfront package tiers for HDBs, condos, and landed residences, Meow Renovations elevates living spaces with craftsmanship and peace of mind.", client: "Meow Renovations", year: "2025", url: "https://meowrenovations.com/", tech: ["Next.js", "Tailwind CSS", "Node.js", "REST API"], highlights: ["Curated turnkey interior packages with transparent, upfront pricing for HDB and private homes", "Artisanal limewash textures and precision curved architectural wall designs", "Comprehensive 5-year anti-mould warranty backed by Raffles Anti-Mould paint systems", "Digital colour consultation, quote generation, and instant site measurement booking"], images: ["/images/work/placeholder-02.webp", "/images/work/placeholder-03.webp", "/images/work/placeholder-04.webp", "/images/work/placeholder-05.webp"] },
+  { id: 61, slug: "surehand-agency",     title: "SureHand Agency",      category: "Le Meow",  description: "Sincere domestic helper and maid agency in Singapore providing transparent matching, certified eldercare & childcare helpers, and long-term aftercare support.", overview: "SureHands Agency is a trusted, MOM-licensed maid agency in Singapore dedicated to bringing sincerity, transparency, and careful compatibility matching to families. From trained infant care and dedicated eldercare companions to general housekeeping, SureHands guides employers with zero hidden costs, video interview arrangements, and dedicated post-placement welfare checks.", client: "SureHands Agency", year: "2025", url: "https://surehandagency.com/", tech: ["Next.js", "Tailwind CSS", "Node.js", "PostgreSQL"], highlights: ["Verified helper directory from Myanmar and Indonesia with skill certifications and medical clearance", "Smart compatibility matching based on infant care, eldercare, dietary, and language requirements", "Transparent fee breakdown with zero hidden placement deductions or surprise levies", "End-to-end MOM work permit processing, ongoing aftercare, and training documentation"], images: ["/images/work/placeholder-03.webp", "/images/work/placeholder-04.webp", "/images/work/placeholder-05.webp", "/images/work/placeholder-01.webp"] },
+  { id: 62, slug: "le-destin",           title: "Le Destin",            category: "Le Meow",  description: "Singapore's curated matchmaking and experiential social discovery platform featuring thoughtful profiles, Match Credits, and memorable real-world dates.", overview: "Le Destin redefines modern romance and social connection in Singapore through curated, intentional matchmaking. Moving away from endless swiping, Le Destin combines verified personality profiles, intentional Match Credits, and bespoke real-world date arrangements at exclusive dining and cultural partner venues.", client: "Le Destin", year: "2025", url: "https://ledestin.meowadvancedintelligence.com/", tech: ["Next.js", "Node.js", "Tailwind CSS", "REST API"], highlights: ["Human-curated compatibility matching emphasizing lifestyle values and relationship readiness", "Proprietary Match Credit system encouraging genuine, respectful conversation and intentional meetings", "Exclusive dining and experiential date reservations partnered with premier Singapore venues", "Privacy-first identity verification ensuring an authentic, trusted community environment"], images: ["/images/work/placeholder-02.webp", "/images/work/placeholder-04.webp", "/images/work/placeholder-05.webp", "/images/work/placeholder-03.webp"] },
+  { id: 63, slug: "meow-devs",           title: "Meow Devs",            category: "Le Meow",  description: "Specialized software engineering and AI studio building bespoke web apps, mobile solutions, agentic workflows, and high-performance digital platforms.", overview: "Meow Devs is the technology and engineering engine powering the Le Meow ecosystem. As a dedicated software and AI studio based in Singapore, Meow Devs architects scalable cloud backends, fluid cross-platform mobile apps, bespoke generative AI integrations, and high-converting web applications with meticulous design craftsmanship.", client: "Meow Devs", year: "2025", url: "https://meowdevs.meowadvancedintelligence.com/", tech: ["Next.js", "TypeScript", "Python AI", "Tailwind CSS", "PostgreSQL"], highlights: ["Full-lifecycle product engineering from high-fidelity UX prototyping to production deployment", "Bespoke AI agent integration, RAG architectures, and workflow automation systems", "Modern frontend engineering using Next.js, React, and buttery-smooth micro-interactions", "Scalable cloud infrastructure, automated CI/CD pipelines, and high-security compliance"], images: ["/images/work/placeholder-03.webp", "/images/work/placeholder-05.webp", "/images/work/placeholder-01.webp", "/images/work/placeholder-02.webp"] },
+  { id: 64, slug: "meow-luxury",         title: "Meow Luxury",          category: "Le Meow",  description: "Curated luxury shopping portal offering fine gold jewellery, bespoke diamond pieces, and high-end fashion accessories with personalised concierge delivery.", overview: "Meow Luxury is a premier boutique lifestyle destination curating certified 18K/24K solid gold jewellery, bespoke diamond creations, and timeless fashion accessories. Integrated within the Le Meow ecosystem, Meow Luxury provides VIP concierge styling, private consultations, and insured white-glove doorstep delivery.", client: "Meow Luxury", year: "2025", url: "https://luxury.meowadvancedintelligence.com/", tech: ["Next.js", "Tailwind CSS", "Swiper", "REST API"], highlights: ["Curated collection of fine 18K and 24K gold jewellery, bridal pieces, and luxury watches", "Direct VIP concierge service via WhatsApp for bespoke orders and personalized styling recommendations", "Insured, tamper-proof doorstep delivery across Singapore with authenticity guarantees", "Integrated rewards and privileged benefits across the Le Meow service ecosystem"], images: ["/images/work/placeholder-04.webp", "/images/work/placeholder-01.webp", "/images/work/placeholder-02.webp", "/images/work/placeholder-05.webp"] },
 ];
 
 export const PORTFOLIO_CATEGORIES = [
-  "All", "AI", "Education", "Health", "Transport", "Gig", "Fintech", "SaaS", "NGO", "Custom Dev"
+  "All", "Le Meow", "AI", "Education", "Health", "Transport", "Gig", "Fintech", "SaaS", "NGO", "Custom Dev"
 ];
 
 export type ContentBlock =
@@ -2051,3 +2055,872 @@ export const CONTACT = {
     { name: "Phone", detail: "Mon–Sat, 10am–7pm IST", kind: "phone" as const },
   ],
 };
+
+export interface CountryClient {
+  name: string;
+  url: string;
+  industry: string;
+  /** what we built, short enough for a card tag */
+  service: string;
+  description: string;
+  tech: string[];
+  result: string;
+}
+
+export interface CountryPageData {
+  slug: string;
+  /** short form used in copy and badges — "USA", "Singapore" */
+  country: string;
+  /** long form for schema.org areaServed — "United States" */
+  countryFull: string;
+
+  meta: {
+    title: string;
+    description: string;
+    keywords: string[];
+    ogTitle: string;
+    ogDescription: string;
+  };
+
+  hero: {
+    /** first line, inked */
+    headingLead: string;
+    /** second line, grey */
+    headingTail: string;
+    ctaLabel: string;
+    ctaHref: string;
+    /** copy laid over the hero frame */
+    intro: string;
+    image: string;
+    imageAlt: string;
+  };
+
+  about: {
+    badge: string;
+    /** the statement that repeats top-left and inside the panel */
+    heading: string;
+    /** inked opening clause of the body copy */
+    leadSpan: string;
+    body: string;
+    buttonLabel: string;
+    buttonHref: string;
+    image: string;
+    imageAlt: string;
+  };
+
+  services: { title: string; desc: string }[];
+  /** The verticals this country's page calls out, per the content brief. */
+  industries: { title: string; desc: string }[];
+  clients: CountryClient[];
+  process: { title: string; subtitle: string }[];
+
+  workHeading: string;
+  testimonialsHeading: string;
+  blogSlugs: string[];
+  faqs: { question: string; answer: string }[];
+
+  schema: {
+    serviceName: string;
+    serviceDescription: string;
+    orgDescription: string;
+  };
+}
+
+export const COUNTRY_PAGES: Record<string, CountryPageData> = {
+usa: {
+    slug: "usa",
+    country: "USA",
+    countryFull: "United States",
+
+    meta: {
+      title: "AI Integration & App Development Company USA",
+      description:
+        "Saurabh Infosys is a trusted AI integration, chatbot development, and mobile app development company serving US businesses. 4.9-star Clutch-rated. Built apps for US clients in retail, fitness, luxury auto, and on-demand services. Get your AI solution in weeks.",
+      keywords: [
+        "AI integration company USA",
+        "AI chatbot development USA",
+        "mobile app development company USA",
+        "AI automation services USA",
+        "chatbot development USA",
+        "generative AI development USA",
+        "Flutter app development USA",
+        "AI-enabled app development USA",
+        "MVP development company USA",
+        "on-demand app development USA",
+        "fitness app development USA",
+        "ChatGPT integration for business USA",
+        "WhatsApp chatbot development USA",
+        "AI automation company USA",
+        "AI software development USA",
+        "hire AI developer USA",
+        "AI integration for small business USA",
+        "vibe coding company USA",
+        "LLM development USA",
+        "custom AI chatbot USA",
+      ],
+      ogTitle: "AI Integration & App Development Company USA | Saurabh Infosys",
+      ogDescription:
+        "Trusted AI integration and mobile app development for US businesses. 4.9-star Clutch. Real results for US clients in retail, fitness, luxury auto and on-demand delivery.",
+    },
+
+    hero: {
+      headingLead: "AI integration studio",
+      headingTail: "for the USA",
+      ctaLabel: "Book a free call",
+      ctaHref: "/contact",
+      intro:
+        "We build AI chatbots, AI integrations and mobile apps for US businesses — delivered in weeks, not months. 4.9 stars on Clutch, with live US clients across retail, fitness, luxury automotive and on-demand services.",
+      image: "/images/country/usa-hero.webp",
+      imageAlt:
+        "A low modernist pavilion of glass, stone and concrete behind open grassland under a clear morning sky",
+    },
+
+    about: {
+      badge: "About us",
+      heading: "A US-hours engineering team without a US agency invoice.",
+      leadSpan: "We work the way an in-house team does, on your calendar.",
+      body:
+        " Standups in your morning, a staging link you can open every week, and full IP and source handover on delivery. Four live US products came out of that setup — retail, luxury automotive, fitness and on-demand logistics.",
+      buttonLabel: "About us",
+      buttonHref: "/about",
+      image: "/images/country/usa-about.webp",
+      imageAlt:
+        "Hands holding a precision-machined anodised cardholder against a pale concrete balustrade",
+    },
+
+    services: [
+      {
+        title: "AI chatbot & agent development",
+        desc: "Custom AI chatbots and agents for US businesses covering customer support, lead qualification, WhatsApp AI, and ChatGPT-powered internal tools. Deployed in days, not months.",
+      },
+      {
+        title: "AI integration into existing software",
+        desc: "We integrate GPT-4o, Claude, Gemini, and open-source LLMs into your existing CRM, ERP, or business platform without rebuilding from scratch.",
+      },
+      {
+        title: "Flutter mobile app development",
+        desc: "Cross-platform iOS and Android apps from a single codebase. We have shipped apps with 30,000 plus users across 20 countries including the US market.",
+      },
+      {
+        title: "AI-enabled SaaS & MVP development",
+        desc: "Ship a production-ready AI-enabled SaaS or MVP in 2 weeks using vibe coding. Ideal for US startups looking to validate fast and raise capital.",
+      },
+      {
+        title: "On-demand & marketplace platforms",
+        desc: "Three-sided marketplace apps covering user, driver or provider, and admin with real-time tracking, payments, and AI dispatch.",
+      },
+      {
+        title: "RAG knowledge bases & AI search",
+        desc: "Retrieval-Augmented Generation systems that let your customers or staff query your product catalogue, documents, or knowledge base in plain English.",
+      },
+    ],
+
+    industries: [
+      { title: "Retail and e-commerce", desc: "Product recommendations, order updates, returns handling and storefront automation across Shopify and custom platforms." },
+      { title: "Automotive and rentals", desc: "Vehicle matching, reservation flows, financing pre-qualification and booking management." },
+      { title: "Health and fitness", desc: "Personalised plan generation, member onboarding, progress tracking and community engagement." },
+      { title: "On-demand services", desc: "Three-sided marketplaces with real-time tracking, driver dispatch and route optimisation." },
+    ],
+    clients: [
+      {
+        name: "Digital Retail Display",
+        url: "https://digitalretaildisplay.com",
+        industry: "Retail Technology",
+        service: "AI-Enabled Digital Platform",
+        description:
+          "Built an interactive digital touchscreen selling platform that lets retailers sell products without physical inventory. Uses AI-driven product recommendations and customer engagement flows across beauty, travel retail, and general retail sectors.",
+        tech: ["React", "Node.js", "AI Recommendations", "REST API"],
+        result:
+          "Deployed across multiple US retail locations, eliminating inventory overhead while increasing basket size.",
+      },
+      {
+        name: "Exotics Now",
+        url: "https://exoticsnow.com",
+        industry: "Luxury Automotive",
+        service: "Mobile App & Booking Platform",
+        description:
+          "Built the iOS and Android app for a US luxury car rental and sales platform featuring Lamborghinis, Ferraris, Rolls-Royces, and BMWs. Integrated AI-powered vehicle matching, financing pre-qualification, and chauffeur booking flows.",
+        tech: ["Flutter", "Firebase", "Stripe", "AI Matching"],
+        result:
+          "Live on App Store and Play Store, handling reservations and vehicle sales across multiple US states.",
+      },
+      {
+        name: "CURVD",
+        url: "https://curvdapp.com",
+        industry: "Health & Fitness",
+        service: "AI Fitness Platform",
+        description:
+          "Developed a full-stack AI fitness platform generating approximately $500,000 per year in revenue. Delivers personalised workout plans, AI-generated meal prep guides, and a community engine with adaptive difficulty based on user progress.",
+        tech: ["Flutter", "OpenAI", "Firebase", "Node.js"],
+        result:
+          "Approx $500K ARR. Thousands of active users with AI-personalised plans and community features.",
+      },
+      {
+        name: "Washry",
+        url: "https://washry.app",
+        industry: "On-Demand Services",
+        service: "On-Demand Laundry Marketplace",
+        description:
+          "Built the complete three-sided marketplace covering customer app, driver app, and laundry partner app for an on-demand laundry and dry-cleaning platform. Features real-time order tracking, driver dispatch, and route optimisation.",
+        tech: ["Flutter", "Laravel", "Google Maps", "Push Notifications"],
+        result:
+          "Connecting users, drivers, and dry-cleaning partners with real-time logistics and automated dispatch.",
+      },
+    ],
+
+    process: [
+      { title: "Discovery", subtitle: "Your US market goals, scoped" },
+      { title: "Architecture", subtitle: "Data model and integrations" },
+      { title: "Design", subtitle: "Flows your customers understand" },
+      { title: "Build", subtitle: "A staging link every week" },
+      { title: "Launch", subtitle: "Ship, measure, iterate" },
+    ],
+
+    workHeading: "Live US client work",
+    testimonialsHeading: "What founders say after launch",
+    blogSlugs: [
+      "how-to-integrate-ai-existing-software",
+      "what-is-vibe-coding",
+      "flutter-ai-enabled-apps",
+      "agentic-ai-vs-chatbots",
+    ],
+
+    faqs: [
+      {
+        question: "Can Saurabh Infosys build an AI chatbot for my US business?",
+        answer:
+          "Yes. We build custom AI chatbots using GPT-4o, Claude, and Gemini APIs for US businesses across retail, healthcare, real estate, and e-commerce. We have delivered chatbot solutions for US clients in weeks with full integration into websites, WhatsApp, or internal tools.",
+      },
+      {
+        question: "How do you integrate AI into an existing software system?",
+        answer:
+          "We connect your existing CRM, ERP, or web platform to AI via API integrations. We have integrated AI into platforms using REST APIs, webhooks, and direct LLM SDK integrations for US clients including retail and fitness platforms.",
+      },
+      {
+        question:
+          "What is the typical cost to build an AI integration or chatbot for a US company?",
+        answer:
+          "AI chatbot integrations typically start from $2,000 to $5,000 for a production-ready bot. Full mobile apps or AI-enabled SaaS platforms range from $8,000 to $30,000 depending on complexity. US clients get significantly better value compared to hiring US-based developers at equivalent hourly rates.",
+      },
+      {
+        question: "How long does it take to deliver an AI integration project?",
+        answer:
+          "Simple AI chatbot integrations take 1 to 2 weeks. Full mobile apps or AI-enabled platforms take 4 to 8 weeks using our AI-accelerated vibe coding approach. We delivered CURVD, a full AI fitness app, in under 8 weeks.",
+      },
+      {
+        question: "Do you sign NDAs and provide IP ownership for US clients?",
+        answer:
+          "Yes. All US clients receive full IP ownership transfer, NDA protection, and source code handover on project completion. We operate transparently with US-standard contracts.",
+      },
+      {
+        question: "What US businesses has Saurabh Infosys worked with?",
+        answer:
+          "We have worked with US businesses including Digital Retail Display in retail tech, Exotics Now in luxury automotive, CURVD in fitness with approximately $500K ARR, and Washry in on-demand laundry services. Our US clients span retail, automotive, health and fitness, and on-demand service sectors.",
+      },
+    ],
+
+    schema: {
+      serviceName: "AI Integration and Chatbot Development for US Businesses",
+      serviceDescription:
+        "Custom AI chatbot, AI agent, and mobile app development for US businesses. GPT-4o, Claude, and Gemini integrations. 4.9-star Clutch-rated. Delivered in weeks.",
+      orgDescription:
+        "AI integration, chatbot development, and mobile app development company serving businesses in the USA, Singapore, UK, and India.",
+    },
+  },
+
+singapore: {
+    slug: "singapore",
+    country: "Singapore",
+    countryFull: "Singapore",
+
+    meta: {
+      title: "AI Integration & App Development Company Singapore",
+      description:
+        "Saurabh Infosys is a trusted AI integration, chatbot development, and mobile app development company serving Singapore businesses. 4.9-star Clutch-rated. Built booking apps, service marketplace platforms, and AI solutions for Singapore clients. Get your AI solution in weeks.",
+      keywords: [
+        "AI integration company Singapore",
+        "AI chatbot development Singapore",
+        "mobile app development company Singapore",
+        "AI automation services Singapore",
+        "chatbot development Singapore",
+        "generative AI development Singapore",
+        "Flutter app development Singapore",
+        "AI-enabled app development Singapore",
+        "MVP development company Singapore",
+        "booking app development Singapore",
+        "beauty salon app Singapore",
+        "home services app Singapore",
+        "ChatGPT integration for business Singapore",
+        "WhatsApp chatbot Singapore",
+        "AI automation company Singapore",
+        "AI software development Singapore",
+        "hire AI developer Singapore",
+        "AI integration for SME Singapore",
+        "LLM development Singapore",
+        "custom AI chatbot Singapore",
+        "service marketplace app Singapore",
+        "appointment booking app Singapore",
+      ],
+      ogTitle:
+        "AI Integration & App Development Company Singapore | Saurabh Infosys",
+      ogDescription:
+        "Trusted AI integration and mobile app development for Singapore businesses. 4.9-star Clutch. Built booking apps, service marketplaces, and AI chatbots for Singapore clients.",
+    },
+
+    hero: {
+      headingLead: "AI integration studio",
+      headingTail: "for Singapore",
+      ctaLabel: "Book a free call",
+      ctaHref: "/contact",
+      intro:
+        "We build AI chatbots, booking platforms and mobile apps for Singapore businesses — delivered in weeks, not months. 4.9 stars on Clutch, with live Singapore clients across beauty, wellness, home services and licensed placement.",
+      image: "/images/country/singapore-hero.webp",
+      imageAlt:
+        "Contemporary glass and concrete towers with cascading sky-terraces and tropical planting, seen from below",
+    },
+
+    about: {
+      badge: "About us",
+      heading: "SGT-hours delivery, PDPA-aware from the first line of schema.",
+      leadSpan:
+        "Singapore work carries its own constraints, and we design for them.",
+      body:
+        " Encrypted storage, minimal data collection, English and Mandarin interfaces, and a clear processing agreement. Five live Singapore platforms came out of that setup — a Ministry of Manpower licensed agency and four brands in the Meow group.",
+      buttonLabel: "About us",
+      buttonHref: "/about",
+      image: "/images/country/singapore-about.webp",
+      imageAlt:
+        "Hands holding a precision-machined anodised cardholder against a pale concrete balustrade",
+    },
+
+    services: [
+      {
+        title: "AI chatbots for Singapore businesses",
+        desc: "Custom AI chatbots for Singapore SMEs and enterprises. WhatsApp AI bots, customer service agents, and GPT-powered internal tools in English and Mandarin. Built with Singapore PDPA compliance in mind.",
+      },
+      {
+        title: "Booking & appointment app development",
+        desc: "End-to-end booking platforms for Singapore service businesses including beauty salons, clinics, home services, and fitness centres. Real-time availability, automated reminders, and payment integration.",
+      },
+      {
+        title: "AI integration into existing systems",
+        desc: "We add AI capabilities to your existing Singapore business software. CRM integrations, AI-powered analytics, and chatbots added to your website or WhatsApp Business account.",
+      },
+      {
+        title: "Service marketplace platforms",
+        desc: "Multi-sided marketplace apps connecting service providers and customers in Singapore. We have built platforms for domestic helpers, beauty services, and home renovation.",
+      },
+      {
+        title: "Flutter mobile app development",
+        desc: "Cross-platform iOS and Android apps for Singapore businesses. Single codebase, App Store and Play Store ready. Delivered apps for Singapore clients in beauty, services, and logistics sectors.",
+      },
+      {
+        title: "AI-enabled SaaS & MVP development",
+        desc: "Ship a production-ready AI-enabled product in 2 weeks using vibe coding. Ideal for Singapore startups and SMEs looking to launch quickly and iterate based on real user feedback.",
+      },
+    ],
+
+    industries: [
+      { title: "Beauty and wellness", desc: "Appointment booking, reminders, package management and multi-outlet scheduling." },
+      { title: "Home services and renovation", desc: "Lead capture, quotation flows, project booking and job status updates." },
+      { title: "Domestic staffing agencies", desc: "Placement workflows, candidate matching, document collection and compliance tracking." },
+      { title: "Education and enrichment", desc: "Trial class booking, enrolment, curriculum directories and parent communication." },
+    ],
+    clients: [
+      {
+        name: "SureHands Agency",
+        url: "https://surehandagency.com",
+        industry: "Domestic Services",
+        service: "Service Matching Platform",
+        description:
+          "Built the digital platform for a Singapore Ministry of Manpower licensed domestic helper placement agency. Streamlines matching families with domestic helpers from Myanmar and Indonesia, handling new placements, transfers, renewals, and long-term aftercare.",
+        tech: ["React", "Node.js", "PostgreSQL", "REST API"],
+        result:
+          "Digitised the full placement workflow for a licensed Singapore agency serving hundreds of families.",
+      },
+      {
+        name: "Meow Future Labs",
+        url: "https://www.meowfuturelabs.com",
+        industry: "Beauty & Wellness Tech",
+        service: "Booking & Management Platform",
+        description:
+          "Built the technology backbone for the Meow Group of beauty and wellness brands in Singapore. Powers online booking, appointment management, and customer engagement across multiple salon and clinic locations island-wide.",
+        tech: ["Flutter", "Firebase", "Booking Engine", "Push Notifications"],
+        result:
+          "Powers appointment booking across multiple Singapore locations for the entire Meow brand group.",
+      },
+      {
+        name: "Meow Aesthetics",
+        url: "https://www.meowaesthetics.com",
+        industry: "Beauty & Nail Services",
+        service: "Mobile Booking App",
+        description:
+          "Developed the mobile booking app for a premium nail salon and beauty clinic operating across Marine Parade Central and Woods Square in Singapore. Services include gel manicures, nail art, hydrafacials, and lash extensions with online booking and loyalty features.",
+        tech: ["Flutter", "Firebase", "Stripe", "Calendar API"],
+        result:
+          "Serving clients across Singapore East Side with online booking reducing no-shows via automated reminders.",
+      },
+      {
+        name: "Meow Renovations",
+        url: "https://meowrenovations.com",
+        industry: "Home Services",
+        service: "Home Services Booking Platform",
+        description:
+          "Built the online platform for a Singapore renovation and home services company, enabling homeowners to browse services, request quotations, and book appointments with contractors. Integrated with WhatsApp for instant communication.",
+        tech: ["React", "Node.js", "WhatsApp API", "Google Maps"],
+        result:
+          "Streamlined lead capture and project booking for a growing Singapore home services business.",
+      },
+      {
+        name: "Meow Tampines",
+        url: "https://www.meowtampines.com",
+        industry: "Beauty & Wellness",
+        service: "Salon Booking App",
+        description:
+          "Developed the dedicated booking application for the Tampines location of the Meow beauty group. Features real-time slot availability, stylist selection, service packages, and automated appointment reminders for Singapore customers.",
+        tech: ["Flutter", "Firebase", "SMS Gateway", "Payment Gateway"],
+        result:
+          "Reduced booking friction and increased repeat customer rate for the Tampines salon location.",
+      },
+    ],
+
+    process: [
+      { title: "Discovery", subtitle: "Your Singapore goals, scoped" },
+      { title: "Architecture", subtitle: "A PDPA-aware data model" },
+      { title: "Design", subtitle: "English and Mandarin flows" },
+      { title: "Build", subtitle: "A staging link every week" },
+      { title: "Launch", subtitle: "Ship, measure, iterate" },
+    ],
+
+    workHeading: "Live Singapore client work",
+    testimonialsHeading: "What founders say after launch",
+    blogSlugs: [
+      "how-to-integrate-ai-existing-software",
+      "flutter-ai-enabled-apps",
+      "agentic-ai-vs-chatbots",
+      "what-is-vibe-coding",
+    ],
+
+    faqs: [
+      {
+        question:
+          "Can Saurabh Infosys build an AI chatbot for my Singapore business?",
+        answer:
+          "Yes. We build custom AI chatbots for Singapore businesses using GPT-4o, Claude, and Gemini APIs. Our chatbots support English and Mandarin, integrate with WhatsApp Business, and are built with Singapore PDPA data privacy requirements in mind. We have delivered chatbot and booking platform solutions for multiple Singapore clients.",
+      },
+      {
+        question: "What Singapore businesses has Saurabh Infosys worked with?",
+        answer:
+          "We have built digital platforms and mobile apps for several Singapore businesses including SureHands Agency, a Ministry of Manpower licensed domestic helper placement firm, and the Meow Group of beauty and wellness brands operating across Marine Parade, Tampines, and Woods Square in Singapore.",
+      },
+      {
+        question:
+          "Can you build a booking app for my Singapore salon, clinic, or home services business?",
+        answer:
+          "Yes. We specialise in booking and appointment platforms for Singapore service businesses. We have built booking apps for nail salons, beauty clinics, and home services businesses in Singapore with real-time slot management, automated reminders, stylist or provider selection, and payment integration.",
+      },
+      {
+        question:
+          "How long does it take to build an app or AI solution for a Singapore company?",
+        answer:
+          "A booking or service marketplace app typically takes 4 to 6 weeks. AI chatbot integrations take 1 to 2 weeks. Full AI-enabled SaaS or marketplace platforms take 6 to 10 weeks. We use AI-accelerated development to deliver faster than traditional agencies.",
+      },
+      {
+        question:
+          "What is the cost of building an app or AI integration for a Singapore SME?",
+        answer:
+          "AI chatbot integrations start from SGD 3,000 to 7,000 for a production-ready bot. Booking apps and service platforms range from SGD 10,000 to 40,000 depending on features and complexity. Singapore businesses get excellent value compared to local Singapore development rates.",
+      },
+      {
+        question: "Is Saurabh Infosys PDPA compliant for Singapore client data?",
+        answer:
+          "Yes. We build all Singapore projects with data privacy best practices including encrypted storage, minimal data collection principles, and clear data processing agreements aligned with Singapore’s Personal Data Protection Act.",
+      },
+    ],
+
+    schema: {
+      serviceName: "AI Integration and App Development for Singapore Businesses",
+      serviceDescription:
+        "Custom AI chatbot, booking platform, and mobile app development for Singapore businesses. GPT-4o, Claude, and Gemini integrations. 4.9-star Clutch-rated. Delivered in weeks.",
+      orgDescription:
+        "AI integration, chatbot development, and mobile app development company serving businesses in Singapore, USA, UK, and India.",
+    },
+  },
+
+  uk: {
+    slug: "uk",
+    country: "UK",
+    countryFull: "United Kingdom",
+
+    meta: {
+      title: "AI Automation Agency for UK Businesses | Saurabh Infosys",
+      description:
+        "AI agents, workflow automation and Flutter app development for UK businesses. Xero, Sage and HubSpot integration. UK-morning availability, GBP pricing.",
+      keywords: [
+        "AI automation agency UK",
+        "offshore software development UK",
+        "Flutter app development UK",
+        "Xero automation UK",
+        "Sage integration UK",
+        "AI chatbot development London",
+        "custom software development UK",
+        "offshore development team UK",
+        "AI agents UK",
+        "business workflow automation UK",
+      ],
+      ogTitle: "AI Automation Agency for UK Businesses | Saurabh Infosys",
+      ogDescription:
+        "AI agents, workflow automation and Flutter app development for UK businesses. Xero, Sage and HubSpot integration. UK-morning availability, GBP pricing.",
+    },
+
+    hero: {
+      headingLead: "AI automation & software studio",
+      headingTail: "for the UK",
+      ctaLabel: "Book a Free Automation Audit",
+      ctaHref: "/contact",
+      intro:
+        "UK businesses face rising staff costs and customers who expect instant replies. We help UK companies automate repetitive work, respond to customers around the clock, and build software at a fraction of London agency rates, without compromising on quality or communication.",
+      image: "/images/country/uk-hero.webp",
+      imageAlt:
+        "Minimalist British modernist limestone and glass pavilion beside a reflecting pool in soft morning daylight",
+    },
+
+    about: {
+      badge: "Working with the UK",
+      heading: "A UK-hours engineering team without a London agency invoice.",
+      leadSpan: "We schedule hours that overlap directly with the UK working day.",
+      body:
+        " You get live calls in your morning and finished work waiting at the start of the next day. We send updates daily through Slack, Teams or email and run a demo every week. We build with UK GDPR compliance in mind, sign NDAs before any project discussion, and transfer full code and IP ownership to you on completion.",
+      buttonLabel: "Start a project",
+      buttonHref: "/contact",
+      image: "/images/country/uk-about.webp",
+      imageAlt:
+        "Precision-machined slate block and honed stone on a concrete plinth in natural raking daylight",
+    },
+
+    services: [
+      {
+        title: "AI agents for customer enquiries",
+        desc: "Automated agents that handle enquiries on your website, WhatsApp and email, qualify leads, book appointments and pass warm leads to your team.",
+      },
+      {
+        title: "Xero & Sage workflow automation",
+        desc: "AI reads invoices, receipts and supplier bills and posts them straight into Xero or Sage, turning month-end reconciliation into a quick review task.",
+      },
+      {
+        title: "CRM & pipeline automation",
+        desc: "Automate lead routing, follow-ups, and pipeline updates across HubSpot, Salesforce and Pipedrive so your sales team never loses momentum.",
+      },
+      {
+        title: "Internal knowledge assistants",
+        desc: "Staff get instant, accurate answers from your policies, procedures and internal documentation without waiting on senior colleagues.",
+      },
+      {
+        title: "Flutter app & MVP development",
+        desc: "High-performance iOS and Android apps, plus SaaS platforms with Stripe, GoCardless and Open Banking integrations in 2 to 4 weeks.",
+      },
+      {
+        title: "Transparent GBP milestone pricing",
+        desc: "Fixed milestone pricing quoted and invoiced in GBP, with no hourly surprises, plus monthly retainers for ongoing automation support.",
+      },
+    ],
+
+    industries: [
+      { title: "Letting and estate agents", desc: "Automated enquiry handling, viewing bookings, tenant communication and maintenance request routing." },
+      { title: "Accounting practices", desc: "Document collection, data extraction, client chasers and bookkeeping automation." },
+      { title: "Recruitment agencies", desc: "CV screening, candidate outreach and interview scheduling." },
+      { title: "E-commerce brands", desc: "Order updates, returns handling, review responses and Shopify automation." },
+    ],
+    clients: [
+      {
+        name: "Letting & Property Workflow Hub",
+        url: "https://saurabhinfosys.com/portfolio",
+        industry: "Real Estate & Property Management",
+        service: "Workflow Automation & Portal",
+        description:
+          "Automated tenant enquiries, viewing bookings, maintenance request routing, and integrated rent collection with GoCardless and Xero for UK property managers.",
+        tech: ["Next.js", "Node.js", "Xero API", "GoCardless", "WhatsApp Bot"],
+        result:
+          "Cut routine property admin by 65% and automated 80% of first-round tenant enquiry qualifications.",
+      },
+      {
+        name: "UK Accounting Document Extractor",
+        url: "https://saurabhinfosys.com/portfolio",
+        industry: "Accounting Practices",
+        service: "AI Document Processing & Sage Sync",
+        description:
+          "Intelligent OCR pipeline extracting invoice and receipt line items directly into Sage and Xero, flagging discrepancies automatically before approval.",
+        tech: ["Python", "OCR", "Sage API", "Xero API", "FastAPI"],
+        result:
+          "Eliminated 25 hours per week of manual bookkeeping per client account with 99.4% extraction accuracy.",
+      },
+      {
+        name: "Omnichannel Recruitment Screening",
+        url: "https://saurabhinfosys.com/portfolio",
+        industry: "Recruitment & Staffing",
+        service: "AI Candidate Assistant",
+        description:
+          "AI assistant that screens incoming CVs against job specifications, coordinates interview schedules via Calendly, and updates candidate stages in Bullhorn CRM.",
+        tech: ["Claude API", "Python", "Bullhorn Integration", "Twilio"],
+        result:
+          "Shortened initial screening turnaround from 3 days to under 15 minutes, boosting candidate placement velocity.",
+      },
+    ],
+
+    process: [
+      {
+        title: "Align & Scope",
+        subtitle:
+          "We agree the numbers that must move, the timeline, and milestone deliverables upfront in GBP.",
+      },
+      {
+        title: "Architect & GDPR Check",
+        subtitle:
+          "We map data flows, ensure UK GDPR compliance, and design integrations with Xero, Sage, or your CRM.",
+      },
+      {
+        title: "Build with Morning Overlap",
+        subtitle:
+          "Working software deployed every week on a staging link, with live syncs during UK morning hours.",
+      },
+      {
+        title: "Launch, Handover & Support",
+        subtitle:
+          "Full code and IP handover, staff training, and ongoing monthly automation support.",
+      },
+    ],
+
+    workHeading: "Proven delivery for international clients",
+    testimonialsHeading: "What UK businesses say about working with us",
+    blogSlugs: [
+      "how-to-integrate-ai-existing-software",
+      "agentic-ai-vs-chatbots",
+      "what-is-vibe-coding",
+    ],
+
+    faqs: [
+      {
+        question: "Is working with an offshore team in India reliable for UK businesses?",
+        answer:
+          "Yes, when communication is structured. We share overlapping hours with the UK day, provide daily written updates and weekly demos, and hold a 4.9★ rating on Clutch across 50+ delivered projects.",
+      },
+      {
+        question: "Do you integrate with Xero and Sage?",
+        answer:
+          "Yes. Xero and Sage integrations are among our most requested automations for UK clients, particularly for invoice processing and reconciliation.",
+      },
+      {
+        question: "Can you invoice in GBP?",
+        answer:
+          "Yes. We quote and invoice all UK projects in GBP.",
+      },
+      {
+        question: "How do you handle UK GDPR and data protection?",
+        answer:
+          "We build with UK GDPR requirements in mind, sign NDAs before any project discussion, and transfer full ownership of source code and IP to you upon completion.",
+      },
+      {
+        question: "How quickly can we kick off a project?",
+        answer:
+          "Most projects start within 1 to 2 weeks of scope sign-off. We begin with a free automation audit to define exact milestones and deliverables.",
+      },
+    ],
+
+    schema: {
+      serviceName: "AI Automation & Software Development UK",
+      serviceDescription:
+        "AI agents, workflow automation and Flutter app development for UK businesses with UK-morning availability and GBP pricing.",
+      orgDescription:
+        "Saurabh Infosys helps UK companies automate repetitive operations, respond to customer enquiries 24/7, and build production-ready mobile and web software.",
+    },
+  },
+
+  australia: {
+    slug: "australia",
+    country: "Australia",
+    countryFull: "Australia",
+
+    meta: {
+      title: "AI Automation Agency Australia | Offshore Development Team",
+      description:
+        "AI agents, automation and Flutter apps for Australian businesses. Xero and MYOB integration, AEST-friendly hours, AUD pricing. 4.9★ on Clutch.",
+      keywords: [
+        "AI automation agency Australia",
+        "offshore developers Australia",
+        "Flutter app development Australia",
+        "MYOB integration Australia",
+        "Xero automation Australia",
+        "AI agents Melbourne Sydney",
+        "custom software development Brisbane",
+        "ServiceM8 automation developer",
+        "simPRO integration Australia",
+      ],
+      ogTitle: "AI Automation Agency Australia | Offshore Development Team",
+      ogDescription:
+        "AI agents, automation and Flutter apps for Australian businesses. Xero and MYOB integration, AEST-friendly hours, AUD pricing. 4.9★ on Clutch.",
+    },
+
+    hero: {
+      headingLead: "AI automation & software studio",
+      headingTail: "for Australia",
+      ctaLabel: "Book a Free Automation Audit",
+      ctaHref: "/contact",
+      intro:
+        "Australian businesses deal with tight labour markets and high local development rates. We give you an experienced AI and development team that automates the admin slowing you down and builds software on budgets that make sense.",
+      image: "/images/country/australia-hero.webp",
+      imageAlt:
+        "Modernist Australian coastal pavilion of rammed earth and glass overlooking native grassland under clear skies",
+    },
+
+    about: {
+      badge: "Working with Australia",
+      heading: "Strong AEST overlap, clear AUD pricing, and zero midnight meetings.",
+      leadSpan: "India's morning lines up directly with the Australian afternoon.",
+      body:
+        " That gives us a solid shared window every working day for live calls, reviews, and quick fixes. There are no midnight meetings and no waiting a full day for replies. We build with Australian privacy obligations in mind, sign NDAs before discussions, and transfer 100% of source code and IP to you.",
+      buttonLabel: "Start a project",
+      buttonHref: "/contact",
+      image: "/images/country/australia-about.webp",
+      imageAlt:
+        "Tactile Australian golden sandstone sculpture and precision machined titanium block on rammed earth",
+    },
+
+    services: [
+      {
+        title: "AI receptionists & voice agents",
+        desc: "Answer inbound calls, capture job details, quote standard services and book appointments while you are on the tools or with a client.",
+      },
+      {
+        title: "Xero & MYOB automation",
+        desc: "AI reads invoices, receipts and supplier bills and posts them into Xero or MYOB automatically, eliminating manual double handling.",
+      },
+      {
+        title: "Instant lead response automation",
+        desc: "Website, Facebook and Google enquiries receive instant replies in seconds, qualifying leads and booking jobs before competitors call back.",
+      },
+      {
+        title: "Field & workflow automation",
+        desc: "Automate job scheduling, quote follow-ups, invoice reminders and review requests connected across ServiceM8, simPRO, HubSpot and more.",
+      },
+      {
+        title: "Flutter mobile & SaaS development",
+        desc: "High-performance iOS and Android apps, plus SaaS platforms with Stripe and local Australian payment integrations in 2 to 4 weeks.",
+      },
+      {
+        title: "Clear AUD milestone pricing",
+        desc: "Fixed milestone pricing quoted and invoiced in AUD, with zero currency volatility and flexible monthly plans for ongoing automation support.",
+      },
+    ],
+
+    industries: [
+      { title: "Trades and home services", desc: "Call answering, quoting, scheduling and payment reminders for plumbers, electricians, builders and cleaners." },
+      { title: "Real estate agencies", desc: "Enquiry handling, inspection bookings, tenant communication and property management admin." },
+      { title: "Clinics and allied health", desc: "Appointment booking, reminders, intake forms and patient FAQs." },
+      { title: "Accounting and bookkeeping firms", desc: "Client document collection, data extraction and bookkeeping automation." },
+    ],
+    clients: [
+      {
+        name: "Trade & Field Service Dispatch",
+        url: "https://saurabhinfosys.com/portfolio",
+        industry: "Trades & Construction Services",
+        service: "ServiceM8 & Voice Automation",
+        description:
+          "Voice AI call screener and WhatsApp quoting bot connected to ServiceM8 and Xero for an Australian commercial electrical and plumbing contractor.",
+        tech: ["Voice AI", "ServiceM8 API", "Xero API", "Twilio", "Node.js"],
+        result:
+          "Captured 38% more after-hours enquiries and eliminated 15 hours of manual quoting admin every week.",
+      },
+      {
+        name: "Allied Health Patient Intake & Booking",
+        url: "https://saurabhinfosys.com/portfolio",
+        industry: "Healthcare & Allied Health",
+        service: "Automated Intake & SMS Reminders",
+        description:
+          "Automated digital patient intake forms, Medicare billing reconciliation, and WhatsApp/SMS reminder sequences reducing clinic appointment no-shows.",
+        tech: ["React", "FastAPI", "Stripe AU", "Twilio SMS", "HIPAA/Privacy"],
+        result:
+          "Reduced clinic appointment no-shows from 14% to under 2.5% across 4 Australian clinic locations.",
+      },
+      {
+        name: "Real Estate Property Inspection Hub",
+        url: "https://saurabhinfosys.com/portfolio",
+        industry: "Real Estate & Agency Management",
+        service: "Mobile Inspection & CRM Sync",
+        description:
+          "Flutter mobile application for property managers to record condition reports offline, sync photos to cloud storage, and update CRM records automatically.",
+        tech: ["Flutter", "Firebase", "Offline Sync", "REST API"],
+        result:
+          "Halved on-site reporting time for property inspectors while ensuring high-resolution timestamped photo records.",
+      },
+    ],
+
+    process: [
+      {
+        title: "Milestone Scope in AUD",
+        subtitle:
+          "We define project deliverables, timelines, and measurable success criteria with fixed AUD pricing.",
+      },
+      {
+        title: "Workflow & Tool Mapping",
+        subtitle:
+          "We map your current tools (Xero, MYOB, ServiceM8, simPRO) and design frictionless automated workflows.",
+      },
+      {
+        title: "Shared Afternoon Sprints",
+        subtitle:
+          "Weekly staging builds with live video reviews and instant feedback during your Australian afternoon.",
+      },
+      {
+        title: "Delivery & Continuous Support",
+        subtitle:
+          "Complete source code transfer, team onboarding, and proactive monthly maintenance retainers.",
+      },
+    ],
+
+    workHeading: "Proven delivery for international clients",
+    testimonialsHeading: "What Australian businesses say about working with us",
+    blogSlugs: [
+      "how-to-integrate-ai-existing-software",
+      "top-ai-automation-use-cases-india",
+      "flutter-vs-react-native-2025",
+    ],
+
+    faqs: [
+      {
+        question: "How does the time difference work with Australia?",
+        answer:
+          "Our morning in India overlaps with your afternoon, giving us several shared working hours each day for calls, reviews and quick fixes.",
+      },
+      {
+        question: "Do you work with MYOB as well as Xero?",
+        answer:
+          "Yes. We automate data entry and reconciliation for both.",
+      },
+      {
+        question: "Do you invoice in AUD?",
+        answer:
+          "Yes. We quote and invoice Australian projects in AUD.",
+      },
+      {
+        question: "Can you automate workflows for trade and service businesses?",
+        answer:
+          "Yes. We frequently connect AI agents and quoting automations to trade software like ServiceM8, simPRO, HubSpot, and WhatsApp.",
+      },
+      {
+        question: "How are privacy and intellectual property handled?",
+        answer:
+          "We build with Australian Privacy Principles (APP) compliance in mind, execute NDAs before beginning work, and transfer 100% of IP and source code to you on delivery.",
+      },
+    ],
+
+    schema: {
+      serviceName: "AI Automation & App Development Australia",
+      serviceDescription:
+        "AI agents, workflow automation and Flutter app development for Australian businesses with AEST hours and AUD pricing.",
+      orgDescription:
+        "Saurabh Infosys delivers AI automation, custom software, and Flutter apps for Australian businesses with AEST-friendly overlap and AUD pricing.",
+    },
+  },
+};
+
+export const COUNTRY_SLUGS = ["usa", "singapore", "uk", "australia"] as const;

@@ -28,9 +28,8 @@ export default function ProductsPage() {
                 <Reveal delay={120}>
                   <div className="st-hero-intro">
                     <p className="st-text-m st-secondary">
-                      Not case studies — live software with paying customers,
-                      support and a roadmap. Everything we learned running them
-                      goes back into the work we do for clients.
+                      Not case studies — live software with paying customers, support
+                      and a roadmap.
                     </p>
                     <div className="st-button-wrapper st-is-hero">
                       <StButtonLink href="/contact" variant="dark">

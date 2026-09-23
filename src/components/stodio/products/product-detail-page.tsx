@@ -52,7 +52,7 @@ export default function ProductDetailPage({ slug }: { slug: string }) {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <div className="st-header st-is-flush">
+      <div className="st-header st-is-light">
         <section className="st-product-hero">
           <div className="st-container">
             <div className="st-product-hero-inner">

@@ -19,6 +19,12 @@
 /* The reference lifts this back up below 480px — the nav bar is taller there. */
 @media screen and (max-width: 479px) { .st-hero { padding-top: 140px; } }
 
+/* Only for heroes with no photo behind them. `.st-hero-bg` sits at z-index -1
+   and `.st-hero` is positioned but never opens a stacking context, so the
+   image paints *behind* whatever background colour this section carries — set
+   one on an image-backed hero and it goes solid, which is exactly what made
+   the country heroes render as black slabs. Image-backed heroes take the
+   scrim for contrast instead. */
 .st-hero.st-is-dark { background-color: var(--st-primary); }
 .st-hero.st-is-light { background-color: var(--st-bg-light); }
 .st-hero.st-is-blogs { padding-top: 174px; padding-bottom: 160px; }
@@ -479,10 +485,16 @@
 
 .st-project-card-block { position: relative; display: flex; flex-flow: column; overflow: hidden; }
 .st-project-card { border-radius: var(--st-r-32); overflow: hidden; }
+/* A fixed frame, not the file's own shape. The reference gets away without one
+   because every thumbnail it ships is cut to the same size; ours are a mix of
+   real project shots and placeholders at several aspects, so leaving the height
+   to the image made each row of cards a different height and the titles beneath
+   them stopped lining up. */
 .st-project-thumb {
   display: block;
   width: 100%;
   height: 100%;
+  aspect-ratio: 1080 / 763;
   border-radius: var(--st-r-32);
   object-fit: cover;
   transition: transform var(--st-dur-hover-out) var(--st-ease-out-quad);
@@ -490,7 +502,7 @@
 @media (hover: hover) and (pointer: fine) {
   .st-project-card-block:hover .st-project-thumb { transform: scale(1.1); }
 }
-@media screen and (max-width: 991px) { .st-project-thumb { height: 300px; object-fit: cover; } }
+@media screen and (max-width: 991px) { .st-project-thumb { aspect-ratio: 16 / 11; height: auto; } }
 @media screen and (max-width: 767px) { .st-project-thumb { border-radius: 12px; } }
 .st-project-card-info { display: flex; align-items: center; justify-content: space-between; margin-top: var(--st-gap-16); }
 @media screen and (max-width: 991px) { .st-project-card-info { flex-flow: column; align-items: flex-start; } }

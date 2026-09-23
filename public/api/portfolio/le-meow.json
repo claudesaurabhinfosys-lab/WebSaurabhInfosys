@@ -4,12 +4,14 @@
     "id": 51,
     "slug": "le-meow",
     "title": "Le Meow",
-    "category": "Custom Dev",
+    "category": "Le Meow",
     "description": "An all-in-one on-demand app that connects users with trusted professionals for home, beauty, and lifestyle services — making booking seamless, secure, and rewarding.",
-    "overview": "Le Meow is Singapore's premier lifestyle ecosystem application, seamlessly uniting multiple premium service brands — including Meow Aesthetics (beauty, nails, lash & skin), Meow Renovations (home services & interior revamps), Meow Future Labs (education & enrichment), SureHands Agency (maids, helper & home care), and MadBakes by Meow (artisanal baking workshops). With instant in-app appointment scheduling, real-time booking tracking, tiered membership reward perks, and secure digital payments, Le Meow delivers an effortless everyday lifestyle experience for modern consumers across Singapore.",
+    "overview": "Le Meow is Singapore's premier lifestyle ecosystem application, seamlessly uniting multiple premium service brands — including Meow Aesthetics (beauty, nails, lash & skin), Meow Renovations (home services & interior revamps), Meowcademy (education & enrichment), SureHand Agency (maids, helper & home care), and Meow Luxury (artisanal jewellery & fashion). With instant in-app appointment scheduling, real-time booking tracking, tiered membership reward perks, and secure digital payments, Le Meow delivers an effortless everyday lifestyle experience for modern consumers across Singapore.",
     "tech": [
       "Flutter",
-      "Laravel"
+      "Laravel",
+      "Next.js",
+      "Stripe"
     ],
     "highlights": [
       "One-stop booking for home, beauty, and lifestyle services",
@@ -25,45 +27,47 @@
       {
         "index": 1,
         "role": "cover",
-        "label": "Cover Image",
+        "label": "Main Cover Card",
         "url": "/images/work/le-meow/01.webp",
         "absoluteUrl": "https://saurabhinfosys.com/images/work/le-meow/01.webp",
-        "aspectRatio": "1.415:1",
+        "aspectRatio": "1080:763",
         "width": 1080,
         "height": 763
       },
       {
         "index": 2,
         "role": "banner",
-        "label": "Banner Image",
+        "label": "Panoramic Hero Banner",
         "url": "/images/work/le-meow/02.webp",
         "absoluteUrl": "https://saurabhinfosys.com/images/work/le-meow/02.webp",
-        "aspectRatio": "2.133:1",
+        "aspectRatio": "1920:900",
         "width": 1920,
         "height": 900
       },
       {
         "index": 3,
         "role": "gallery",
-        "label": "Gallery Image 1",
+        "label": "Gallery Detail 1",
         "url": "/images/work/le-meow/03.webp",
         "absoluteUrl": "https://saurabhinfosys.com/images/work/le-meow/03.webp",
-        "aspectRatio": "1.406:1",
+        "aspectRatio": "900:640",
         "width": 900,
         "height": 640
       },
       {
         "index": 4,
         "role": "gallery",
-        "label": "Gallery Image 2",
+        "label": "Gallery Detail 2",
         "url": "/images/work/le-meow/04.webp",
         "absoluteUrl": "https://saurabhinfosys.com/images/work/le-meow/04.webp",
-        "aspectRatio": "1.406:1",
+        "aspectRatio": "900:640",
         "width": 900,
         "height": 640
       }
     ],
-    "liveUrl": "https://saurabhinfosys.com/portfolio/le-meow"
+    "liveUrl": "https://saurabhinfosys.com/portfolio/le-meow",
+    "client": "Le Meow",
+    "year": "2025"
   },
   "navigation": {
     "prev": {
@@ -72,9 +76,9 @@
       "title": "Meow Aesthetics"
     },
     "next": {
-      "id": 52,
-      "slug": "le-meow-worker",
-      "title": "Le Meow Worker"
+      "id": 53,
+      "slug": "map-metrics",
+      "title": "MapMetrics"
     }
   }
 }

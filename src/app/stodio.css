@@ -249,7 +249,11 @@ html { scroll-behavior: auto; }
   text-transform: uppercase;
 }
 .st-tag.st-on-dark { background-color: var(--st-white); }
-.st-tag.st-on-light { background-color: var(--st-bg-primary); }
+/* On a tinted slab the pill has to be lighter than the slab, not darker by a
+   hair. `--st-bg-primary` (#f1f2f1) against `--st-bg-light` (#f3f3f3) was a
+   2-step difference: the pill vanished and the eyebrow read as loose text
+   with a stray blue glyph beside it. */
+.st-tag.st-on-light { background-color: var(--st-white); }
 .st-tag-icon { width: 16px; height: 16px; display: flex; flex: none; color: var(--st-brand); }
 .st-tag-block { display: flex; justify-content: flex-start; }
 .st-tag-block.st-is-center { justify-content: center; }

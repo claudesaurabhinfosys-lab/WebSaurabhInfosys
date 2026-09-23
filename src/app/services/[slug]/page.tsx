@@ -8,7 +8,7 @@ interface PageProps {
 }
 
 export function generateStaticParams() {
-  return SERVICES.map((service) => ({ slug: service.slug }));
+  return Object.keys(SERVICE_DETAILS).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {

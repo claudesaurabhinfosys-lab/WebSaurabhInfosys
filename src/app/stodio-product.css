@@ -10,15 +10,18 @@
 /* ============================================================================
    Hero — a tinted slab, title leading, product shot trailing
    ========================================================================= */
+/* Tint and radius belong to the `.st-header.st-is-light` slab above it, not
+   here. Rounding this box while the header ran flush put 24px corners against
+   the viewport edge, which is what made the product hero read as the odd one
+   out next to every other page. */
 .st-product-hero {
   position: relative;
   padding-top: 196px;
   padding-bottom: var(--st-pad-4x);
-  border-radius: var(--st-r-24);
-  background-color: var(--st-bg-light);
 }
-@media screen and (max-width: 991px) { .st-product-hero { padding-top: 140px; } }
-@media screen and (max-width: 767px) { .st-product-hero { padding-top: 116px; } }
+@media screen and (max-width: 991px) { .st-product-hero { padding-top: 120px; } }
+@media screen and (max-width: 767px) { .st-product-hero { padding-top: 80px; padding-bottom: 24px; } }
+@media screen and (max-width: 479px) { .st-product-hero { padding-top: 140px; } }
 
 .st-product-hero-inner { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--st-gap-40); }
 @media screen and (max-width: 991px) {

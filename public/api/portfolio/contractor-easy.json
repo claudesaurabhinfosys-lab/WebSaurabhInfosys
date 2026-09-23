@@ -70,6 +70,10 @@
       "slug": "edcalibre",
       "title": "EdCalibre"
     },
-    "next": null
+    "next": {
+      "id": 59,
+      "slug": "meow-advanced-intelligence",
+      "title": "Meow Advanced Intelligence"
+    }
   }
 }

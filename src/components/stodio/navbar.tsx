@@ -4,14 +4,21 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
-import { COMPANY, PORTFOLIO_PROJECTS, PRODUCTS } from "@/lib/data";
+import {
+  COMPANY,
+  COUNTRY_PAGES,
+  COUNTRY_SLUGS,
+  PORTFOLIO_PROJECTS,
+  PRODUCTS,
+} from "@/lib/data";
 import { ArrowUpRight, ChevronDown, CloseMark } from "./icons";
 import Logo from "./logo";
 import { getLenis } from "./lenis-provider";
 
 type NavLink = {
   label: string;
-  href: string;
+  /** Absent on an item that only exists to open its sub-menu. */
+  href?: string;
   count?: boolean;
   /** Renders a sub-menu: a hover panel on desktop, an inline list on mobile. */
   children?: { label: string; href: string }[];
@@ -29,6 +36,22 @@ const NAV_LINKS: NavLink[] = [
       label: product.name,
       href: `/products/${product.slug}`,
     })),
+  },
+  {
+    /* No href: there is no regions index page, and pointing the parent at one
+       of the four would be arbitrary. It renders as a button instead — the
+       panel opens on :focus-within, and a non-focusable parent would leave
+       keyboard users with no way to reach the children, which are
+       `visibility: hidden` until it opens. */
+    label: "Regions",
+    /* Listed in the same order as the footer column, which `COUNTRY_SLUGS`
+       does not use — that array's order feeds `generateStaticParams`. */
+    children: (["usa", "uk", "australia", "singapore"] as const)
+      .filter((slug) => COUNTRY_SLUGS.includes(slug))
+      .map((slug) => ({
+        label: COUNTRY_PAGES[slug].countryFull,
+        href: `/${slug}`,
+      })),
   },
   /* Blog is intentionally absent: it still ships, is still linked from the
      footer and still ranks — it just does not earn a slot in the primary nav. */
@@ -51,6 +74,15 @@ function isLightRoute(pathname: string) {
 
   // Dark heroes -> white nav.
   if (path === "/" || path === "/about" || path === "/blog") return false;
+  if (
+    path.startsWith("/country") ||
+    path === "/usa" ||
+    path === "/uk" ||
+    path === "/singapore" ||
+    path === "/australia"
+  ) {
+    return false;
+  }
 
   // Light slabs -> dark nav.
   if (path.startsWith("/portfolio")) return true;
@@ -58,6 +90,15 @@ function isLightRoute(pathname: string) {
   if (path.startsWith("/contact")) return true;
   if (path.startsWith("/services")) return true;
   if (path.startsWith("/products")) return true;
+  if (
+    path.startsWith("/ai-automation-services") ||
+    path.startsWith("/app-development") ||
+    path.startsWith("/integration-services") ||
+    path.startsWith("/hire-developers") ||
+    path.startsWith("/white-label-software")
+  ) {
+    return true;
+  }
 
   return false;
 }
@@ -164,8 +205,12 @@ export default function Navbar() {
                 {NAV_LINKS.map((link) => {
                   const path =
                     pathname.length > 1 ? pathname.replace(/\/+$/, "") : pathname;
-                  const current =
-                    link.href === "/" ? path === "/" : path.startsWith(link.href);
+                  const current = link.href
+                    ? link.href === "/"
+                      ? path === "/"
+                      : path.startsWith(link.href)
+                    : /* hrefless parent: lit when any of its children is open */
+                      (link.children ?? []).some((child) => path === child.href);
 
                   if (link.count) {
                     return (
@@ -173,8 +218,8 @@ export default function Navbar() {
                          the whole row is the tap target in the mobile sheet
                          and the badge stays glued to the word. */
                       <Link
-                        key={link.href}
-                        href={link.href}
+                        key={link.label}
+                        href={link.href ?? "/"}
                         className={`st-nav-link st-nav-link-inner${current ? " st-is-current" : ""}`}
                       >
                         <span className="st-nav-mark" aria-hidden="true" />
@@ -186,15 +231,26 @@ export default function Navbar() {
 
                   if (link.children) {
                     return (
-                      <div className="st-nav-item st-has-menu" key={link.href}>
-                        <Link
-                          href={link.href}
-                          className={`st-nav-link${current ? " st-is-current" : ""}`}
-                        >
-                          <span className="st-nav-mark" aria-hidden="true" />
-                          {link.label}
-                          <ChevronDown className="st-nav-chevron" aria-hidden="true" />
-                        </Link>
+                      <div className="st-nav-item st-has-menu" key={link.label}>
+                        {link.href ? (
+                          <Link
+                            href={link.href}
+                            className={`st-nav-link${current ? " st-is-current" : ""}`}
+                          >
+                            <span className="st-nav-mark" aria-hidden="true" />
+                            {link.label}
+                            <ChevronDown className="st-nav-chevron" aria-hidden="true" />
+                          </Link>
+                        ) : (
+                          <button
+                            type="button"
+                            className={`st-nav-link st-is-trigger${current ? " st-is-current" : ""}`}
+                          >
+                            <span className="st-nav-mark" aria-hidden="true" />
+                            {link.label}
+                            <ChevronDown className="st-nav-chevron" aria-hidden="true" />
+                          </button>
+                        )}
                         {/* Not a <button>/aria-expanded pair on purpose: the
                             parent is a real link to /products, and the panel
                             opens on hover and on :focus-within, so keyboard
@@ -220,8 +276,8 @@ export default function Navbar() {
 
                   return (
                     <Link
-                      key={link.href}
-                      href={link.href}
+                      key={link.label}
+                      href={link.href ?? "/"}
                       className={`st-nav-link${current ? " st-is-current" : ""}`}
                     >
                       <span className="st-nav-mark" aria-hidden="true" />

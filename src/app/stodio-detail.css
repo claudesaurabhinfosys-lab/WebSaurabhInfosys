@@ -83,14 +83,18 @@
 /* ============================================================================
    Detail hero — shared by service and product pages
    ========================================================================= */
+/* The tint and the 24px radius come from the `.st-header.st-is-light` slab
+   that wraps it, exactly as they do for `.st-hero` on the index pages. The
+   hero itself only owns its padding, so detail and index pages inset by the
+   same 16px and round by the same amount. */
 .st-detail-hero {
   position: relative;
   padding-top: 196px;
-  padding-bottom: var(--st-pad-xl);
-  background-color: var(--st-bg-light);
+  padding-bottom: var(--st-pad-4x);
 }
-@media screen and (max-width: 991px) { .st-detail-hero { padding-top: 140px; } }
-@media screen and (max-width: 767px) { .st-detail-hero { padding-top: 116px; } }
+@media screen and (max-width: 991px) { .st-detail-hero { padding-top: 120px; } }
+@media screen and (max-width: 767px) { .st-detail-hero { padding-top: 80px; padding-bottom: 24px; } }
+@media screen and (max-width: 479px) { .st-detail-hero { padding-top: 140px; } }
 
 .st-detail-hero-inner { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--st-gap-40); }
 @media screen and (max-width: 991px) { .st-detail-hero-inner { flex-flow: column; align-items: flex-start; gap: var(--st-gap-32); } }

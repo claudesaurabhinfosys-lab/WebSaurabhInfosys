@@ -1,0 +1,82 @@
+{
+  "success": true,
+  "data": {
+    "id": 62,
+    "slug": "le-destin",
+    "title": "Le Destin",
+    "category": "Le Meow",
+    "description": "Singapore's curated matchmaking and experiential social discovery platform featuring thoughtful profiles, Match Credits, and memorable real-world dates.",
+    "overview": "Le Destin redefines modern romance and social connection in Singapore through curated, intentional matchmaking. Moving away from endless swiping, Le Destin combines verified personality profiles, intentional Match Credits, and bespoke real-world date arrangements at exclusive dining and cultural partner venues.",
+    "tech": [
+      "Next.js",
+      "Node.js",
+      "Tailwind CSS",
+      "REST API"
+    ],
+    "highlights": [
+      "Human-curated compatibility matching emphasizing lifestyle values and relationship readiness",
+      "Proprietary Match Credit system encouraging genuine, respectful conversation and intentional meetings",
+      "Exclusive dining and experiential date reservations partnered with premier Singapore venues",
+      "Privacy-first identity verification ensuring an authentic, trusted community environment"
+    ],
+    "hasImages": true,
+    "imagesCount": 4,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/placeholder-02.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-02.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      },
+      {
+        "index": 2,
+        "role": "banner",
+        "label": "Panoramic Hero Banner",
+        "url": "/images/work/placeholder-04.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-04.webp",
+        "aspectRatio": "1920:900",
+        "width": 1920,
+        "height": 900
+      },
+      {
+        "index": 3,
+        "role": "gallery",
+        "label": "Gallery Detail 1",
+        "url": "/images/work/placeholder-05.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-05.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      },
+      {
+        "index": 4,
+        "role": "gallery",
+        "label": "Gallery Detail 2",
+        "url": "/images/work/placeholder-03.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-03.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/le-destin",
+    "client": "Le Destin",
+    "year": "2025"
+  },
+  "navigation": {
+    "prev": {
+      "id": 61,
+      "slug": "surehand-agency",
+      "title": "SureHand Agency"
+    },
+    "next": {
+      "id": 63,
+      "slug": "meow-devs",
+      "title": "Meow Devs"
+    }
+  }
+}

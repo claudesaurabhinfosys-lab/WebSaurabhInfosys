@@ -10,6 +10,7 @@ import "./stodio-pages.css";
 import "./stodio-about.css";
 import "./stodio-detail.css";
 import "./stodio-product.css";
+import "./stodio-country.css";
 import Navbar from "@/components/stodio/navbar";
 import Footer from "@/components/stodio/footer";
 import LenisProvider from "@/components/stodio/lenis-provider";

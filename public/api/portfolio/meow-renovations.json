@@ -1,0 +1,82 @@
+{
+  "success": true,
+  "data": {
+    "id": 60,
+    "slug": "meow-renovations",
+    "title": "Meow Renovations",
+    "category": "Le Meow",
+    "description": "Premium HDB painting, artisanal limewash finishes, and architectural curved interior specialists in Singapore with 5-year warranty using Raffles Anti-Mould paint.",
+    "overview": "Meow Renovations is Singapore's dedicated interior revamp and painting studio specializing in hotel-quality limewash finishes, curved architectural feature walls, and moisture-resistant home restoration. Offering clear upfront package tiers for HDBs, condos, and landed residences, Meow Renovations elevates living spaces with craftsmanship and peace of mind.",
+    "tech": [
+      "Next.js",
+      "Tailwind CSS",
+      "Node.js",
+      "REST API"
+    ],
+    "highlights": [
+      "Curated turnkey interior packages with transparent, upfront pricing for HDB and private homes",
+      "Artisanal limewash textures and precision curved architectural wall designs",
+      "Comprehensive 5-year anti-mould warranty backed by Raffles Anti-Mould paint systems",
+      "Digital colour consultation, quote generation, and instant site measurement booking"
+    ],
+    "hasImages": true,
+    "imagesCount": 4,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/placeholder-02.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-02.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      },
+      {
+        "index": 2,
+        "role": "banner",
+        "label": "Panoramic Hero Banner",
+        "url": "/images/work/placeholder-03.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-03.webp",
+        "aspectRatio": "1920:900",
+        "width": 1920,
+        "height": 900
+      },
+      {
+        "index": 3,
+        "role": "gallery",
+        "label": "Gallery Detail 1",
+        "url": "/images/work/placeholder-04.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-04.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      },
+      {
+        "index": 4,
+        "role": "gallery",
+        "label": "Gallery Detail 2",
+        "url": "/images/work/placeholder-05.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-05.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/meow-renovations",
+    "client": "Meow Renovations",
+    "year": "2025"
+  },
+  "navigation": {
+    "prev": {
+      "id": 59,
+      "slug": "meow-advanced-intelligence",
+      "title": "Meow Advanced Intelligence"
+    },
+    "next": {
+      "id": 61,
+      "slug": "surehand-agency",
+      "title": "SureHand Agency"
+    }
+  }
+}

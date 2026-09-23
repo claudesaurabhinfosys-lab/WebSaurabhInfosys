@@ -78,7 +78,15 @@ export default function PortfolioPage() {
 
           <div className="st-projects-grid">
             {projects.map((project, index) => (
-              <Reveal key={project.slug} delay={(index % 2) * 90}>
+              <Reveal
+                key={project.slug}
+                delay={(index % 2) * 90}
+                className={
+                  index === projects.length - 1 && projects.length % 2 === 1
+                    ? "st-is-single"
+                    : ""
+                }
+              >
                 <WorkCard
                   href={`/portfolio/${project.slug}`}
                   title={project.title}

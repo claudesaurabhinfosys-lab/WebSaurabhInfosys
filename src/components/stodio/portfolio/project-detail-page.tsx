@@ -92,13 +92,13 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <div className="st-header st-is-flush">
+      <div className="st-header st-is-light">
         <section className="st-project-hero">
           <div className="st-container">
             <div className="st-project-hero-content">
               <div className="st-project-hero-left">
                 <Reveal className="st-tag-block">
-                  <Tag>Our portfolio</Tag>
+                  <Tag on="light">Our portfolio</Tag>
                 </Reveal>
                 <Reveal delay={100}>
                   <h1 className="st-h1" style={{ marginTop: "var(--st-gap-24)" }}>
@@ -107,11 +107,11 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
                 </Reveal>
 
                 <Reveal delay={200}>
-                  <div className="st-project-meta">
+                  <div className="st-project-meta st-text-l">
                     {meta.map((item) => (
                       <div className="st-project-meta-item" key={item.label}>
-                        <div className="st-project-meta-label">{item.label}</div>
-                        <div className="st-text-l">{item.value}</div>
+                        <span className="st-project-meta-label">{item.label}:</span>
+                        <span className="st-project-meta-value">{item.value}</span>
                       </div>
                     ))}
                   </div>

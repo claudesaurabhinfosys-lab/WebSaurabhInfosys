@@ -3,20 +3,21 @@
   "data": {
     "id": 20,
     "slug": "pots",
-    "title": "Pots",
-    "category": "Fintech",
-    "description": "Savings pot and micro-investment platform allowing users to set savings goals and automate contributions.",
-    "overview": null,
+    "title": "Points of Tango (POT)",
+    "category": "Custom Dev",
+    "description": "Global tango community and event discovery platform connecting dancers, organizers, orchestras, DJs, and instructors with centralized milonga schedules and festival registration.",
+    "overview": "Points of Tango (POT) is a worldwide mobile community and event directory designed for the global tango dance scene. It bridges dancers and organizers by providing a centralized hub for discovering international festivals, marathons, and local milongas, managing travel timetables, exploring orchestras and artists, and browsing specialized dancewear and shoe stores.",
     "tech": [
       "Flutter",
       "Node.js",
-      "Razorpay"
+      "Firebase",
+      "REST API"
     ],
     "highlights": [
-      "Goal-based savings pots with custom targets and deadlines",
-      "Automated recurring contributions via Razorpay",
-      "Visual progress tracking with milestone celebrations",
-      "Interest simulation and savings projection calculator"
+      "Global tango event discovery for festivals, marathons, milongas, and practicas",
+      "Advanced event filtering by continent, country, date ranges, and open registration",
+      "Interactive community directory for orchestras, musicians, DJs, and taxi dancers",
+      "Dancer profiles with attendee badges, organizing credentials, and event history"
     ],
     "hasImages": true,
     "imagesCount": 4,

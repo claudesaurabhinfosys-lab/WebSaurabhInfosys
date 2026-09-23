@@ -1,0 +1,83 @@
+{
+  "success": true,
+  "data": {
+    "id": 59,
+    "slug": "meow-advanced-intelligence",
+    "title": "Meow Advanced Intelligence",
+    "category": "Le Meow",
+    "description": "The Operating System for Everyday Life — uniting anti-scam protection, a verified services marketplace, and an intelligent personal AI assistant.",
+    "overview": "Meow Advanced Intelligence (MEOWAI) is an intelligent ecosystem platform designed as the operating system for modern living in Singapore. Uniting proactive anti-scam shield protocols, verified on-demand home and lifestyle services, and conversational personal AI assistants, MEOWAI creates a safe, interconnected digital umbrella for consumers and businesses alike.",
+    "tech": [
+      "Next.js",
+      "AI / LLM",
+      "Python",
+      "Tailwind CSS",
+      "REST API"
+    ],
+    "highlights": [
+      "Anti-scam verification engine and fraud protection shield for household transactions",
+      "Unified API hub connecting all Le Meow ecosystem brands under one digital umbrella",
+      "Conversational AI assistant for on-demand booking, task delegation, and concierge support",
+      "Enterprise dashboard for verified partner vetting, real-time dispatch, and analytics"
+    ],
+    "hasImages": true,
+    "imagesCount": 4,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/placeholder-01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      },
+      {
+        "index": 2,
+        "role": "banner",
+        "label": "Panoramic Hero Banner",
+        "url": "/images/work/placeholder-02.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-02.webp",
+        "aspectRatio": "1920:900",
+        "width": 1920,
+        "height": 900
+      },
+      {
+        "index": 3,
+        "role": "gallery",
+        "label": "Gallery Detail 1",
+        "url": "/images/work/placeholder-03.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-03.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      },
+      {
+        "index": 4,
+        "role": "gallery",
+        "label": "Gallery Detail 2",
+        "url": "/images/work/placeholder-04.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-04.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/meow-advanced-intelligence",
+    "client": "Meow Advanced Intelligence",
+    "year": "2025"
+  },
+  "navigation": {
+    "prev": {
+      "id": 58,
+      "slug": "contractor-easy",
+      "title": "Contractor Easy"
+    },
+    "next": {
+      "id": 60,
+      "slug": "meow-renovations",
+      "title": "Meow Renovations"
+    }
+  }
+}

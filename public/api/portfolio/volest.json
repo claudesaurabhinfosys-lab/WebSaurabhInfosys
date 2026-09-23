@@ -4,19 +4,20 @@
     "id": 21,
     "slug": "volest",
     "title": "Volest",
-    "category": "Fintech",
-    "description": "Investment portfolio tracker with real-time market data, asset allocation analytics, and performance reports.",
-    "overview": null,
+    "category": "Custom Dev",
+    "description": "Forestry calculation and timber estimation application for foresters, researchers, and field analysts — featuring mathematical volume models (Smalian, Huber, Newton), tree parameter logging, and CSV data export.",
+    "overview": "Volest is a user-friendly, technological forestry application that solves calculations for students, researchers, foresters, and environmental analysts determining tree and timber volumes using standard volume estimation formulas (Smalian, Huber, and Newton models).",
     "tech": [
-      "React",
+      "Flutter",
       "Node.js",
-      "Chart.js"
+      "Firebase",
+      "CSV Engine"
     ],
     "highlights": [
-      "Multi-asset portfolio tracking across stocks, MFs, and crypto",
-      "Real-time market data with live P&L calculation",
-      "Asset allocation charts with rebalancing suggestions",
-      "Performance vs benchmark comparison"
+      "Tree volume calculation models using Smalian, Huber, and Newton mathematical formulas",
+      "Flexible parameter input (DST, DBH, Dm, Dt, and tree height measurements)",
+      "Bulk CSV data import and export for large-scale forest survey datasets",
+      "Historical calculation log archive with cloud synchronization and report generation"
     ],
     "hasImages": true,
     "imagesCount": 4,
@@ -68,7 +69,7 @@
     "prev": {
       "id": 20,
       "slug": "pots",
-      "title": "Pots"
+      "title": "Points of Tango (POT)"
     },
     "next": {
       "id": 22,

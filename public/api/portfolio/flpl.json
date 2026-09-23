@@ -6,7 +6,7 @@
     "title": "FLPL",
     "category": "Custom Dev",
     "description": "Custom logistics and fleet planning platform with route optimisation, load matching, and billing integration.",
-    "overview": null,
+    "overview": "FLPL (Frigate Logistics) is a comprehensive logistics and fleet management platform built for modern e-commerce delivery networks. It streamlines driver onboarding, digital document compliance, daily geolocation attendance, load dispatching, automated invoicing, and trip transaction settlement.",
     "tech": [
       "React",
       "Node.js",

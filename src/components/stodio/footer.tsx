@@ -8,32 +8,32 @@ import {
 import NewsletterForm from "./newsletter-form";
 import Logo from "./logo";
 
+/* Three columns of five. They are rendered on an equal-width grid, so the
+   hairline rules between them land on a regular rhythm instead of wherever the
+   longest label in each list happened to push them. The country links use the
+   short `/uk` form the content brief specifies, not the `/country/uk` alias. */
 const COLUMN_ONE = [
   { label: "Home", href: "/" },
   { label: "Studio", href: "/about" },
   { label: "Work", href: "/portfolio" },
-  { label: "Services", href: "/services" },
+  { label: "Products", href: "/products" },
   { label: "Blog", href: "/blog" },
 ];
 
 const COLUMN_TWO = [
-  { label: "AI Automation", href: "/services/ai-agents" },
-  { label: "Vibe Coding", href: "/services/vibe-coding" },
-  { label: "Flutter Apps", href: "/services/flutter" },
-  { label: "SaaS Platforms", href: "/services/saas" },
-  { label: "Contact", href: "/contact" },
+  { label: "AI Automation", href: "/services/ai-automation-services" },
+  { label: "App & MVP Dev", href: "/services/app-development" },
+  { label: "System Integration", href: "/services/integration-services" },
+  { label: "Hire Developers", href: "/services/hire-developers" },
+  { label: "White-Label SaaS", href: "/services/white-label-software" },
 ];
 
-/* Products point at their own pages, not at the live apps. The product page is
-   where the pricing, modules and demo link live; sending someone straight to
-   the running product skips all of it, and the page already carries a "Visit"
-   button for people who do want the app itself. */
 const COLUMN_THREE = [
-  { label: "School ERP", href: "/products/ssms" },
-  { label: "MySociety", href: "/products/mysociety" },
-  { label: "MySampark", href: "/products/mysampark" },
-  { label: "GPS & Fleet", href: "/services/gps" },
-  { label: "Digital Marketing", href: "/services/digital-marketing" },
+  { label: "United States", href: "/usa" },
+  { label: "United Kingdom", href: "/uk" },
+  { label: "Australia", href: "/australia" },
+  { label: "Singapore", href: "/singapore" },
+  { label: "Contact", href: "/contact" },
 ];
 
 const SOCIALS = [

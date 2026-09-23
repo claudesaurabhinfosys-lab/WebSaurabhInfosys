@@ -192,7 +192,7 @@
       "slug": "curvd",
       "title": "Curvd",
       "category": "Health",
-      "description": "Ultimate workouts and custom nutrition planning app designed for CapriCurves community \u2014 featuring structured fitness routines, video workouts, and macro nutrition tracking.",
+      "description": "Ultimate workouts and custom nutrition planning app designed for CapriCurves community — featuring structured fitness routines, video workouts, and macro nutrition tracking.",
       "overview": null,
       "tech": [
         "Flutter",
@@ -429,7 +429,7 @@
         "MongoDB"
       ],
       "highlights": [
-        "Ingredient-based recipe search \u2014 find recipes from what you have",
+        "Ingredient-based recipe search — find recipes from what you have",
         "Weekly meal planner with automated shopping lists",
         "Full nutritional breakdown per recipe and serving",
         "User collections and offline-saved favourites"
@@ -533,7 +533,7 @@
         "Trip expense summaries and co-traveler settlements"
       ],
       "hasImages": true,
-      "imagesCount": 1,
+      "imagesCount": 4,
       "images": [
         {
           "index": 1,
@@ -544,6 +544,36 @@
           "aspectRatio": "1080:763",
           "width": 1080,
           "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/commute/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/commute/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/commute/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/commute/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/commute/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/commute/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
         }
       ],
       "liveUrl": "https://saurabhinfosys.com/portfolio/commute"
@@ -709,7 +739,7 @@
       "slug": "barber-plus",
       "title": "Barber Plus",
       "category": "Gig",
-      "description": "Record keeping and financial management app for barber shops \u2014 tracking barber transactions, service packages, commissions, and member deposits.",
+      "description": "Record keeping and financial management app for barber shops — tracking barber transactions, service packages, commissions, and member deposits.",
       "overview": null,
       "tech": [
         "Flutter",
@@ -811,7 +841,7 @@
       "slug": "helping-hands",
       "title": "Helping Hands",
       "category": "NGO",
-      "description": "Volunteer coordination and community support platform for NGOs \u2014 task assignments, tracking, and impact reporting.",
+      "description": "Volunteer coordination and community support platform for NGOs — task assignments, tracking, and impact reporting.",
       "overview": null,
       "tech": [
         "React",
@@ -873,20 +903,21 @@
     {
       "id": 20,
       "slug": "pots",
-      "title": "Pots",
-      "category": "Fintech",
-      "description": "Savings pot and micro-investment platform allowing users to set savings goals and automate contributions.",
-      "overview": null,
+      "title": "Points of Tango (POT)",
+      "category": "Custom Dev",
+      "description": "Global tango community and event discovery platform connecting dancers, organizers, orchestras, DJs, and instructors with centralized milonga schedules and festival registration.",
+      "overview": "Points of Tango (POT) is a worldwide mobile community and event directory designed for the global tango dance scene. It bridges dancers and organizers by providing a centralized hub for discovering international festivals, marathons, and local milongas, managing travel timetables, exploring orchestras and artists, and browsing specialized dancewear and shoe stores.",
       "tech": [
         "Flutter",
         "Node.js",
-        "Razorpay"
+        "Firebase",
+        "REST API"
       ],
       "highlights": [
-        "Goal-based savings pots with custom targets and deadlines",
-        "Automated recurring contributions via Razorpay",
-        "Visual progress tracking with milestone celebrations",
-        "Interest simulation and savings projection calculator"
+        "Global tango event discovery for festivals, marathons, milongas, and practicas",
+        "Advanced event filtering by continent, country, date ranges, and open registration",
+        "Interactive community directory for orchestras, musicians, DJs, and taxi dancers",
+        "Dancer profiles with attendee badges, organizing credentials, and event history"
       ],
       "hasImages": true,
       "imagesCount": 4,
@@ -938,19 +969,20 @@
       "id": 21,
       "slug": "volest",
       "title": "Volest",
-      "category": "Fintech",
-      "description": "Investment portfolio tracker with real-time market data, asset allocation analytics, and performance reports.",
-      "overview": null,
+      "category": "Custom Dev",
+      "description": "Forestry calculation and timber estimation application for foresters, researchers, and field analysts — featuring mathematical volume models (Smalian, Huber, Newton), tree parameter logging, and CSV data export.",
+      "overview": "Volest is a user-friendly, technological forestry application that solves calculations for students, researchers, foresters, and environmental analysts determining tree and timber volumes using standard volume estimation formulas (Smalian, Huber, and Newton models).",
       "tech": [
-        "React",
+        "Flutter",
         "Node.js",
-        "Chart.js"
+        "Firebase",
+        "CSV Engine"
       ],
       "highlights": [
-        "Multi-asset portfolio tracking across stocks, MFs, and crypto",
-        "Real-time market data with live P&L calculation",
-        "Asset allocation charts with rebalancing suggestions",
-        "Performance vs benchmark comparison"
+        "Tree volume calculation models using Smalian, Huber, and Newton mathematical formulas",
+        "Flexible parameter input (DST, DBH, Dm, Dt, and tree height measurements)",
+        "Bulk CSV data import and export for large-scale forest survey datasets",
+        "Historical calculation log archive with cloud synchronization and report generation"
       ],
       "hasImages": true,
       "imagesCount": 4,
@@ -1513,7 +1545,7 @@
       "slug": "riiicycle",
       "title": "Riiicycle",
       "category": "Custom Dev",
-      "description": "Sustainable recycling marketplace and rewards app \u2014 users earn points for recycling pickups and eco actions.",
+      "description": "Sustainable recycling marketplace and rewards app — users earn points for recycling pickups and eco actions.",
       "overview": null,
       "tech": [
         "Flutter",
@@ -1523,7 +1555,7 @@
       "highlights": [
         "Doorstep recycling pickup scheduling and tracking",
         "Points and rewards system for eco-friendly actions",
-        "Personal recycling impact tracker with CO\u2082 savings",
+        "Personal recycling impact tracker with CO₂ savings",
         "Community leaderboard to drive neighbourhood engagement"
       ],
       "hasImages": false,
@@ -1604,7 +1636,7 @@
       "slug": "ch90",
       "title": "CH90",
       "category": "Custom Dev",
-      "description": "Custom hospitality management system for hotels \u2014 reservations, housekeeping, billing, and guest communication.",
+      "description": "Custom hospitality management system for hotels — reservations, housekeeping, billing, and guest communication.",
       "overview": null,
       "tech": [
         "React",
@@ -1726,7 +1758,7 @@
       "title": "FLPL",
       "category": "Custom Dev",
       "description": "Custom logistics and fleet planning platform with route optimisation, load matching, and billing integration.",
-      "overview": null,
+      "overview": "FLPL (Frigate Logistics) is a comprehensive logistics and fleet management platform built for modern e-commerce delivery networks. It streamlines driver onboarding, digital document compliance, daily geolocation attendance, load dispatching, automated invoicing, and trip transaction settlement.",
       "tech": [
         "React",
         "Node.js",
@@ -1789,7 +1821,7 @@
       "slug": "ewd",
       "title": "EWD",
       "category": "Transport",
-      "description": "An Electronic Work Diary platform that digitises work and rest recording for drivers, transport operators, record keepers, and authorised officers \u2014 built to meet NHVR EWD Standards.",
+      "description": "An Electronic Work Diary platform that digitises work and rest recording for drivers, transport operators, record keepers, and authorised officers — built to meet NHVR EWD Standards.",
       "overview": null,
       "tech": [
         "Flutter",
@@ -1812,7 +1844,7 @@
       "slug": "washry",
       "title": "Washry",
       "category": "Custom Dev",
-      "description": "An on-demand laundry and dry-cleaning app that works like Uber Eats for your clothes \u2014 connecting users with trusted local cleaners for seamless pickup, cleaning, and doorstep delivery.",
+      "description": "An on-demand laundry and dry-cleaning app that works like Uber Eats for your clothes — connecting users with trusted local cleaners for seamless pickup, cleaning, and doorstep delivery.",
       "overview": null,
       "tech": [
         "Flutter",
@@ -1835,7 +1867,7 @@
       "slug": "washry-vendor",
       "title": "Washry Vendor",
       "category": "Custom Dev",
-      "description": "A partner app that connects existing dry-cleaning and laundry businesses to the Washry network \u2014 bringing in more customers and handling all logistics without changing daily operations.",
+      "description": "A partner app that connects existing dry-cleaning and laundry businesses to the Washry network — bringing in more customers and handling all logistics without changing daily operations.",
       "overview": null,
       "tech": [
         "Flutter",
@@ -1858,14 +1890,14 @@
       "slug": "washry-go",
       "title": "Washry Go",
       "category": "Custom Dev",
-      "description": "A gig-driving app built specifically for laundry and dry-cleaning logistics \u2014 letting drivers earn flexibly by picking up and delivering orders between customers and Washry's partner cleaners.",
+      "description": "A gig-driving app built specifically for laundry and dry-cleaning logistics — letting drivers earn flexibly by picking up and delivering orders between customers and Washry's partner cleaners.",
       "overview": null,
       "tech": [
         "Flutter",
         "Laravel"
       ],
       "highlights": [
-        "Flexible scheduling \u2014 no fixed shifts",
+        "Flexible scheduling — no fixed shifts",
         "Real-time navigation with optimised map routing",
         "Seamless order acceptance and completion flow",
         "Transparent per-trip earnings and payout history",
@@ -1881,7 +1913,7 @@
       "slug": "exotic-now",
       "title": "Exotic Now",
       "category": "Custom Dev",
-      "description": "A premium car rental app that makes booking exotic and ultra-luxury vehicles effortless \u2014 with transparent pricing, secure payments, and flexible delivery or pickup options.",
+      "description": "A premium car rental app that makes booking exotic and ultra-luxury vehicles effortless — with transparent pricing, secure payments, and flexible delivery or pickup options.",
       "overview": null,
       "tech": [
         "Flutter",
@@ -1890,7 +1922,7 @@
       "highlights": [
         "Browse exotic and ultra-exotic vehicles with photos and details",
         "Book by day or month with fully transparent upfront pricing",
-        "100 miles/day included \u2014 extra miles at $1 each",
+        "100 miles/day included — extra miles at $1 each",
         "Secure deposit handling and easy refunds",
         "Home delivery or rental location pickup",
         "Premium chauffeur service option"
@@ -1905,7 +1937,7 @@
       "slug": "exotic-now-partner",
       "title": "Exotic Now Partner",
       "category": "Custom Dev",
-      "description": "An owner-side app that lets exotic and ultra-luxury car owners safely list their vehicles for rent \u2014 with verified renters, secure payouts, and full platform protection.",
+      "description": "An owner-side app that lets exotic and ultra-luxury car owners safely list their vehicles for rent — with verified renters, secure payouts, and full platform protection.",
       "overview": null,
       "tech": [
         "Flutter",
@@ -1913,9 +1945,9 @@
       ],
       "highlights": [
         "Quick car listing with photos, videos, and documents",
-        "Flexible rental terms \u2014 daily, monthly, or both",
+        "Flexible rental terms — daily, monthly, or both",
         "65% owner payout with transparent platform fee",
-        "Renter verification \u2014 license, insurance, and admin approval",
+        "Renter verification — license, insurance, and admin approval",
         "Mileage, deposit, and safety policies to protect your vehicle"
       ],
       "hasImages": false,
@@ -1928,7 +1960,7 @@
       "slug": "exotics-now-employee",
       "title": "Exotics Now Employee",
       "category": "Custom Dev",
-      "description": "A staff-facing app built for Exotics Now chauffeurs and employees \u2014 providing all the tools needed to deliver a seamless, professional luxury rental experience from pickup to drop-off.",
+      "description": "A staff-facing app built for Exotics Now chauffeurs and employees — providing all the tools needed to deliver a seamless, professional luxury rental experience from pickup to drop-off.",
       "overview": null,
       "tech": [
         "Flutter",
@@ -1951,7 +1983,7 @@
       "slug": "edify-easy",
       "title": "Edify Easy",
       "category": "Education",
-      "description": "A structured e-learning platform that allows organisations to onboard trainees, deliver learning materials, and track progress \u2014 all within a clean, role-based digital environment.",
+      "description": "A structured e-learning platform that allows organisations to onboard trainees, deliver learning materials, and track progress — all within a clean, role-based digital environment.",
       "overview": null,
       "tech": [
         "React",
@@ -1959,7 +1991,7 @@
       ],
       "highlights": [
         "Multi-company setup with role-based access control",
-        "Admin content management \u2014 upload and organise training materials",
+        "Admin content management — upload and organise training materials",
         "Trainee dashboard with course access and progress tracking",
         "Company owner reports and completion overviews",
         "Clean, intuitive interface for all user roles"
@@ -1974,7 +2006,7 @@
       "slug": "drd",
       "title": "DRD",
       "category": "SaaS",
-      "description": "DRD (Digital Retail Display) bridges online convenience with local in-store shopping \u2014 letting shoppers discover nearby stores, check real-time stock, and buy instantly, while helping local retailers go digital without any technical expertise.",
+      "description": "DRD (Digital Retail Display) bridges online convenience with local in-store shopping — letting shoppers discover nearby stores, check real-time stock, and buy instantly, while helping local retailers go digital without any technical expertise.",
       "overview": null,
       "tech": [
         "React",
@@ -1998,81 +2030,212 @@
       "id": 48,
       "slug": "meow-tampines",
       "title": "Meow Tampines",
-      "category": "Custom Dev",
-      "description": "A refined website for Meow Tampines \u2014 a premium hair salon in Singapore designed as a calm, luxurious retreat where modern hair artistry meets personalised, thoughtful care.",
-      "overview": null,
+      "category": "Le Meow",
+      "description": "A refined website for Meow Tampines — a luxury hair salon and calm wellness retreat in Singapore where modern hair artistry meets personalised, thoughtful care.",
+      "overview": "Meow Tampines is an elevated hair studio and tranquil scalp wellness retreat located in Singapore. Designed to provide a serene sanctuary away from urban rush, the digital portal reflects its aesthetic refinement while allowing guests to explore signature hair spa rituals, creative balayage color transformations, and book personalized stylist sessions.",
       "tech": [
-        "Next.js"
+        "Next.js",
+        "Tailwind CSS",
+        "REST API"
       ],
       "highlights": [
-        "Elegant, brand-aligned design reflecting luxury and calm",
-        "Signature Hair Spa service showcase",
-        "Online appointment booking integration",
-        "Services, testimonials, and blog sections",
-        "Mobile-friendly and easy to navigate"
+        "Elegant, brand-aligned editorial design reflecting luxury, calmness, and minimalist beauty",
+        "Signature Hair Spa and organic scalp detoxification service showcase",
+        "Real-time stylist calendar and online appointment reservation system",
+        "Interactive treatment catalog with upfront pricing and hair care styling guides"
       ],
-      "hasImages": false,
-      "imagesCount": 0,
-      "images": [],
-      "liveUrl": "https://saurabhinfosys.com/portfolio/meow-tampines"
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/placeholder-04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-04.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/placeholder-05.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-05.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/placeholder-01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-01.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/placeholder-02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-02.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/meow-tampines",
+      "client": "Meow Tampines",
+      "year": "2025"
     },
     {
       "id": 49,
       "slug": "meowcademy",
       "title": "Meowcademy",
-      "category": "Custom Dev",
-      "description": "A modern tuition centre website for Meowcademy \u2014 a Singapore-based small group learning platform offering affordable, high-quality education for children aged 6 to 16 across all levels and subjects.",
-      "overview": null,
+      "category": "Le Meow",
+      "description": "A modern tuition centre website for Meowcademy — a Singapore-based small group learning platform offering affordable, high-quality education for children aged 6 to 16 across all levels and subjects.",
+      "overview": "Meowcademy is a vibrant learning academy based in Singapore delivering small-group academic tuition and STEM enrichment for primary and secondary students. Built around interactive pedagogy and personalized attention, the platform showcases MOE-aligned curriculum modules, robotics programmes, and seamless class enrolment.",
       "tech": [
         "Next.js",
-        "Laravel"
+        "Laravel",
+        "Tailwind CSS"
       ],
       "highlights": [
-        "Course listings across Pre-K, Primary, and Secondary levels",
-        "Trial offer showcase \u2014 4 lessons with no registration fee",
-        "Flexible payment plans via Atome, GrabPay, and bank instalments",
-        "Robotics and LEGO Spike Prime programme highlight",
-        "Student and parent testimonials",
-        "Multiple location listings and easy contact/enquiry flow"
+        "MOE syllabus curriculum directory across Primary and Secondary mathematics, science, and languages",
+        "Trial class booking system offering 4 introductory lessons with zero registration charges",
+        "Flexible digital instalment plans via Atome, GrabPay, and direct bank financing",
+        "Hands-on LEGO Spike Prime robotics and coding enrichment course highlights"
       ],
-      "hasImages": false,
-      "imagesCount": 0,
-      "images": [],
-      "liveUrl": "https://saurabhinfosys.com/portfolio/meowcademy"
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/placeholder-01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/placeholder-03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-03.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/placeholder-04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/placeholder-02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-02.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/meowcademy",
+      "client": "Meowcademy",
+      "year": "2025"
     },
     {
       "id": 50,
       "slug": "meow-aesthetics",
       "title": "Meow Aesthetics",
-      "category": "Custom Dev",
-      "description": "A beauty and lifestyle website for Meow Aesthetics \u2014 a multi-location Singapore salon offering gel nails, lash extensions, facials, slimming, IPL treatments, and more, alongside sister brand Meow Luxury's jewellery and apparel.",
-      "overview": null,
+      "category": "Le Meow",
+      "description": "A beauty and lifestyle website for Meow Aesthetics — a multi-location Singapore salon offering gel nails, lash extensions, facials, slimming, IPL treatments, and sister brand Meow Luxury.",
+      "overview": "Meow Aesthetics is Singapore's modern beauty collective operating across multiple prime locations. Offering customized gel nail artistry, lash extensions, advanced facial aesthetics, cryo slimming, and pain-free IPL treatments, the web portal serves as a unified digital boutique seamlessly integrating online booking with sister brand Meow Luxury's curated collections.",
       "tech": [
         "Next.js",
-        "Laravel"
+        "Laravel",
+        "Tailwind CSS"
       ],
       "highlights": [
-        "Full service showcase \u2014 nails, lashes, facials, slimming & IPL",
-        "Integrated pricelist for transparent, upfront pricing",
-        "Sister brand Meow Luxury \u2014 jewellery and luxury apparel",
-        "FAQ and T&C section for client confidence",
-        "Multiple location listings with operating hours"
+        "Comprehensive beauty menu covering nails, lash lifts, facials, targeted slimming, and IPL",
+        "Transparent digital pricelist and customizable beauty package bundles",
+        "Multi-branch studio locator with direct instant WhatsApp consultation channels",
+        "Integrated showcase and cross-promotion with sister brand Meow Luxury"
       ],
-      "hasImages": false,
-      "imagesCount": 0,
-      "images": [],
-      "liveUrl": "https://saurabhinfosys.com/portfolio/meow-aesthetics"
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/placeholder-05.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-05.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/placeholder-01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-01.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/placeholder-02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-02.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/placeholder-03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/meow-aesthetics",
+      "client": "Meow Aesthetics",
+      "year": "2025"
     },
     {
       "id": 51,
       "slug": "le-meow",
       "title": "Le Meow",
-      "category": "Custom Dev",
-      "description": "An all-in-one on-demand app that connects users with trusted professionals for home, beauty, and lifestyle services \u2014 making booking seamless, secure, and rewarding.",
-      "overview": "Le Meow is Singapore's premier lifestyle ecosystem application, seamlessly uniting multiple premium service brands \u2014 including Meow Aesthetics (beauty, nails, lash & skin), Meow Renovations (home services & interior revamps), Meow Future Labs (education & enrichment), SureHands Agency (maids, helper & home care), and MadBakes by Meow (artisanal baking workshops). With instant in-app appointment scheduling, real-time booking tracking, tiered membership reward perks, and secure digital payments, Le Meow delivers an effortless everyday lifestyle experience for modern consumers across Singapore.",
+      "category": "Le Meow",
+      "description": "An all-in-one on-demand app that connects users with trusted professionals for home, beauty, and lifestyle services — making booking seamless, secure, and rewarding.",
+      "overview": "Le Meow is Singapore's premier lifestyle ecosystem application, seamlessly uniting multiple premium service brands — including Meow Aesthetics (beauty, nails, lash & skin), Meow Renovations (home services & interior revamps), Meowcademy (education & enrichment), SureHand Agency (maids, helper & home care), and Meow Luxury (artisanal jewellery & fashion). With instant in-app appointment scheduling, real-time booking tracking, tiered membership reward perks, and secure digital payments, Le Meow delivers an effortless everyday lifestyle experience for modern consumers across Singapore.",
       "tech": [
         "Flutter",
-        "Laravel"
+        "Laravel",
+        "Next.js",
+        "Stripe"
       ],
       "highlights": [
         "One-stop booking for home, beauty, and lifestyle services",
@@ -2088,68 +2251,47 @@
         {
           "index": 1,
           "role": "cover",
-          "label": "Cover Image",
+          "label": "Main Cover Card",
           "url": "/images/work/le-meow/01.webp",
           "absoluteUrl": "https://saurabhinfosys.com/images/work/le-meow/01.webp",
-          "aspectRatio": "1.415:1",
+          "aspectRatio": "1080:763",
           "width": 1080,
           "height": 763
         },
         {
           "index": 2,
           "role": "banner",
-          "label": "Banner Image",
+          "label": "Panoramic Hero Banner",
           "url": "/images/work/le-meow/02.webp",
           "absoluteUrl": "https://saurabhinfosys.com/images/work/le-meow/02.webp",
-          "aspectRatio": "2.133:1",
+          "aspectRatio": "1920:900",
           "width": 1920,
           "height": 900
         },
         {
           "index": 3,
           "role": "gallery",
-          "label": "Gallery Image 1",
+          "label": "Gallery Detail 1",
           "url": "/images/work/le-meow/03.webp",
           "absoluteUrl": "https://saurabhinfosys.com/images/work/le-meow/03.webp",
-          "aspectRatio": "1.406:1",
+          "aspectRatio": "900:640",
           "width": 900,
           "height": 640
         },
         {
           "index": 4,
           "role": "gallery",
-          "label": "Gallery Image 2",
+          "label": "Gallery Detail 2",
           "url": "/images/work/le-meow/04.webp",
           "absoluteUrl": "https://saurabhinfosys.com/images/work/le-meow/04.webp",
-          "aspectRatio": "1.406:1",
+          "aspectRatio": "900:640",
           "width": 900,
           "height": 640
         }
       ],
-      "liveUrl": "https://saurabhinfosys.com/portfolio/le-meow"
-    },
-    {
-      "id": 52,
-      "slug": "le-meow-worker",
-      "title": "Le Meow Worker",
-      "category": "Custom Dev",
-      "description": "A dedicated app for Le Meow service professionals \u2014 giving workers everything they need to manage bookings, track jobs, and stay organised on the platform.",
-      "overview": null,
-      "tech": [
-        "Flutter",
-        "Laravel"
-      ],
-      "highlights": [
-        "Instant job request notifications with full booking details",
-        "Clean dashboard for managing upcoming and active jobs",
-        "View customer notes, service requirements, and timing at a glance",
-        "Job status updates to stay on top of daily workflow",
-        "Simple, intuitive interface for all service types"
-      ],
-      "hasImages": false,
-      "imagesCount": 0,
-      "images": [],
-      "liveUrl": "https://saurabhinfosys.com/portfolio/le-meow-worker"
+      "liveUrl": "https://saurabhinfosys.com/portfolio/le-meow",
+      "client": "Le Meow",
+      "year": "2025"
     },
     {
       "id": 53,
@@ -2478,12 +2620,416 @@
         }
       ],
       "liveUrl": "https://saurabhinfosys.com/portfolio/contractor-easy"
+    },
+    {
+      "id": 59,
+      "slug": "meow-advanced-intelligence",
+      "title": "Meow Advanced Intelligence",
+      "category": "Le Meow",
+      "description": "The Operating System for Everyday Life — uniting anti-scam protection, a verified services marketplace, and an intelligent personal AI assistant.",
+      "overview": "Meow Advanced Intelligence (MEOWAI) is an intelligent ecosystem platform designed as the operating system for modern living in Singapore. Uniting proactive anti-scam shield protocols, verified on-demand home and lifestyle services, and conversational personal AI assistants, MEOWAI creates a safe, interconnected digital umbrella for consumers and businesses alike.",
+      "tech": [
+        "Next.js",
+        "AI / LLM",
+        "Python",
+        "Tailwind CSS",
+        "REST API"
+      ],
+      "highlights": [
+        "Anti-scam verification engine and fraud protection shield for household transactions",
+        "Unified API hub connecting all Le Meow ecosystem brands under one digital umbrella",
+        "Conversational AI assistant for on-demand booking, task delegation, and concierge support",
+        "Enterprise dashboard for verified partner vetting, real-time dispatch, and analytics"
+      ],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/placeholder-01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/placeholder-02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/placeholder-03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/placeholder-04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/meow-advanced-intelligence",
+      "client": "Meow Advanced Intelligence",
+      "year": "2025"
+    },
+    {
+      "id": 60,
+      "slug": "meow-renovations",
+      "title": "Meow Renovations",
+      "category": "Le Meow",
+      "description": "Premium HDB painting, artisanal limewash finishes, and architectural curved interior specialists in Singapore with 5-year warranty using Raffles Anti-Mould paint.",
+      "overview": "Meow Renovations is Singapore's dedicated interior revamp and painting studio specializing in hotel-quality limewash finishes, curved architectural feature walls, and moisture-resistant home restoration. Offering clear upfront package tiers for HDBs, condos, and landed residences, Meow Renovations elevates living spaces with craftsmanship and peace of mind.",
+      "tech": [
+        "Next.js",
+        "Tailwind CSS",
+        "Node.js",
+        "REST API"
+      ],
+      "highlights": [
+        "Curated turnkey interior packages with transparent, upfront pricing for HDB and private homes",
+        "Artisanal limewash textures and precision curved architectural wall designs",
+        "Comprehensive 5-year anti-mould warranty backed by Raffles Anti-Mould paint systems",
+        "Digital colour consultation, quote generation, and instant site measurement booking"
+      ],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/placeholder-02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-02.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/placeholder-03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-03.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/placeholder-04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/placeholder-05.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-05.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/meow-renovations",
+      "client": "Meow Renovations",
+      "year": "2025"
+    },
+    {
+      "id": 61,
+      "slug": "surehand-agency",
+      "title": "SureHand Agency",
+      "category": "Le Meow",
+      "description": "Sincere domestic helper and maid agency in Singapore providing transparent matching, certified eldercare & childcare helpers, and long-term aftercare support.",
+      "overview": "SureHands Agency is a trusted, MOM-licensed maid agency in Singapore dedicated to bringing sincerity, transparency, and careful compatibility matching to families. From trained infant care and dedicated eldercare companions to general housekeeping, SureHands guides employers with zero hidden costs, video interview arrangements, and dedicated post-placement welfare checks.",
+      "tech": [
+        "Next.js",
+        "Tailwind CSS",
+        "Node.js",
+        "PostgreSQL"
+      ],
+      "highlights": [
+        "Verified helper directory from Myanmar and Indonesia with skill certifications and medical clearance",
+        "Smart compatibility matching based on infant care, eldercare, dietary, and language requirements",
+        "Transparent fee breakdown with zero hidden placement deductions or surprise levies",
+        "End-to-end MOM work permit processing, ongoing aftercare, and training documentation"
+      ],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/placeholder-03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-03.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/placeholder-04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-04.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/placeholder-05.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-05.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/placeholder-01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-01.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/surehand-agency",
+      "client": "SureHands Agency",
+      "year": "2025"
+    },
+    {
+      "id": 62,
+      "slug": "le-destin",
+      "title": "Le Destin",
+      "category": "Le Meow",
+      "description": "Singapore's curated matchmaking and experiential social discovery platform featuring thoughtful profiles, Match Credits, and memorable real-world dates.",
+      "overview": "Le Destin redefines modern romance and social connection in Singapore through curated, intentional matchmaking. Moving away from endless swiping, Le Destin combines verified personality profiles, intentional Match Credits, and bespoke real-world date arrangements at exclusive dining and cultural partner venues.",
+      "tech": [
+        "Next.js",
+        "Node.js",
+        "Tailwind CSS",
+        "REST API"
+      ],
+      "highlights": [
+        "Human-curated compatibility matching emphasizing lifestyle values and relationship readiness",
+        "Proprietary Match Credit system encouraging genuine, respectful conversation and intentional meetings",
+        "Exclusive dining and experiential date reservations partnered with premier Singapore venues",
+        "Privacy-first identity verification ensuring an authentic, trusted community environment"
+      ],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/placeholder-02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-02.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/placeholder-04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-04.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/placeholder-05.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-05.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/placeholder-03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/le-destin",
+      "client": "Le Destin",
+      "year": "2025"
+    },
+    {
+      "id": 63,
+      "slug": "meow-devs",
+      "title": "Meow Devs",
+      "category": "Le Meow",
+      "description": "Specialized software engineering and AI studio building bespoke web apps, mobile solutions, agentic workflows, and high-performance digital platforms.",
+      "overview": "Meow Devs is the technology and engineering engine powering the Le Meow ecosystem. As a dedicated software and AI studio based in Singapore, Meow Devs architects scalable cloud backends, fluid cross-platform mobile apps, bespoke generative AI integrations, and high-converting web applications with meticulous design craftsmanship.",
+      "tech": [
+        "Next.js",
+        "TypeScript",
+        "Python AI",
+        "Tailwind CSS",
+        "PostgreSQL"
+      ],
+      "highlights": [
+        "Full-lifecycle product engineering from high-fidelity UX prototyping to production deployment",
+        "Bespoke AI agent integration, RAG architectures, and workflow automation systems",
+        "Modern frontend engineering using Next.js, React, and buttery-smooth micro-interactions",
+        "Scalable cloud infrastructure, automated CI/CD pipelines, and high-security compliance"
+      ],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/placeholder-03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-03.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/placeholder-05.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-05.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/placeholder-01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-01.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/placeholder-02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-02.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/meow-devs",
+      "client": "Meow Devs",
+      "year": "2025"
+    },
+    {
+      "id": 64,
+      "slug": "meow-luxury",
+      "title": "Meow Luxury",
+      "category": "Le Meow",
+      "description": "Curated luxury shopping portal offering fine gold jewellery, bespoke diamond pieces, and high-end fashion accessories with personalised concierge delivery.",
+      "overview": "Meow Luxury is a premier boutique lifestyle destination curating certified 18K/24K solid gold jewellery, bespoke diamond creations, and timeless fashion accessories. Integrated within the Le Meow ecosystem, Meow Luxury provides VIP concierge styling, private consultations, and insured white-glove doorstep delivery.",
+      "tech": [
+        "Next.js",
+        "Tailwind CSS",
+        "Swiper",
+        "REST API"
+      ],
+      "highlights": [
+        "Curated collection of fine 18K and 24K gold jewellery, bridal pieces, and luxury watches",
+        "Direct VIP concierge service via WhatsApp for bespoke orders and personalized styling recommendations",
+        "Insured, tamper-proof doorstep delivery across Singapore with authenticity guarantees",
+        "Integrated rewards and privileged benefits across the Le Meow service ecosystem"
+      ],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/placeholder-04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-04.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/placeholder-01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-01.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/placeholder-02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-02.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/placeholder-05.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-05.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
+      "liveUrl": "https://saurabhinfosys.com/portfolio/meow-luxury",
+      "client": "Meow Luxury",
+      "year": "2025"
     }
   ],
   "pagination": {
-    "total": 58,
+    "total": 63,
     "page": 1,
-    "limit": 58,
+    "limit": 63,
     "totalPages": 1,
     "hasNextPage": false,
     "hasPrevPage": false,
@@ -2500,6 +3046,7 @@
   "meta": {
     "availableCategories": [
       "All",
+      "Le Meow",
       "AI",
       "Education",
       "Health",
@@ -2510,8 +3057,8 @@
       "NGO",
       "Custom Dev"
     ],
-    "totalProjectsInDatabase": 57,
-    "totalProjectsWithImages": 38,
+    "totalProjectsInDatabase": 63,
+    "totalProjectsWithImages": 49,
     "baseUrl": "https://saurabhinfosys.com",
     "documentation": {
       "endpoints": {
@@ -2531,7 +3078,6 @@
         "id (integer, fetch single project by id)",
         "sort (id_asc | id_desc | title_asc | title_desc | images_desc)"
       ]
-    },
-    "totalCatalogueProjects": 58
+    }
   }
 }

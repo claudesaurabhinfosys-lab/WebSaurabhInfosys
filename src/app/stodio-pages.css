@@ -9,6 +9,14 @@
 .st-header.st-is-light .st-hero,
 .st-header.st-is-dark .st-hero { border-radius: var(--st-r-24); }
 
+/* Every page hero — index or detail — sits on the same inset slab, so they
+   all share one radius and one 16px gutter. The detail heroes used to run
+   full-bleed, which is what broke the rhythm between /products and
+   /products/ssms, /services and /services/app-development. */
+.st-header.st-is-light .st-detail-hero,
+.st-header.st-is-light .st-product-hero,
+.st-header.st-is-light .st-project-hero { border-radius: var(--st-r-24); }
+
 /* The image chip that sits inline inside a heading. */
 .st-title-image {
   display: inline-block;
@@ -45,25 +53,53 @@
 .st-filter-pill:hover { border-radius: var(--st-r-8); }
 .st-filter-pill.st-is-active { background-color: var(--st-primary); border-color: var(--st-primary); color: var(--st-white); }
 
-.st-projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
-@media screen and (max-width: 991px) { .st-projects-grid { gap: 20px; } }
-@media screen and (max-width: 767px) { .st-projects-grid { grid-template-columns: 1fr; } }
+/* Two up, 40px between columns and a full 80px between rows — the reference
+   separates its pair-blocks by `--padding-xl` rather than repeating the column
+   gap, which is what keeps the grid from reading as a dense tile wall. */
+.st-projects-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--st-pad-xl) 40px; }
+@media screen and (max-width: 991px) { .st-projects-grid { gap: var(--st-pad-4x) 20px; } }
+@media screen and (max-width: 767px) { .st-projects-grid { grid-template-columns: 1fr; gap: var(--st-pad-4x); } }
+
+/* A trailing odd card is centred at the reference's 660px rather than left
+   alone in column one with a hole beside it. */
+.st-projects-grid > .st-is-single { grid-column: 1 / -1; width: 100%; max-width: 660px; margin-inline: auto; }
+@media screen and (max-width: 767px) { .st-projects-grid > .st-is-single { max-width: none; } }
 
 /* ============================================================================
    Project detail
    ========================================================================= */
-.st-project-hero { position: relative; padding-top: 196px; padding-bottom: var(--st-pad-xl); background-color: var(--st-white); }
-@media screen and (max-width: 991px) { .st-project-hero { padding-top: 140px; } }
+.st-project-hero { position: relative; padding-top: 196px; padding-bottom: var(--st-pad-4x); }
+@media screen and (max-width: 991px) { .st-project-hero { padding-top: 120px; } }
+@media screen and (max-width: 767px) { .st-project-hero { padding-top: 80px; padding-bottom: 24px; } }
+@media screen and (max-width: 479px) { .st-project-hero { padding-top: 140px; } }
 .st-project-hero-content { display: flex; align-items: center; justify-content: space-between; gap: 44px; }
 @media screen and (max-width: 767px) { .st-project-hero-content { flex-flow: column; align-items: flex-start; } }
 .st-project-hero-left { flex: 1; max-width: 720px; }
-.st-project-hero-right { position: relative; width: 100%; max-width: 660px; border-radius: var(--st-r-24); overflow: hidden; }
-.st-project-hero-right img { display: block; width: 100%; height: auto; }
-.st-project-preview { position: absolute; left: var(--st-pad-1x); bottom: var(--st-pad-1x); }
+/* 527px is the reference's own figure. At 660px the shot crowded the title and
+   the two columns stopped reading as lead and supporting. */
+.st-project-hero-right { position: relative; width: 100%; max-width: 527px; flex: none; border-radius: var(--st-r-24); overflow: hidden; }
+.st-project-hero-right img { display: block; width: 100%; aspect-ratio: 1080 / 763; height: auto; object-fit: cover; }
+.st-project-preview { position: absolute; left: 5%; bottom: 8%; }
 
-.st-project-meta { display: flex; flex-wrap: wrap; gap: 40px; padding-top: var(--st-pad-4x); }
-.st-project-meta-item { display: flex; flex-flow: column; gap: 4px; }
-.st-project-meta-label { font-family: var(--st-font-secondary); text-transform: uppercase; color: var(--st-mute); font-size: var(--st-text-s); }
+/* `Year: 2025` on one line, label muted and value inked — the reference's
+   `.career-location` pair. Stacked in a column each pair read as its own
+   little card and the four of them competed with the title above. */
+.st-project-meta {
+  display: flex;
+  flex-flow: column;
+  gap: var(--st-gap-12);
+  max-width: 420px;
+  padding-top: var(--st-gap-24);
+}
+.st-project-meta-item {
+  display: flex;
+  align-items: baseline;
+  gap: var(--st-gap-8);
+  text-transform: uppercase;
+  color: var(--st-mute);
+}
+.st-project-meta-label { flex: none; font-family: var(--st-font-secondary); font-size: var(--st-text-s); }
+.st-project-meta-value { color: var(--st-primary); }
 
 .st-project-cover { margin: var(--st-gap-16); border-radius: var(--st-r-24); overflow: hidden; }
 .st-project-cover img { display: block; width: 100%; height: auto; }

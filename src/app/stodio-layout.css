@@ -79,12 +79,28 @@
 }
 .st-nav-link:hover, .st-nav-link.st-is-current { color: var(--st-brand); }
 
+/* The Regions trigger is a <button>, because it opens a sub-menu and has no
+   page of its own. It has to shed the UA button styling to sit in the nav row,
+   and it has to stay focusable: the panel opens on :focus-within and its links
+   are `visibility: hidden` until it does, so a non-focusable trigger would put
+   the four country pages out of reach of the keyboard entirely. */
+.st-nav-link.st-is-trigger {
+  appearance: none;
+  padding: 0;
+  border: 0;
+  background: none;
+  font-family: inherit;
+  font-weight: inherit;
+  cursor: pointer;
+}
+
 /* ----------------------------------------------------------------------------
    Products sub-menu.
 
-   The trigger is a real link to /products, not a button — the panel is a
-   shortcut, never the only route in. It opens on hover and on `:focus-within`,
-   so tabbing through the nav reaches all three products without a click.
+   The Products trigger is a real link to /products — the panel is a shortcut,
+   never the only route in. Regions has no such page, so its trigger is a
+   button. Both open on hover and on `:focus-within`, so tabbing through the
+   nav reaches every child without a click.
    ------------------------------------------------------------------------- */
 .st-nav-item { position: relative; }
 .st-nav-item .st-nav-link { display: inline-flex; align-items: center; gap: 4px; }
@@ -571,12 +587,20 @@
 .st-footer-social-icon { display: flex; align-items: center; justify-content: center; width: 16px; height: 16px; }
 .st-footer-social-arrow { display: flex; align-items: center; justify-content: center; width: 12px; height: 12px; }
 
+/* Equal thirds, not `space-between`. Flexed apart, each column was only as
+   wide as its own longest label — "System Integration" against "Home" — so the
+   three hairline rules sat at irregular intervals and the block read as
+   ragged. The reference's own layer carries `grid-template-columns: 1fr 1fr
+   1fr` under a `display: flex` that overrode it; this is that intent. */
 .st-footer-link-item-block {
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
   width: 100%;
   max-width: 650px;
+}
+@media screen and (max-width: 479px) {
+  .st-footer-link-item-block { grid-template-columns: 1fr 1fr; gap: var(--st-gap-32) 16px; }
 }
 .st-footer-link-item {
   display: flex;

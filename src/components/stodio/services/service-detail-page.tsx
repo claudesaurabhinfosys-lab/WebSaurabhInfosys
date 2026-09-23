@@ -16,17 +16,27 @@ const PROCESS_STEPS = SERVICE_PROCESS.map((step) => ({
   copy: step.detail,
 }));
 
+const ALIAS_MAP: Record<string, string> = {
+  "ai-agents": "ai-automation-services",
+  "vibe-coding": "app-development",
+  flutter: "app-development",
+  gps: "white-label-software",
+  saas: "white-label-software",
+  "digital-marketing": "white-label-software",
+};
+
 export default function ServiceDetailPage({ slug }: { slug: string }) {
-  const service = SERVICES.find((item) => item.slug === slug);
-  const detail = SERVICE_DETAILS[slug];
+  const resolvedSlug = ALIAS_MAP[slug] ?? slug;
+  const service = SERVICES.find((item) => item.slug === resolvedSlug);
+  const detail = SERVICE_DETAILS[slug] ?? SERVICE_DETAILS[resolvedSlug];
   if (!service || !detail) notFound();
 
-  const others = SERVICES.filter((item) => item.slug !== slug).slice(0, 3);
+  const others = SERVICES.filter((item) => item.slug !== resolvedSlug).slice(0, 3);
 
   return (
     <>
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
-      <div className="st-header st-is-flush">
+      <div className="st-header st-is-light">
         <section className="st-detail-hero">
           <div className="st-container">
             <div className="st-detail-hero-inner">

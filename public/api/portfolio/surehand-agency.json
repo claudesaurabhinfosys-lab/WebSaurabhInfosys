@@ -1,0 +1,82 @@
+{
+  "success": true,
+  "data": {
+    "id": 61,
+    "slug": "surehand-agency",
+    "title": "SureHand Agency",
+    "category": "Le Meow",
+    "description": "Sincere domestic helper and maid agency in Singapore providing transparent matching, certified eldercare & childcare helpers, and long-term aftercare support.",
+    "overview": "SureHands Agency is a trusted, MOM-licensed maid agency in Singapore dedicated to bringing sincerity, transparency, and careful compatibility matching to families. From trained infant care and dedicated eldercare companions to general housekeeping, SureHands guides employers with zero hidden costs, video interview arrangements, and dedicated post-placement welfare checks.",
+    "tech": [
+      "Next.js",
+      "Tailwind CSS",
+      "Node.js",
+      "PostgreSQL"
+    ],
+    "highlights": [
+      "Verified helper directory from Myanmar and Indonesia with skill certifications and medical clearance",
+      "Smart compatibility matching based on infant care, eldercare, dietary, and language requirements",
+      "Transparent fee breakdown with zero hidden placement deductions or surprise levies",
+      "End-to-end MOM work permit processing, ongoing aftercare, and training documentation"
+    ],
+    "hasImages": true,
+    "imagesCount": 4,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/placeholder-03.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-03.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      },
+      {
+        "index": 2,
+        "role": "banner",
+        "label": "Panoramic Hero Banner",
+        "url": "/images/work/placeholder-04.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-04.webp",
+        "aspectRatio": "1920:900",
+        "width": 1920,
+        "height": 900
+      },
+      {
+        "index": 3,
+        "role": "gallery",
+        "label": "Gallery Detail 1",
+        "url": "/images/work/placeholder-05.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-05.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      },
+      {
+        "index": 4,
+        "role": "gallery",
+        "label": "Gallery Detail 2",
+        "url": "/images/work/placeholder-01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-01.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/surehand-agency",
+    "client": "SureHands Agency",
+    "year": "2025"
+  },
+  "navigation": {
+    "prev": {
+      "id": 60,
+      "slug": "meow-renovations",
+      "title": "Meow Renovations"
+    },
+    "next": {
+      "id": 62,
+      "slug": "le-destin",
+      "title": "Le Destin"
+    }
+  }
+}

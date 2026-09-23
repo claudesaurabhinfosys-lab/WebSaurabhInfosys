@@ -1,0 +1,78 @@
+{
+  "success": true,
+  "data": {
+    "id": 64,
+    "slug": "meow-luxury",
+    "title": "Meow Luxury",
+    "category": "Le Meow",
+    "description": "Curated luxury shopping portal offering fine gold jewellery, bespoke diamond pieces, and high-end fashion accessories with personalised concierge delivery.",
+    "overview": "Meow Luxury is a premier boutique lifestyle destination curating certified 18K/24K solid gold jewellery, bespoke diamond creations, and timeless fashion accessories. Integrated within the Le Meow ecosystem, Meow Luxury provides VIP concierge styling, private consultations, and insured white-glove doorstep delivery.",
+    "tech": [
+      "Next.js",
+      "Tailwind CSS",
+      "Swiper",
+      "REST API"
+    ],
+    "highlights": [
+      "Curated collection of fine 18K and 24K gold jewellery, bridal pieces, and luxury watches",
+      "Direct VIP concierge service via WhatsApp for bespoke orders and personalized styling recommendations",
+      "Insured, tamper-proof doorstep delivery across Singapore with authenticity guarantees",
+      "Integrated rewards and privileged benefits across the Le Meow service ecosystem"
+    ],
+    "hasImages": true,
+    "imagesCount": 4,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/placeholder-04.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-04.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      },
+      {
+        "index": 2,
+        "role": "banner",
+        "label": "Panoramic Hero Banner",
+        "url": "/images/work/placeholder-01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-01.webp",
+        "aspectRatio": "1920:900",
+        "width": 1920,
+        "height": 900
+      },
+      {
+        "index": 3,
+        "role": "gallery",
+        "label": "Gallery Detail 1",
+        "url": "/images/work/placeholder-02.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-02.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      },
+      {
+        "index": 4,
+        "role": "gallery",
+        "label": "Gallery Detail 2",
+        "url": "/images/work/placeholder-05.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/placeholder-05.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      }
+    ],
+    "liveUrl": "https://saurabhinfosys.com/portfolio/meow-luxury",
+    "client": "Meow Luxury",
+    "year": "2025"
+  },
+  "navigation": {
+    "prev": {
+      "id": 63,
+      "slug": "meow-devs",
+      "title": "Meow Devs"
+    },
+    "next": null
+  }
+}
