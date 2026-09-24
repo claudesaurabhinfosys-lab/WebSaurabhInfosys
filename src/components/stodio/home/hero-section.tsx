@@ -15,7 +15,7 @@ export default function HeroSection() {
       <section className="st-hero">
         <Image
           className="st-hero-bg"
-          src="/images/services/hero.webp"
+          src="/images/hero/home-hero.webp"
           alt=""
           fill
           priority

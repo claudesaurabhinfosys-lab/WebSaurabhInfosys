@@ -78,7 +78,17 @@
   margin-top: var(--st-gap-24);
   color: var(--st-white);
 }
-.st-hero-title-block.st-is-home { width: 100%; max-width: 680px; }
+/* The home headline has to land on exactly two lines at every width, and a
+   pixel cap cannot do that: the h1 is fluid, clamp(36px, 20px + 2.7vw, 72px),
+   so 680px fits roughly 18 characters at 1440px but only 15 at 1920px and the
+   headline spills onto a third line on the wider screen. Sizing the cap in
+   `em` against the heading scale holds the characters-per-line constant
+   instead, which is why the font-size is restated here. */
+.st-hero-title-block.st-is-home {
+  width: 100%;
+  font-size: var(--st-h1-size);
+  max-width: 12.8em;
+}
 .st-hero-title-block.st-is-center { align-items: center; text-align: center; max-width: none; }
 .st-hero-title-block.st-on-light { color: var(--st-primary); }
 .st-hero-title-block.st-is-row {
