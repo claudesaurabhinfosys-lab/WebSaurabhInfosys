@@ -14,19 +14,19 @@ import { COMPANY, PRODUCTS, PRODUCT_PAGES } from "@/lib/data";
 /** Art per product: the shot in the hero, the banner, the purpose picture. */
 const ART: Record<string, { shot: string; banner: string; purpose: string }> = {
   ssms: {
-    shot: "/images/services/saas.webp",
-    banner: "/images/services/saas-hero.webp",
-    purpose: "/images/services/saas-deliverables.webp",
+    shot: "/images/products/sms/01.webp",
+    banner: "/images/products/sms/02.webp",
+    purpose: "/images/products/sms/03.webp",
   },
   mysociety: {
-    shot: "/images/services/gps.webp",
-    banner: "/images/services/gps-hero.webp",
-    purpose: "/images/services/gps-deliverables.webp",
+    shot: "/images/products/society/01.webp",
+    banner: "/images/products/society/02.webp",
+    purpose: "/images/products/society/03.webp",
   },
   mysampark: {
-    shot: "/images/services/digital-marketing.webp",
-    banner: "/images/services/digital-marketing-hero.webp",
-    purpose: "/images/services/digital-marketing-deliverables.webp",
+    shot: "/images/products/mysampark/01.webp",
+    banner: "/images/products/mysampark/02.webp",
+    purpose: "/images/products/mysampark/03.webp",
   },
 };
 
