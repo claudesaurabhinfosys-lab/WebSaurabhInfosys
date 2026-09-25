@@ -298,7 +298,30 @@
   text-align: center;
 }
 @media screen and (max-width: 767px) { .st-clientwall-item { height: 132px; padding: 16px; } }
-.st-clientwall-name { display: flex; align-items: center; gap: 10px; font-size: var(--st-text-xl); font-weight: var(--st-semibold); }
+.st-clientwall-name { display: flex; align-items: center; gap: 10px; height: var(--st-clientwall-row); font-size: var(--st-text-xl); font-weight: var(--st-semibold); white-space: nowrap; }
+
+/* IX2 a-74 "Logo Loop", started on page load and looped. Each cell is a
+   one-row mask over a column of three logos — A, B, A — that holds, slides
+   up one row, holds, slides again, then snaps back to the top. The third row
+   repeats the first, so the snap lands on an identical frame and never shows.
+   Timeline: 500ms idle, then two steps of 2000ms hold + 800ms outQuint move
+   (6100ms). Every cell runs the same clock, as in the reference. */
+.st-clientwall-item { --st-clientwall-row: 3rem; --st-clientwall-step: calc(var(--st-clientwall-row) + 0.5rem); }
+.st-clientwall-mask { max-height: var(--st-clientwall-row); overflow: hidden; }
+.st-clientwall-track {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  animation: st-clientwall-loop 6100ms linear infinite;
+}
+@keyframes st-clientwall-loop {
+  0%, 40.98% { transform: translate3d(0, 0, 0); animation-timing-function: var(--st-ease-out-quint); }
+  54.1%, 86.89% { transform: translate3d(0, calc(var(--st-clientwall-step) * -1), 0); animation-timing-function: var(--st-ease-out-quint); }
+  100% { transform: translate3d(0, calc(var(--st-clientwall-step) * -2), 0); }
+}
+@media screen and (max-width: 767px) { .st-clientwall-name { font-size: var(--st-text-m); line-height: 1.2; white-space: normal; text-align: left; } }
+@media (prefers-reduced-motion: reduce) { .st-clientwall-track { animation: none; } }
 
 /* ============================================================================
    Foundation — image leading, principles list trailing

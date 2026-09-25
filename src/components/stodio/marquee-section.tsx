@@ -1,4 +1,4 @@
-import Image from "next/image";
+import ClientLogoMark from "./client-logo";
 import { StarBurst } from "./icons";
 import { CLIENT_LOGOS } from "@/lib/data";
 
@@ -30,14 +30,7 @@ export default function MarqueeSection({
             <div className="st-logos-row" key={copy} aria-hidden={copy === 1}>
               {CLIENT_LOGOS.map((client) => (
                 <div className="st-logo-item" key={`${copy}-${client.name}`}>
-                  <Image
-                    src={client.logo}
-                    alt={client.name}
-                    width={32}
-                    height={32}
-                    className="st-logo-mark"
-                    unoptimized
-                  />
+                  <ClientLogoMark client={client} />
                   {client.name}
                 </div>
               ))}

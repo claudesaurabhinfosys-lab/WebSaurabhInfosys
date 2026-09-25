@@ -7,12 +7,12 @@ import FoundationSection from "./foundation-section";
 import ShowcaseRow from "./showcase-row";
 import MarketsGrid from "./markets-grid";
 import CounterItem from "../counter-item";
-import { ClientMark } from "../icons";
+import ClientLogoMark from "../client-logo";
 import {
   ABOUT,
   ABOUT_BELIEFS,
   ABOUT_MARKETS,
-  CLIENTS,
+  CLIENT_LOGOS,
   COMPANY,
   HOME_PROCESS,
 } from "@/lib/data";
@@ -38,6 +38,16 @@ const FOUNDATION_TABS = ABOUT_BELIEFS.slice(0, 3).map((belief, index) => ({
   body: belief.body,
   image: ["/images/hero/strip-04.webp", "/images/hero/strip-02.webp", "/images/hero/strip-06.webp"][index],
 }));
+
+/* Client wall: eight cells, each cycling A → B → A (the reference's logo
+   loop). A is the first eight logos, B the rest wrapped around, so at every
+   moment the eight visible logos are all different. */
+const WALL_CELLS = 8;
+const CLIENT_WALL = Array.from({ length: WALL_CELLS }, (_, index) => {
+  const first = CLIENT_LOGOS[index % CLIENT_LOGOS.length];
+  const second = CLIENT_LOGOS[(index + WALL_CELLS) % CLIENT_LOGOS.length];
+  return [first, second, first];
+});
 
 const PROCESS_STEPS = HOME_PROCESS.steps.map((step, index) => ({
   title: step.title,
@@ -187,17 +197,22 @@ export default function AboutPage() {
             <Tag>Client wall</Tag>
           </Reveal>
           <div className="st-clientwall-grid">
-            {CLIENTS.concat(CLIENTS).map((client, index) => (
+            {CLIENT_WALL.map((track, index) => (
               <Reveal
                 className="st-clientwall-item"
-                key={`${client.name}-${index}`}
+                key={track[0].name}
                 delay={index < 4 ? 200 : 300}
               >
-                <div className="st-clientwall-name">
-                  <ClientMark className="st-logo-mark" />
-                  {client.name}
+                <div className="st-clientwall-mask">
+                  <div className="st-clientwall-track">
+                    {track.map((client, row) => (
+                      <div className="st-clientwall-name" key={row} aria-hidden={row === 2}>
+                        <ClientLogoMark client={client} />
+                        {client.name}
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                <div className="st-text-s st-mute st-mono st-upper">{client.country}</div>
               </Reveal>
             ))}
           </div>

@@ -512,10 +512,17 @@ export const PRODUCTS = [
 
 export interface ClientLogo {
   name: string;
-  logo: string;
+  /** Square mark in /images/logos. Omit until the real file exists — the
+      neutral ClientMark stands in rather than an invented logo. */
+  logo?: string;
 }
 
 export const CLIENT_LOGOS: ClientLogo[] = [
+  { name: "Curvd" },
+  { name: "Le Meow" },
+  { name: "EdCalibre" },
+  { name: "Contractor Easy" },
+  { name: "Banigi AI", logo: "/images/logos/14 Banigi Ai.svg" },
   { name: "Barber Plus", logo: "/images/logos/01.svg" },
   { name: "AI Assist", logo: "/images/logos/02.svg" },
   { name: "Barcode Scanner", logo: "/images/logos/03.svg" },
@@ -526,7 +533,6 @@ export const CLIENT_LOGOS: ClientLogo[] = [
   { name: "EPAV", logo: "/images/logos/10.svg" },
   { name: "Doodler", logo: "/images/logos/12 Doodlers.svg" },
   { name: "Waste Management", logo: "/images/logos/13 Waste Management.svg" },
-  { name: "Banigi AI", logo: "/images/logos/14 Banigi Ai.svg" },
   { name: "Quick Delivery", logo: "/images/logos/Quick App Nerw 1.svg" },
 ];
 
