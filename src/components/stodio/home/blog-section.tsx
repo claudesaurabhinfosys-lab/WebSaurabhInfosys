@@ -38,7 +38,7 @@ export default function BlogSection() {
         <div className="st-blogs-card-block">
           {posts.map((post, index) => (
             <Reveal key={post.slug} delay={index * 90}>
-              <BlogCard post={post} image={blogImage(index)} />
+              <BlogCard post={post} image={blogImage(post.slug)} />
             </Reveal>
           ))}
         </div>

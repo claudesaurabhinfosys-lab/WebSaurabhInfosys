@@ -19,21 +19,62 @@
       "Home delivery or rental location pickup",
       "Premium chauffeur service option"
     ],
-    "hasImages": false,
-    "imagesCount": 0,
-    "images": [],
+    "hasImages": true,
+    "imagesCount": 4,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/exotics-now/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/exotics-now/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      },
+      {
+        "index": 2,
+        "role": "banner",
+        "label": "Panoramic Hero Banner",
+        "url": "/images/work/exotics-now/02.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/exotics-now/02.webp",
+        "aspectRatio": "1920:900",
+        "width": 1920,
+        "height": 900
+      },
+      {
+        "index": 3,
+        "role": "gallery",
+        "label": "Gallery Detail 1",
+        "url": "/images/work/exotics-now/03.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/exotics-now/03.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      },
+      {
+        "index": 4,
+        "role": "gallery",
+        "label": "Gallery Detail 2",
+        "url": "/images/work/exotics-now/04.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/exotics-now/04.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      }
+    ],
     "liveUrl": "https://saurabhinfosys.com/portfolio/exotic-now"
   },
   "navigation": {
     "prev": {
-      "id": 42,
-      "slug": "washry-go",
-      "title": "Washry Go"
+      "id": 40,
+      "slug": "washry",
+      "title": "Washry"
     },
     "next": {
-      "id": 44,
-      "slug": "exotic-now-partner",
-      "title": "Exotic Now Partner"
+      "id": 46,
+      "slug": "edify-easy",
+      "title": "Edify Easy"
     }
   }
 }

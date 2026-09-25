@@ -60,7 +60,7 @@ export default function PostDetailPage({ slug }: { slug: string }) {
       </div>
 
       <Reveal className="st-project-cover">
-        <Image src={blogImage(index)} alt="" width={1920} height={900} priority />
+        <Image src={blogImage(post.slug)} alt="" width={1920} height={900} priority />
       </Reveal>
 
       {/* ── Body ─────────────────────────────────────────────────────────── */}
@@ -189,7 +189,7 @@ export default function PostDetailPage({ slug }: { slug: string }) {
               <Reveal key={other.slug} delay={position * 90}>
                 <BlogCard
                   post={other}
-                  image={blogImage(BLOG_POSTS.findIndex((p) => p.slug === other.slug))}
+                  image={blogImage(other.slug)}
                 />
               </Reveal>
             ))}

@@ -18,9 +18,50 @@
       "Secure in-app payment and flexible payment options",
       "Order history and saved preferences for faster reorders"
     ],
-    "hasImages": false,
-    "imagesCount": 0,
-    "images": [],
+    "hasImages": true,
+    "imagesCount": 4,
+    "images": [
+      {
+        "index": 1,
+        "role": "cover",
+        "label": "Main Cover Card",
+        "url": "/images/work/washry/01.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/washry/01.webp",
+        "aspectRatio": "1080:763",
+        "width": 1080,
+        "height": 763
+      },
+      {
+        "index": 2,
+        "role": "banner",
+        "label": "Panoramic Hero Banner",
+        "url": "/images/work/washry/02.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/washry/02.webp",
+        "aspectRatio": "1920:900",
+        "width": 1920,
+        "height": 900
+      },
+      {
+        "index": 3,
+        "role": "gallery",
+        "label": "Gallery Detail 1",
+        "url": "/images/work/washry/03.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/washry/03.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      },
+      {
+        "index": 4,
+        "role": "gallery",
+        "label": "Gallery Detail 2",
+        "url": "/images/work/washry/04.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/washry/04.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      }
+    ],
     "liveUrl": "https://saurabhinfosys.com/portfolio/washry"
   },
   "navigation": {
@@ -30,9 +71,9 @@
       "title": "EWD"
     },
     "next": {
-      "id": 41,
-      "slug": "washry-vendor",
-      "title": "Washry Vendor"
+      "id": 43,
+      "slug": "exotic-now",
+      "title": "Exotic Now"
     }
   }
 }

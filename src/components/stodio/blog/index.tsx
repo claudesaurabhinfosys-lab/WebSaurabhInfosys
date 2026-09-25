@@ -70,7 +70,7 @@ export default function BlogPage() {
           <div className="st-blogs-grid">
             {posts.map((post, index) => (
               <Reveal key={post.slug} delay={(index % 3) * 90}>
-                <BlogCard post={post} image={blogImage(index)} />
+                <BlogCard post={post} image={blogImage(post.slug)} />
               </Reveal>
             ))}
           </div>

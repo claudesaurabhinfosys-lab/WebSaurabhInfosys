@@ -19,7 +19,7 @@
       "Special message requests and notification delivery"
     ],
     "hasImages": true,
-    "imagesCount": 1,
+    "imagesCount": 4,
     "images": [
       {
         "index": 1,
@@ -30,6 +30,36 @@
         "aspectRatio": "1080:763",
         "width": 1080,
         "height": 763
+      },
+      {
+        "index": 2,
+        "role": "banner",
+        "label": "Panoramic Hero Banner",
+        "url": "/images/work/review/02.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/review/02.webp",
+        "aspectRatio": "1920:900",
+        "width": 1920,
+        "height": 900
+      },
+      {
+        "index": 3,
+        "role": "gallery",
+        "label": "Gallery Detail 1",
+        "url": "/images/work/review/03.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/review/03.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
+      },
+      {
+        "index": 4,
+        "role": "gallery",
+        "label": "Gallery Detail 2",
+        "url": "/images/work/review/04.webp",
+        "absoluteUrl": "https://saurabhinfosys.com/images/work/review/04.webp",
+        "aspectRatio": "900:640",
+        "width": 900,
+        "height": 640
       }
     ],
     "liveUrl": "https://saurabhinfosys.com/portfolio/review"

@@ -529,7 +529,7 @@
         "Favourite stations and push alerts for availability"
       ],
       "hasImages": true,
-      "imagesCount": 1,
+      "imagesCount": 4,
       "images": [
         {
           "index": 1,
@@ -540,6 +540,36 @@
           "aspectRatio": "1080:763",
           "width": 1080,
           "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/ev-connect/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/ev-connect/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/ev-connect/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/ev-connect/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/ev-connect/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/ev-connect/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
         }
       ],
       "liveUrl": "https://saurabhinfosys.com/portfolio/ev-connect"
@@ -627,7 +657,7 @@
         "Merchant dashboard for order and driver management"
       ],
       "hasImages": true,
-      "imagesCount": 1,
+      "imagesCount": 4,
       "images": [
         {
           "index": 1,
@@ -638,6 +668,36 @@
           "aspectRatio": "1080:763",
           "width": 1080,
           "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/quick-delivery/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/quick-delivery/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/quick-delivery/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/quick-delivery/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/quick-delivery/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/quick-delivery/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
         }
       ],
       "liveUrl": "https://saurabhinfosys.com/portfolio/quick-delivery"
@@ -783,7 +843,7 @@
         "Monthly revenue trends, expense overviews, and member history"
       ],
       "hasImages": true,
-      "imagesCount": 1,
+      "imagesCount": 4,
       "images": [
         {
           "index": 1,
@@ -794,6 +854,36 @@
           "aspectRatio": "1080:763",
           "width": 1080,
           "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/barber-plus/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/barber-plus/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/barber-plus/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/barber-plus/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/barber-plus/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/barber-plus/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
         }
       ],
       "liveUrl": "https://saurabhinfosys.com/portfolio/barber-plus"
@@ -1306,7 +1396,7 @@
         "Special message requests and notification delivery"
       ],
       "hasImages": true,
-      "imagesCount": 1,
+      "imagesCount": 4,
       "images": [
         {
           "index": 1,
@@ -1317,6 +1407,36 @@
           "aspectRatio": "1080:763",
           "width": 1080,
           "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/review/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/review/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/review/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/review/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/review/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/review/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
         }
       ],
       "liveUrl": "https://saurabhinfosys.com/portfolio/review"
@@ -1501,9 +1621,50 @@
         "Cloud sync to access artwork across all devices",
         "Export in PNG, SVG, and PDF with resolution options"
       ],
-      "hasImages": false,
-      "imagesCount": 0,
-      "images": [],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/doodler/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/doodler/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/doodler/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/doodler/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/doodler/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/doodler/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/doodler/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/doodler/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
       "liveUrl": "https://saurabhinfosys.com/portfolio/doodler"
     },
     {
@@ -1622,9 +1783,50 @@
         "Personal recycling impact tracker with CO₂ savings",
         "Community leaderboard to drive neighbourhood engagement"
       ],
-      "hasImages": false,
-      "imagesCount": 0,
-      "images": [],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/riiicycle/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/riiicycle/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/riiicycle/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/riiicycle/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/riiicycle/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/riiicycle/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/riiicycle/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/riiicycle/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
       "liveUrl": "https://saurabhinfosys.com/portfolio/riiicycle"
     },
     {
@@ -1898,9 +2100,50 @@
         "Operator and record keeper dashboards for log management",
         "Meets NHVR EWD Standards for performance and auditability"
       ],
-      "hasImages": false,
-      "imagesCount": 0,
-      "images": [],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/ewd/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/ewd/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/ewd/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/ewd/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/ewd/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/ewd/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/ewd/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/ewd/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
       "liveUrl": "https://saurabhinfosys.com/portfolio/ewd"
     },
     {
@@ -1921,56 +2164,51 @@
         "Secure in-app payment and flexible payment options",
         "Order history and saved preferences for faster reorders"
       ],
-      "hasImages": false,
-      "imagesCount": 0,
-      "images": [],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/washry/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/washry/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/washry/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/washry/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/washry/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/washry/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/washry/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/washry/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
       "liveUrl": "https://saurabhinfosys.com/portfolio/washry"
-    },
-    {
-      "id": 41,
-      "slug": "washry-vendor",
-      "title": "Washry Vendor",
-      "category": "Custom Dev",
-      "description": "A partner app that connects existing dry-cleaning and laundry businesses to the Washry network — bringing in more customers and handling all logistics without changing daily operations.",
-      "overview": null,
-      "tech": [
-        "Flutter",
-        "Laravel"
-      ],
-      "highlights": [
-        "Easy order management dashboard for tracking incoming and completed jobs",
-        "Washry Go Drivers handle all pickups and deliveries",
-        "No changes to existing business operations",
-        "Real-time delivery updates and driver logistics integration",
-        "Simple onboarding for low-tech users"
-      ],
-      "hasImages": false,
-      "imagesCount": 0,
-      "images": [],
-      "liveUrl": "https://saurabhinfosys.com/portfolio/washry-vendor"
-    },
-    {
-      "id": 42,
-      "slug": "washry-go",
-      "title": "Washry Go",
-      "category": "Custom Dev",
-      "description": "A gig-driving app built specifically for laundry and dry-cleaning logistics — letting drivers earn flexibly by picking up and delivering orders between customers and Washry's partner cleaners.",
-      "overview": null,
-      "tech": [
-        "Flutter",
-        "Laravel"
-      ],
-      "highlights": [
-        "Flexible scheduling — no fixed shifts",
-        "Real-time navigation with optimised map routing",
-        "Seamless order acceptance and completion flow",
-        "Transparent per-trip earnings and payout history",
-        "Customer ratings and bonus rewards system"
-      ],
-      "hasImages": false,
-      "imagesCount": 0,
-      "images": [],
-      "liveUrl": "https://saurabhinfosys.com/portfolio/washry-go"
     },
     {
       "id": 43,
@@ -1991,56 +2229,51 @@
         "Home delivery or rental location pickup",
         "Premium chauffeur service option"
       ],
-      "hasImages": false,
-      "imagesCount": 0,
-      "images": [],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/exotics-now/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/exotics-now/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/exotics-now/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/exotics-now/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/exotics-now/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/exotics-now/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/exotics-now/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/exotics-now/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
       "liveUrl": "https://saurabhinfosys.com/portfolio/exotic-now"
-    },
-    {
-      "id": 44,
-      "slug": "exotic-now-partner",
-      "title": "Exotic Now Partner",
-      "category": "Custom Dev",
-      "description": "An owner-side app that lets exotic and ultra-luxury car owners safely list their vehicles for rent — with verified renters, secure payouts, and full platform protection.",
-      "overview": null,
-      "tech": [
-        "Flutter",
-        "Laravel"
-      ],
-      "highlights": [
-        "Quick car listing with photos, videos, and documents",
-        "Flexible rental terms — daily, monthly, or both",
-        "65% owner payout with transparent platform fee",
-        "Renter verification — license, insurance, and admin approval",
-        "Mileage, deposit, and safety policies to protect your vehicle"
-      ],
-      "hasImages": false,
-      "imagesCount": 0,
-      "images": [],
-      "liveUrl": "https://saurabhinfosys.com/portfolio/exotic-now-partner"
-    },
-    {
-      "id": 45,
-      "slug": "exotics-now-employee",
-      "title": "Exotics Now Employee",
-      "category": "Custom Dev",
-      "description": "A staff-facing app built for Exotics Now chauffeurs and employees — providing all the tools needed to deliver a seamless, professional luxury rental experience from pickup to drop-off.",
-      "overview": null,
-      "tech": [
-        "Flutter",
-        "Laravel"
-      ],
-      "highlights": [
-        "View and accept assigned chauffeur trips",
-        "Instant access to pickup, drop-off, and renter details",
-        "Inspection photo upload at handover and return",
-        "Real-time communication with admins and owners",
-        "Clear trip timelines and status updates"
-      ],
-      "hasImages": false,
-      "imagesCount": 0,
-      "images": [],
-      "liveUrl": "https://saurabhinfosys.com/portfolio/exotics-now-employee"
     },
     {
       "id": 46,
@@ -2060,9 +2293,50 @@
         "Company owner reports and completion overviews",
         "Clean, intuitive interface for all user roles"
       ],
-      "hasImages": false,
-      "imagesCount": 0,
-      "images": [],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/edify-easy/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/edify-easy/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/edify-easy/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/edify-easy/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/edify-easy/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/edify-easy/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/edify-easy/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/edify-easy/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
       "liveUrl": "https://saurabhinfosys.com/portfolio/edify-easy"
     },
     {
@@ -2085,9 +2359,50 @@
         "Simple retailer dashboard for product and order management",
         "Fair revenue-sharing model for local businesses"
       ],
-      "hasImages": false,
-      "imagesCount": 0,
-      "images": [],
+      "hasImages": true,
+      "imagesCount": 4,
+      "images": [
+        {
+          "index": 1,
+          "role": "cover",
+          "label": "Main Cover Card",
+          "url": "/images/work/drd/01.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/drd/01.webp",
+          "aspectRatio": "1080:763",
+          "width": 1080,
+          "height": 763
+        },
+        {
+          "index": 2,
+          "role": "banner",
+          "label": "Panoramic Hero Banner",
+          "url": "/images/work/drd/02.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/drd/02.webp",
+          "aspectRatio": "1920:900",
+          "width": 1920,
+          "height": 900
+        },
+        {
+          "index": 3,
+          "role": "gallery",
+          "label": "Gallery Detail 1",
+          "url": "/images/work/drd/03.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/drd/03.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        },
+        {
+          "index": 4,
+          "role": "gallery",
+          "label": "Gallery Detail 2",
+          "url": "/images/work/drd/04.webp",
+          "absoluteUrl": "https://saurabhinfosys.com/images/work/drd/04.webp",
+          "aspectRatio": "900:640",
+          "width": 900,
+          "height": 640
+        }
+      ],
       "liveUrl": "https://saurabhinfosys.com/portfolio/drd"
     },
     {
@@ -3091,9 +3406,9 @@
     }
   ],
   "pagination": {
-    "total": 63,
+    "total": 59,
     "page": 1,
-    "limit": 63,
+    "limit": 59,
     "totalPages": 1,
     "hasNextPage": false,
     "hasPrevPage": false,
@@ -3121,8 +3436,8 @@
       "NGO",
       "Custom Dev"
     ],
-    "totalProjectsInDatabase": 63,
-    "totalProjectsWithImages": 49,
+    "totalProjectsInDatabase": 59,
+    "totalProjectsWithImages": 56,
     "baseUrl": "https://saurabhinfosys.com",
     "documentation": {
       "endpoints": {

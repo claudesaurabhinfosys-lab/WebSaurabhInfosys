@@ -1,10 +1,12 @@
 /**
- * Post covers. Placeholders until real cover art lands in
- * public/images/blog — the pool is the shared work imagery, cycled so
- * adjacent cards in a row never repeat.
+ * Post covers live in public/images/blogs as `<slug>.webp`. A post listed in
+ * NO_COVER has no file yet and borrows a related service image instead of
+ * rendering a broken frame — remove the slug here once its cover lands.
  */
-const POOL = [1, 2, 3, 4, 5].map((n) => `/images/work/placeholder-0${n}.webp`);
+const NO_COVER: Record<string, string> = {
+  "pwa-essential-2025": "/images/services/app-development-hero.webp",
+};
 
-export function blogImage(index: number) {
-  return POOL[index % POOL.length];
+export function blogImage(slug: string) {
+  return NO_COVER[slug] ?? `/images/blogs/${slug}.webp`;
 }
