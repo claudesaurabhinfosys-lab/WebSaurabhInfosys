@@ -638,7 +638,7 @@
   justify-content: space-between;
   flex: none;
   width: 442px;
-  height: 490px;
+  min-height: 490px;
   margin-right: 24px;
   padding: var(--st-pad-5x);
   border-radius: 16px;

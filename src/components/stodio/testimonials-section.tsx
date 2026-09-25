@@ -81,20 +81,21 @@ export default function TestimonialsSection() {
 
                     <div className="st-testimonial-body">
                       <QuoteMark className="st-testimonial-quote-mark" />
-                      <p className="st-text-l">{item.text}</p>
+                      <p className={item.text.length > 240 ? "st-text-m" : "st-text-l"}>{item.text}</p>
                     </div>
                   </div>
 
                   <div className="st-testimonial-author">
                     <div className="st-h6 st-weight-medium">{item.name}</div>
                     <div className="st-text-s st-mute">{item.role}</div>
-                    <div className="st-text-s st-mute st-mono">{item.country}</div>
                   </div>
                 </article>
               ))}
             </div>
           </div>
 
+          {/* Nothing to page through when every card already fits. */}
+          {maxIndex > 0 && (
           <div className="st-slider-nav">
             <div className="st-slider-dots">
               {Array.from({ length: maxIndex + 1 }).map((_, dot) => (
@@ -128,6 +129,7 @@ export default function TestimonialsSection() {
               </button>
             </div>
           </div>
+          )}
         </div>
       </div>
     </section>
