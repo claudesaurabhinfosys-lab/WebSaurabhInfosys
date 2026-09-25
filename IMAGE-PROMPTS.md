@@ -344,6 +344,350 @@ A single glossy abstract 3D form of flowing black glass, a smooth twisted loop, 
 
 **Negative** — `text, logos, multiple objects, busy background, dark background, fine detail, noise`
 
+> ✅ Done — `hero/strip-05.webp` is used for this slot; no separate file needed.
+
+---
+
+## S.10 About page — 17 new images
+
+All files go to `public/images/about/`. Market files keep their existing names (overwrite =
+no code change). The rest are new names — tell Claude when they are added and the code
+will be switched from the temporary `hero/strip-*` images.
+
+**Negative (all About images unless noted)**
+```
+readable text, gibberish text, words, logos, brand names, watermark, extra fingers, deformed hands, distorted face, people looking at camera, posed corporate headshot, office cubicle, open-plan office, meeting room, stock photo, tourist landmark, flags, neon, cyberpunk, robot, hologram, oversaturated, HDR, plastic skin, CGI look
+```
+
+### S.10.1 Hero headline chip — 1 image
+
+"We exist to build lasting **digital ▢** …" — sits inside the H1 at ~106 × 80, so one
+bold shape, one bright colour. Deliberately **warm** so it differs from the blue loop on Home.
+
+| Generate | 640 × 480 · 4:3 · `--ar 4:3` | Save | `about/chip.webp` |
+|---|---|---|---|
+
+```
+A single glossy abstract 3D sphere of smooth clear glass with a soft inner twist, iridescent chromatic edges in warm orange, coral and a touch of violet, centred large in frame on a vivid smooth gradient background from warm tangerine orange to soft coral pink. Crisp specular highlights, bold simple silhouette, small margins. Clean minimal premium render, high contrast, readable at very small size.
+```
+Negative: `text, logos, multiple objects, busy background, dark background, fine detail, noise`
+
+### S.10.2 "From first idea ▢ to launch" — 1 image
+
+Inline in the H2 at 120 × 90 (hidden on phones). One clear symbol of *idea → launch*.
+
+| Generate | 640 × 480 · 4:3 · `--ar 4:3` | Save | `about/launch.webp` |
+|---|---|---|---|
+
+```
+Editorial photograph of a single crisp white folded paper airplane in mid-flight against a vast deep cloudless azure sky, lit by bright hard sunlight from the left with a clean shadow on its folds, centred large in frame. Shot on 85mm f/4, natural light, Kodak Portra 400 colour, fine grain, simple, optimistic, bold, readable at very small size.
+```
+
+### S.10.3 Showcase row — 4 portrait images
+
+Staggered row under "From first idea to launch, backed by N years of shipping" — reads
+left to right as the **journey of a product**.
+
+| Generate | 1000 × 1200 · 5:6 portrait · `--ar 5:6` | Save | `about/showcase-01.webp` … `04` |
+|---|---|---|---|
+
+**01 · Idea** — warm café morning
+```
+Editorial photograph of a young founder seen in three-quarter profile, head down, writing ideas in a plain linen notebook at a small marble café table by a window, a flat white coffee beside the notebook, face partly turned away from the camera. Warm soft morning sunlight from the window on the left, gentle shadows, softly blurred café interior behind. Vertical 5:6 frame, figure and notebook centred. Shot on 50mm f/2, natural light, shallow depth of field, palette of cream, warm wood and soft brown, Kodak Portra 400 colour, fine film grain, thoughtful, calm, premium agency photography.
+```
+
+**02 · Build** — moody cool focus
+```
+Editorial close-up photograph of a developer's face in partial profile, eyes focused down and to the side, wearing thin clear-framed glasses in which soft blue reflections of lines of code on a screen are faintly visible, the face lit only by the cool blue glow of the screen with warm amber lamp light from behind on the hair and shoulder. Dark softly blurred room behind. Vertical 5:6 frame, face centred. Shot on 85mm f/1.8, very shallow depth of field, palette of deep blue, amber and black, Kodak Portra 800 colour, fine film grain, intense, focused, cinematic, premium agency photography.
+```
+
+**03 · Test** — bright and precise
+```
+Editorial photograph of two hands fanning out three smartphones of different sizes, one small, one standard, one large, all showing the same clean bright mobile app screen with rounded cards and blue accents, held against a smooth pale sage-green wall. Soft even daylight from the left, gentle shadows. Vertical 5:6 frame, hands and phones centred with clear margins. Shot on 50mm f/2.8, natural light, palette of sage, cream and white, blue only on the screens, Kodak Portra 400 colour, fine film grain, clean, precise, premium agency photography.
+```
+
+**04 · Launch** — sunrise celebration
+```
+Editorial photograph from a low angle of a young man on an open rooftop at sunrise, one arm raised in quiet celebration, the other hand holding a smartphone, wearing a loose white shirt, seen in three-quarter rear view looking toward the rising sun, not at the camera. Warm golden sunrise light rim-lighting his silhouette, a soft gradient sky from peach to pale blue, a few soft clouds. Vertical 5:6 frame, figure centred in the lower two-thirds. Shot on 35mm f/2.8, natural light, Kodak Portra 400 colour, fine film grain, joyful, triumphant yet calm, premium agency campaign photography.
+```
+
+### S.10.4 Stats hover backgrounds — 4 images
+
+Revealed **behind** each number card on hover, with **dark text on top** — so these must be
+**pale, high-key and low-contrast**. Anything dark or busy makes the numbers unreadable.
+
+| Generate | 1000 × 1000 · 1:1 · `--ar 1:1` | Save | `about/stat-01.webp` … `04` |
+|---|---|---|---|
+
+Shared ending — already included in each prompt:
+*"…high-key, very pale and low contrast, soft even light, lots of clean white space, gentle shadows, minimal, calm."*
+
+**01 · Clients served (six markets)**
+```
+Minimal editorial still life of a small smooth matte white ceramic globe with no map markings, resting on a pale cream linen surface against a soft off-white wall, shot from a slight high angle, positioned in the lower right of the frame. Shot on 50mm f/4, natural daylight, Kodak Portra 400 colour, fine grain, high-key, very pale and low contrast, soft even light, lots of clean white space, gentle shadows, minimal, calm.
+```
+
+**02 · Products shipped**
+```
+Minimal editorial still life of three plain unbranded kraft-paper shipping boxes neatly stacked in a slight stagger on a pale oak floor against a soft off-white wall, positioned in the lower right of the frame. Shot on 50mm f/4, natural daylight, Kodak Portra 400 colour, fine grain, high-key, very pale and low contrast, soft even light, lots of clean white space, gentle shadows, minimal, calm.
+```
+
+**03 · SaaS products of our own**
+```
+Minimal editorial overhead still life of three smartphones lying face-up in a neat row on a pale cream linen surface, each screen showing a soft pale pastel app interface in blue, sage and sand tones, positioned in the lower right of the frame. Shot on 50mm f/4, natural daylight, Kodak Portra 400 colour, fine grain, high-key, very pale and low contrast, soft even light, lots of clean white space, gentle shadows, minimal, calm.
+```
+
+**04 · Clutch rating**
+```
+Minimal editorial still life of five small hand-folded white paper stars arranged in a gentle arc on a pale cream paper surface, soft shadows beneath each star, positioned in the lower right of the frame. Shot on 50mm f/4, natural daylight, Kodak Portra 400 colour, fine grain, high-key, very pale and low contrast, soft even light, lots of clean white space, gentle shadows, minimal, calm.
+```
+
+### S.10.5 "Our foundation" tabs — 3 images
+
+One per principle; the image swaps when the tab is picked. Desktop shows a tall 600 × 680
+panel; **phones crop it to a wide 420px-tall band** — keep the subject in the **centre**.
+
+| Generate | 1200 × 1360 · 15:17 portrait · `--ar 15:17` | Save | `about/foundation-01.webp` … `03` |
+|---|---|---|---|
+
+**01 · "Shipping fast is a discipline, not a shortcut"**
+```
+Editorial photograph from a low side angle of a sprinter crouched perfectly still in the set position on starting blocks on an empty terracotta running track at dawn, muscles tense, eyes down the lane, wearing a plain white running top and black shorts, face in profile not toward the camera. Soft warm dawn light from behind, long shadows, pale mist over the track, clean white lane lines. Vertical frame, athlete centred. Shot on 50mm f/2.8, natural light, shallow depth of field, palette of terracotta, cream and soft peach, Kodak Portra 400 colour, fine film grain, disciplined, calm intensity, premium agency campaign photography.
+```
+
+**02 · "We run what we build"**
+```
+Editorial photograph of a potter's clay-dusted hands holding up a finished glazed ceramic vase they have just made, turning it slightly to inspect it in the light, the potter's wheel and shelves of handmade pieces softly blurred in a sunlit studio behind, face out of frame. Warm golden afternoon light through a window on the left, glowing on the glaze. Vertical frame, hands and vase centred. Shot on 50mm f/2, shallow depth of field, palette of terracotta, sand and warm cream, Kodak Portra 400 colour, fine film grain, proud, crafted, honest, premium agency photography.
+```
+
+**03 · "Communication is part of the deliverable"**
+```
+Editorial photograph of two young colleagues walking side by side along a sunlit tree-lined path, one mid-sentence gesturing with an open hand, the other listening and smiling, both seen in three-quarter view from the front-side, not looking at the camera, one in a cream linen shirt, one in a rust-orange knit. Warm golden-hour backlight through leaves, soft flare. Vertical frame, the pair centred. Shot on 85mm f/2, shallow depth of field, warm palette of green, cream and rust, Kodak Portra 400 colour, fine film grain, open, warm, genuine, premium agency campaign photography.
+```
+
+### S.10.6 Markets grid — 5 images (overwrite existing)
+
+Used twice: About markets grid (1:1, ~294px, hover-zooms, label panel covers on hover) and
+Contact page location rows (**80 × 60 thumbnail**). One person in each region using a
+device in that region's natural light — "your users are here". No landmarks.
+
+| Generate | 1000 × 1000 · 1:1 · `--ar 1:1` | Save (overwrite) | `about/market-<slug>.webp` |
+|---|---|---|---|
+
+**India** → `market-india.webp`
+```
+Editorial photograph from a low angle of a young Indian man on a sunlit rooftop terrace during Uttarayan, holding a smartphone in one hand and looking up at dozens of colourful paper kites in a clear azure sky, wearing a crisp white kurta, three-quarter profile, not looking at the camera. Hard warm late-afternoon sun, a plain lime-washed parapet at the bottom edge. Square frame, figure centred. Shot on 35mm f/4, Kodak Portra 400 colour, fine film grain, joyful, vivid, premium editorial photography.
+```
+
+**Europe** → `market-europe.webp`
+```
+Editorial photograph of a young woman sitting at a small outdoor café table on a quiet cobbled European street, working on a silver laptop with a cappuccino beside it, wearing a camel wool coat, three-quarter profile, not looking at the camera. Soft overcast silver morning light, pale limestone buildings and shuttered windows softly blurred behind. Square frame, woman centred. Shot on 50mm f/2, natural light, shallow depth of field, muted palette of stone, camel and soft grey, Kodak Portra 400 colour, fine film grain, refined, calm, premium editorial photography.
+```
+
+**Asia Pacific** → `market-asia-pacific.webp`
+```
+Editorial photograph of a young East Asian man on a clean modern elevated train platform, reading his smartphone, wearing a white t-shirt and light grey overshirt, three-quarter profile, not looking at the camera. Bright humid daylight with soft haze, lush tropical plants and sleek glass towers softly blurred behind. Square frame, man centred. Shot on 50mm f/2, natural light, shallow depth of field, palette of fresh green, white and pale silver-blue, Kodak Portra 400 colour, fine film grain, modern, energetic, premium editorial photography.
+```
+
+**Americas** → `market-americas.webp`
+```
+Editorial photograph of a young woman in a sunlit loft apartment with exposed red brick and large steel-framed windows, sitting on a wide window ledge with a laptop on her knees, wearing a denim shirt, three-quarter profile, not looking at the camera. Crisp bright morning sun from the window casting long geometric window-frame shadows across the brick and floor. Square frame, woman centred. Shot on 35mm f/2.8, natural light, shallow depth of field, palette of brick red, denim blue and warm cream, Kodak Portra 400 colour, fine film grain, confident, bright, premium editorial photography.
+```
+
+**Gulf Region** → `market-gulf.webp`
+```
+Editorial photograph of a young Gulf Arab man in a crisp white kandura standing on a modern sand-toned terrace, looking at a smartphone in his hand, three-quarter profile, not looking at the camera. High golden-hour sun from the right, long warm shadows cast by geometric latticed mashrabiya screens behind him, pale warm sky. Square frame, figure centred. Shot on 50mm f/2.8, natural light, shallow depth of field, palette of desert cream, sand and warm gold, Kodak Portra 400 colour, fine film grain, elegant, calm, premium editorial photography.
+```
+
+### S.10.7 ⛔ "By the Saurabh Infosys team" avatars — do not generate
+
+The two 36px avatars next to *"By the Saurabh Infosys team"* claim to be **real people on
+the team**. AI-generated faces there would be fake team members. Use two real team photos
+(any phone portrait, cropped square) → `about/team-01.webp`, `about/team-02.webp`.
+
+---
+
+## S.11 Blog covers — 29 posts
+
+| | |
+|---|---|
+| Slots | Post page cover [post-detail-page.tsx:63](src/components/stodio/blog/post-detail-page.tsx#L63) — full width, `height: auto`, **1920 × 900**  ·  Blog card thumbnail [blog-card.tsx:27](src/components/stodio/blog-card.tsx#L27) — **180 × 144** (5:4 centre crop) on Home, Blog index, related posts |
+| **Generate** | **1920 × 900** exactly · 32:15 · Midjourney `--ar 32:15 --style raw --v 7` |
+| Safe zone | The card crops to the **middle ~60% width** and is tiny — put **one bold subject in the centre** |
+| Save to | `public/images/blog/<slug>.webp` |
+| Code | Today every post cycles through 5 old placeholders ([blog-images.ts](src/components/stodio/lib/blog-images.ts)). Once files are added, Claude switches it to `slug → /images/blog/<slug>.webp`. |
+
+**Style:** same editorial photography as the rest of the site. Each cover shows the
+**post's idea** as a real scene or a smart physical metaphor (dominoes for "10 issues",
+a stethoscope for "diagnosis", a balance scale for "vs"). Palettes rotate so neighbouring
+cards never look alike.
+
+Every prompt already ends with the shared camera line:
+*"Wide 32:15 frame, subject centred in the middle half with calm space on both sides. Shot on 35mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, premium editorial photography."*
+
+**Negative (all 29)**
+```
+readable text, gibberish text, words, letters, numbers, code that is readable, brand logos, Lovable logo, Stripe logo, Google logo, WhatsApp logo, Apple logo, laptop brand name, book titles, watermark, extra fingers, deformed hands, distorted face, people looking at camera, stock photo, office cubicle, meeting room, neon, cyberpunk, robot, humanoid, brain, circuit board, hologram, oversaturated, HDR, plastic skin, CGI look
+```
+
+### AI App Fixes (12)
+
+**01** `fix-lovable-app-not-working` — *My Lovable App Is Broken*
+```
+Editorial photograph of a laptop on a dark walnut desk at night, its screen showing a soft pink-to-violet gradient web app with one red error notification card in the corner, a person's hand reaching for the trackpad, a half-finished cup of tea beside it, lit by a warm brass desk lamp and the cool glow of the screen. Wide 32:15 frame, subject centred in the middle half with calm space on both sides. Shot on 35mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, premium editorial photography.
+```
+
+**02** `bolt-app-not-working-fix` — *10 Common Issues Fixed*
+```
+Editorial photograph from a low side angle of a straight row of ten plain white dominoes standing on a pale oak table, three of them toppled in the middle, a hand gently setting one back upright. Soft morning window light from the left, long gentle shadows, cream wall behind. Wide 32:15 frame, subject centred in the middle half with calm space on both sides. Shot on 35mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, premium editorial photography.
+```
+
+**03** `ai-vibe-coding-bugs-fixes` — *15 Most Common Bugs*
+```
+Macro editorial photograph of a minimal white mechanical keyboard with one keycap removed and resting beside it, a pair of fine brass tweezers lying next to the exposed switch, on a warm linen desk mat. Warm low raking light from the right, crisp detail, soft falloff. Wide 32:15 frame, subject centred in the middle half with calm space on both sides. Shot on 35mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, premium editorial photography.
+```
+
+**04** `supabase-lovable-not-connecting` — *Supabase Not Connecting*
+```
+Editorial close-up photograph of two hands each holding the end of a braided emerald-green cable, the two connectors almost touching in the centre of the frame with a tiny gap between them, against a smooth pale sage-grey wall. Soft even daylight from the left. Wide 32:15 frame, subject centred in the middle half with calm space on both sides. Shot on 35mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, premium editorial photography.
+```
+
+**05** `take-lovable-app-to-production` — *Taking It to Production*
+```
+Editorial still life photograph on a pale oak studio shelf: on the left a rough hand-shaped unfired grey clay prototype of a vase, on the right the same vase finished, glazed in glossy deep blue and perfectly smooth. Warm afternoon window light from the left, soft shadows on a cream plaster wall. Wide 32:15 frame, subject centred in the middle half with calm space on both sides. Shot on 35mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, premium editorial photography.
+```
+
+**06** `fix-auth-ai-built-app` — *Login and Auth Broken*
+```
+Editorial close-up photograph of a hand holding a smartphone showing a clean minimal login screen with a large fingerprint icon and a row of passcode dots in blue, a small ring of brass keys softly blurred on the stone table below. Cool soft morning light, palette of slate blue, stone grey and brass. Wide 32:15 frame, subject centred in the middle half with calm space on both sides. Shot on 35mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, premium editorial photography.
+```
+
+**07** `when-hire-developer-fix-ai-app` — *When to Hire a Real Developer*
+```
+Editorial photograph from behind and slightly to the side of two people sitting together at a wooden desk in a warm sunlit room, one experienced developer pointing at code on a laptop screen, the other leaning in and listening, faces not visible. Warm late-afternoon light through a window on the right, leaf shadows on the wall. Wide 32:15 frame, subject centred in the middle half with calm space on both sides. Shot on 35mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, premium editorial photography.
+```
+
+**08** `stripe-payments-ai-app` — *Stripe Not Working*
+```
+Editorial close-up photograph of a hand tapping a plain matte-black payment card against a smartphone held in the other hand, the phone screen showing a clean violet-and-indigo payment screen with a large success tick, on a warm terrazzo café counter. Warm soft window light, palette of violet, indigo and warm terrazzo. Wide 32:15 frame, subject centred in the middle half with calm space on both sides. Shot on 35mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, premium editorial photography.
+```
+
+**09** `emergent-app-not-working` — *A Developer's Diagnosis Guide*
+```
+Playful editorial still life photograph of an open silver laptop on a pale grey desk with a classic silver stethoscope resting across its keyboard, the chest piece lying on the trackpad, the screen showing a soft dark interface with a small amber warning card. Clean cool daylight, calm clinical palette of white, pale grey and silver with an amber accent. Wide 32:15 frame, subject centred in the middle half with calm space on both sides. Shot on 35mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, premium editorial photography.
+```
+
+**10** `ai-app-performance-fixes` — *My AI-Built App Is Slow*
+```
+Editorial long-exposure photograph of a sprinter in a white running kit bursting out of the starting blocks on a deep blue running track, the body sharp at the head and trailing into soft horizontal motion blur, bright hard sunlight. Palette of electric blue, white and warm skin. Wide 32:15 frame, subject centred in the middle half with calm space on both sides. Shot on 35mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, premium editorial photography.
+```
+
+**11** `add-features-lovable-app` — *How to Add Features*
+```
+Editorial close-up photograph of a hand placing one new plain matte-white building block on top of a clean minimal architectural model built from identical white blocks, on a pale oak table. Soft warm morning light from the left, long gentle shadows, cream wall behind. Wide 32:15 frame, subject centred in the middle half with calm space on both sides. Shot on 35mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, premium editorial photography.
+```
+
+**12** `cursor-ai-code-review-fix` — *Review and Fix AI Code*
+```
+Editorial photograph of a laptop on a light desk showing a code review view with side-by-side panels of soft red and green highlighted lines, a pair of tortoiseshell reading glasses folded in front of it and a hand holding a pencil resting on a plain notebook. Soft north daylight, calm palette of cream, tortoiseshell brown, soft red and green. Wide 32:15 frame, subject centred in the middle half with calm space on both sides. Shot on 35mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, premium editorial photography.
+```
+
+### Mobile Development (3)
+
+**13** `google-signin-in-flutter` — *Google Sign-In in Flutter*
+```
+Editorial photograph from a low angle of a hand holding a smartphone up against a deep cloudless azure sky, the screen showing a clean minimal sign-in screen with two large rounded buttons and a small colourful circular icon, hard bright sunlight, the person's green knit sleeve visible. Wide 32:15 frame, subject centred in the middle half with calm space on both sides. Shot on 35mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, premium editorial photography.
+```
+
+**25** `flutter-vs-react-native-2025` — *Flutter vs React Native*
+```
+Editorial overhead photograph of two smartphones lying face-up side by side on a smooth pale concrete surface, one in a sky-blue case, one in a soft cyan case, both screens showing similar clean app interfaces, a thin shadow line of window light falling exactly between them. Bright crisp daylight. Wide 32:15 frame, subject centred in the middle half with calm space on both sides. Shot on 35mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, premium editorial photography.
+```
+
+**27** `why-flutter-2025` — *Why Flutter for Your Next App*
+```
+Editorial photograph of a smartphone, a tablet and a laptop fanned together on a pale oak table, all three screens showing the same clean bright app interface with rounded cards and blue accents, suggesting one codebase on every screen, against a soft sky-blue painted wall. Soft morning daylight from the left. Wide 32:15 frame, subject centred in the middle half with calm space on both sides. Shot on 35mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, premium editorial photography.
+```
+
+### AI Development (6)
+
+**14** `chatgpt-vs-gemini-vs-claude-2026` — *Which AI API Is Best*
+```
+Editorial still life photograph of three identical smartphones standing upright in a row on a pale travertine plinth, each screen showing a chat interface in a different soft colour — sage green, cobalt blue and terracotta — lit identically by soft window light from the left against a warm cream wall. Wide 32:15 frame, subject centred in the middle half with calm space on both sides. Shot on 35mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, premium editorial photography.
+```
+
+**15** `what-is-rag-ai-for-business` — *What Is RAG*
+```
+Editorial photograph of a hand pulling one book halfway out of a long wooden shelf of plain linen-bound books with blank spines in muted tones, in a quiet library aisle. Warm golden light through a tall window at the end of the aisle, dust motes in the air. Wide 32:15 frame, subject centred in the middle half with calm space on both sides. Shot on 35mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, premium editorial photography.
+```
+
+**16** `how-to-build-mvp-2-weeks` — *Build an MVP in 2 Weeks*
+```
+Editorial photograph of a hand placing a yellow sticky note with a simple hand-drawn screen sketch onto a large glass wall covered in neat columns of pastel sticky notes and sketches, no words, a soft blurred person in the background. Bright soft daylight, cheerful palette of yellow, pastel pink, sky blue and white. Wide 32:15 frame, subject centred in the middle half with calm space on both sides. Shot on 35mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, premium editorial photography.
+```
+
+**17** `google-gemma-4-vs-chatgpt` — *Cost, Privacy & Performance Compared*
+```
+Editorial still life photograph of an antique brass balance scale on a white marble table, a small dense polished black stone in one pan perfectly balancing a large pale pumice stone in the other, the beam level. Soft north daylight, clean shadows, pale grey wall. Wide 32:15 frame, subject centred in the middle half with calm space on both sides. Shot on 35mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, premium editorial photography.
+```
+
+**18** `what-is-vibe-coding` — *What Is Vibe Coding*
+```
+Editorial photograph of a young developer relaxed on a low tan sofa, wearing over-ear headphones, laptop on their knees, head gently nodding to music, eyes closed in a half smile, three-quarter profile, not looking at the camera. Warm sunset light pouring through a window, plants and a record player softly blurred behind. Wide 32:15 frame, subject centred in the middle half with calm space on both sides. Shot on 35mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, premium editorial photography.
+```
+
+**23** `flutter-ai-enabled-apps` — *AI-Enabled Apps with Flutter*
+```
+Editorial photograph of a smartphone on a slim stand on a pale oak table, the screen showing a clean app with a softly glowing blue orb assistant in the centre and a few chat cards below, a small ceramic cup beside it, against a smooth sky-blue wall. Soft bright daylight from the left. Wide 32:15 frame, subject centred in the middle half with calm space on both sides. Shot on 35mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, premium editorial photography.
+```
+
+### AI Automation & Integration (4)
+
+**19** `top-ai-automation-use-cases-india` — *Top 10 Use Cases for Indian Businesses*
+```
+Editorial photograph of a young Indian shop owner behind the counter of a small textile shop, checking a smartphone showing a chat conversation with blue bubbles, shelves of neatly folded colourful fabrics softly blurred behind, three-quarter profile, not looking at the camera. Warm golden afternoon light from the shop entrance. Wide 32:15 frame, subject centred in the middle half with calm space on both sides. Shot on 35mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, premium editorial photography.
+```
+
+**20** `how-to-integrate-ai-existing-software` — *Integrate AI into Existing Software*
+```
+Editorial still life photograph of a vintage cream-coloured typewriter sitting beside a modern slim silver laptop on a warm walnut desk, a single thin cable running between them, the laptop screen showing a soft blue interface. Warm window light from the left, old meeting new. Wide 32:15 frame, subject centred in the middle half with calm space on both sides. Shot on 35mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, premium editorial photography.
+```
+
+**21** `agentic-ai-vs-chatbots` — *Agentic AI vs Chatbots*
+```
+Editorial close-up photograph of a hand moving a wooden knight across a minimal wooden chess board mid-game, the other pieces standing still, on a linen-covered table. Warm low side light from the left, deep soft shadows, calm and strategic. Wide 32:15 frame, subject centred in the middle half with calm space on both sides. Shot on 35mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, premium editorial photography.
+```
+
+**22** `whatsapp-ai-bot-indian-business` — *WhatsApp AI Bot for Indian SMBs*
+```
+Editorial photograph of a hand holding a smartphone showing a chat conversation with green and white message bubbles, in front of a softly blurred Indian sweet shop counter with trays of colourful mithai under warm lights. Warm evening glow, palette of saffron, green and gold. Wide 32:15 frame, subject centred in the middle half with calm space on both sides. Shot on 35mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, premium editorial photography.
+```
+
+### Technology & Artificial Intelligence (4)
+
+**24** `ai-transforming-web-development-2025` — *AI Transforming Web Development*
+```
+Editorial photograph of an architect-style drafting table by a large window, a laptop open on it showing a clean modern website design with large images and blue accents, a set of drafting tools, a pencil and a folded ruler beside it. Bright soft morning light, calm palette of white, pale oak and blue. Wide 32:15 frame, subject centred in the middle half with calm space on both sides. Shot on 35mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, premium editorial photography.
+```
+
+**26** `future-software-development-emerging-tech` — *The Future of Software Development*
+```
+Editorial photograph of a person seen from behind standing at a floor-to-ceiling window at dawn, a laptop under one arm, looking out over a vast city skyline softly emerging from morning mist. Soft pastel dawn light of peach and pale blue, the figure in gentle silhouette. Wide 32:15 frame, subject centred in the middle half with calm space on both sides. Shot on 35mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, premium editorial photography.
+```
+
+**28** `mobile-first-development-2025` — *Mobile-First Should Be Your Priority*
+```
+Editorial photograph of a young woman walking through a busy city crossing while looking at her smartphone, in sharp focus, the people around her dissolving into soft motion blur, wearing a mustard-yellow coat, three-quarter profile, not looking at the camera. Bright late-afternoon sun, long shadows. Wide 32:15 frame, subject centred in the middle half with calm space on both sides. Shot on 35mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, premium editorial photography.
+```
+
+**29** `pwa-essential-2025` — *Why PWAs Are Essential*
+```
+Editorial photograph of a smartphone and an open laptop on a small train table by the window, both screens showing the same clean web app with blue accents, a paper coffee cup beside them, the green countryside outside the window soft with motion blur. Bright soft daylight. Wide 32:15 frame, subject centred in the middle half with calm space on both sides. Shot on 35mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, premium editorial photography.
+```
+
+> Numbers match the post order in `BLOG_POSTS` (newest first), so #01 is the post shown
+> first on Home.
+
 ---
 
 # Part 1 — Home Page
@@ -557,7 +901,7 @@ Close editorial photograph of two hands shaping a tall symmetrical vessel on a s
 
 ---
 
-## 2.3 ✅ Workflow Section — 4 Step Images
+## 2.3 ❌ SUPERSEDED — Workflow Section — 4 Step Images
 
 > *"Workflow" — Align · Architect · Execute · Validate*
 
@@ -587,7 +931,7 @@ A minimalist 3D render of {SUBJECT}. Physically accurate matte bone ceramic and 
 
 ---
 
-## 2.4 ✅ Markets Section — 5 Regional Images
+## 2.4 ❌ SUPERSEDED by §S.10.6 — Markets Section — 5 Regional Images
 
 > *"Built in Ahmedabad, shipping to six markets"*
 
@@ -618,7 +962,7 @@ Architectural landscape photograph of {SUBJECT}. Clean minimalist framing, compl
 
 ---
 
-## 2.5 ✅ Beliefs Section — 5 Principle Images
+## 2.5 ❌ SUPERSEDED — Beliefs Section — 5 Principle Images
 
 > *"Principles that guide our work"*
 
@@ -751,7 +1095,7 @@ Extreme macro close-crop photograph of {SUBJECT}, filling the frame diagonally. 
 
 ---
 
-# Part 5 — Blog Cover System (29 Posts)
+# Part 5 — ❌ SUPERSEDED by §S.11 — Blog Cover System (old design)
 
 Each post uses **Lane A (Surreal Minimalist 3D)** with rotating palettes (**P1 → P2 → P3 → P4**) to ensure adjacent posts in the blog grid never look identical.
 

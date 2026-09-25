@@ -18,17 +18,17 @@ import {
 } from "@/lib/data";
 
 const STATS = [
-  { value: COMPANY.stats.clients, label: "Clients served", copy: "Across India, the UK, Europe, APAC, the Americas and the Gulf.", image: "/images/hero/strip-03.webp" },
-  { value: COMPANY.stats.projects, label: "Products shipped", copy: "Mobile apps, SaaS platforms and AI systems live in production.", image: "/images/hero/strip-04.webp" },
-  { value: COMPANY.stats.saasProducts, label: "SaaS products of our own", copy: "SSMS, MySociety and MySampark — we run what we build.", image: "/images/hero/strip-06.webp" },
-  { value: COMPANY.stats.clutchRating, label: "Clutch rating", copy: `${COMPANY.stats.clutchReviews} verified reviews from 80+ clients.`, image: "/images/hero/strip-01.webp" },
+  { value: COMPANY.stats.clients, label: "Clients served", copy: "Across India, the UK, Europe, APAC, the Americas and the Gulf.", image: "/images/about/stat-01.webp" },
+  { value: COMPANY.stats.saasProducts, label: "SaaS products of our own", copy: "SSMS, MySociety and MySampark — we run what we build.", image: "/images/about/stat-03.webp" },
+  { value: COMPANY.stats.projects, label: "Products shipped", copy: "Mobile apps, SaaS platforms and AI systems live in production.", image: "/images/services/white-label-software.webp" },
+  { value: COMPANY.stats.clutchRating, label: "Clutch rating", copy: `${COMPANY.stats.clutchReviews} verified reviews from 80+ clients.`, image: "/images/about/stat-04.webp" },
 ];
 
 const SHOWCASE = [
   "/images/hero/strip-02.webp",
-  "/images/hero/strip-03.webp",
-  "/images/hero/strip-04.webp",
-  "/images/hero/strip-06.webp",
+  "/images/about/showcase-02.webp",
+  "/images/about/showcase-03.webp",
+  "/images/about/showcase-04.webp",
 ];
 
 /* Three principles, each with its own picture — the reference's foundation is
@@ -74,7 +74,7 @@ export default function AboutPage() {
                   <span className="st-about-hero-chip">
                     <Image
                       className="st-hero-title-image"
-                      src="/images/hero/strip-05.webp"
+                      src="/images/about/chip.webp"
                       alt=""
                       width={106}
                       height={80}
@@ -158,7 +158,7 @@ export default function AboutPage() {
               <h2 className="st-h2 st-weight-medium">From first idea to launch</h2>
               <Image
                 className="st-experience-title-image"
-                src="/images/hero/strip-01.webp"
+                src="/images/about/launch.webp"
                 alt=""
                 width={120}
                 height={90}
