@@ -31,9 +31,9 @@ const ART: Record<string, { shot: string; banner: string; purpose: string }> = {
 };
 
 const FALLBACK = {
-  shot: "/images/services/saas.webp",
-  banner: "/images/services/hero.webp",
-  purpose: "/images/services/saas-deliverables.webp",
+  shot: "/images/services/white-label-software.webp",
+  banner: "/images/services/white-label-software-hero.webp",
+  purpose: "/images/services/integration-services.webp",
 };
 
 export default function ProductDetailPage({ slug }: { slug: string }) {

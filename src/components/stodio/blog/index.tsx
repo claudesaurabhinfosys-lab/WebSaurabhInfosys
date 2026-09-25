@@ -24,7 +24,7 @@ export default function BlogPage() {
         <section className="st-hero st-is-blogs">
           <Image
             className="st-hero-bg"
-            src="/images/services/digital-marketing-hero.webp"
+            src="/images/services/hire-developers-hero.webp"
             alt=""
             fill
             priority

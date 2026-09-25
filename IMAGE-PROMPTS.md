@@ -100,6 +100,252 @@ Every container uses `object-fit: cover`. Cover **crops**, never stretches.
 
 ---
 
+# Part S — Service Images (Redesign, Sep 2026) ⭐ CURRENT
+
+> **Supersedes §1.7, §4.1 and §4.3** for the five live services. The old
+> ceramic/moss renders belong to the previous design and are being replaced.
+
+## S.0 Art direction
+
+**Reference:** [Alture template](https://alture-template.webflow.io/) — real editorial
+photography of devices in lived-in spaces, natural light, film grain, one clear subject.
+Every image shows *what the service delivers* (a chat bot, an app, synced data, an
+engineer, a branded dashboard) — but staged like an agency campaign, never like stock.
+
+**The formula every prompt follows:**
+1. **Subject** — a device (or hands on a device) showing the deliverable on screen.
+2. **Place** — a calm real space: plaster wall, leather, oak, stone, open sky.
+3. **Light** — one named natural light source with a direction and a time of day.
+4. **Palette** — warm neutrals; blue appears **only on screens** (ties back to `#00a0e3`).
+5. **Camera** — lens, aperture, Kodak Portra colour, fine grain.
+
+**Each service gets its own light and place** so the five read as a set without repeating:
+
+| # | Service | Place | Light | Palette |
+|---|---|---|---|---|
+| 01 | AI Automation | Living room, leather bench, plaster wall | Golden hour, from right | Sand, tan, amber |
+| 02 | App Development | Outdoors, looking up at sky | Hard midday sun | Azure, forest green, cream |
+| 03 | System Integration | Oak table, seen from above / eye level | Soft morning window light | Oak, cream, sage |
+| 04 | Hire Developers | Sofa / desk at dusk | Low warm lamp + last sun | Amber, deep brown, black |
+| 05 | White-Label | Bright gallery-like studio | Airy diffused daylight | Cream, pale stone, white |
+
+## S.1 Slots, sizes, files
+
+| Slot | Component | Ratio | Generate | File |
+|---|---|---|---|---|
+| **Card** | [services-section.tsx:60](src/components/stodio/home/services-section.tsx#L60) — dark home slab, radius 24, ~300px wide | 3:2 | **1200 × 800** | `public/images/services/<slug>.webp` |
+| **Banner** | [service-detail-page.tsx:68](src/components/stodio/services/service-detail-page.tsx#L68) — full width, `height: auto` | **exactly 2:1** | **1920 × 960** | `public/images/services/<slug>-hero.webp` |
+
+- Home shows only the **first four** services, so the White-Label card is optional (future use).
+- `-deliverables.webp` is no longer rendered on service pages — no prompt needed.
+- Export as WebP, quality ~80, target < 200 KB.
+
+**Generator settings**
+- Midjourney: `--ar 3:2 --style raw --v 7` (card) / `--ar 2:1 --style raw --v 7` (banner)
+- Flux / GPT-image / Ideogram: paste as-is, set aspect ratio.
+- **Generate the banner first**, then the card with the same model and seed (or Midjourney
+  `--sref` of the banner) so both images of one service share a look.
+
+**Negative (all services)**
+```
+readable text, gibberish text, distorted letters, book titles, magazine covers, brand logos, Apple logo, laptop brand name, watermark, signature, extra fingers, deformed hands, two right hands, blurry screen, glare hiding screen, cluttered desk, office cubicle, open-plan office, corporate stock photo, people smiling at camera, neon, cyberpunk, robot, hologram, floating UI, oversaturated, HDR, plastic skin, CGI look, 3D render look
+```
+
+**Screens — finish in post (recommended):** AI can draw convincing UI but never correct
+words. For the final version, place a real screenshot on each screen (Photoshop:
+Free Transform → Distort, then Multiply a little of the original screen glare back on top;
+or Figma mockup). Suggested screenshots are listed per service.
+
+---
+
+## S.2 — 01 · AI Automation & Agents (`ai-automation-services`)
+
+**Story:** "Your business keeps working while you're away." A calm, empty room at golden
+hour — the laptop shows an automation flow, the phone shows the bot answering a customer.
+No one is there. That is the point.
+
+**Banner** → `ai-automation-services-hero.webp` · 1920 × 960
+```
+Wide editorial interior photograph of a sleek silver laptop open on a low black metal and smoked-glass coffee table, in front of a tan leather daybed, in a calm modern living room. The laptop screen shows a clean dark automation workflow interface: a chat node on the left connected by thin glowing blue lines to a central glowing blue AI orb node, which branches to three small node cards with simple calendar, database and envelope glyphs, and a small audio waveform card below. Beside the laptop a smartphone lies face-up showing a chat conversation with blue message bubbles, next to a small turned walnut bowl. A plain stone bowl rests on two plain unlabelled linen books at the left edge. Warm golden-hour sunlight enters from a tall window on the right, casting long soft leaf shadows and light streaks across a textured beige plaster wall; a large dark abstract painting is partly cropped at the top. Woven jute rug on a polished concrete floor. Ultra-wide 2:1 composition, laptop slightly left of centre, calm wall space on the right. Shot on 35mm f/2.8, natural light, shallow depth of field, warm palette of sand, tan leather and amber, Kodak Portra 400 colour, fine film grain, quiet luxury, premium agency campaign photography.
+```
+
+**Card** → `ai-automation-services.webp` · 1200 × 800
+```
+Editorial close-up photograph of a hand holding a modern black smartphone at a slight angle, the screen showing a clean chat conversation between a customer and an AI assistant, incoming bubbles in soft grey and replies in bright blue, a small round assistant avatar with a blue spark at the top, and a typing indicator at the bottom. Warm golden-hour sunlight streams in from the left, casting soft window-frame and leaf shadows across a textured beige plaster wall behind. The person wears a cream knit sweater, only hand and forearm visible, face out of frame. Phone in crisp focus in the centre of the frame with generous margins, background softly blurred. Warm palette of sand, beige and cream, blue only on the screen. Shot on 50mm f/1.8, natural light, Kodak Portra 400 colour, fine film grain, calm, authentic, premium agency photography.
+```
+
+**Screens to composite:** WhatsApp bot conversation (booking or lead capture); n8n / Make workflow canvas in dark mode.
+
+---
+
+## S.3 — 02 · App & MVP Development (`app-development`)
+
+**Story:** "Live on both stores." Two phones raised to an open sky — iOS and Android,
+same app, one codebase. Bright, confident, outdoors: the only service shot outside.
+
+**Banner** → `app-development-hero.webp` · 1920 × 960
+```
+Wide editorial photograph from a low angle, two hands raising two modern smartphones side by side against a vast deep cloudless azure sky, the left phone an iPhone-style device with a dynamic island, the right an Android-style device with a punch-hole camera, both screens showing the same clean bright mobile app home screen with a greeting header, a large rounded photo banner card, a grid of soft pastel category icons and a bottom navigation bar. Hard bright midday sun from the left, crisp sculptural shadows on the hands. Left sleeve in cream linen with a wooden button, right sleeve in forest-green ribbed knit, faces out of frame. The corner of a sunlit cream stucco wall and a few silvery olive leaves at the lower left edge. Ultra-wide 2:1 composition, phones slightly left of centre, generous open sky on the right. Shot on 35mm f/2.8, natural light, shallow depth of field, rich natural colours of azure, forest green and cream, Kodak Portra 400 colour, fine film grain, bold, optimistic, premium agency campaign photography.
+```
+
+**Card** → `app-development.webp` · 1200 × 800
+```
+Editorial lifestyle photograph from a low angle, a single hand raising a modern smartphone against a deep cloudless azure sky, the screen showing a clean bright mobile app with rounded content cards, soft pastel icons and a bottom navigation bar. Hard bright natural sunlight from the right, crisp shadows on the hand, the person wears a forest-green ribbed knit sweater, only hand, wrist and a softly blurred shoulder visible, face out of frame. A few silvery olive leaves in soft focus at one corner. Phone in sharp focus in the centre third with generous margins. Rich natural colours of deep sky blue, forest green and warm skin tones. Shot on 50mm f/2, natural light, Kodak Portra 400 colour, fine film grain, confident, fresh, premium agency photography.
+```
+
+**Screens to composite:** real Flutter app screens from the portfolio (Curvd, Fit Gate, MacroMate) — same app on both phones.
+
+---
+
+## S.4 — 03 · System Integration (`integration-services`)
+
+**Story:** "Everything in sync." Several devices on one table, each running a different
+tool, all showing the same customer / invoice data. Orderly, calm, morning.
+
+**Banner** → `integration-services-hero.webp` · 1920 × 960
+```
+Wide editorial interior photograph of a long solid light-oak table in a calm sunlit room, a silver laptop, a tablet on a slim stand and a smartphone arranged in a clean evenly spaced row across the table. Each screen shows a different clean business interface that shares the same data in blue accents: the laptop a CRM contact record with a timeline, the tablet an invoice with line items and a paid badge, the phone a notification card with a green sync tick. A ceramic coffee cup, a small sprig of eucalyptus in a glass vase and a closed plain linen notebook complete the scene. Soft morning window light from the left, long gentle shadows across the oak and a warm cream plaster wall behind. Ultra-wide 2:1 composition, devices across the central band, calm empty wall above. Shot on 35mm f/2.8, natural light, shallow depth of field, palette of light oak, cream and soft sage, Kodak Portra 400 colour, fine film grain, orderly, quiet luxury, premium agency photography.
+```
+
+**Card** → `integration-services.webp` · 1200 × 800
+```
+Editorial overhead photograph looking straight down at a light-oak table, a laptop and a tablet placed side by side and perfectly aligned, both screens showing clean matching business dashboards with the same table of records and a small bar chart in soft blue tones, a thin green sync tick at the top of each, suggesting the two systems are in sync. A ceramic coffee cup and a small eucalyptus sprig sit at one corner. Soft diffused morning daylight from a window at the top of the frame, gentle natural shadows. Warm neutral palette of oak, cream and sage, blue only on the screens. Symmetrical orderly composition in the centre with generous margins. Shot on 35mm f/4, natural light, Kodak Portra 400 colour, fine film grain, calm, precise, premium agency mockup photography.
+```
+
+**Screens to composite:** HubSpot / Zoho contact view · QuickBooks / Tally invoice · a Slack or WhatsApp "synced" notification.
+
+---
+
+## S.5 — 04 · Dedicated AI & Dev Teams (`hire-developers`)
+
+**Story:** "A senior engineer, focused on your roadmap." Human hands, real code, the warm
+quiet of deep work. Faces never shown — the craft is the subject.
+
+**Banner** → `hire-developers-hero.webp` · 1920 × 960
+```
+Wide editorial photograph of a software developer seen in three-quarter rear view, sitting at a minimal dark walnut desk, working on a silver laptop connected to a large external monitor, both screens showing a dark code editor with soft coloured syntax highlighting and a file tree, a small video call tile with blurred faces in the corner of the monitor. Low warm evening light from a brass desk lamp and the last golden sun through a window on the right, deep soft shadows, a warm plaster wall, a trailing plant leaf in soft focus at the frame edge, headphones resting on the desk. The developer wears a dark charcoal knit sweater, face not visible. Ultra-wide 2:1 composition, developer and screens left of centre, calm warm wall space on the right. Shot on 35mm f/2, shallow depth of field, palette of amber, walnut and deep brown, Kodak Portra 400 colour, fine film grain, focused, quiet, premium agency photography.
+```
+
+**Card** → `hire-developers.webp` · 1200 × 800
+```
+Editorial close-up photograph of a developer's hands typing on a silver laptop keyboard, the laptop resting on their lap on a tan leather sofa, the screen visible at the right showing a dark code editor with soft coloured syntax lines. Low warm golden light from a window on the left rakes across the forearms and keys, deep soft shadows, a green plant and warm bokeh in the blurred background. The person wears a white t-shirt and black trousers, face out of frame. Very shallow depth of field, focus on the hands and keys, subject in the middle of the frame with clear margins. Warm moody palette of amber, tan, deep brown and black. Shot on 85mm f/1.8, natural light, Kodak Portra 400 colour, fine film grain, focused, calm, premium agency photography.
+```
+
+**Screens to composite:** VS Code with real Flutter / Next.js code (dark theme); a Slack standup or Google Meet tile.
+
+---
+
+## S.6 — 05 · White-Label Software (`white-label-software`)
+
+**Story:** "A proven platform, wearing your brand." The same dashboard on two devices in
+two brand colours, with colour swatches nearby — rebranding made visible. Bright and airy.
+
+**Banner** → `white-label-software-hero.webp` · 1920 × 960
+```
+Wide editorial interior photograph of a bright minimal gallery-like studio, a silver laptop and a tablet on a slim stand placed together on a pale travertine and light-oak table. Both screens show the same clean SaaS admin dashboard layout with a left sidebar, four stat cards and a line chart — the laptop styled in blue accents, the tablet in warm terracotta accents — suggesting one product under two different brands. A fan of plain paper colour swatch cards in blue, terracotta and sand lies beside them, with a small white ceramic vase holding a single dried stem. Soft diffused morning daylight from tall windows on the left, gentle long shadows and faint light streaks across a smooth cream plaster wall. Ultra-wide 2:1 composition, devices slightly left of centre, calm open wall space on the right. Shot on 35mm f/2.8, natural light, shallow depth of field, airy palette of cream, travertine and light oak, Kodak Portra 400 colour, fine film grain, polished, quiet luxury, premium agency photography.
+```
+
+**Card** → `white-label-software.webp` · 1200 × 800 *(optional — not shown on home today)*
+```
+Editorial product photograph of a modern tablet standing upright on a slim stand on a pale travertine surface, the screen showing a clean bright SaaS admin dashboard with a sidebar, stat cards and a simple chart in blue accents. Beside it a fan of plain paper colour swatch cards in blue, terracotta and sand, suggesting custom branding. Soft morning daylight from the left with gentle window shadows across a pale cream plaster wall behind. Tablet in the centre third with generous margins. Minimal airy palette of cream, pale stone and white, blue only on the screen. Shot on 50mm f/2.8, natural light, shallow depth of field, Kodak Portra 400 colour, fine film grain, clean, polished, premium agency mockup photography.
+```
+
+**Screens to composite:** SSMS or MySampark admin dashboard — one in the brand blue, one recoloured to a client colour.
+
+---
+
+## S.7 Checklist before saving
+
+- [ ] No readable brand text anywhere (book spines, laptop base, phone back) — clone it out.
+- [ ] Hands: five fingers, correct left/right.
+- [ ] Banner is exactly 2:1 (1920 × 960), card exactly 3:2 (1200 × 800).
+- [ ] Card subject sits in the centre with margin — it is cropped to rounded corners at ~300px.
+- [ ] Real screenshot composited on screens (final version).
+- [ ] WebP, < 200 KB, saved over the existing file name — no code change needed.
+
+---
+
+## S.8 Home "Who we are" strip — 6 portrait images
+
+| | |
+|---|---|
+| Component | [gallery-section.tsx:7](src/components/stodio/home/gallery-section.tsx#L7) — infinite scrolling strip under the client marquee |
+| CSS | `.st-image-wrapper` — 460 × 576 desktop, 320 × 450 tablet, 250 × 350 phone · radius 24 · `object-fit: cover` |
+| **Generate** | **920 × 1150** · 4:5 portrait · Midjourney `--ar 4:5 --style raw --v 7` |
+| Safe zone | Tablet/phone crop the sides ~5% — keep the subject in the **centre 80% width** |
+| Save to | `public/images/home/strip-01.webp` … `strip-06.webp` |
+
+**Story:** this is "Who we are", not "what we sell" — so **people and craft**, not devices
+as heroes. The six alternate warm / cool so the moving strip has rhythm, exactly like
+Alture's mix of motion-blur portraits, sky shots, warm interiors and one glass object.
+Faces are allowed here but never posed at the lens.
+
+| # | Mood | Palette |
+|---|---|---|
+| 01 | Speed — motion-blur figure | Brand blue wall |
+| 02 | Planning — hands sketching wireframes | Warm paper, morning |
+| 03 | Confidence — low-angle portrait to sky | Azure + rust orange |
+| 04 | Collaboration — hands over a tablet | Oak, cream |
+| 05 | The AI moment — chromatic glass object | Blue-violet gradient |
+| 06 | Late shift for global clients — window at dusk | Deep blue + amber |
+
+**01 · Speed** → `strip-01.webp`
+```
+Editorial long-exposure photograph of a young man in a loose white shirt and light grey trousers running past the camera in profile, his body dissolving into soft horizontal motion blur, only his face and shoulder slightly sharper. Behind him a seamless studio wall painted in saturated electric blue (#00A0E3), with a soft warm glow of light behind his head fading into deeper cobalt at the edges. Vertical 4:5 frame, figure centred with clear space around. Shot on 50mm with slow shutter, film camera look, Kodak Portra colour, fine grain, energetic, artful, premium agency campaign photography.
+```
+
+**02 · Planning** → `strip-02.webp`
+```
+Editorial overhead close-up of two hands sketching mobile app wireframes with a black fine-liner pen on thick cream sketch paper, simple rectangles for screens, rounded buttons and arrows between screens, no words. A smartphone lies face-down at the edge of the paper beside a small clay espresso cup. Warm low morning sunlight from the top left rakes across the paper, casting long shadows of the pen and fingers. Vertical 4:5 frame, hands and sketches in the centre. Shot on 50mm f/2.8, natural light, warm palette of cream, tan and soft brown, Kodak Portra 400 colour, fine film grain, thoughtful, crafted, premium agency photography.
+```
+
+**03 · Confidence** → `strip-03.webp`
+```
+Editorial fashion-grade portrait shot from a low angle of a young Indian woman in her late twenties standing against a vast deep cloudless azure sky, wearing a tailored rust-orange overshirt over a white tee, a slim laptop held casually under one arm, looking off toward the horizon in three-quarter profile, calm and self-assured, not looking at the camera. Hard bright midday sun from the right carving crisp shadows on her face and clothing. Vertical 4:5 frame, figure centred occupying the middle two-thirds, lots of blue sky above. Shot on 35mm f/4, Kodak Portra 400 colour, natural skin texture, fine grain, bold, confident, premium agency campaign photography.
+```
+
+**04 · Collaboration** → `strip-04.webp`
+```
+Editorial close-up photograph of two people's hands and forearms leaning over a tablet lying flat on a light-oak table, one hand pointing at the screen, the other resting a pencil near a printed colour palette card, the tablet screen showing a clean bright app design with rounded cards and blue accents. One wears a cream linen sleeve, the other a charcoal knit sleeve, faces out of frame. Soft morning window light from the left, gentle shadows, a ceramic mug softly blurred in the background. Vertical 4:5 frame, hands and tablet centred. Shot on 50mm f/2.2, shallow depth of field, palette of oak, cream and charcoal, Kodak Portra 400 colour, fine film grain, warm, collaborative, premium agency photography.
+```
+
+**05 · The AI moment** → `strip-05.webp`
+```
+A single sculptural abstract 3D object of flowing black glass, a smooth continuous looping ribbon folding over itself, with iridescent chromatic dispersion along every edge — thin fringes of electric blue, violet, cyan and a touch of warm orange — floating in the centre of a soft blurred gradient background that moves from deep cobalt at the top through electric blue (#00A0E3) to soft violet at the bottom. Soft studio lighting with crisp specular highlights on the glass, subtle reflections, no floor. Vertical 4:5 frame, object centred with generous margins. Ultra-detailed, physically accurate refraction, premium art-direction render, clean and minimal.
+```
+
+**06 · Late shift for global clients** → `strip-06.webp`
+```
+Editorial photograph at blue hour of a young developer seen from behind in silhouette, sitting on a low sill beside a large floor-to-ceiling window with an open laptop on their lap, the screen casting a soft cool glow on their shoulder and hands. Outside, a softly blurred city skyline at dusk with warm amber window lights and a deep blue sky gradient. A warm brass floor lamp glows at the edge of the frame. Vertical 4:5 frame, figure and laptop in the lower centre, sky and city bokeh filling the top. Shot on 35mm f/1.8, natural mixed light, shallow depth of field, palette of deep blue and amber, Kodak Portra 800 colour, fine film grain, quiet, focused, cinematic, premium agency photography.
+```
+
+**Negative (all six)**
+```
+readable text, gibberish text, words on paper, logos, brand names, watermark, extra fingers, deformed hands, distorted face, people smiling at camera, posed corporate headshot, office cubicle, open-plan office, meeting room, whiteboard with text, stock photo, neon, cyberpunk, robot, hologram, oversaturated, HDR, plastic skin, CGI look (except 05)
+```
+
+---
+
+## S.9 Services heading inline image
+
+| | |
+|---|---|
+| Component | [services-section.tsx:18](src/components/stodio/home/services-section.tsx#L18) — sits inside the headline "Everything ▢ your brand needs" on the **dark** services slab |
+| CSS | `.st-service-title-image` — **80 × 60** · radius 24 |
+| **Generate** | **640 × 480** · 4:3 · Midjourney `--ar 4:3 --style raw --v 7` |
+| Save to | `public/images/home/services-title.webp` |
+
+At 80px nothing detailed survives — it needs **one bold shape and one bright colour**
+that pops on black type.
+
+```
+A single glossy abstract 3D form of flowing black glass, a smooth twisted loop, with bright iridescent chromatic edges in electric blue (#00A0E3), cyan and violet, centred on a vivid smooth gradient background from electric blue to soft violet. Crisp specular highlights, bold simple silhouette, large in frame with small margins. Clean minimal premium render, high contrast, readable at very small size.
+```
+
+**Negative** — `text, logos, multiple objects, busy background, dark background, fine detail, noise`
+
+---
+
 # Part 1 — Home Page
 
 ## 1.1 ✅ Hero — Contact Card
@@ -194,7 +440,7 @@ A minimalist 3D render of {SUBJECT}. Physically accurate materials: matte bone c
 
 ---
 
-## 1.7 ✅ Services Section — 6 Service Master Images
+## 1.7 ❌ SUPERSEDED by Part S — Services Section (old design)
 
 | | |
 |---|---|
@@ -449,7 +695,7 @@ Re-cropped directly from the **§1.7 Service Masters**.
 
 Pages: `ai-agents`, `vibe-coding`, `flutter`, `gps`, `saas`, `digital-marketing`.
 
-## 4.1 ✅ Detail Hero — 6 Wide Panorama Images
+## 4.1 ❌ SUPERSEDED by Part S — Detail Hero (old design)
 
 | | |
 |---|---|
@@ -476,7 +722,7 @@ Square center-crop of the **§1.7 Service Master**.
 
 ---
 
-## 4.3 ✅ Detail Deliverables — 6 Macro Close-Crops
+## 4.3 ❌ SUPERSEDED — Detail Deliverables (no longer rendered)
 
 | | |
 |---|---|

@@ -51,7 +51,7 @@ export default function ServicesSection() {
                 <h2 className="st-h2">Everything</h2>
                 <Image
                   className="st-service-title-image"
-                  src="/images/about/identity.webp"
+                  src="/images/hero/strip-05.webp"
                   alt=""
                   width={80}
                   height={60}

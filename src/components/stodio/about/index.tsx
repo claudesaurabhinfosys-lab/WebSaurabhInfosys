@@ -18,17 +18,17 @@ import {
 } from "@/lib/data";
 
 const STATS = [
-  { value: COMPANY.stats.clients, label: "Clients served", copy: "Across India, the UK, Europe, APAC, the Americas and the Gulf.", image: "/images/about/workflow-01.webp" },
-  { value: COMPANY.stats.projects, label: "Products shipped", copy: "Mobile apps, SaaS platforms and AI systems live in production.", image: "/images/about/workflow-02.webp" },
-  { value: COMPANY.stats.saasProducts, label: "SaaS products of our own", copy: "SSMS, MySociety and MySampark — we run what we build.", image: "/images/about/workflow-03.webp" },
-  { value: COMPANY.stats.clutchRating, label: "Clutch rating", copy: `${COMPANY.stats.clutchReviews} verified reviews from 80+ clients.`, image: "/images/about/workflow-04.webp" },
+  { value: COMPANY.stats.clients, label: "Clients served", copy: "Across India, the UK, Europe, APAC, the Americas and the Gulf.", image: "/images/hero/strip-03.webp" },
+  { value: COMPANY.stats.projects, label: "Products shipped", copy: "Mobile apps, SaaS platforms and AI systems live in production.", image: "/images/hero/strip-04.webp" },
+  { value: COMPANY.stats.saasProducts, label: "SaaS products of our own", copy: "SSMS, MySociety and MySampark — we run what we build.", image: "/images/hero/strip-06.webp" },
+  { value: COMPANY.stats.clutchRating, label: "Clutch rating", copy: `${COMPANY.stats.clutchReviews} verified reviews from 80+ clients.`, image: "/images/hero/strip-01.webp" },
 ];
 
 const SHOWCASE = [
-  "/images/about/belief-01.webp",
-  "/images/about/belief-02.webp",
-  "/images/about/belief-03.webp",
-  "/images/about/belief-04.webp",
+  "/images/hero/strip-02.webp",
+  "/images/hero/strip-03.webp",
+  "/images/hero/strip-04.webp",
+  "/images/hero/strip-06.webp",
 ];
 
 /* Three principles, each with its own picture — the reference's foundation is
@@ -36,7 +36,7 @@ const SHOWCASE = [
 const FOUNDATION_TABS = ABOUT_BELIEFS.slice(0, 3).map((belief, index) => ({
   title: belief.title,
   body: belief.body,
-  image: ["/images/about/studio.webp", "/images/about/workflow-02.webp", "/images/about/workflow-04.webp"][index],
+  image: ["/images/hero/strip-04.webp", "/images/hero/strip-02.webp", "/images/hero/strip-06.webp"][index],
 }));
 
 const PROCESS_STEPS = HOME_PROCESS.steps.map((step, index) => ({
@@ -74,7 +74,7 @@ export default function AboutPage() {
                   <span className="st-about-hero-chip">
                     <Image
                       className="st-hero-title-image"
-                      src="/images/about/studio.webp"
+                      src="/images/hero/strip-05.webp"
                       alt=""
                       width={106}
                       height={80}
@@ -105,8 +105,8 @@ export default function AboutPage() {
               </Reveal>
               <Reveal delay={300} className="st-author-wrapper">
                 <div className="st-author-images">
-                  <Image className="st-author-image" src="/images/about/identity.webp" alt="" width={36} height={36} />
-                  <Image className="st-author-image" src="/images/about/studio-panel.webp" alt="" width={36} height={36} />
+                  <Image className="st-author-image" src="/images/hero/strip-03.webp" alt="" width={36} height={36} />
+                  <Image className="st-author-image" src="/images/hero/strip-01.webp" alt="" width={36} height={36} />
                 </div>
                 <div className="st-text-xl">
                   <span className="st-mute">By</span> the Saurabh Infosys team
@@ -158,7 +158,7 @@ export default function AboutPage() {
               <h2 className="st-h2 st-weight-medium">From first idea to launch</h2>
               <Image
                 className="st-experience-title-image"
-                src="/images/about/workflow-01.webp"
+                src="/images/hero/strip-01.webp"
                 alt=""
                 width={120}
                 height={90}

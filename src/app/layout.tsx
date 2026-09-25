@@ -111,7 +111,7 @@ export default function RootLayout({
             "@type": "Organization",
             name: "Saurabh Infosys",
             url: "https://saurabhinfosys.com",
-            logo: "https://saurabhinfosys.com/images/logo.png",
+            logo: "https://saurabhinfosys.com/saurabhInfosys.webp",
             description: "AI automation, AI integration and vibe coding company in Ahmedabad, India. Specialists in AI agents, AI-enabled apps, Flutter apps, SaaS platforms, and GPS fleet management.",
             address: { "@type": "PostalAddress", addressLocality: "Ahmedabad", addressRegion: "Gujarat", addressCountry: "IN" },
             contactPoint: { "@type": "ContactPoint", contactType: "sales", availableLanguage: ["English", "Hindi"] },

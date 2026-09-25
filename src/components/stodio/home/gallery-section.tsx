@@ -5,12 +5,12 @@ import Tag from "../tag";
 import { ArrowRight } from "../icons";
 
 const STRIP = [
-  "/images/about/belief-01.webp",
-  "/images/about/workflow-01.webp",
-  "/images/about/belief-03.webp",
-  "/images/about/workflow-03.webp",
-  "/images/about/belief-05.webp",
-  "/images/about/workflow-02.webp",
+  "/images/hero/strip-01.webp",
+  "/images/hero/strip-02.webp",
+  "/images/hero/strip-03.webp",
+  "/images/hero/strip-04.webp",
+  "/images/hero/strip-05.webp",
+  "/images/hero/strip-06.webp",
 ];
 
 export default function GallerySection() {

@@ -20,7 +20,7 @@ function schema(page: CountryPageData) {
         "@id": `${BASE}/#organization`,
         name: COMPANY.name,
         url: BASE,
-        logo: `${BASE}/images/logo.png`,
+        logo: `${BASE}/saurabhInfosys.webp`,
         description: page.schema.orgDescription,
         areaServed: [
           { "@type": "Country", name: "United States" },
