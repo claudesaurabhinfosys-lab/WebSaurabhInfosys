@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { COMPANY } from "@/lib/data";
+import { COMPANY, COUNTRY_PAGES, PRODUCTS, SERVICES } from "@/lib/data";
 import {
   ArrowUpRight,
   LinkedInIcon,
@@ -8,32 +8,47 @@ import {
 import NewsletterForm from "./newsletter-form";
 import Logo from "./logo";
 
-/* Three columns of five. They are rendered on an equal-width grid, so the
-   hairline rules between them land on a regular rhythm instead of wherever the
-   longest label in each list happened to push them. The country links use the
-   short `/uk` form the content brief specifies, not the `/country/uk` alias. */
-const COLUMN_ONE = [
-  { label: "Home", href: "/" },
-  { label: "Studio", href: "/about" },
-  { label: "Work", href: "/portfolio" },
-  { label: "Products", href: "/products" },
-  { label: "Blog", href: "/blog" },
-];
+type FooterLink = { label: string; href: string };
+type FooterColumn = { heading: string; href?: string; links: FooterLink[] };
 
-const COLUMN_TWO = [
-  { label: "AI Automation", href: "/services/ai-automation-services" },
-  { label: "App & MVP Dev", href: "/services/app-development" },
-  { label: "System Integration", href: "/services/integration-services" },
-  { label: "Hire Developers", href: "/services/hire-developers" },
-  { label: "White-Label SaaS", href: "/services/white-label-software" },
-];
-
-const COLUMN_THREE = [
-  { label: "United States", href: "/usa" },
-  { label: "United Kingdom", href: "/uk" },
-  { label: "Australia", href: "/australia" },
-  { label: "Singapore", href: "/singapore" },
-  { label: "Contact", href: "/contact" },
+/* Four titled columns, each fed from the same data as the navbar so the two
+   never drift apart. They sit on an equal-width grid, so the hairline rules
+   between them land on a regular rhythm. The country links use the short
+   `/uk` form the content brief specifies, not the `/country/uk` alias. */
+const COLUMNS: FooterColumn[] = [
+  {
+    heading: "Company",
+    links: [
+      { label: "Home", href: "/" },
+      { label: "Studio", href: "/about" },
+      { label: "Work", href: "/portfolio" },
+      { label: "Blog", href: "/blog" },
+      { label: "Contact", href: "/contact" },
+    ],
+  },
+  {
+    heading: "Services",
+    href: "/services",
+    links: SERVICES.map((service) => ({
+      label: service.shortTitle ?? service.title,
+      href: `/services/${service.slug}`,
+    })),
+  },
+  {
+    heading: "Products",
+    href: "/products",
+    links: PRODUCTS.map((product) => ({
+      label: product.name,
+      href: `/products/${product.slug}`,
+    })),
+  },
+  {
+    heading: "Regions",
+    links: (["usa", "uk", "australia", "singapore"] as const).map((slug) => ({
+      label: COUNTRY_PAGES[slug].countryFull,
+      href: `/${slug}`,
+    })),
+  },
 ];
 
 const SOCIALS = [
@@ -49,27 +64,22 @@ const SOCIALS = [
   },
 ];
 
-function LinkColumn({ links }: { links: { label: string; href: string }[] }) {
+function LinkColumn({ column }: { column: FooterColumn }) {
   return (
-    <div className="st-footer-link-item">
-      {links.map((link) =>
-        link.href.startsWith("http") ? (
-          <a
-            key={link.label}
-            className="st-footer-link"
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {link.label}
-          </a>
-        ) : (
-          <Link key={link.label} className="st-footer-link" href={link.href}>
-            {link.label}
-          </Link>
-        ),
+    <nav className="st-footer-link-item" aria-label={column.heading}>
+      {column.href ? (
+        <Link className="st-footer-heading st-mono" href={column.href}>
+          {column.heading}
+        </Link>
+      ) : (
+        <div className="st-footer-heading st-mono">{column.heading}</div>
       )}
-    </div>
+      {column.links.map((link) => (
+        <Link key={link.href} className="st-footer-link" href={link.href}>
+          {link.label}
+        </Link>
+      ))}
+    </nav>
   );
 }
 
@@ -117,9 +127,9 @@ export default function Footer() {
             </div>
 
             <div className="st-footer-link-item-block">
-              <LinkColumn links={COLUMN_ONE} />
-              <LinkColumn links={COLUMN_TWO} />
-              <LinkColumn links={COLUMN_THREE} />
+              {COLUMNS.map((column) => (
+                <LinkColumn key={column.heading} column={column} />
+              ))}
             </div>
           </div>
 

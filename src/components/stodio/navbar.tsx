@@ -8,8 +8,8 @@ import {
   COMPANY,
   COUNTRY_PAGES,
   COUNTRY_SLUGS,
-  PORTFOLIO_PROJECTS,
   PRODUCTS,
+  SERVICES,
 } from "@/lib/data";
 import { ArrowUpRight, ChevronDown, CloseMark } from "./icons";
 import Logo from "./logo";
@@ -19,7 +19,6 @@ type NavLink = {
   label: string;
   /** Absent on an item that only exists to open its sub-menu. */
   href?: string;
-  count?: boolean;
   /** Renders a sub-menu: a hover panel on desktop, an inline list on mobile. */
   children?: { label: string; href: string }[];
 };
@@ -27,8 +26,15 @@ type NavLink = {
 const NAV_LINKS: NavLink[] = [
   { label: "Home", href: "/" },
   { label: "Studio", href: "/about" },
-  { label: "Work", href: "/portfolio", count: true },
-  { label: "Services", href: "/services" },
+  { label: "Work", href: "/portfolio" },
+  {
+    label: "Services",
+    href: "/services",
+    children: SERVICES.map((service) => ({
+      label: service.shortTitle ?? service.title,
+      href: `/services/${service.slug}`,
+    })),
+  },
   {
     label: "Products",
     href: "/products",
@@ -151,7 +157,6 @@ export default function Navbar() {
     };
   }, [open]);
 
-  const projectCount = String(PORTFOLIO_PROJECTS.length).padStart(2, "0");
 
   return (
     <div className="st-navbar-mount">
@@ -211,23 +216,6 @@ export default function Navbar() {
                       : path.startsWith(link.href)
                     : /* hrefless parent: lit when any of its children is open */
                       (link.children ?? []).some((child) => path === child.href);
-
-                  if (link.count) {
-                    return (
-                      /* The count sits inside the anchor, not beside it, so
-                         the whole row is the tap target in the mobile sheet
-                         and the badge stays glued to the word. */
-                      <Link
-                        key={link.label}
-                        href={link.href ?? "/"}
-                        className={`st-nav-link st-nav-link-inner${current ? " st-is-current" : ""}`}
-                      >
-                        <span className="st-nav-mark" aria-hidden="true" />
-                        {link.label}
-                        <span className="st-nav-count st-mono">{projectCount}</span>
-                      </Link>
-                    );
-                  }
 
                   if (link.children) {
                     return (

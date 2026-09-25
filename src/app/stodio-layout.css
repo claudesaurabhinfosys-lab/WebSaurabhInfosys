@@ -171,19 +171,6 @@
 .st-nav-dropdown-link:hover { background-color: var(--st-bg-light); }
 .st-nav-dropdown-link.st-is-current { color: var(--st-brand); }
 
-/* The Work link carries its project count inside itself; `flex-start` is what
-   lifts the badge to the top of the word rather than centring it. */
-.st-nav-link-inner { display: inline-flex; align-items: flex-start; gap: 2px; }
-.st-nav-count {
-  margin-top: -12px;
-  padding: 1px 8px;
-  border-radius: var(--st-gap-44);
-  background-color: var(--st-brand);
-  color: var(--st-white);
-  font-size: var(--st-text-sm);
-  line-height: var(--st-text-sm-lh);
-}
-
 .st-nav-right { display: flex; align-items: center; padding: 0; }
 .st-nav-button-wrapper { display: flex; align-items: center; gap: 16px; }
 
@@ -401,10 +388,7 @@
   }
   .st-nav-link.st-is-current .st-nav-mark { width: 22px; }
 
-  .st-nav-link-inner { gap: 10px; }
-  .st-nav-count { margin-top: -14px; }
-
-  /* Products' three children: a smaller, indented list under their parent. */
+  /* Dropdown children (Services, Products, Regions): a smaller, indented list under their parent. */
   .st-nav-item { display: flex; flex-flow: column; align-items: stretch; gap: 0; }
   .st-nav-chevron { display: none; }
   /* The hover and focus-within rules above score (0,2,0) and beat a plain
@@ -508,7 +492,7 @@
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 140px;
+  gap: 80px;
 }
 @media screen and (max-width: 991px) { .st-footer-link-block { flex-flow: column; gap: 120px; } }
 @media screen and (max-width: 767px) { .st-footer-link-block { gap: 80px; } }
@@ -529,6 +513,12 @@
   transition: border-radius var(--st-dur) var(--st-ease-out);
 }
 .st-footer-form:hover { border-radius: 16px; }
+/* The pill is the field: focus lights its border rather than drawing the
+   global ring around the bare input inside it, which read as a box within a
+   box. Focus stays visible — it just moves to the right element. */
+.st-footer-form { transition: border-radius var(--st-dur) var(--st-ease-out), border-color var(--st-dur-fast) var(--st-ease-out); }
+.st-footer-form:focus-within { border-color: var(--st-brand); }
+.st-root .st-footer-input:focus-visible { outline: none; }
 .st-footer-input {
   height: auto;
   width: 100%;
@@ -587,17 +577,15 @@
 .st-footer-social-icon { display: flex; align-items: center; justify-content: center; width: 16px; height: 16px; }
 .st-footer-social-arrow { display: flex; align-items: center; justify-content: center; width: 12px; height: 12px; }
 
-/* Equal thirds, not `space-between`. Flexed apart, each column was only as
-   wide as its own longest label — "System Integration" against "Home" — so the
-   three hairline rules sat at irregular intervals and the block read as
-   ragged. The reference's own layer carries `grid-template-columns: 1fr 1fr
-   1fr` under a `display: flex` that overrode it; this is that intent. */
+/* Equal columns, not `space-between`: flexed apart, each column is only as
+   wide as its longest label, so the hairline rules land at irregular
+   intervals and the block reads as ragged. */
 .st-footer-link-item-block {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 16px;
   width: 100%;
-  max-width: 650px;
+  max-width: 780px;
 }
 @media screen and (max-width: 479px) {
   .st-footer-link-item-block { grid-template-columns: 1fr 1fr; gap: var(--st-gap-32) 16px; }
@@ -605,14 +593,27 @@
 .st-footer-link-item {
   display: flex;
   flex-flow: column;
-  gap: var(--st-gap-16);
+  align-items: flex-start;
+  gap: var(--st-gap-12);
   padding-left: var(--st-pad-1x);
   border-left: 1px solid var(--st-secondary-bg);
 }
+/* Column title: the small mono label every column opens with. A link when the
+   section has an index page (Services, Products), plain text when it doesn't. */
+.st-footer-heading {
+  margin-bottom: var(--st-gap-8);
+  color: var(--st-mute);
+  font-size: var(--st-text-s);
+  line-height: var(--st-text-s-lh);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: color var(--st-dur-fast) var(--st-ease-out);
+}
+a.st-footer-heading:hover { color: var(--st-brand); }
 .st-footer-link {
   color: var(--st-white);
-  font-size: var(--st-text-xxl);
-  line-height: var(--st-text-xxl-lh);
+  font-size: var(--st-text-l);
+  line-height: var(--st-text-l-lh);
   letter-spacing: var(--st-text-l-ls);
   transition: color var(--st-dur-fast) var(--st-ease-out);
 }
