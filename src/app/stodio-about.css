@@ -45,42 +45,42 @@
 
 /* Line two: word, chip, word. The words carry `.st-h1` themselves — without it
    they inherit the body line-height and line two ends up taller than line one.
-   The font-size is restated on the row anyway so the chip can be sized in `em`
-   and track the fluid heading scale instead of freezing at the reference's
-   96px-derived pixel values. */
+   The chip matches the home Services title chip (80 × 60, 24px radius, 12px
+   gap) so the two read as the same element across pages. */
 .st-about-hero-line {
   display: flex;
   align-items: center;
-  gap: 0.083em;
+  gap: 12px;
   font-size: var(--st-h1-size);
   line-height: var(--st-h1-lh);
 }
 
-/* The chip animation: the wrapper's width runs 0 to 1.417em, and the image
-   inside is `max-width: 100%`, so it is squeezed along with it rather than
-   spilling out of a zero-width box. 1000ms after the line starts revealing,
-   over 500ms — the reference's "Hero Text Image Hide" list exactly. */
+/* The chip animation: the wrapper's width runs 0 to the chip's own width, and
+   the image inside is `max-width: 100%`, so it is squeezed along with it rather
+   than spilling out of a zero-width box. The slot ends exactly as wide as the
+   image, so the gap either side is just the row's 12px. 1000ms after the line
+   starts revealing, over 500ms — the reference's "Hero Text Image Hide" list. */
 .st-about-hero-chip {
   display: block;
   width: 0;
-  height: 0.833em;
+  height: 60px;
   flex: none;
-  text-align: center;
+  overflow: hidden;
+  border-radius: var(--st-r-24);
   transition: width 500ms ease 1000ms;
 }
-.st-about-hero-line.st-is-in .st-about-hero-chip { width: 1.417em; }
+.st-about-hero-line.st-is-in .st-about-hero-chip { width: 80px; }
 @media (prefers-reduced-motion: reduce) {
-  .st-about-hero-chip { transition: none; width: 1.417em; }
+  .st-about-hero-chip { transition: none; width: 80px; }
 }
 
 .st-hero-title-image {
-  display: inline-block;
-  width: 1.104em;
-  max-width: 100%;
-  height: 0.833em;
+  display: block;
+  width: 80px;
+  max-width: none;
+  height: 60px;
   object-fit: cover;
-  border-radius: 0.25em;
-  vertical-align: middle;
+  border-radius: var(--st-r-24);
 }
 
 .st-about-hero-bottom {
@@ -194,11 +194,10 @@
 .st-process-title-left { width: 100%; max-width: 560px; color: var(--st-white); }
 .st-process-title-right { max-width: 316px; color: var(--st-mute); }
 
-/* The scroll track the row is pinned inside. The reference runs 300vh; at that
-   length roughly a viewport of it was dead scrolling with the row already
-   settled, so it is trimmed here. Pin duration is this minus the row's own
-   height, split between the cards. */
-.st-process-sticky { position: relative; height: 240vh; }
+/* The scroll track the row is pinned inside — the reference's 300vh. The
+   cards' timing is measured against the whole section (see process-section.tsx),
+   so shortening this would shift every card's arrival relative to the pin. */
+.st-process-sticky { position: relative; height: 300vh; }
 @media screen and (max-width: 991px) { .st-process-sticky { height: auto; } }
 
 /* The mask. Every card is parked 75vh below its resting place and rises home

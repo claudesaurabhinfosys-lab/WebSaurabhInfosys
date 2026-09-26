@@ -27,21 +27,14 @@ type Props = {
   steps: Step[];
 };
 
-/* The pin's own geometry, matching `.st-process-card-wrapper` in CSS. */
-const STICKY_TOP = 50;
-/* Where a card waits before its turn. The reference parks every one of them at
-   `translate3d(0, 75vh, 0)` and brings them home one after another — in a live
-   DOM snapshot card 1 sits mid-flight at 11.56vh while cards 2, 3 and 4 all
-   still read exactly 75vh. */
+/* The reference's "Process Card Scroll" (a-105), read off its IX2 data: every
+   card is parked at `translateY(75vh)` and, across the section's scroll
+   progress, card 1 rises home over 0-20%, card 2 over 20-40%, card 3 over
+   40-60% and card 4 over 60-80%, linearly. The last 20% is a hold, so the row
+   is settled and readable before the pin releases. Desktop only — the
+   interaction is bound to Webflow's `main` breakpoint (992px and up). */
 const PARK_VH = 75;
-/* A tail of the pin where every card sits still, so the last one is settled and
-   readable before the row releases rather than arriving as it slides away. */
-const HOLD = 0.12;
-/* How much of the sequence runs before the pin engages, in card slots. At two,
-   the first card starts rising at the moment the row's top edge appears, so the
-   clipped row is never on screen empty. Higher pre-reveals card one on tall
-   viewports; lower leaves a visible gap on short ones. */
-const RUNWAY = 2;
+const STEP = 0.2;
 
 export default function ProcessSection({
   eyebrow = "Our method",
@@ -50,50 +43,24 @@ export default function ProcessSection({
   steps,
 }: Props) {
   const cards = useRef<(HTMLDivElement | null)[]>([]);
-  const row = useRef<HTMLDivElement | null>(null);
 
-  const ref = useScrollProgress<HTMLDivElement>((progress) => {
+  /* Progress spans the whole section, entering to exiting — the reference's
+     SCROLLING_IN_VIEW trigger sits on `.process-section`, not on the track. */
+  const ref = useScrollProgress<HTMLElement>((progress) => {
     const pinned = window.matchMedia("(min-width: 992px)").matches;
-    if (!pinned || !row.current) {
-      for (const card of cards.current) if (card) card.style.transform = "";
-      return;
-    }
-
-    /* Read the pin window off the live boxes rather than hard-coding it.
-       Progress spans `track + viewport`, so the row pins once the track's top
-       reaches `STICKY_TOP` and releases when the track's bottom gets there.
-       Fixed guesses drifted with viewport height and left a dead stretch of
-       scroll where nothing moved at all. */
-    const vh = window.innerHeight || document.documentElement.clientHeight;
-    const track = row.current.parentElement?.offsetHeight ?? 0;
-    const rowHeight = row.current.offsetHeight;
-    const span = track + vh;
-    if (span <= 0) return;
-
-    const start = (vh - STICKY_TOP) / span;
-    const end = (vh + track - STICKY_TOP - rowHeight) / span;
-    const pin = Math.max(0.0001, end - start);
-
-    /* The sequence opens `RUNWAY` slots *before* the pin engages, not on it.
-       Starting it on the pin meant the row spent its whole approach — about a
-       viewport of scrolling — as a clipped, empty box: the heading sat on
-       screen with nothing but black beneath it, and you had to scroll past it
-       before the first card appeared at all. */
-    const seqStart = start - (pin * RUNWAY) / Math.max(1, steps.length);
-    const seqEnd = end - pin * HOLD;
-    const slot = (seqEnd - seqStart) / Math.max(1, steps.length);
-
     cards.current.forEach((card, index) => {
       if (!card) return;
-      // Each card gets an equal slice, in order.
-      const from = seqStart + index * slot;
-      const t = segment(progress, from, from + slot);
+      if (!pinned) {
+        card.style.transform = "";
+        return;
+      }
+      const t = segment(progress, index * STEP, (index + 1) * STEP);
       card.style.transform = `translate3d(0, ${lerp(PARK_VH, 0, t).toFixed(2)}vh, 0)`;
     });
   });
 
   return (
-    <section className="st-process-section">
+    <section className="st-process-section" ref={ref}>
       <div className="st-process-bg">
         <div className="st-container">
           <div className="st-process-title-block">
@@ -114,8 +81,8 @@ export default function ProcessSection({
             )}
           </div>
 
-          <div className="st-process-sticky" ref={ref}>
-            <div className="st-process-card-wrapper" ref={row}>
+          <div className="st-process-sticky">
+            <div className="st-process-card-wrapper">
               {steps.map((step, index) => {
                 const Glyph = GLYPHS[index % GLYPHS.length];
                 return (

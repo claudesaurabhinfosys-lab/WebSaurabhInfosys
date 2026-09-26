@@ -86,8 +86,8 @@ export default function AboutPage() {
                       className="st-hero-title-image"
                       src="/images/about/chip.webp"
                       alt=""
-                      width={106}
-                      height={80}
+                      width={160}
+                      height={120}
                       priority
                     />
                   </span>

@@ -47,17 +47,22 @@ export default function ServicesSection() {
               <div className="st-tag-block">
                 <Tag on="dark">Services</Tag>
               </div>
-              <div className="st-service-title-flex">
-                <h2 className="st-h2">Everything</h2>
-                <Image
-                  className="st-service-title-image"
-                  src="/images/hero/strip-05.webp"
-                  alt=""
-                  width={80}
-                  height={60}
-                />
-                <h2 className="st-h2">your brand needs</h2>
-              </div>
+              {/* One heading, laid out as the reference: "Everything [chip] your"
+                  on the first line, "brand needs" under it. */}
+              <h2 className="st-h2 st-service-title">
+                <span className="st-service-title-flex">
+                  <span>Everything</span>
+                  <Image
+                    className="st-service-title-image"
+                    src="/images/hero/strip-05.webp"
+                    alt=""
+                    width={160}
+                    height={120}
+                  />
+                  <span>your</span>
+                </span>
+                <span className="st-service-title-line">brand needs</span>
+              </h2>
             </Reveal>
 
             <Reveal delay={120}>

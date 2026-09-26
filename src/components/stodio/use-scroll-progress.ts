@@ -52,8 +52,28 @@ export function useScrollProgress<T extends HTMLElement>(
       frame = requestAnimationFrame(tick);
     };
 
-    frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
+    /* Only run the loop while the element is on or near screen. Several of
+       these live on one page, and a frame loop per section running for the
+       whole visit is wasted work. Leaving the viewport snaps to the exact end
+       value, so a fast fling never leaves a section parked mid-animation. */
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        cancelAnimationFrame(frame);
+        if (entry.isIntersecting) {
+          frame = requestAnimationFrame(tick);
+        } else {
+          smoothed = raw();
+          cb.current(smoothed);
+        }
+      },
+      { rootMargin: "50% 0px" },
+    );
+    observer.observe(node);
+
+    return () => {
+      cancelAnimationFrame(frame);
+      observer.disconnect();
+    };
   }, []);
 
   return ref;
