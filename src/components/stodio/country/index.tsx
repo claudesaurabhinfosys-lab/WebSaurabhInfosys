@@ -8,34 +8,17 @@ import { StButtonLink } from "../button";
 import { StarBurst } from "../icons";
 import { COMPANY, PORTFOLIO_PROJECTS, type CountryPageData } from "@/lib/data";
 import { workImage } from "@/components/stodio/lib/work-images";
+import { jsonLd } from "@/lib/seo";
 
 const BASE = "https://saurabhinfosys.com";
 
+/* The company itself — including its rating and every country it serves — is
+   described once, site-wide, in the root layout. This page adds only what is
+   specific to it and points back to that entry by @id. */
 function schema(page: CountryPageData) {
   return {
     "@context": "https://schema.org",
     "@graph": [
-      {
-        "@type": "Organization",
-        "@id": `${BASE}/#organization`,
-        name: COMPANY.name,
-        url: BASE,
-        logo: `${BASE}/saurabhInfosys.webp`,
-        description: page.schema.orgDescription,
-        areaServed: [
-          { "@type": "Country", name: "United States" },
-          { "@type": "Country", name: "Singapore" },
-          { "@type": "Country", name: "United Kingdom" },
-          { "@type": "Country", name: "Australia" },
-          { "@type": "Country", name: "India" },
-        ],
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: COMPANY.stats.clutchRating,
-          reviewCount: COMPANY.stats.clutchReviews,
-          bestRating: "5",
-        },
-      },
       {
         "@type": "FAQPage",
         mainEntity: page.faqs.map((faq) => ({
@@ -50,7 +33,7 @@ function schema(page: CountryPageData) {
         provider: { "@id": `${BASE}/#organization` },
         areaServed: { "@type": "Country", name: page.countryFull },
         description: page.schema.serviceDescription,
-        url: `${BASE}/country/${page.slug}`,
+        url: `${BASE}/${page.slug}/`,
       },
     ],
   };
@@ -94,7 +77,7 @@ export function CountryPage({ page }: { page: CountryPageData }) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema(page)) }}
+        dangerouslySetInnerHTML={jsonLd(schema(page))}
       />
 
       {/* ── 1. Hero ───────────────────────────────────────────────────────── */}

@@ -133,7 +133,7 @@ export const SERVICES_HUB = {
   meta: {
     title: "AI Automation Agency & Software Studio | Saurabh Infosys",
     description:
-      "AI agents, workflow automation, Flutter apps and MVPs for businesses in the USA, UK, Australia and Singapore. 50+ projects delivered, 4.9★ on Clutch.",
+      "AI agents, workflow automation, Flutter apps and MVPs for businesses in the USA, UK, Australia and Singapore. 100+ projects delivered, 4.9★ on Clutch.",
     keywords: [
       "AI automation agency",
       "offshore software development",
@@ -147,7 +147,7 @@ export const SERVICES_HUB = {
   hero: {
     title: "AI Automation and Software Development for Growing Businesses Worldwide",
     intro:
-      "An AI-first studio for teams in the USA, UK, Australia and Singapore. 50+ projects delivered, 4.9★ on Clutch.",
+      "An AI-first studio for teams in the USA, UK, Australia and Singapore. 100+ projects delivered, 4.9★ on Clutch.",
     cta: "Book a free audit",
   },
   whyWorkWithUs: [
@@ -169,7 +169,7 @@ export const SERVICES_HUB = {
     },
     {
       title: "Proven track record",
-      desc: "4.9★ on Clutch across 50+ delivered projects.",
+      desc: "4.9★ on Clutch across 100+ delivered projects.",
     },
   ],
   faqs: [
@@ -2738,7 +2738,7 @@ singapore: {
       {
         question: "Is working with an offshore team in India reliable for UK businesses?",
         answer:
-          "Yes, when communication is structured. We share overlapping hours with the UK day, provide daily written updates and weekly demos, and hold a 4.9★ rating on Clutch across 50+ delivered projects.",
+          "Yes, when communication is structured. We share overlapping hours with the UK day, provide daily written updates and weekly demos, and hold a 4.9★ rating on Clutch across 100+ delivered projects.",
       },
       {
         question: "Do you integrate with Xero and Sage?",

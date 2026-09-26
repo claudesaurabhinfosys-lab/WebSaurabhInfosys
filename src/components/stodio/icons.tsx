@@ -120,6 +120,16 @@ export function LinkedInIcon({ className }: P) {
   );
 }
 
+/** Clutch's mark: an open "C" around a dot. */
+export function ClutchIcon({ className }: P) {
+  return (
+    <svg className={className} viewBox="0 0 16 16" fill="none" aria-hidden="true">
+      <path d="M12.2 4.3A5.5 5.5 0 1 0 12.2 11.7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
+      <circle cx="8.2" cy="8" r="1.7" fill="currentColor" />
+    </svg>
+  );
+}
+
 export function InstagramIcon({ className }: P) {
   return (
     <svg className={className} viewBox="0 0 16 16" fill="none" aria-hidden="true">

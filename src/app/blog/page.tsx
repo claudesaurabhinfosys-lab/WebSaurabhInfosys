@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
+import { OG_IMAGES, brandTitle } from "@/lib/seo";
 import BlogPage from "@/components/stodio/blog";
 import { BLOG_POSTS } from "@/lib/data";
 
 export const metadata: Metadata = {
-  title: "Blog — AI Automation, Vibe Coding & App Development Insights",
+  title: brandTitle("Blog — AI Automation, Vibe Coding & App Development Insights"),
   description:
     "Expert articles on AI automation, AI integration, vibe coding, Flutter development, and SaaS — by Saurabh Infosys, Ahmedabad's leading AI software studio.",
   keywords: [
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://saurabhinfosys.com/blog" },
   openGraph: {
+    images: OG_IMAGES,
     title: "Blog — AI Automation & Dev Insights | Saurabh Infosys",
     description:
       "Expert articles on AI automation, vibe coding, AI integration, and app development by Saurabh Infosys.",

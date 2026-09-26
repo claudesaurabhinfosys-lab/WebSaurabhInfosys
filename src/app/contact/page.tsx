@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import { OG_IMAGES, brandTitle } from "@/lib/seo";
 import ContactPage from "@/components/stodio/contact";
 
 export const metadata: Metadata = {
-  title: "Contact Saurabh Infosys | AI & Software Studio, Ahmedabad",
+  title: brandTitle("Contact Saurabh Infosys | AI & Software Studio, Ahmedabad"),
   description:
     "Talk to Saurabh Infosys about AI automation, Flutter apps, SaaS platforms and custom software. WhatsApp replies within 2 hours, email within 24.",
   keywords: [
@@ -13,6 +14,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://saurabhinfosys.com/contact" },
   openGraph: {
+    images: OG_IMAGES,
     title: "Contact Saurabh Infosys",
     description:
       "AI automation, mobile apps and SaaS platforms. WhatsApp replies within 2 hours.",

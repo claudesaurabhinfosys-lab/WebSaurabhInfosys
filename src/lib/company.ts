@@ -9,9 +9,11 @@ export const COMPANY = {
   email: "info@saurabhinfosys.com",
   phone: "+91 8735001217",
   whatsapp: "918735001217",
+  linkedin: "https://www.linkedin.com/company/saurabh-infosys",
+  clutch: "https://clutch.co/profile/saurabh-infosys",
   stats: {
     clients: "80+",
-    projects: "150+",
+    projects: "100+",
     years: "4+",
     saasProducts: "3",
     clutchRating: "4.9",

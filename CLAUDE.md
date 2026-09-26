@@ -41,7 +41,11 @@
 | File | Purpose |
 |---|---|
 | `src/app/layout.tsx` | Root layout — GA4 tag (G-6DRPCYYNQ5), metadata, schema.org |
-| `src/lib/data.ts` | All content data — BLOG_POSTS, COMPANY, services |
+| `src/lib/data.ts` | All content data — BLOG_POSTS, services, portfolio (server-only: never import into a `"use client"` file) |
+| `src/lib/company.ts` | COMPANY facts — safe to import in client components |
+| `src/lib/seo.ts` | `pageMetadata()` for every page's title/canonical/OG, service alias map, JSON-LD helpers |
+| `src/app/og/` | Social preview PNGs, generated at build (`/og/default.png`, `/og/blog/<slug>.png`, `/og/portfolio/<slug>.png`) |
+| `src/app/sitemap.ts` | Sitemap built from data.ts — new posts/projects are listed automatically |
 | `src/components/layout/Navbar.tsx` | Top navigation |
 | `src/components/layout/Footer.tsx` | Footer with links |
 | `scripts/gsc_query.py` | GSC analytics report script |

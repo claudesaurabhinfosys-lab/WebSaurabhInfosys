@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { OG_IMAGES, brandTitle } from "@/lib/seo";
 import { PRODUCTS } from "@/lib/data";
 import ProductDetailPage from "@/components/stodio/products/product-detail-page";
 
@@ -18,7 +19,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const title = `${product.name} — ${product.fullName} | Saurabh Infosys`;
 
   return {
-    title,
+    title: brandTitle(title),
     description: product.description,
     keywords: [
       product.name,
@@ -29,12 +30,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     ],
     alternates: { canonical: `https://saurabhinfosys.com/products/${product.slug}` },
     openGraph: {
+      images: OG_IMAGES,
       title,
       description: product.description,
       url: `https://saurabhinfosys.com/products/${product.slug}`,
       type: "website",
     },
     twitter: {
+      images: OG_IMAGES,
       card: "summary_large_image",
       title,
       description: product.description,

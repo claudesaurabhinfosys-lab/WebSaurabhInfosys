@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import Reveal from "../reveal";
 import Tag from "../tag";
@@ -7,6 +8,7 @@ import WorkCard from "../work-card";
 import { StButtonLink } from "../button";
 import { PORTFOLIO_PROJECTS } from "@/lib/data";
 import { workImage } from "@/components/stodio/lib/work-images";
+import { relatedProjects, serviceBySlug, serviceForProjectCategory } from "@/lib/topics";
 
 export default function ProjectDetailPage({ slug }: { slug: string }) {
   const index = PORTFOLIO_PROJECTS.findIndex((p) => p.slug === slug);
@@ -18,10 +20,10 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
   const [cover, banner, ...shots] = project.images ?? [];
   const gallery = shots.slice(0, 2);
 
-  const others = PORTFOLIO_PROJECTS.filter((p) => p.slug !== slug)
-    .slice(index + 1, index + 3)
-    .concat(PORTFOLIO_PROJECTS.slice(0, 2))
-    .slice(0, 2);
+  // Same category first, walked from this project's position, so every case
+  // study is linked from its neighbours.
+  const others = relatedProjects(slug, 2);
+  const service = serviceBySlug(serviceForProjectCategory(project.category));
 
   if (project.fullCaseStudyImage) {
     return (
@@ -85,7 +87,7 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
   const meta = [
     { label: "Year", value: project.year ?? "2025" },
     { label: "Client", value: project.client ?? "Confidential" },
-    { label: "Services", value: project.category },
+    { label: "Services", value: project.category, href: service ? `/services/${service.slug}` : undefined },
     { label: "Stack", value: project.tech.join(" · ") },
   ];
 
@@ -111,7 +113,13 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
                     {meta.map((item) => (
                       <div className="st-project-meta-item" key={item.label}>
                         <span className="st-project-meta-label">{item.label}:</span>
-                        <span className="st-project-meta-value">{item.value}</span>
+                        {item.href ? (
+                          <Link className="st-project-meta-value st-project-meta-link" href={item.href}>
+                            {item.value}
+                          </Link>
+                        ) : (
+                          <span className="st-project-meta-value">{item.value}</span>
+                        )}
                       </div>
                     ))}
                   </div>

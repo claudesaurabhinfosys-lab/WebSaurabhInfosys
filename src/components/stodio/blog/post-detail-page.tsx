@@ -9,6 +9,7 @@ import { CalendarIcon, LinkedInIcon, PlusMark, WhatsAppIcon, XIcon } from "../ic
 import { BLOG_POSTS, COMPANY } from "@/lib/data";
 import { blogImage } from "@/components/stodio/lib/blog-images";
 import { formatPostDate } from "@/components/stodio/lib/format-date";
+import { relatedPosts, serviceBySlug, serviceForBlogCategory } from "@/lib/topics";
 
 /** Slugs a heading so the table of contents can jump to it. */
 function anchor(text: string) {
@@ -24,7 +25,10 @@ export default function PostDetailPage({ slug }: { slug: string }) {
   if (!post) notFound();
 
   const headings = post.content.filter((block) => block.type === "h2");
-  const related = BLOG_POSTS.filter((p) => p.slug !== slug).slice(0, 3);
+  // Same topic first, walked from this post's position, so links spread
+  // across every article instead of always pointing at the first three.
+  const related = relatedPosts(slug);
+  const service = serviceBySlug(serviceForBlogCategory(post.category));
   const shareUrl = `https://saurabhinfosys.com/blog/${post.slug}`;
 
   return (
@@ -182,6 +186,13 @@ export default function PostDetailPage({ slug }: { slug: string }) {
                 </h2>
               </Reveal>
             </div>
+            {service ? (
+              <Reveal delay={200}>
+                <StButtonLink href={`/services/${service.slug}`} variant="dark">
+                  {`Explore ${service.shortTitle ?? service.title}`}
+                </StButtonLink>
+              </Reveal>
+            ) : null}
           </div>
 
           <div className="st-blogs-card-block">

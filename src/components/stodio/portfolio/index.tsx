@@ -7,6 +7,7 @@ import MarqueeSection from "../marquee-section";
 import CtaSection from "../cta-section";
 import WorkCard from "../work-card";
 import { StButtonLink } from "../button";
+import { COMPANY } from "@/lib/company";
 
 export type PortfolioCard = { slug: string; title: string; category: string; image: string };
 
@@ -43,10 +44,10 @@ export default function PortfolioPage({ projects: allProjects, categories }: Pro
                 <Reveal delay={200}>
                   <div className="st-hero-intro">
                     <p className="st-text-m st-secondary">
-                      {allProjects.length} delivered projects across AI,
+                      {COMPANY.stats.projects} projects delivered across AI,
                       Flutter, SaaS, fintech, logistics and health tech — for
                       clients in India, the UK, Europe, APAC, the Americas and
-                      the Gulf.
+                      the Gulf. {allProjects.length} of them are showcased here.
                     </p>
                     <div className="st-button-wrapper st-is-hero">
                       <StButtonLink href="/contact" variant="dark">

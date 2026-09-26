@@ -10,6 +10,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # Full history: sitemap.ts reads each page's last commit date for
+          # <lastmod>. A shallow clone would give every page the same date.
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4

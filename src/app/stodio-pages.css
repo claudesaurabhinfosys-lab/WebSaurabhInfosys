@@ -62,6 +62,10 @@
 
 /* A trailing odd card is centred at the reference's 660px rather than left
    alone in column one with a hole beside it. */
+/* Three across, for the "Selected work" row on service pages. */
+.st-projects-grid.st-is-three { grid-template-columns: repeat(3, 1fr); gap: var(--st-pad-4x) 24px; }
+@media screen and (max-width: 991px) { .st-projects-grid.st-is-three { grid-template-columns: 1fr 1fr; } }
+@media screen and (max-width: 767px) { .st-projects-grid.st-is-three { grid-template-columns: 1fr; } }
 .st-projects-grid > .st-is-single { grid-column: 1 / -1; width: 100%; max-width: 660px; margin-inline: auto; }
 @media screen and (max-width: 767px) { .st-projects-grid > .st-is-single { max-width: none; } }
 
@@ -112,6 +116,9 @@
 }
 .st-project-meta-label { flex: none; font-family: var(--st-font-secondary); font-size: var(--st-text-s); }
 .st-project-meta-value { color: var(--st-primary); }
+/* The Services value links to the matching service page. */
+.st-project-meta-link { text-decoration: underline; text-decoration-color: var(--st-border); text-underline-offset: 4px; transition: text-decoration-color 0.2s ease; }
+.st-project-meta-link:hover { text-decoration-color: currentColor; }
 
 .st-project-cover { position: relative; margin: var(--st-gap-16); border-radius: var(--st-r-24); overflow: hidden; }
 .st-project-cover img { display: block; width: 100%; height: auto; }

@@ -4,10 +4,11 @@ import Tag from "../tag";
 import { StButtonLink } from "../button";
 import { COMPANY } from "@/lib/data";
 
-const META = [
-  `${COMPANY.stats.clients} clients`,
-  "est. YR2021",
-  `rating: ${COMPANY.stats.clutchRating}★ Clutch`,
+const META: { text: string; href?: string }[] = [
+  { text: `${COMPANY.stats.clients} clients` },
+  { text: "est. YR2021" },
+  // Links to the reviews themselves, so the rating is verifiable.
+  { text: `rating: ${COMPANY.stats.clutchRating}★ Clutch`, href: COMPANY.clutch },
 ];
 
 export default function HeroSection() {
@@ -46,9 +47,20 @@ export default function HeroSection() {
               <Reveal delay={300}>
                 <div className="st-hero-meta">
                   {META.map((item) => (
-                    <div className="st-text-l" key={item}>
+                    <div className="st-text-l" key={item.text}>
                       <span className="st-hero-meta-plus">+</span>
-                      {item}
+                      {item.href ? (
+                        <a
+                          className="st-hero-meta-link"
+                          href={item.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {item.text}
+                        </a>
+                      ) : (
+                        item.text
+                      )}
                     </div>
                   ))}
                 </div>

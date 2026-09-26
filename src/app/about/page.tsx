@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
+import { OG_IMAGES, brandTitle } from "@/lib/seo";
 import AboutPage from "@/components/stodio/about";
 
 export const metadata: Metadata = {
-  title: "About Saurabh Infosys | AI-First Software Studio, Ahmedabad India",
+  title: brandTitle("About Saurabh Infosys | AI-First Software Studio, Ahmedabad India"),
   description:
-    "Saurabh Infosys is an AI-first software development studio in Ahmedabad, Gujarat. 4+ years, 80+ clients across India, UK, USA & Gulf, 3 live SaaS products, 4.9★ Clutch.",
+    "Saurabh Infosys: AI-first software studio in Ahmedabad, Gujarat. 4+ years, 80+ clients across India, UK, USA & Gulf, 3 live SaaS products, 4.9★ Clutch.",
   keywords: [
     "software company Ahmedabad",
     "IT company Gujarat",
@@ -15,6 +16,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://saurabhinfosys.com/about" },
   openGraph: {
+    images: OG_IMAGES,
     title: "About Saurabh Infosys — AI-First Software Studio",
     description:
       "4+ years, 80+ clients, 3 SaaS products, 4.9★ Clutch. Built in Ahmedabad, shipping globally.",
@@ -22,6 +24,7 @@ export const metadata: Metadata = {
     type: "website",
   },
   twitter: {
+    images: OG_IMAGES,
     card: "summary_large_image",
     title: "About Saurabh Infosys",
     description:

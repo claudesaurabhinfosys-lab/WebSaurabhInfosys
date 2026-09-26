@@ -1,86 +1,98 @@
+import { execFileSync } from "node:child_process";
 import type { MetadataRoute } from "next";
+import { BLOG_POSTS, COUNTRY_SLUGS, PORTFOLIO_PROJECTS, PRODUCTS, SERVICE_DETAILS } from "@/lib/data";
+import { SERVICE_ALIASES, SITE_URL } from "@/lib/seo";
 
 export const dynamic = "force-static";
 
-const BASE = "https://saurabhinfosys.com";
+/* `trailingSlash: true` serves every page at `/path/`, and the server 301s the
+   slashless form — so every URL here ends in a slash, or each entry would be a
+   redirect rather than the canonical page. */
+const url = (path: string) => `${SITE_URL}${path === "/" ? "/" : `${path}/`}`;
 
-const BLOG_SLUGS = [
-  "agentic-ai-vs-chatbots",
-  "aiinwebdevelopment2025",
-  "ai-transforming-web-development-2025",
-  "designsystemsconsistentuiux",
-  "discuss-how-custom-graphics-and-visuals-elevate-a-websites-design",
-  "discuss-how-website-speed-affects-user-retention-seo-rankings-and-overall-performance",
-  "discuss-the-advantages-and-limitations-of-using-wordpress-for-ecommerce-websites",
-  "emergingtechstacks2025",
-  "explore-how-good-uiux-design-can-significantly-affect-user-satisfaction",
-  "flutter-ai-enabled-apps",
-  "fluttervsreactnative",
-  "flutter-vs-react-native-2025",
-  "futureofseo2025",
-  "futuresoftwaredevelopment2025",
-  "future-software-development-emerging-tech",
-  "google-gemma-4-vs-chatgpt",
-  "google-signin-in-flutter",
-  "how-to-integrate-ai-existing-software",
-  "laravel-livewire-dynamic-applications",
-  "laravelvsdotnet",
-  "mobile-first-development-2025",
-  "mobilefirstdevelopment2025",
-  "nodejsvsphp",
-  "progressivewebapps2025",
-  "pwa-essential-2025",
-  "the-future-of-flutter",
-  "the-future-of-nodejs",
-  "the-importance-of-quality-assurance-in-web-and-mobile-app-development",
-  "top-ai-automation-use-cases-india",
-  "userexperiencecriticalbusinesssuccess2025",
-  "vuejsvsangular",
-  "what-is-vibe-coding",
-  "whatsapp-ai-bot-indian-business",
-  "whychooseflutter2025",
-  "why-flutter-2025",
-];
+const BUILD_DATE = new Date();
+const DATA = "src/lib/data.ts";
+
+/**
+ * When a page's content last really changed: the newest git commit touching
+ * the files it is built from. Google trusts <lastmod> only when it tracks
+ * real edits — a build timestamp moves on every deploy and gets ignored.
+ * Falls back to the build date if git history is unavailable (deploy.yml
+ * checks out with fetch-depth: 0 so it is available in CI).
+ */
+const cache = new Map<string, Date>();
+function lastChanged(paths: string[]): Date {
+  const key = paths.join("|");
+  const hit = cache.get(key);
+  if (hit) return hit;
+  let date = BUILD_DATE;
+  try {
+    const out = execFileSync("git", ["log", "-1", "--format=%cI", "--", ...paths], {
+      encoding: "utf8",
+      stdio: ["ignore", "pipe", "ignore"],
+    }).trim();
+    if (out) date = new Date(out);
+  } catch {
+    // no git: keep the build date
+  }
+  cache.set(key, date);
+  return date;
+}
+
+/**
+ * Built from the same data the pages are generated from, so a new blog post,
+ * case study or product is listed the moment it is added, and a removed one
+ * can never linger here as a 404.
+ *
+ * Only canonical URLs are listed: the legacy service aliases, the top-level
+ * service copies and the /country/ copies all canonicalise elsewhere.
+ */
+type Entry = MetadataRoute.Sitemap[number];
+type Freq = Entry["changeFrequency"];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
+  const entry = (path: string, changeFrequency: Freq, priority: number, sources: string[]): Entry => ({
+    url: url(path),
+    lastModified: lastChanged(sources),
+    changeFrequency,
+    priority,
+  });
 
-  const staticPages: MetadataRoute.Sitemap = [
-    { url: BASE,                                          lastModified: now, changeFrequency: "weekly",  priority: 1.0 },
-    { url: `${BASE}/about`,                               lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE}/contact`,                             lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE}/portfolio`,                           lastModified: now, changeFrequency: "weekly",  priority: 0.8 },
-    { url: `${BASE}/services`,                            lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE}/services/ai-automation-services`,     lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE}/services/app-development`,            lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE}/services/integration-services`,       lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE}/services/hire-developers`,            lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE}/services/white-label-software`,       lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE}/ai-automation-services`,              lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE}/app-development`,                     lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE}/integration-services`,                lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE}/hire-developers`,                     lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE}/white-label-software`,                lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE}/country/usa`,                         lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE}/country/singapore`,                   lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE}/country/uk`,                          lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE}/country/australia`,                   lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE}/usa`,                                 lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE}/singapore`,                           lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE}/uk`,                                  lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE}/australia`,                           lastModified: now, changeFrequency: "monthly", priority: 0.9 },
-    { url: `${BASE}/products/ssms`,                       lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE}/products/mysociety`,                  lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE}/products/mysampark`,                  lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${BASE}/blog`,                                lastModified: now, changeFrequency: "weekly",  priority: 0.9 },
+  /** A route's own files, its components, and the content file. */
+  const page = (route: string, component: string) => [
+    `src/app/${route}`,
+    `src/components/stodio/${component}`,
+    DATA,
   ];
 
-  const blogPages: MetadataRoute.Sitemap = BLOG_SLUGS.map((slug) => ({
-    url: `${BASE}/blog/${slug}`,
-    lastModified: now,
-    changeFrequency: "monthly" as const,
-    priority: 0.7,
-  }));
+  const services = Object.keys(SERVICE_DETAILS)
+    .filter((slug) => !(slug in SERVICE_ALIASES))
+    .map((slug) => entry(`/services/${slug}`, "monthly", 0.9, page("services", "services")));
 
-  return [...staticPages, ...blogPages];
+  return [
+    entry("/", "weekly", 1.0, ["src/app/page.tsx", "src/components/stodio/home", DATA]),
+    entry("/about", "monthly", 0.8, page("about", "about")),
+    entry("/contact", "monthly", 0.9, page("contact", "contact")),
+    entry("/portfolio", "weekly", 0.8, page("portfolio", "portfolio")),
+    entry("/services", "monthly", 0.9, page("services", "services")),
+    entry("/products", "monthly", 0.8, page("products", "products")),
+    entry("/blog", "weekly", 0.9, page("blog", "blog")),
+    ...services,
+    ...PRODUCTS.map((product) => entry(`/products/${product.slug}`, "monthly", 0.8, page("products", "products"))),
+    ...COUNTRY_SLUGS.map((slug) => entry(`/${slug}`, "monthly", 0.9, page(slug, "country"))),
+    ...PORTFOLIO_PROJECTS.map((project) =>
+      entry(`/portfolio/${project.slug}`, "monthly", 0.6, [
+        "src/components/stodio/portfolio",
+        `public/images/work/${project.slug}`,
+        DATA,
+      ]),
+    ),
+    // Posts carry their own publish date.
+    ...BLOG_POSTS.map((post) => ({
+      url: url(`/blog/${post.slug}`),
+      lastModified: post.date,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+  ];
 }

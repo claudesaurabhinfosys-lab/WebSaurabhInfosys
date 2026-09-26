@@ -117,6 +117,12 @@
 @media screen and (max-width: 991px) {
   .st-hero-content-wrapper { flex-flow: column; align-items: flex-start; gap: 40px; padding-top: 80px; }
 }
+/* 404: headline capped at 700px, intro + button pushed to the right —
+   the reference's `.hero-title-block._404` / `.hero-content-wrapper._404`. */
+.st-hero-title-block.st-is-404 { max-width: 700px; }
+.st-hero-content-wrapper.st-is-404 { justify-content: flex-end; padding-top: 110px; }
+@media screen and (max-width: 991px) { .st-hero-content-wrapper.st-is-404 { padding-top: 48px; } }
+@media screen and (max-width: 767px) { .st-hero-content-wrapper.st-is-404 { padding-top: 38px; } }
 
 .st-hero-meta {
   display: flex;
@@ -130,6 +136,8 @@
 }
 @media screen and (max-width: 991px) { .st-hero-meta { width: auto; gap: 40px; flex-wrap: wrap; } }
 .st-hero-meta-plus { color: var(--st-brand); margin-right: 6px; }
+.st-hero-meta-link { text-decoration: underline; text-decoration-color: rgba(255, 255, 255, 0.35); text-underline-offset: 4px; transition: text-decoration-color 0.2s ease; }
+.st-hero-meta-link:hover { text-decoration-color: currentColor; }
 
 .st-hero-intro { max-width: 532px; border-radius: var(--st-r-44); }
 .st-hero-intro.st-is-home { max-width: 440px; }

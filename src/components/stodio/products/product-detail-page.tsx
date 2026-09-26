@@ -356,6 +356,31 @@ export default function ProductDetailPage({ slug }: { slug: string }) {
         </div>
       </section>
 
+      {/* ── White-label ──────────────────────────────────────────────────── */}
+      {/* Links the product to the service that licenses it under a client's
+          own brand — the product and the service pages support each other. */}
+      <section className="st-section st-is-tight">
+        <div className="st-container">
+          <Reveal className="st-tag-block">
+            <Tag>Resell it</Tag>
+          </Reveal>
+          <div className="st-list" style={{ marginTop: "var(--st-gap-32)" }}>
+            <Reveal>
+              <Link className="st-list-row" href="/services/white-label-software">
+                <div className="st-list-row-name">
+                  <h3 className="st-h5 st-weight-medium">
+                    {`Run ${product.name} under your own brand — White-Label Software`}
+                  </h3>
+                </div>
+                <span className="st-row-arrow" aria-hidden="true">
+                  <ArrowUpRight />
+                </span>
+              </Link>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
       <CtaSection
         eyebrow="See it live"
         heading={`Walk through ${product.name} with us`}

@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
@@ -15,6 +15,8 @@ import { NAV_LINKS } from "@/components/stodio/nav-links";
 import Footer from "@/components/stodio/footer";
 import LenisProvider from "@/components/stodio/lenis-provider";
 import LazyToaster from "@/components/stodio/lazy-toaster";
+import { COMPANY } from "@/lib/company";
+import { OG_IMAGES, SITE_NAME, SITE_URL, jsonLd } from "@/lib/seo";
 
 /* Design-system faces, matching the reference build exactly:
    Geist for everything, Geist Mono for tags, labels and captions. */
@@ -33,13 +35,19 @@ const geistMono = Geist_Mono({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#0a0a0a",
+};
+
 export const metadata: Metadata = {
   title: {
     default: "Saurabh Infosys — AI Automation, AI Integration & Vibe Coding | Ahmedabad",
     template: "%s | Saurabh Infosys",
   },
   description:
-    "Top AI automation & AI integration company in Ahmedabad. We build AI agents, AI-enabled apps, vibe coding MVPs, Flutter apps & SaaS platforms. 80+ clients, 4.9★ Clutch. Serving India, UK, USA & Gulf.",
+    "Top AI automation & AI integration company in Ahmedabad: AI agents, vibe coding MVPs, Flutter apps & SaaS. 80+ clients, 4.9★ Clutch. India, UK, USA & Gulf.",
   keywords: [
     "AI automation services India",
     "AI integration services Ahmedabad",
@@ -81,43 +89,46 @@ export const metadata: Metadata = {
     "custom AI model development India",
   ],
   metadataBase: new URL("https://saurabhinfosys.com"),
-  alternates: { canonical: "https://saurabhinfosys.com" },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
   openGraph: {
     type: "website",
     locale: "en_IN",
     url: "https://saurabhinfosys.com",
     siteName: "Saurabh Infosys",
+    images: OG_IMAGES,
     title: "Saurabh Infosys — AI Automation, AI Integration & Vibe Coding | Ahmedabad",
     description: "Top AI automation & AI integration company in Ahmedabad. AI agents, AI-enabled apps, vibe coding MVPs, Flutter apps & SaaS. 80+ clients, 4.9★ Clutch.",
   },
   twitter: {
     card: "summary_large_image",
+    images: OG_IMAGES,
     title: "Saurabh Infosys — AI Automation & Integration Studio",
     description: "AI automation, AI integration, vibe coding, AI-enabled apps. 80+ clients. 4.9★ Clutch. Ahmedabad, India.",
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
+/* The original Organization node, plus an @id so page-level schema
+   (BlogPosting, BreadcrumbList, Service) can point at it, and a WebSite node. */
+const SITE_LD = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+                        "@type": "Organization",
+            "@id": `${SITE_URL}/#organization`,
             name: "Saurabh Infosys",
             url: "https://saurabhinfosys.com",
             logo: "https://saurabhinfosys.com/saurabhInfosys.webp",
             description: "AI automation, AI integration and vibe coding company in Ahmedabad, India. Specialists in AI agents, AI-enabled apps, Flutter apps, SaaS platforms, and GPS fleet management.",
             address: { "@type": "PostalAddress", addressLocality: "Ahmedabad", addressRegion: "Gujarat", addressCountry: "IN" },
             contactPoint: { "@type": "ContactPoint", contactType: "sales", availableLanguage: ["English", "Hindi"] },
-            sameAs: ["https://clutch.co"],
+            areaServed: [
+              { "@type": "Country", name: "India" },
+              { "@type": "Country", name: "United States" },
+              { "@type": "Country", name: "United Kingdom" },
+              { "@type": "Country", name: "Australia" },
+              { "@type": "Country", name: "Singapore" },
+            ],
+            sameAs: [COMPANY.clutch, COMPANY.linkedin],
             aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "33", bestRating: "5" },
             knowsAbout: ["AI Automation", "AI Integration", "Agentic AI", "Generative AI", "GenAI Services", "Vibe Coding", "AI-enabled Apps", "WhatsApp Bots", "RAG Systems", "Flutter Development", "SaaS Platforms", "Business Automation", "AI Consulting", "LLM Development", "Conversational AI", "AI Copilots", "ChatGPT Integration", "Enterprise AI Solutions", "Workflow Automation", "Intelligent Automation", "Multi-Agent AI Systems", "AI Voice Agents", "AI-First Development", "Process Automation", "Enterprise AI Integration", "Custom AI Model Development"],
             hasOfferCatalog: {
@@ -132,8 +143,27 @@ export default function RootLayout({
                 { "@type": "Offer", itemOffered: { "@type": "Service", name: "SaaS Platform Development", description: "End-to-end SaaS platforms with multi-tenancy, billing, and admin dashboards." } },
               ],
             },
-          }) }}
-        />
+          },
+    {
+      "@type": "WebSite",
+      "@id": `${SITE_URL}/#website`,
+      url: `${SITE_URL}/`,
+      name: SITE_NAME,
+      inLanguage: "en",
+      publisher: { "@id": `${SITE_URL}/#organization` },
+    },
+  ],
+};
+
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" className={`${geist.variable} ${geistMono.variable}`}>
+      <head>
+        <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(SITE_LD)} />
       </head>
       <body className="st-root">
         {/* Google Analytics */}

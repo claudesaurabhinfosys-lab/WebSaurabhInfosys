@@ -4,6 +4,7 @@ import {
   ArrowUpRight,
   LinkedInIcon,
   WhatsAppIcon,
+  ClutchIcon,
 } from "./icons";
 import NewsletterForm from "./newsletter-form";
 import Logo from "./logo";
@@ -54,13 +55,18 @@ const COLUMNS: FooterColumn[] = [
 const SOCIALS = [
   {
     label: "LinkedIn",
-    href: "https://www.linkedin.com/company/saurabh-infosys",
+    href: COMPANY.linkedin,
     Icon: LinkedInIcon,
   },
   {
     label: "WhatsApp",
     href: `https://wa.me/${COMPANY.whatsapp}`,
     Icon: WhatsAppIcon,
+  },
+  {
+    label: `Clutch — ${COMPANY.stats.clutchRating}★ from ${COMPANY.stats.clutchReviews} reviews`,
+    href: COMPANY.clutch,
+    Icon: ClutchIcon,
   },
 ];
 

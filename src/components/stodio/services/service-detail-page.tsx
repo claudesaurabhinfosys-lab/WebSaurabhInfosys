@@ -8,7 +8,13 @@ import FaqSection from "../faq-section";
 import CtaSection from "../cta-section";
 import { StButtonLink } from "../button";
 import { ArrowUpRight, CheckMark } from "../icons";
-import { COMPANY, SERVICE_DETAILS, SERVICE_PROCESS, SERVICES } from "@/lib/data";
+import { COMPANY, PORTFOLIO_PROJECTS, SERVICE_DETAILS, SERVICE_PROCESS, SERVICES } from "@/lib/data";
+import { postsForService, projectsForService } from "@/lib/topics";
+import { workImage } from "@/components/stodio/lib/work-images";
+import { blogImage } from "@/components/stodio/lib/blog-images";
+import WorkCard from "../work-card";
+import BlogCard from "../blog-card";
+import { SITE_URL, breadcrumbLd, jsonLd, primaryServiceSlug } from "@/lib/seo";
 
 const PROCESS_STEPS = SERVICE_PROCESS.map((step) => ({
   label: `Step ${step.number}`,
@@ -16,25 +22,32 @@ const PROCESS_STEPS = SERVICE_PROCESS.map((step) => ({
   copy: step.detail,
 }));
 
-const ALIAS_MAP: Record<string, string> = {
-  "ai-agents": "ai-automation-services",
-  "vibe-coding": "app-development",
-  flutter: "app-development",
-  gps: "white-label-software",
-  saas: "white-label-software",
-  "digital-marketing": "white-label-software",
-};
-
 export default function ServiceDetailPage({ slug }: { slug: string }) {
-  const resolvedSlug = ALIAS_MAP[slug] ?? slug;
+  const resolvedSlug = primaryServiceSlug(slug);
   const service = SERVICES.find((item) => item.slug === resolvedSlug);
   const detail = SERVICE_DETAILS[slug] ?? SERVICE_DETAILS[resolvedSlug];
   if (!service || !detail) notFound();
 
   const others = SERVICES.filter((item) => item.slug !== resolvedSlug).slice(0, 3);
+  // This service's topic cluster: its case studies and articles.
+  const work = projectsForService(resolvedSlug);
+  const reading = postsForService(resolvedSlug);
+  const path = `/services/${resolvedSlug}`;
+  const structuredData = [
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      name: service.title,
+      description: detail.seo.description,
+      url: `${SITE_URL}${path}/`,
+      provider: { "@id": `${SITE_URL}/#organization` },
+    },
+    breadcrumbLd([["Home", "/"], ["Services", "/services"], [service.title, path]]),
+  ];
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={jsonLd(structuredData)} />
       {/* ── Hero ─────────────────────────────────────────────────────────── */}
       <div className="st-header st-is-light">
         <section className="st-detail-hero">
@@ -168,6 +181,75 @@ export default function ServiceDetailPage({ slug }: { slug: string }) {
         intro="The questions clients ask before they start."
         faqs={detail.faqs.map((faq) => ({ question: faq.q, answer: faq.a }))}
       />
+
+      {/* ── Selected work ────────────────────────────────────────────────── */}
+      {work.length > 0 ? (
+        <section className="st-other-projects">
+          <div className="st-container">
+            <div className="st-markets-title-block">
+              <div className="st-markets-title-left">
+                <Reveal className="st-tag-block">
+                  <Tag>Selected work</Tag>
+                </Reveal>
+                <Reveal delay={100}>
+                  <h2 className="st-h2" style={{ marginTop: "var(--st-gap-24)" }}>
+                    {`${service.shortTitle ?? service.title} projects we have shipped`}
+                  </h2>
+                </Reveal>
+              </div>
+              <Reveal delay={200} className="st-markets-title-right">
+                <StButtonLink href="/portfolio" variant="dark">
+                  All case studies
+                </StButtonLink>
+              </Reveal>
+            </div>
+
+            <div className="st-projects-grid st-is-three" style={{ paddingTop: "var(--st-pad-4x)" }}>
+              {work.map((project, position) => (
+                <Reveal key={project.slug} delay={position * 90}>
+                  <WorkCard
+                    href={`/portfolio/${project.slug}`}
+                    title={project.title}
+                    service={project.category}
+                    image={workImage(
+                      project.images,
+                      PORTFOLIO_PROJECTS.findIndex((p) => p.slug === project.slug),
+                      0,
+                    )}
+                  />
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {/* ── Related reading ──────────────────────────────────────────────── */}
+      {reading.length > 0 ? (
+        <section className="st-blogs-section st-is-page" style={{ paddingTop: "var(--st-pad-big)" }}>
+          <div className="st-container">
+            <div className="st-blog-title-block">
+              <div className="st-blog-title-left">
+                <Reveal className="st-tag-block">
+                  <Tag>From the blog</Tag>
+                </Reveal>
+                <Reveal delay={100}>
+                  <h2 className="st-h2" style={{ marginTop: "var(--st-gap-24)" }}>
+                    Related reading
+                  </h2>
+                </Reveal>
+              </div>
+            </div>
+            <div className="st-blogs-card-block">
+              {reading.map((post, position) => (
+                <Reveal key={post.slug} delay={position * 90}>
+                  <BlogCard post={post} image={blogImage(post.slug)} />
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       {/* ── Other services ───────────────────────────────────────────────── */}
       <section className="st-section st-is-tight">
