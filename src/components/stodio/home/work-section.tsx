@@ -6,17 +6,35 @@ import { ArrowRight } from "../icons";
 import { PORTFOLIO_PROJECTS } from "@/lib/data";
 import { workImage } from "@/components/stodio/lib/work-images";
 
+type Featured = { href: string; title: string; service: string; image: string };
+
+/** A portfolio case study by slug. `service` overrides the category label
+    where the category is a client grouping rather than a kind of work. */
+function project(slug: string, service?: string): Featured {
+  const index = PORTFOLIO_PROJECTS.findIndex((p) => p.slug === slug);
+  const item = PORTFOLIO_PROJECTS[index];
+  if (!item) throw new Error(`Featured project "${slug}" is not in PORTFOLIO_PROJECTS`);
+  return {
+    href: `/portfolio/${item.slug}`,
+    title: item.title,
+    service: service ?? item.category,
+    image: workImage(item.images, index, 0),
+  };
+}
+
 /** Five featured projects, laid out 2 / 1 / 2 the way the reference stacks them. */
-const FEATURED = (
-  PORTFOLIO_PROJECTS.filter((p) => p.images && p.images.length > 0).slice(0, 5).length >= 5
-    ? PORTFOLIO_PROJECTS.filter((p) => p.images && p.images.length > 0).slice(0, 5)
-    : PORTFOLIO_PROJECTS.slice(0, 5)
-).map((project, index) => ({
-  href: `/portfolio/${project.slug}`,
-  title: project.title,
-  service: project.category,
-  image: workImage(project.images, index, 0),
-}));
+const FEATURED: Featured[] = [
+  project("le-meow", "On-demand Services"),
+  {
+    href: "/products/mysampark",
+    title: "MySampark",
+    service: "Our Product",
+    image: "/images/products/mysampark/01.webp",
+  },
+  project("curvd"),
+  project("exotic-now"),
+  project("drd"),
+];
 
 export default function WorkSection() {
   const [one, two, three, four, five] = FEATURED;

@@ -494,7 +494,23 @@
 .st-projects-col.st-is-narrow { max-width: 450px; }
 
 .st-project-card-block { position: relative; display: flex; flex-flow: column; overflow: hidden; }
-.st-project-card { border-radius: var(--st-r-32); overflow: hidden; }
+.st-project-card { position: relative; border-radius: var(--st-r-32); overflow: hidden; }
+
+/* Hairline edge on project imagery. Screenshots with white or pale edges
+   bled into the white page and lost their shape. Drawn as an overlay, not a
+   border on the <img>, so it holds still while the thumb zooms on hover, and
+   translucent black so it reads as a faint edge on any shot, light or dark. */
+.st-project-card::after,
+.st-project-hero-right::after,
+.st-project-cover::after,
+.st-project-gallery > *::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: inherit;
+  pointer-events: none;
+}
 /* A fixed frame, not the file's own shape. The reference gets away without one
    because every thumbnail it ships is cut to the same size; ours are a mix of
    real project shots and placeholders at several aspects, so leaving the height
