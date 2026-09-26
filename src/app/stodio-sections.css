@@ -653,7 +653,9 @@
 .st-slider { margin-top: 48px; background-color: transparent; }
 @media screen and (max-width: 991px) { .st-slider { margin-top: 36px; } }
 @media screen and (max-width: 767px) { .st-slider { margin-top: 24px; } }
-.st-slider-mask { overflow: hidden; }
+/* A size container, so a card can be capped at the mask's own width (100cqw)
+   and a phone always shows one whole card rather than a slice of two. */
+.st-slider-mask { overflow: hidden; container-type: inline-size; touch-action: pan-y; }
 .st-slider-track { display: flex; transition: transform var(--st-dur-slow) var(--st-ease-inout); }
 
 .st-testimonial-card {
@@ -661,7 +663,7 @@
   flex-flow: column;
   justify-content: space-between;
   flex: none;
-  width: 442px;
+  width: min(442px, 100cqw);
   min-height: 490px;
   margin-right: 24px;
   padding: var(--st-pad-5x);
@@ -669,7 +671,7 @@
   background-color: var(--st-border-black);
   color: var(--st-white);
 }
-@media screen and (max-width: 767px) { .st-testimonial-card { width: 86vw; height: auto; min-height: 420px; } }
+@media screen and (max-width: 767px) { .st-testimonial-card { min-height: 420px; } }
 .st-testimonial-card-top { display: flex; align-items: center; justify-content: space-between; width: 100%; }
 .st-testimonial-avatar { width: 84px; height: 84px; border-radius: var(--st-r-12); object-fit: cover; }
 .st-testimonial-logo { display: flex; align-items: center; gap: 8px; color: #e2e2e2; font-weight: var(--st-semibold); }

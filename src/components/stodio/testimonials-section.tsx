@@ -6,26 +6,41 @@ import Tag from "./tag";
 import { ArrowLeftSmall, ArrowRightSmall, ClientMark, QuoteMark } from "./icons";
 import { TESTIMONIALS } from "@/lib/data";
 
-const CARD_WIDTH = 442;
-const CARD_GAP = 24;
+/* Any horizontal drag longer than this pages the slider. */
+const SWIPE_THRESHOLD = 40;
 
 export default function TestimonialsSection() {
   const [index, setIndex] = useState(0);
   const [perView, setPerView] = useState(1);
+  /* Distance from one card's left edge to the next, read off the DOM: the card
+     is 442px on desktop but shrinks to the mask's width on phones, so a fixed
+     step slid the track by the wrong amount and left cards cut in half. */
+  const [step, setStep] = useState(0);
   const maskRef = useRef<HTMLDivElement | null>(null);
+  const touchX = useRef<number | null>(null);
 
   useEffect(() => {
+    const mask = maskRef.current;
+    if (!mask) return;
     const measure = () => {
-      const width = maskRef.current?.offsetWidth ?? 0;
-      setPerView(Math.max(1, Math.floor(width / (CARD_WIDTH + CARD_GAP))));
+      const card = mask.querySelector<HTMLElement>(".st-testimonial-card");
+      if (!card) return;
+      const gap = parseFloat(getComputedStyle(card).marginRight) || 0;
+      const next = card.offsetWidth + gap;
+      setStep(next);
+      // The last card's gap is empty space, so it does not count against fit.
+      setPerView(Math.max(1, Math.floor((mask.offsetWidth + gap) / next)));
     };
     measure();
-    window.addEventListener("resize", measure);
-    return () => window.removeEventListener("resize", measure);
+    const observer = new ResizeObserver(measure);
+    observer.observe(mask);
+    return () => observer.disconnect();
   }, []);
 
   const maxIndex = Math.max(0, TESTIMONIALS.length - perView);
   const clamped = Math.min(index, maxIndex);
+
+  const go = (delta: number) => setIndex((v) => Math.min(maxIndex, Math.max(0, Math.min(v, maxIndex) + delta)));
 
   return (
     <section className="st-testimonial-section">
@@ -50,10 +65,22 @@ export default function TestimonialsSection() {
         </div>
 
         <div className="st-slider">
-          <div className="st-slider-mask" ref={maskRef}>
+          <div
+            className="st-slider-mask"
+            ref={maskRef}
+            onTouchStart={(event) => {
+              touchX.current = event.touches[0].clientX;
+            }}
+            onTouchEnd={(event) => {
+              if (touchX.current === null) return;
+              const dx = event.changedTouches[0].clientX - touchX.current;
+              touchX.current = null;
+              if (Math.abs(dx) > SWIPE_THRESHOLD) go(dx < 0 ? 1 : -1);
+            }}
+          >
             <div
               className="st-slider-track"
-              style={{ transform: `translate3d(-${clamped * (CARD_WIDTH + CARD_GAP)}px, 0, 0)` }}
+              style={{ transform: `translate3d(-${clamped * step}px, 0, 0)` }}
             >
               {TESTIMONIALS.map((item) => (
                 <article className="st-testimonial-card" key={item.name}>
@@ -113,7 +140,7 @@ export default function TestimonialsSection() {
                 type="button"
                 className="st-slider-arrow"
                 aria-label="Previous testimonial"
-                onClick={() => setIndex((v) => Math.max(0, v - 1))}
+                onClick={() => go(-1)}
                 disabled={clamped === 0}
               >
                 <ArrowLeftSmall className="st-button-icon" />
@@ -122,7 +149,7 @@ export default function TestimonialsSection() {
                 type="button"
                 className="st-slider-arrow"
                 aria-label="Next testimonial"
-                onClick={() => setIndex((v) => Math.min(maxIndex, v + 1))}
+                onClick={() => go(1)}
                 disabled={clamped === maxIndex}
               >
                 <ArrowRightSmall className="st-button-icon" />

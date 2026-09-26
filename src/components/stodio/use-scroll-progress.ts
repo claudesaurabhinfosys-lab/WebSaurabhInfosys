@@ -18,14 +18,19 @@ import { useEffect, useRef } from "react";
  */
 export function useScrollProgress<T extends HTMLElement>(
   onProgress: (progress: number) => void,
+  /** Measure against another element than the ref'd one — Webflow often binds
+      the trigger to the enclosing section while animating something inside. */
+  measure?: (node: T) => HTMLElement | null,
 ) {
   const ref = useRef<T | null>(null);
   const cb = useRef(onProgress);
   cb.current = onProgress;
+  const measureRef = useRef(measure);
 
   useEffect(() => {
-    const node = ref.current;
-    if (!node) return;
+    const own = ref.current;
+    if (!own) return;
+    const node = measureRef.current?.(own) ?? own;
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       cb.current(1);

@@ -436,7 +436,20 @@
   gap: 16px;
   will-change: transform;
 }
-.st-markets-grid.st-is-second { margin-top: 16px; }
+.st-markets-grid.st-is-second { margin-top: 12px; }
+@media screen and (max-width: 479px) {
+  .st-markets-grid { gap: 28px; }
+  .st-markets-grid.st-is-second { margin-top: 28px; }
+}
+/* Parked start of the slide-in (desktop only, like the reference). The script
+   overwrites these inline as the section scrolls. */
+@media screen and (min-width: 992px) {
+  .st-markets-grid.st-is-first { transform: translateX(-500px); }
+  .st-markets-grid.st-is-second { transform: translateX(500px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .st-markets-grid.st-is-first, .st-markets-grid.st-is-second { transform: none; }
+}
 @media screen and (max-width: 991px) { .st-markets-grid { grid-template-columns: 1fr 1fr; } }
 @media screen and (max-width: 479px) { .st-markets-grid { grid-template-columns: 1fr; } }
 
