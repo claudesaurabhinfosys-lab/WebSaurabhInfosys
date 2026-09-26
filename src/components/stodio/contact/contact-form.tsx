@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { toast } from "sonner";
-import { COMPANY } from "@/lib/data";
+import { COMPANY } from "@/lib/company";
 import { StButton } from "../button";
+import { loadToast } from "../lib/toast";
 
 const FALLBACK_ERROR = "Could not send your message. Please WhatsApp us instead.";
 
@@ -26,6 +26,8 @@ export default function ContactForm() {
     event.preventDefault();
     if (sending) return;
     setSending(true);
+    // Start fetching sonner alongside the request so it is ready for the result.
+    const toastReady = loadToast();
 
     try {
       const res = await fetch("/contact.php", {
@@ -37,6 +39,7 @@ export default function ContactForm() {
         .json()
         .catch(() => ({}));
 
+      const toast = await toastReady;
       if (data.ok) {
         toast.success(data.message ?? "Message sent! We will reply within 2 hours.");
         setName("");
@@ -48,6 +51,7 @@ export default function ContactForm() {
         });
       }
     } catch {
+      const toast = await toastReady;
       toast.error("Network error. Please WhatsApp us instead.", {
         action: { label: "WhatsApp", onClick: openWhatsApp },
       });

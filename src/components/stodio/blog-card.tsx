@@ -2,10 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { CalendarIcon } from "./icons";
 import { formatPostDate } from "@/components/stodio/lib/format-date";
-import type { BlogPostData } from "@/lib/data";
+import type { BlogSummary } from "@/lib/data";
 
 type Props = {
-  post: BlogPostData;
+  post: BlogSummary;
   image: string;
   /** `light` when the card sits on the tinted page background. */
   on?: "default" | "light";

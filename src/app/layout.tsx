@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
-import { Toaster } from "sonner";
 import "./globals.css";
 import "./stodio.css";
 import "./stodio-layout.css";
@@ -12,22 +11,25 @@ import "./stodio-detail.css";
 import "./stodio-product.css";
 import "./stodio-country.css";
 import Navbar from "@/components/stodio/navbar";
+import { NAV_LINKS } from "@/components/stodio/nav-links";
 import Footer from "@/components/stodio/footer";
 import LenisProvider from "@/components/stodio/lenis-provider";
+import LazyToaster from "@/components/stodio/lazy-toaster";
 
 /* Design-system faces, matching the reference build exactly:
    Geist for everything, Geist Mono for tags, labels and captions. */
+/* Both are variable fonts: with no `weight` list, next/font emits one
+   @font-face per file covering the full weight axis instead of repeating the
+   same file once per weight. */
 const geist = Geist({
   subsets: ["latin"],
   variable: "--font-geist",
-  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
 const geistMono = Geist_Mono({
   subsets: ["latin"],
   variable: "--font-geist-mono",
-  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -133,7 +135,7 @@ export default function RootLayout({
           }) }}
         />
       </head>
-      <body className="st-root antialiased">
+      <body className="st-root">
         {/* Google Analytics */}
         <Script
           id="ga-inline"
@@ -145,11 +147,11 @@ export default function RootLayout({
         />
         <LenisProvider />
         <div className="st-page">
-          <Navbar />
+          <Navbar links={NAV_LINKS} />
           <main>{children}</main>
           <Footer />
         </div>
-        <Toaster position="bottom-right" richColors />
+        <LazyToaster />
       </body>
     </html>
   );

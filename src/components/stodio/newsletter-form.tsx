@@ -1,9 +1,9 @@
 "use client";
 
 import { useState } from "react";
-import { toast } from "sonner";
-import { COMPANY } from "@/lib/data";
+import { COMPANY } from "@/lib/company";
 import { ArrowUpRight } from "./icons";
+import { loadToast } from "./lib/toast";
 
 /**
  * There is no newsletter backend on the static export, so the form hands the
@@ -21,7 +21,9 @@ export default function NewsletterForm() {
       `Hi Saurabh Infosys — please add ${value} to your updates list.`,
     );
     window.open(`https://wa.me/${COMPANY.whatsapp}?text=${message}`, "_blank", "noopener");
-    toast.success("Opening WhatsApp — send the message and you are on the list.");
+    void loadToast().then((toast) =>
+      toast.success("Opening WhatsApp — send the message and you are on the list."),
+    );
     setEmail("");
   }
 

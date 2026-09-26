@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useEffectEvent, useRef } from "react";
 
 /**
  * Scroll progress across an element, 0 at the moment its top reaches the
@@ -23,8 +23,8 @@ export function useScrollProgress<T extends HTMLElement>(
   measure?: (node: T) => HTMLElement | null,
 ) {
   const ref = useRef<T | null>(null);
-  const cb = useRef(onProgress);
-  cb.current = onProgress;
+  // Always calls the latest callback without re-running the effect below.
+  const emit = useEffectEvent(onProgress);
   const measureRef = useRef(measure);
 
   useEffect(() => {
@@ -33,7 +33,7 @@ export function useScrollProgress<T extends HTMLElement>(
     const node = measureRef.current?.(own) ?? own;
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      cb.current(1);
+      emit(1);
       return;
     }
 
@@ -53,7 +53,7 @@ export function useScrollProgress<T extends HTMLElement>(
       // The first frame lands exactly, so nothing animates in from a stale value.
       smoothed = smoothed < 0 ? target : smoothed + (target - smoothed) * 0.12;
       if (Math.abs(target - smoothed) < 0.0005) smoothed = target;
-      cb.current(smoothed);
+      emit(smoothed);
       frame = requestAnimationFrame(tick);
     };
 
@@ -68,7 +68,7 @@ export function useScrollProgress<T extends HTMLElement>(
           frame = requestAnimationFrame(tick);
         } else {
           smoothed = raw();
-          cb.current(smoothed);
+          emit(smoothed);
         }
       },
       { rootMargin: "50% 0px" },

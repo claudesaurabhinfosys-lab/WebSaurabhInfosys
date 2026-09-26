@@ -26,19 +26,17 @@ function Digit({ value, delay }: { value: number; delay: number }) {
 
   return (
     <span className="st-odo">
-      <span
-        className="st-odo-col"
-        style={{
-          transform: `translateY(${rolled ? -9 : 0}em)`,
-          transition: "transform 3s cubic-bezier(0.77, 0, 0.175, 1)",
-        }}
-      >
+      <span className="st-odo-col st-is-rolling" style={{ transform: `translateY(${rolled ? -9 : 0}em)` }}>
         {strip(value).map((d, i) => (
           <span key={i}>{d}</span>
         ))}
       </span>
     </span>
   );
+}
+
+function isDigit(char: string) {
+  return char >= "0" && char <= "9";
 }
 
 type Props = {
@@ -54,14 +52,9 @@ export default function Odometer({ value, className = "" }: Props) {
 
   useEffect(() => {
     const node = ref.current;
-    if (!node || typeof IntersectionObserver === "undefined") {
-      setPlay(true);
-      return;
-    }
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setPlay(true);
-      return;
-    }
+    if (!node) return;
+    // Reduced motion is handled in CSS (the roll becomes instant), so every
+    // visitor goes through the same observer path.
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -77,14 +70,19 @@ export default function Odometer({ value, className = "" }: Props) {
     return () => observer.disconnect();
   }, []);
 
-  let digitIndex = 0;
+  // Stagger: each digit starts 80ms after the one before it; other characters
+  // do not count. Worked out up front so render stays free of mutation.
+  const chars = value.split("");
+  const delays: number[] = [];
+  for (let i = 0, digit = 0; i < chars.length; i++) {
+    delays.push(isDigit(chars[i]) ? digit++ * 80 : 0);
+  }
 
   return (
     <span ref={ref} className={`st-odo-root${className ? ` ${className}` : ""}`}>
-      {value.split("").map((char, index) => {
-        if (char >= "0" && char <= "9") {
-          const delay = digitIndex * 80;
-          digitIndex += 1;
+      {chars.map((char, index) => {
+        if (isDigit(char)) {
+          const delay = delays[index];
           return play ? (
             <Digit key={index} value={Number(char)} delay={delay} />
           ) : (

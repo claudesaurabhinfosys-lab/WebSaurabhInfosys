@@ -7,19 +7,22 @@ import MarqueeSection from "../marquee-section";
 import CtaSection from "../cta-section";
 import WorkCard from "../work-card";
 import { StButtonLink } from "../button";
-import { PORTFOLIO_CATEGORIES, PORTFOLIO_PROJECTS } from "@/lib/data";
-import { workImage } from "@/components/stodio/lib/work-images";
 
-export default function PortfolioPage() {
+export type PortfolioCard = { slug: string; title: string; category: string; image: string };
+
+type Props = {
+  /** Card fields only, built by the server page — the full case studies in
+      data.ts stay out of the browser bundle. */
+  projects: PortfolioCard[];
+  categories: readonly string[];
+};
+
+export default function PortfolioPage({ projects: allProjects, categories }: Props) {
   const [filter, setFilter] = useState("All");
 
   const projects = useMemo(
-    () =>
-      PORTFOLIO_PROJECTS.map((project, index) => ({
-        ...project,
-        image: workImage(project.images, index, 0),
-      })).filter((project) => filter === "All" || project.category === filter),
-    [filter],
+    () => allProjects.filter((project) => filter === "All" || project.category === filter),
+    [allProjects, filter],
   );
 
   return (
@@ -40,7 +43,7 @@ export default function PortfolioPage() {
                 <Reveal delay={200}>
                   <div className="st-hero-intro">
                     <p className="st-text-m st-secondary">
-                      {PORTFOLIO_PROJECTS.length} delivered projects across AI,
+                      {allProjects.length} delivered projects across AI,
                       Flutter, SaaS, fintech, logistics and health tech — for
                       clients in India, the UK, Europe, APAC, the Americas and
                       the Gulf.
@@ -63,7 +66,7 @@ export default function PortfolioPage() {
       <section className="st-projects-section">
         <div className="st-container">
           <div className="st-projects-filter">
-            {PORTFOLIO_CATEGORIES.map((category) => (
+            {categories.map((category) => (
               <button
                 key={category}
                 type="button"

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useState } from "react";
 import Reveal from "./reveal";
 import Tag from "./tag";
 
@@ -14,8 +14,6 @@ type Props = {
 };
 
 function FaqItem({ faq, open, onToggle }: { faq: Faq; open: boolean; onToggle: () => void }) {
-  const bodyRef = useRef<HTMLDivElement | null>(null);
-
   return (
     <div className={`st-faq-wrap${open ? " st-is-open" : ""}`}>
       <button
@@ -30,11 +28,8 @@ function FaqItem({ faq, open, onToggle }: { faq: Faq; open: boolean; onToggle: (
           <span className="st-faq-plus-v" />
         </span>
       </button>
-      <div
-        className="st-faq-answer"
-        style={{ height: open ? bodyRef.current?.scrollHeight ?? "auto" : 0 }}
-      >
-        <div ref={bodyRef}>
+      <div className="st-faq-answer" aria-hidden={!open}>
+        <div>
           <p className="st-faq-answer-text st-text-m">{faq.answer}</p>
         </div>
       </div>

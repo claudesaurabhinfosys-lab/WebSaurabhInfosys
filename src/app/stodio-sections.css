@@ -323,6 +323,8 @@
 .st-odo { display: inline-flex; overflow: hidden; height: 1em; line-height: 1; }
 .st-odo-col { display: flex; flex-flow: column; }
 .st-odo-col > span { display: block; height: 1em; line-height: 1; text-align: center; }
+.st-odo-col.st-is-rolling { transition: transform 3s cubic-bezier(0.77, 0, 0.175, 1); }
+@media (prefers-reduced-motion: reduce) { .st-odo-col.st-is-rolling { transition: none; } }
 
 /* ============================================================================
    Services — dark slab with hovered list + floating preview card
@@ -624,7 +626,15 @@
 .st-faq-plus { width: 16px; height: 2px; }
 .st-faq-plus-v { width: 2px; height: 16px; transition: height 0.4s var(--st-ease-in-out-back); }
 .st-faq-wrap.st-is-open .st-faq-plus-v { height: 0; }
-.st-faq-answer { overflow: hidden; height: 0; transition: height 0.4s var(--st-ease-in-out); }
+/* 0fr -> 1fr animates to the content's natural height with no JS measuring.
+   The inner wrapper needs min-height: 0 so the row can shrink to nothing. */
+.st-faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s var(--st-ease-in-out);
+}
+.st-faq-wrap.st-is-open .st-faq-answer { grid-template-rows: 1fr; }
+.st-faq-answer > div { min-height: 0; overflow: hidden; }
 .st-faq-answer-text { color: var(--st-text-secondary); padding-top: 12px; margin-bottom: 0; }
 
 /* ============================================================================

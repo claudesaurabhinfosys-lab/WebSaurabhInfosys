@@ -144,8 +144,7 @@
    Base
    ========================================================================= */
 
-/* Lenis drives the scroll; the native smooth-scroll from globals.css would
-   fight it, so it is turned off here (globals.css loads first). */
+/* Lenis drives the scroll; native smooth-scroll would fight it. */
 html { scroll-behavior: auto; }
 
 .st-root {
@@ -168,11 +167,11 @@ html { scroll-behavior: auto; }
 /* Only the block-end margin. The `margin` shorthand here would score 0,1,1
    and quietly beat any component class that sets `margin-top` on a <p>
    (`.st-hero-subtext`, `.st-work-subtitle`, `.st-quote-number-label`).
-   Tailwind's preflight already zeroes the top margin. */
+   The reset in globals.css already zeroes the top margin. */
 .st-root p { margin-block-end: 10px; }
 /* No `color` here on purpose: an element-level colour would outrank the
    component classes on the links themselves (`.st-nav-link`, `.st-button`).
-   Tailwind's preflight already makes links inherit their colour. */
+   The reset in globals.css already makes links inherit their colour. */
 .st-root a { text-decoration: none; }
 .st-root img { max-width: 100%; display: inline-block; }
 .st-root strong { font-weight: var(--st-bold); }

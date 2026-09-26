@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import BlogPage from "@/components/stodio/blog";
+import { BLOG_POSTS } from "@/lib/data";
 
 export const metadata: Metadata = {
   title: "Blog — AI Automation, Vibe Coding & App Development Insights",
@@ -25,5 +26,13 @@ export const metadata: Metadata = {
 };
 
 export default function Page() {
-  return <BlogPage />;
+  const posts = BLOG_POSTS.map(({ slug, title, category, date, readTime, excerpt }) => ({
+    slug,
+    title,
+    category,
+    date,
+    readTime,
+    excerpt,
+  }));
+  return <BlogPage posts={posts} />;
 }

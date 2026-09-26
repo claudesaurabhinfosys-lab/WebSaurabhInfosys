@@ -1,20 +1,6 @@
-export const COMPANY = {
-  name: "Saurabh Infosys",
-  tagline: "AI-first software development studio",
-  location: "Ahmedabad, Gujarat, India",
-  website: "saurabhinfosys.com",
-  email: "info@saurabhinfosys.com",
-  phone: "+91 8735001217",
-  whatsapp: "918735001217",
-  stats: {
-    clients: "80+",
-    projects: "150+",
-    years: "4+",
-    saasProducts: "3",
-    clutchRating: "4.9",
-    clutchReviews: "33",
-  },
-};
+import { COMPANY } from "./company";
+
+export { COMPANY };
 
 export const SERVICES = [
   {
@@ -522,18 +508,18 @@ export const CLIENT_LOGOS: ClientLogo[] = [
   { name: "Le Meow" },
   { name: "EdCalibre" },
   { name: "Contractor Easy" },
-  { name: "Banigi AI", logo: "/images/logos/14 Banigi Ai.svg" },
-  { name: "Barber Plus", logo: "/images/logos/01.svg" },
-  { name: "AI Assist", logo: "/images/logos/02.svg" },
-  { name: "Barcode Scanner", logo: "/images/logos/03.svg" },
-  { name: "Idool", logo: "/images/logos/04.svg" },
+  { name: "Banigi AI", logo: "/images/logos/14 Banigi Ai.webp" },
+  { name: "Barber Plus", logo: "/images/logos/01.webp" },
+  { name: "AI Assist", logo: "/images/logos/02.webp" },
+  { name: "Barcode Scanner", logo: "/images/logos/03.webp" },
+  { name: "Idool", logo: "/images/logos/04.webp" },
   { name: "FLPL", logo: "/images/logos/05.svg" },
   { name: "EV Connect", logo: "/images/logos/06.svg" },
-  { name: "Eco Life", logo: "/images/logos/08.svg" },
-  { name: "EPAV", logo: "/images/logos/10.svg" },
-  { name: "Doodler", logo: "/images/logos/12 Doodlers.svg" },
-  { name: "Waste Management", logo: "/images/logos/13 Waste Management.svg" },
-  { name: "Quick Delivery", logo: "/images/logos/Quick App Nerw 1.svg" },
+  { name: "Eco Life", logo: "/images/logos/08.webp" },
+  { name: "EPAV", logo: "/images/logos/10.webp" },
+  { name: "Doodler", logo: "/images/logos/12 Doodlers.webp" },
+  { name: "Waste Management", logo: "/images/logos/13 Waste Management.webp" },
+  { name: "Quick Delivery", logo: "/images/logos/Quick App Nerw 1.webp" },
 ];
 
 export const CLIENTS = [
@@ -689,6 +675,9 @@ export interface BlogPostData {
   isNew: boolean;
   content: ContentBlock[];
 }
+
+/** What a blog card needs — the list page ships this, never the post bodies. */
+export type BlogSummary = Pick<BlogPostData, "slug" | "title" | "category" | "date" | "readTime" | "excerpt">;
 
 export const BLOG_POSTS: BlogPostData[] = [
   {

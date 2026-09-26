@@ -32,6 +32,66 @@ type RevealProps = {
  *    own reveal. The rect fallback below breaks that deadlock, so no layout
  *    change can leave a section permanently invisible.
  */
+/* One observer per threshold and one scroll/resize check for every <Reveal>
+   on the page, instead of an observer plus two window listeners per
+   instance. A page carries dozens of these; the per-instance version read
+   layout for each of them on every scroll event. */
+const pending = new Map<Element, () => void>();
+const observers = new Map<number, IntersectionObserver>();
+let frame = 0;
+
+function observerFor(threshold: number) {
+  let observer = observers.get(threshold);
+  if (!observer) {
+    observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) if (entry.isIntersecting) pending.get(entry.target)?.();
+      },
+      { threshold, rootMargin: "0px 0px 50px 0px" },
+    );
+    observers.set(threshold, observer);
+  }
+  return observer;
+}
+
+// The element's own geometry, ignoring any clipping ancestor.
+//
+// The test is "has it reached the fold", not "is it on screen": anything
+// already scrolled past must be revealed too. A jump — a restored scroll
+// position, an in-page anchor, a fast flick — can skip an element without
+// ever giving it an on-screen frame, and a reveal that only fires while
+// visible would leave it blank for good.
+function checkAll() {
+  frame = 0;
+  const vh = window.innerHeight || document.documentElement.clientHeight;
+  for (const [node, finish] of pending) {
+    if (node.getBoundingClientRect().top - 50 < vh) finish();
+  }
+}
+
+function scheduleCheck() {
+  if (!frame) frame = requestAnimationFrame(checkAll);
+}
+
+function track(node: Element, threshold: number, finish: () => void) {
+  if (pending.size === 0) {
+    window.addEventListener("scroll", scheduleCheck, { passive: true });
+    window.addEventListener("resize", scheduleCheck, { passive: true });
+  }
+  pending.set(node, finish);
+  observerFor(threshold).observe(node);
+  scheduleCheck();
+}
+
+function untrack(node: Element, threshold: number) {
+  if (!pending.delete(node)) return;
+  observers.get(threshold)?.unobserve(node);
+  if (pending.size === 0) {
+    window.removeEventListener("scroll", scheduleCheck);
+    window.removeEventListener("resize", scheduleCheck);
+  }
+}
+
 export default function Reveal({
   children,
   delay = 0,
@@ -46,59 +106,11 @@ export default function Reveal({
   useEffect(() => {
     const node = ref.current;
     if (!node) return;
-
-    if (typeof IntersectionObserver === "undefined") {
+    track(node, threshold, () => {
+      untrack(node, threshold);
       setShown(true);
-      return;
-    }
-
-    let done = false;
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) finish();
-        }
-      },
-      { threshold, rootMargin: "0px 0px 50px 0px" },
-    );
-
-    // The element's own geometry, ignoring any clipping ancestor.
-    //
-    // The test is "has it reached the fold", not "is it on screen": anything
-    // already scrolled past must be revealed too. A jump — a restored scroll
-    // position, an in-page anchor, a fast flick — can skip an element without
-    // ever giving it an on-screen frame, and a reveal that only fires while
-    // visible would leave it blank for good.
-    const hasEntered = () => {
-      const rect = node.getBoundingClientRect();
-      const vh = window.innerHeight || document.documentElement.clientHeight;
-      return rect.top - 50 < vh;
-    };
-
-    function cleanup() {
-      observer.disconnect();
-      window.removeEventListener("scroll", check);
-      window.removeEventListener("resize", check);
-    }
-
-    function finish() {
-      if (done) return;
-      done = true;
-      setShown(true);
-      cleanup();
-    }
-
-    function check() {
-      if (hasEntered()) finish();
-    }
-
-    observer.observe(node);
-    window.addEventListener("scroll", check, { passive: true });
-    window.addEventListener("resize", check);
-    check();
-
-    return cleanup;
+    });
+    return () => untrack(node, threshold);
   }, [threshold]);
 
   return (

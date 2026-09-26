@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { SERVICE_DETAILS, SERVICES } from "@/lib/data";
+import { SERVICE_DETAILS } from "@/lib/data";
 import ServiceDetailPage from "@/components/stodio/services/service-detail-page";
 
 interface PageProps {

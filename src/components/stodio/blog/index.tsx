@@ -6,17 +6,19 @@ import Reveal from "../reveal";
 import Tag from "../tag";
 import BlogCard from "../blog-card";
 import CtaSection from "../cta-section";
-import { BLOG_POSTS } from "@/lib/data";
+import type { BlogSummary } from "@/lib/data";
 import { blogImage } from "@/components/stodio/lib/blog-images";
 
-export default function BlogPage() {
+/* Takes card summaries as a prop from the server page, so the post bodies in
+   data.ts never reach the browser bundle. */
+export default function BlogPage({ posts: allPosts }: { posts: BlogSummary[] }) {
   const categories = useMemo(
-    () => ["All", ...Array.from(new Set(BLOG_POSTS.map((post) => post.category)))],
-    [],
+    () => ["All", ...Array.from(new Set(allPosts.map((post) => post.category)))],
+    [allPosts],
   );
   const [filter, setFilter] = useState("All");
 
-  const posts = BLOG_POSTS.filter((post) => filter === "All" || post.category === filter);
+  const posts = allPosts.filter((post) => filter === "All" || post.category === filter);
 
   return (
     <>
