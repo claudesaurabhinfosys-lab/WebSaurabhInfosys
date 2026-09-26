@@ -2,11 +2,12 @@ import Image from "next/image";
 import Reveal from "../reveal";
 import Tag from "../tag";
 import { StButtonLink } from "../button";
+import { COMPANY } from "@/lib/data";
 
 const META = [
-  "Define",
+  `${COMPANY.stats.clients} clients`,
   "est. YR2021",
-  "system: Saurabh Infosys",
+  `rating: ${COMPANY.stats.clutchRating}★ Clutch`,
 ];
 
 export default function HeroSection() {
