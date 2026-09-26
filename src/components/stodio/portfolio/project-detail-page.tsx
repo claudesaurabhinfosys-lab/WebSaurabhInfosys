@@ -13,10 +13,10 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
   const project = PORTFOLIO_PROJECTS[index];
   if (!project) notFound();
 
-  const cover = workImage(project.images, index, 0);
-  const banner = workImage(project.images, index, 1);
-  const shotOne = workImage(project.images, index, 2);
-  const shotTwo = workImage(project.images, index, 3);
+  /* Cards elsewhere fall back to placeholders, but a case study only shows
+     real shots — each block drops out when its image is missing. */
+  const [cover, banner, ...shots] = project.images ?? [];
+  const gallery = shots.slice(0, 2);
 
   const others = PORTFOLIO_PROJECTS.filter((p) => p.slug !== slug)
     .slice(index + 1, index + 3)
@@ -95,7 +95,7 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
       <div className="st-header st-is-light">
         <section className="st-project-hero">
           <div className="st-container">
-            <div className="st-project-hero-content">
+            <div className={`st-project-hero-content${cover ? "" : " st-is-text-only"}`}>
               <div className="st-project-hero-left">
                 <Reveal className="st-tag-block">
                   <Tag on="light">Our portfolio</Tag>
@@ -116,27 +116,39 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
                     ))}
                   </div>
                 </Reveal>
-              </div>
 
-              <Reveal delay={150} className="st-project-hero-right">
-                <Image src={cover} alt={project.title} width={1080} height={763} priority />
-                {project.url && (
-                  <div className="st-project-preview">
+                {!cover && project.url && (
+                  <Reveal delay={300} className="st-project-hero-cta">
                     <StButtonLink href={project.url} variant="dark">
                       Preview
                     </StButtonLink>
-                  </div>
+                  </Reveal>
                 )}
-              </Reveal>
+              </div>
+
+              {cover && (
+                <Reveal delay={150} className="st-project-hero-right">
+                  <Image src={cover} alt={project.title} width={1080} height={763} priority />
+                  {project.url && (
+                    <div className="st-project-preview">
+                      <StButtonLink href={project.url} variant="dark">
+                        Preview
+                      </StButtonLink>
+                    </div>
+                  )}
+                </Reveal>
+              )}
             </div>
           </div>
         </section>
       </div>
 
       {/* ── Cover ────────────────────────────────────────────────────────── */}
-      <Reveal className="st-project-cover">
-        <Image src={banner} alt="" width={1920} height={900} />
-      </Reveal>
+      {banner && (
+        <Reveal className="st-project-cover">
+          <Image src={banner} alt="" width={1920} height={900} />
+        </Reveal>
+      )}
 
       {/* ── Challenge / solution ─────────────────────────────────────────── */}
       <section className="st-project-body-section">
@@ -172,14 +184,20 @@ export default function ProjectDetailPage({ slug }: { slug: string }) {
             </Reveal>
           </div>
 
-          <div className="st-project-gallery">
-            <Reveal>
-              <Image src={shotOne} alt="" width={900} height={640} />
-            </Reveal>
-            <Reveal delay={100}>
-              <Image src={shotTwo} alt="" width={900} height={640} />
-            </Reveal>
-          </div>
+          {gallery.length > 0 && (
+            <div className={`st-project-gallery${gallery.length === 1 ? " st-is-single" : ""}`}>
+              {gallery.map((shot, position) => (
+                <Reveal key={shot} delay={position * 100}>
+                  <Image
+                    src={shot}
+                    alt=""
+                    width={gallery.length === 1 ? 1920 : 900}
+                    height={gallery.length === 1 ? 1280 : 640}
+                  />
+                </Reveal>
+              ))}
+            </div>
+          )}
 
           {project.sections?.length ? (
             <>
