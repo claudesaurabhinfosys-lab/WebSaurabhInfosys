@@ -175,6 +175,13 @@ export default function RootLayout({
           src="https://www.googletagmanager.com/gtag/js?id=G-CET86HGWMB"
           strategy="afterInteractive"
         />
+        {/* Sampark chat widget — lazyOnload so it never competes with LCP */}
+        <Script
+          id="sampark-chat"
+          src="https://socialadmin.mysampark.com/widget/chat.js"
+          data-key="pk_in14Sf6tnZqG2MEUSJG95qbFneu8C2OqVSciX16D"
+          strategy="lazyOnload"
+        />
         <LenisProvider />
         <div className="st-page">
           <Navbar links={NAV_LINKS} />
